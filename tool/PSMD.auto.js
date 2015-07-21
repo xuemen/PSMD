@@ -30,6 +30,8 @@ function postfile(item) {
 		if(obj.log != undefined){
 			var log = yaml.safeLoad(obj.log);
 			data = yaml.safeLoad(log.data);
+		}else if (obj.sigtype === 0){
+				data = obj.data;
 		}else{
 			data = obj.data;
 			var msg = openpgp.cleartext.readArmored(data);
