@@ -3,7 +3,7 @@ var infra = require("./Infra");
 exports.postfile = postfile ;
 exports.postupdate = postupdate ;
 
-function postfile() {
+function postfile(item) {
 	var thisHash = infra.getthisHash();
 	console.log("enter PSMD postfile, ID:",thisHash);
 	if (item.substr(0,9) == "transfer."){
