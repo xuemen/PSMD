@@ -7,7 +7,7 @@ exports.postfile = postfile ;
 exports.postupdate = postupdate ;
 
 function postfile(item) {
-	var thisHash = infra.getthisHash(__filename);
+	var thisHash = infra.getthisHash(__filename,3);
 	console.log("enter PSMD postfile, ID:",thisHash);
 	
 	var pubfile = new Object();
