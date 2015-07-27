@@ -34,9 +34,9 @@ function postfile(item) {
 			var id = output.id;
 			var amount = output.amount;
 			if (id == thisHash) {
-			var amount = output.amount;
-			infra.CODtransfer(thisHash,'7c0fa6e0fff49e7d0b15a112cef2e8969dd42966',amount*0.02);
-		}
+				var amount = output.amount;
+				infra.CODtransfer(thisHash,'7c0fa6e0fff49e7d0b15a112cef2e8969dd42966',amount*0.02);
+			}
 		}
 	}
 }
