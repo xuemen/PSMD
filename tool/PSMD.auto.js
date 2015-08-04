@@ -26,7 +26,7 @@ function transfer(item,callback) {
 			data = obj.data;
 			var msg = openpgp.cleartext.readArmored(data);
 			var author = obj.author ;
-			var nor = yaml.safeLoad(fs.readFileSync(infra.key[author].norfilename,'utf8'));
+			var nor = yaml.safeLoad(fs.readFileSync(infra.key[author].yamlfilename,'utf8'));
 			var pubkeys = openpgp.key.readArmored(nor.data.pubkey).keys;
 			var pubkey = pubkeys[0];
 			var result = msg.verify(pubkeys);
