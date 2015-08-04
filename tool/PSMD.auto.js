@@ -49,12 +49,21 @@ function transfer(item,callback) {
 
 function nor() {
 	console.log("enter PSMD nor");
+	if (typeof(callback) != "undefined") {
+		callback();
+	}
 }
 
 function auto() {
 	console.log("enter PSMD auto");
+	if (typeof(callback) != "undefined") {
+		callback();
+	}
 }
 
 function deploy() {
 	console.log("enter PSMD deploy");
+	if (typeof(callback) != "undefined") {
+		callback();
+	}
 }
