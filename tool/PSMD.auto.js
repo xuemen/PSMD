@@ -6,7 +6,7 @@ var infra = require("./Infra");
 exports.postfile = postfile ;
 exports.postupdate = postupdate ;
 
-function postfile(item) {
+function postfile(item,callback) {
 	var thisHash = infra.getthisHash(__filename,3);
 	console.log("enter PSMD postfile, ID:",thisHash);
 	
@@ -38,6 +38,10 @@ function postfile(item) {
 				infra.CODtransfer(thisHash,'7c0fa6e0fff49e7d0b15a112cef2e8969dd42966',amount*0.02);
 			}
 		}
+	}
+	
+	if (typeof(callback) != "undefined") {
+		callback();
 	}
 }
 
