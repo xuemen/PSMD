@@ -32,7 +32,7 @@ function transfer(item,callback) {
 			var result = msg.verify(pubkeys);
 			//console.log("PSMD transfer> msg:\n",msg);
 			data = yaml.safeLoad(msg.text);
-			console.log("PSMD transfer> data:\n",data);
+			//console.log("PSMD transfer> data:\n",data);
 		}
 		if(data.hasOwnProperty("output")) {
 			var output = data.output;
