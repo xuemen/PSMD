@@ -3,12 +3,14 @@ var yaml = require('js-yaml');
 var openpgp = require('openpgp');
 var infra = require("./Infra");
 
-exports.postfile = postfile ;
-exports.postupdate = postupdate ;
+exports.transfer = transfer ;
+exports.nor = nor ;
+exports.auto = auto ;
+exports.deploy = deploy ;
 
-function postfile(item,callback) {
+function transfer(item,callback) {
 	var thisHash = infra.getthisHash(__filename,3);
-	console.log("enter PSMD postfile, ID:",thisHash);
+	console.log("enter PSMD transfer, ID:",thisHash);
 	
 	if (item.filename.substr(0,9) == "transfer."){
 		var obj = yaml.safeLoad(item.content);
@@ -45,6 +47,14 @@ function postfile(item,callback) {
 	}
 }
 
-function postupdate() {
-	console.log("enter PSMD postupdate");
+function nor() {
+	console.log("enter PSMD nor");
+}
+
+function auto() {
+	console.log("enter PSMD auto");
+}
+
+function deploy() {
+	console.log("enter PSMD deploy");
 }
