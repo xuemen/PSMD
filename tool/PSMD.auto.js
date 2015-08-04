@@ -15,6 +15,7 @@ function transfer(item,callback) {
 	
 	if (item.filename.substr(0,9) == "transfer."){
 		var obj = yaml.safeLoad(item.content);
+		console.log("PSMD transfer> obj:\n",obj);
 		var data ;
 		if(obj.log != undefined){
 			var log = yaml.safeLoad(obj.log);
