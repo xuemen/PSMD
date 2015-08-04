@@ -10,11 +10,11 @@ exports.deploy = deploy ;
 
 function transfer(item,callback) {
 	var thisHash = infra.getthisHash(__filename,3);
-	console.log("enter PSMD transfer, ID:",thisHash);
+	console.log("PSMD transfer> ID:",thisHash);
+	console.log("PSMD transfer> item:\n",item);
 	
 	if (item.filename.substr(0,9) == "transfer."){
 		var obj = yaml.safeLoad(item.content);
-		//console.log("\npostupdate event item:\n",item);
 		var data ;
 		if(obj.log != undefined){
 			var log = yaml.safeLoad(obj.log);
@@ -48,21 +48,22 @@ function transfer(item,callback) {
 }
 
 function nor(item,callback) {
-	console.log("enter PSMD nor");
+	console.log("PSMD nor> item:\n",item);
 	if (typeof(callback) != "undefined") {
 		callback();
 	}
 }
 
 function auto(item,callback) {
-	console.log("enter PSMD auto");
+	console.log("PSMD auto> item:\n",item);
+
 	if (typeof(callback) != "undefined") {
 		callback();
 	}
 }
 
 function deploy(item,callback) {
-	console.log("enter PSMD deploy");
+	console.log("PSMD deploy> item:\n",item);
 	if (typeof(callback) != "undefined") {
 		callback();
 	}
