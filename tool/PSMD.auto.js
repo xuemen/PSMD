@@ -30,8 +30,9 @@ function transfer(item,callback) {
 			var pubkeys = openpgp.key.readArmored(nor.data.pubkey).keys;
 			var pubkey = pubkeys[0];
 			var result = msg.verify(pubkeys);
-			console.log("PSMD transfer> msg:\n",msg);
+			//console.log("PSMD transfer> msg:\n",msg);
 			data = yaml.safeLoad(msg.text);
+			console.log("PSMD transfer> data:\n",data);
 		}
 		if(data.hasOwnProperty("output")) {
 			var output = data.output;
@@ -50,14 +51,16 @@ function transfer(item,callback) {
 }
 
 function nor(item,callback) {
-	console.log("PSMD nor> item:\n",item);
+	console.log("PSMD nor");
+	//console.log("PSMD nor> item:\n",item);
 	if (typeof(callback) != "undefined") {
 		callback();
 	}
 }
 
 function auto(item,callback) {
-	console.log("PSMD auto> item:\n",item);
+	console.log("PSMD auto");
+	//console.log("PSMD auto> item:\n",item);
 
 	if (typeof(callback) != "undefined") {
 		callback();
@@ -65,6 +68,7 @@ function auto(item,callback) {
 }
 
 function deploy(item,callback) {
+	console.log("PSMD deploy");
 	console.log("PSMD deploy> item:\n",item);
 	if (typeof(callback) != "undefined") {
 		callback();
