@@ -11,11 +11,11 @@ exports.deploy = deploy ;
 function transfer(item,callback) {
 	var thisHash = infra.getthisHash(__filename,3);
 	console.log("PSMD transfer> ID:",thisHash);
-	console.log("PSMD transfer> item:\n",item);
+	//console.log("PSMD transfer> item:\n",item);
 	
 	if (item.filename.substr(0,9) == "transfer."){
 		var obj = yaml.safeLoad(item.content);
-		console.log("PSMD transfer> obj:\n",obj);
+		//console.log("PSMD transfer> obj:\n",obj);
 		var data ;
 		if(obj.log != undefined){
 			var log = yaml.safeLoad(obj.log);
@@ -30,6 +30,7 @@ function transfer(item,callback) {
 			var pubkeys = openpgp.key.readArmored(nor.data.pubkey).keys;
 			var pubkey = pubkeys[0];
 			var result = msg.verify(pubkeys);
+			console.log("PSMD transfer> msg:\n",msg);
 			data = yaml.safeLoad(msg.text);
 		}
 		if(data.hasOwnProperty("output")) {
