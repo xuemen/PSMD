@@ -47,21 +47,21 @@ function transfer(item,callback) {
 	}
 }
 
-function nor() {
+function nor(item,callback) {
 	console.log("enter PSMD nor");
 	if (typeof(callback) != "undefined") {
 		callback();
 	}
 }
 
-function auto() {
+function auto(item,callback) {
 	console.log("enter PSMD auto");
 	if (typeof(callback) != "undefined") {
 		callback();
 	}
 }
 
-function deploy() {
+function deploy(item,callback) {
 	console.log("enter PSMD deploy");
 	if (typeof(callback) != "undefined") {
 		callback();
