@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <title>PSMD简介</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: Georgia, "Times New Roman", 
+             "Microsoft YaHei", "微软雅黑", 
+             STXihei, "华文细黑", 
+             serif;
+        font-weight: normal;
+      }
+      h1, h2, h3 {
+        margin-bottom: 0;
+      }
+      .remark-slide-content h1 { font-size: 3em; }
+      .remark-slide-content h2 { font-size: 2em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      li p { line-height: 1.25em; }
+      .red { color: #fa0000; }
+      .large { font-size: 2em; }
+      a, a > code {
+        color: rgb(249, 38, 114);
+        text-decoration: none;
+      }
+      code {
+        background: #e7e8e2;
+        border-radius: 5px;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-code-line-highlighted     { background-color: #373832; }
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+      .pull-right ~ p {
+        clear: both;
+      }
+      #slideshow .slide .content code {
+        font-size: 0.8em;
+      }
+      #slideshow .slide .content pre code {
+        font-size: 0.9em;
+        padding: 15px;
+      }
+      .inverse {
+        background: #272822;
+        color: #777872;
+        text-shadow: 0 0 20px #333;
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
+
+      /* Slide-specific styling */
+      #slide-inverse .footnote {
+        bottom: 12px;
+        left: 20px;
+      }
+      #slide-how .slides {
+        font-size: 0.9em;
+        position: absolute;
+        top:  151px;
+        right: 140px;
+      }
+      #slide-how .slides h3 {
+        margin-top: 0.2em;
+      }
+      #slide-how .slides .first, #slide-how .slides .second {
+        padding: 1px 20px;
+        height: 90px;
+        width: 120px;
+        -moz-box-shadow: 0 0 10px #777;
+        -webkit-box-shadow: 0 0 10px #777;
+        box-shadow: 0 0 10px #777;
+      }
+      #slide-how .slides .first {
+        background: #fff;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        z-index: 1;
+      }
+      #slide-how .slides .second {
+        position: relative;
+        background: #fff;
+        z-index: 0;
+      }
+
+      /* Two-column layout */
+      .left-column {
+        color: #777;
+        width: 20%;
+        height: 92%;
+        float: left;
+      }
+        .left-column h3:last-of-type, .left-column h4:last-child {
+          color: #000;
+        }
+      .right-column {
+        width: 75%;
+        float: right;
+        padding-top: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# PSMD
+### 管理体系设计和实施
+### Pivot Structure Modeling and Deploy
+---
+class: center, middle, inverse
+
+# Pivot Structure
+---
+.left-column[
+### Pivot Structure
+#### 角色范围
+]
+.right-column[
+<img src="workshop/img/kernel.png" width=512></img>
+]
+---
+.left-column[
+### Pivot Structure
+#### 角色范围
+#### 部门称谓
+]
+.right-column[
+<table border="1" cellpadding="5">
+<tr><th>称谓</th><th>公司</th><th>合伙企业</th><th>合作社企业</th></tr>
+<tr><td>权力部门</td><td>股东会</td><td>全体合伙人</td><td>社员大会、社员代表大会</td></tr>
+<tr><td>监察部门</td><td>监事会</td><td>不执行合伙事务的合伙人、有限合伙人</td><td>监事会</td></tr>
+<tr><td>决策部门</td><td>董事会</td><td>执行合伙事务的合伙人、普通合伙人</td><td>董事会、理事会</td></tr>
+<tr><td>执行部门</td><td>经理、CEO</td><td>被聘任的经营管理人员</td><td>经理、CEO</td></tr>
+</table>
+]
+???
+* 合伙企业相对比较自由，这一列不是严格的对应关系。
+* 首席执行官是执行部门的负责人，在核心团队中位置最低。
+
+---
+class: center, middle, inverse
+
+# Modeling
+---
+.left-column[
+### Modeling
+#### 五大问题
+]
+.right-column[
+### 都有哪些角色
+### 交易过程一共涉及多少种资产
+### 都有哪些事件
+### 各种事件的处理过程
+### 利益怎么分配
+]
+---
+.left-column[
+### Modeling
+#### 五大问题
+#### 
+]
+.right-column[
+]
+---
+class: center, middle, inverse
+
+# Deploy
+---
+---
+
+    </textarea>
+    <script src="workshop/js/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
