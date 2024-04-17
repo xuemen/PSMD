@@ -1,0 +1,11 @@
+name: 利益分配比例
+id: bba7c6f1
+interface:
+  asset:
+    - name: p
+      id: 1
+      readme: |
+text: |
+  <asset.1>=20，<asset.1>%=20%。
+readme: |
+effect: |

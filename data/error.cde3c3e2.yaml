@@ -1,0 +1,8 @@
+name: 规则无效
+id: cde3c3e2
+text: |
+  违规收益超过违规成本。违规造成的既成事实被接受。
+readme: |
+bind:
+	- type: term、termset、COM、deploy、COD
+	- id:

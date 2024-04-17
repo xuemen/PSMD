@@ -1,0 +1,11 @@
+name: 自修订条款
+id: 64eb9304
+interface:
+  entity:
+    - name: deployer
+      id: 1
+      readme: |
+text: |
+  由<entity.1>书面提交即生效。
+readme: |
+effect: |
