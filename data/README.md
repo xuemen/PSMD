@@ -13,24 +13,13 @@ name:
 id:
 interface:
   entity:
-    - name:
-    id:
-    readme: |
-    - name:
-    id:
-    readme: |
+    id: name
   asset:
-    - name:
-    id:
-    readme: |
+    id: name
   term:  //  引用其它条款，在termset、COM中根据联合使用情况绑定。
-    - name:
-    id:
-    readme: |
+    id: name
   event:
-    - name:
-      id:
-      readme: |
+    id: name
 text: |
 readme: |
 effect: |
@@ -43,24 +32,13 @@ id:
 level:
 interface:
   entity:
-    - name:
-    id:
-    readme: |
-    - name:
-    id:
-    readme: |
+    id: name
   asset:
-    - name:
-    id:
-    readme: |
+    id: name
   term:  //  引用其它条款，在termset、COM中根据联合使用情况绑定。
-    - name:
-    id:
-    readme: |
+    id: name
   event:
-    - name:
-      id:
-      readme: |
+    id: name
 item:
     sortid: // item在termset中的排序
       type:  term\termset
@@ -68,21 +46,13 @@ item:
         upgradeby: // sortid.sortid.....id  上级定义覆盖下级定义
         map:    // interface 局部-全局映射表
             entity:
-                - globalid:
-                localid:
-                readme: |
+                localid: globalid
             asset:
-                - globalid:
-                localid:
-                readme: |
+                localid: globalid
             term:  //  引用其它条款，在termset、COM中根据联合使用情况绑定。
-                - globalid:
-                localid:
-                readme: |
+                localid: globalid
             event:
-                - globalid:
-                localid:
-                readme: |
+                localid: globalid
       path:   // metadata location
 readme: |
 effect: |
@@ -108,45 +78,26 @@ name:
 id:
 interface:
   entity:
-    - name:
-    id:
-    readme: |
-    - name:
-    id:
-    readme: |
+    id: name
   asset:
-    - name:
-    id:
-    readme: |
+    id: name
   term:  //  引用其它条款，在termset、COM中根据联合使用情况绑定。
-    - name:
-    id:
-    readme: |
+    id: name
   event:
-    - name:
-      id:
-      readme: |
+    id: name
 COM:
     sortid: // 部署的次序，逐个部署。例如:自然人部署筹备组COD，筹备组COD部署正式COD。后续COD的部署者deployer可以是前面的sortid。
         type:   // termset or COM
         id: // termsetid or COMid
-        map:
-            entity:     // 考虑同一个主体在不同条款处于不同位置，身兼多职或变化身份。
-                - globalid:
-                localid:
-                readme: |
+        map:    // interface 局部-全局映射表
+            entity:
+                localid: globalid
             asset:
-                - globalid:
-                localid:
-                readme: |
+                localid: globalid
             term:  //  引用其它条款，在termset、COM中根据联合使用情况绑定。
-                - globalid:
-                localid:
-                readme: |
+                localid: globalid
             event:
-                - globalid:
-                localid:
-                readme: |
+                localid: globalid
       path:   // metadata location
         period: // termset或者COM的有效期，在此期间部署下一个COD
         logpath:
@@ -163,24 +114,13 @@ id:
 deployid:   // 也可以在log中体现。
 interface:
   entity:
-    - name:
-    id:
-    readme: |
-    - name:
-    id:
-    readme: |
+    id: name
   asset:
-    - name:
-    id:
-    readme: |
+    id: name
   term:  //  引用其它条款，在termset、COM中根据联合使用情况绑定。
-    - name:
-    id:
-    readme: |
+    id: name
   event:
-    - name:
-      id:
-      readme: |
+    id: name
 item:
     sortid: // item在termset中的排序
       type:  term\termset
@@ -192,21 +132,13 @@ item:
             deployer:
         map:    // interface 局部-全局映射表
             entity:
-                - globalid:
-                localid:
-                readme: |
+                localid: globalid
             asset:
-                - globalid:
-                localid:
-                readme: |
+                localid: globalid
             term:  //  引用其它条款，在termset、COM中根据联合使用情况绑定。
-                - globalid:
-                localid:
-                readme: |
+                localid: globalid
             event:
-                - globalid:
-                localid:
-                readme: |
+                localid: globalid
       path:   // metadata location
         text:   // 部署后的正式文本，允许和模型有出入。
         readme: |

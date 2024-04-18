@@ -3,10 +3,10 @@ id: 1
 level: 1
 interface:
   entity:
-    - name: deployer
-      id: 1
-    - name: director
-      id: 2
+    1: deployer
+    2: director
+  asset:
+    1: p
 item:
   - sortid: 1
     type: term
@@ -15,8 +15,7 @@ item:
     path: PSMD/data/term.7374f9a0.yaml
     map: 
       entity:
-        - globalid: 1
-          localid: 1
+        1: 1
   - sortid: 2
     type:  term
     id: bba7c6f1
@@ -24,8 +23,7 @@ item:
     path: PSMD/data/term.bba7c6f1.yaml
     map:
       asset:
-        - globalid: 1
-          localid: 1
+        1: 1
   - sortid: 3
     type: term
     id: 177700d4
@@ -33,7 +31,6 @@ item:
     path: PSMD/data/term.bba7c6f1.yaml
     map: 
       entity:
-        - globalid: 2
-          localid: 1
+        1: 2
 readme: |
 effect: |
