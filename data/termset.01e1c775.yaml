@@ -1,0 +1,36 @@
+name: 调整分配主比例
+id: 01e1c775
+level: 1
+interface:
+  entity:
+    '1': deployer
+    '2': director
+  asset:
+    '1': p
+item:
+  - sortid: 1
+    type: term
+    id: 64eb9304
+    upgradeby: 1
+    path: PSMD/data/term.7374f9a0.yaml
+    map:
+      entity:
+        '1': 1
+  - sortid: 2
+    type: term
+    id: bba7c6f1
+    upgradeby: 1
+    path: PSMD/data/term.bba7c6f1.yaml
+    map:
+      asset:
+        '1': 1
+  - sortid: 3
+    type: term
+    id: 177700d4
+    upgradeby: 1
+    path: PSMD/data/term.bba7c6f1.yaml
+    map:
+      entity:
+        '1': 2
+readme: ''
+effect: ''

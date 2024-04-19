@@ -1,0 +1,8 @@
+name: deploy
+id: b7bd55c1
+parent id: 01d9c808
+start: 2015-01-01T00:00:00.000Z
+dependencies:
+    - id: e39da5b6
+readme: |
+  根据标准模型部署共同体。

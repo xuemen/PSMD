@@ -1,0 +1,25 @@
+name: 符合某条件的条款
+id: 2
+level: 1
+interface:
+  term:
+    1: 容器规则
+item:
+  - sortid: 1
+    type: term
+    id: 2
+    path: term.2.yaml
+  - sortid: 2
+    type: term
+    id: 3
+    path: term.3.yaml
+  - sortid: 3
+    type: term
+    id: 4
+    map:
+      term:
+        1: 1
+    path: term.4.yaml
+readme: |
+  - upgradeby应该分内部、外部两种情况定义。
+effect: |

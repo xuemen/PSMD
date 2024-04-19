@@ -1,5 +1,7 @@
 var fs = require('fs');
 var yaml = require('js-yaml');
+//var Hashes = require('jshashes');
+const crypto = require('crypto');
 
 const gitpath = "../../";
 const rawrepopath = "../../raw/";
@@ -9,6 +11,7 @@ const viewpath = "../view/";
 
 const helpstr = `
 node term all   : term metada + termset metadata → allterm metadata
+node term commit:   temp metadata → formal metadata
 node term term id   : term metadata → term markdown + html
 node term termset id    ： termset metadata → termset markdown + html
 `;
@@ -23,6 +26,9 @@ if (arguments.length > 0) {
         // node term all   : term metada + termset metadata → allterm metadata
         loadallterm();
         makeallterm();
+    } else if ((arguments.length == 1) & (arguments[0] == "commit")) {
+        // node term commit:   temp metadata → formal metadata
+        commit();
     } else if ((arguments.length == 2) & (arguments[0] == "term")) {
         // node term term id   : term metadata → term markdown + html
         var termid = arguments[1];
@@ -30,6 +36,7 @@ if (arguments.length > 0) {
         maketermview(termid);
     } else if ((arguments.length == 2) & (arguments[0] == "termset")) {
         // node term termset id    ： termset metadata → termset markdown + html
+        //console.log("node term termset id    ： termset metadata → termset markdown + html"+ arguments[1]) ;
         var termsetid = arguments[1];
         loadallterm();
         maketermsetview(termsetid);
@@ -74,6 +81,89 @@ function makeallterm() {
     });
 }
 
+function commit() {
+    var alltempterm = new Object();
+    var alltemptermset = new Object();
+    var termmap = new Object();
+    var termsetmap = new Object();
+
+    fs.readdirSync(datapath).forEach(file => {
+        if ((file.substr(0, 5) == "term.") & (file.length == 11)) {
+            var tempterm = yaml.load(fs.readFileSync(datapath + file, 'utf8'));
+            alltempterm[tempterm.id] = tempterm;
+
+            var hashid = crypto.createHash("sha256").update(tempterm.name).digest("hex").slice(0, 8);
+            console.log(tempterm.name, hashid);
+            termmap[tempterm.id] = hashid;
+        }
+        if ((file.substr(0, 8) == "termset.") & (file.length == 14)) {
+            var temptermset = yaml.load(fs.readFileSync(datapath + file, 'utf8'));
+            alltemptermset[temptermset.id] = temptermset;
+
+
+            var hashid = crypto.createHash("sha256").update(temptermset.name).digest("hex").slice(0, 8);
+            console.log(temptermset.name, hashid);
+            termsetmap[temptermset.id] = hashid;
+        }
+    });
+
+    //console.log(yaml.dump(alltempterm));
+    //console.log(yaml.dump(alltemptermset))
+
+    for (var id in alltempterm) {
+        var term = alltempterm[id];
+        var oldfilename = datapath + "term." + id + ".yaml";
+
+        if (termmap[id] != null) {
+            term.id = termmap[id];
+        } else {
+            console.log("旧文件:" + oldfilename + "中的id:" + id + "未能替换，请人工检查。")
+        }
+
+        var newfilename = datapath + "term." + termmap[id] + ".yaml";
+
+        fs.writeFileSync(newfilename, yaml.dump(term));
+        console.log(newfilename + "文件已更新。" + oldfilename + "可以删除。");
+    }
+
+    for (var id in alltemptermset) {
+        var termset = alltemptermset[id];
+        var oldfilename = datapath + "termset." + id + ".yaml";
+
+        if (termsetmap[id] != null) {
+            termset.id = termsetmap[id];
+        } else {
+            console.log("旧文件:" + oldfilename + "中的id:" + id + "未能替换，请人工检查。")
+        }
+        var newfilename = datapath + "termset." + termsetmap[id] + ".yaml";
+
+        for (var itemid in termset.item) {
+            if (termset.item[itemid].type == "term") {
+
+                if (termmap[termset.item[itemid].id] != null) {
+                    termset.item[itemid].id = termmap[termset.item[itemid].id];
+                } else {
+                    console.log("旧文件:" + oldfilename + "中item:" + itemid + "的id:" + termset.item[itemid].id + "未能替换，请人工检查。");
+                }
+
+
+            } else if (termset.item[itemid].type == "termset") {
+                if (termsetmap[termset.item[itemid].id] != null) {
+                    termset.item[itemid].id = termsetmap[termset.item[itemid].id];
+                } else {
+                    console.log("旧文件:" + oldfilename + "中itemset:" + itemid + "的id:" + termset.item[itemid].id + "未能替换，请人工检查。");
+                }
+                
+            } else {
+                console.log("invaild type: " + termset.item[itemid].type + " in file:" + oldfilename);
+            }
+        }
+
+        fs.writeFileSync(newfilename, yaml.dump(termset));
+        console.log(newfilename + "文件已更新。" + oldfilename + "可以删除。");
+    }
+}
+
 function maketermview(termid) {
 
 }
@@ -85,8 +175,9 @@ function maketermsetview(termsetid) {
 
     var termsettext = maketermsettext(termsetid, "", null);
 
-    console.log("termset text:\n" + termsettext);
-
+    var viewfilename = viewpath + "termset." + termsetid + ".md";
+    fs.writeFileSync(viewfilename, yaml.dump(termsettext));
+    console.log(viewfilename + "文件更新，内容如下:\n" + termsettext);
 }
 
 function maketermsettext(termsetid, prefix, map) {
@@ -98,7 +189,8 @@ function maketermsettext(termsetid, prefix, map) {
     for (var i in termsetobj.item) {
         var item = termsetobj.item[i];
         if (item.type == "termset") {
-            maketermsettext(item.id, prefix + item.sortid + ".", item.map);
+            var itemtext = maketermsettext(item.id, prefix + item.sortid + ".", item.map);
+            termsettext = termsettext + itemtext;
         } else {
             var termtext = maketermtext(item.id, prefix + item.sortid + ". ", item.map);
             termsettext = termsettext + termtext;
@@ -109,12 +201,12 @@ function maketermsettext(termsetid, prefix, map) {
     for (var interfacetype in termsetobj.interface) {
         for (var localid in termsetobj.interface[interfacetype]) {
             var placeholder = "<" + interfacetype + "." + localid + ">";
-            
-            var newplaceholder = "" ;
+
+            var newplaceholder = "";
             if (map != null) {
                 // replace the placeholder use the map from upper level
                 newplaceholder = "<" + interfacetype + "." + map[interfacetype][localid] + ">";
-            }else{
+            } else {
                 // default: replace the placeholder use local interface
                 newplaceholder = termsetobj.interface[interfacetype][localid];
             }
@@ -139,17 +231,17 @@ function maketermtext(termid, prefix, map) {
         for (var localid in termobj.interface[interfacetype]) {
             //var localid = termobj.interface[interfacetype][i].id;
             var placeholder = "<" + interfacetype + "." + localid + ">";
-            
-            var newplaceholder = "" ;
+
+            var newplaceholder = "";
             if (map != null) {
                 // replace the placeholder use the map from upper level
                 newplaceholder = "<" + interfacetype + "." + map[interfacetype][localid] + ">";
-            }else{
+            } else {
                 // default: replace the placeholder use local interface
                 newplaceholder = termobj.interface[interfacetype][i];
             }
         }
-        
+
         console.log(placeholder + " -> " + newplaceholder);
 
         //termtext = termtext.replace(placeholder, newplaceholder);
@@ -161,3 +253,5 @@ function maketermtext(termid, prefix, map) {
     termtext = prefix + " " + termtext;
     return termtext;
 }
+
+//util

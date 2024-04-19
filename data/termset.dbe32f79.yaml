@@ -1,0 +1,24 @@
+name: 符合某条件
+id: dbe32f79
+level: 2
+interface:
+  term:
+    '1': 附件21.容器规则
+    '2': 第2条
+item:
+  - sortid: 1
+    type: term
+    id: bb8005b9
+    map:
+      term:
+        '1': 2
+    path: term.5.yaml
+  - sortid: 2
+    type: termset
+    id: 949e69e3
+    map:
+      term:
+        '1': 1
+    path: termset.2.yaml
+readme: ''
+effect: ''

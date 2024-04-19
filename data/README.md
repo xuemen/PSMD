@@ -40,19 +40,19 @@ interface:
   event:
     id: name
 item:
-    sortid: // item在termset中的排序
+  - sortid: // item在termset中的排序
       type:  term\termset
       id:     // termid or termsetid
-        upgradeby: // sortid.sortid.....id  上级定义覆盖下级定义
-        map:    // interface 局部-全局映射表
-            entity:
-                localid: globalid
-            asset:
-                localid: globalid
-            term:  //  引用其它条款，在termset、COM中根据联合使用情况绑定。
-                localid: globalid
-            event:
-                localid: globalid
+      upgradeby: // sortid.sortid.....id  上级定义覆盖下级定义
+      map:    // interface 局部-全局映射表
+        entity:
+          localid: globalid
+        asset:
+          localid: globalid
+        term:  //  引用其它条款，在termset、COM中根据联合使用情况绑定。
+          localid: globalid
+        event:
+          localid: globalid
       path:   // metadata location
 readme: |
 effect: |
