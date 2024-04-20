@@ -1,36 +1,51 @@
-name: 调整分配主比例
+name: 入门目录202404151600-2
 id: 1
 level: 1
 interface:
-  entity:
-    1: deployer
-    2: director
-  asset:
-    1: p
+  term:
+    1: 附件20
+    2: 附件30
+    3: 附件42
+    4: 附件31
+    5: 附件32
+    6: 附件33
+    7: 附件34
 item:
   - sortid: 1
     type: term
-    id: 64eb9304
-    upgradeby: 1
-    path: PSMD/data/term.7374f9a0.yaml
-    map: 
-      entity:
-        1: 1
-  - sortid: 2
-    type:  term
-    id: bba7c6f1
-    upgradeby: 1
-    path: PSMD/data/term.bba7c6f1.yaml
+    id: 1
     map:
-      asset:
+      term:
         1: 1
+        2: 2
+        3: 3
+        4: 4
+        5: 5
+        6: 6
+        7: 7
+    path: term.1.yaml
+  - sortid: 2
+    type: term
+    id: 2
+    map:
+      term:
+        1: 1
+        2: 2
+        3: 3
+        4: 4
+        5: 5
+        6: 6
+        7: 7
+    path: term.2.yaml
   - sortid: 3
     type: term
-    id: 177700d4
-    upgradeby: 1
-    path: PSMD/data/term.bba7c6f1.yaml
-    map: 
-      entity:
-        1: 2
-readme: |
-effect: |
+    id: 3
+    map:
+      term:
+        1: 1
+        2: 2
+    path: term.3.yaml
+  - sortid: 4
+    type: term
+    id: 4
+    path: term.4.yaml

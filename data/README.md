@@ -7,7 +7,9 @@
 1. COD定义共同体的现状，要考虑主体、条款的不断修订。
 1. error定义有效果偏差的termset、COM，以及有效果的termset、COM。索引位置暂定在allterm metadata。
 
-- term
+## 数据结构
+
+###  term
 ~~~
 name:
 id:
@@ -25,7 +27,8 @@ readme: |
 effect: |
 ~~~
 
-- termset
+### termset
+
 ~~~
 name:
 id:
@@ -58,7 +61,8 @@ readme: |
 effect: |
 ~~~
 
-- COM
+###  COM
+
 ~~~
 name:
 id:
@@ -72,7 +76,8 @@ readme: |
 effect:
 ~~~
 
-- deploy
+###  deploy
+
 ~~~
 name:
 id:
@@ -107,7 +112,8 @@ effect:
 
 ~~~
 
-- COD
+### COD
+
 ~~~
 name:
 id:
@@ -146,6 +152,28 @@ readme: |
 logpath: 
 ~~~
 
+
+### env
+
+~~~
+name:
+id:
+term:
+  - id:
+  - id:
+termset:
+  - id:
+  - id:
+error:
+  - id
+  - id
+~~~
+- term字段：已经生效的term。如果单独有重要效果的话就列出。
+- termset字段：已经生效的termset。如果有效果的term组合被分在termset的不同章节下，如何快速匹配？
+- error：目前未解决的error
+
+### error
+
 - error
 ~~~
 name:
@@ -154,5 +182,37 @@ text: |
 readme: |
 bind:
   - type: term、termset、COM、deploy、COD
-  - id:
+     id:
 ~~~
+
+### log
+~~~
+- id:
+- time:
+- entityid:
+- termsetid:
+- termid:
+- text: |
+~~~
+- entity是指cod的interface中id。
+- termid是指termset中的sortid/sortid/.../sortid
+- 某entity根据某term的行为。
+
+### knowldege / effect
+
+~~~
+name:
+id:
+envid:
+term:
+  - id:
+termset:
+  - id:
+  - id
+error:
+  - id:
+    percent:
+    text:
+readme: |
+~~~
+在env下，term和termset生效就有多大可能性消除error。

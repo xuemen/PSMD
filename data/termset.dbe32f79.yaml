@@ -12,13 +12,13 @@ item:
     map:
       term:
         '1': 2
-    path: term.5.yaml
+    path: term.bb8005b9.yaml
   - sortid: 2
     type: termset
     id: 949e69e3
     map:
       term:
         '1': 1
-    path: termset.2.yaml
+    path: termset.949e69e3.yaml
 readme: ''
 effect: ''

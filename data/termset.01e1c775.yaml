@@ -12,7 +12,7 @@ item:
     type: term
     id: 64eb9304
     upgradeby: 1
-    path: PSMD/data/term.7374f9a0.yaml
+    path: PSMD/data/term.64eb9304.yaml
     map:
       entity:
         '1': 1
@@ -28,7 +28,7 @@ item:
     type: term
     id: 177700d4
     upgradeby: 1
-    path: PSMD/data/term.bba7c6f1.yaml
+    path: PSMD/data/term.177700d4.yaml
     map:
       entity:
         '1': 2

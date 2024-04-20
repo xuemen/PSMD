@@ -1,0 +1,24 @@
+name: 分支隔离规则
+id: '12119600'
+level: 1
+item:
+  - sortid: 1
+    type: term
+    id: 1c3f8b06
+    path: term.1c3f8b06.yaml
+  - sortid: 2
+    type: term
+    id: 49d40087
+    path: term.49d40087.yaml
+  - sortid: 3
+    type: term
+    id: 5c7d5a18
+    path: term.5c7d5a18.yaml
+  - sortid: 4
+    type: term
+    id: 5f7bbbe4
+    path: term.5f7bbbe4.yaml
+readme: |
+  说明：
+  - 例如：共同体A采用PS标准，共同体B、C没有。当B在上级规章未生效时要讨论下级规章。B向C提出咨询，C收到B发出的原始咨询内容。B向A提出咨询，咨询内容自动转化为“如何在规章中增加PS标准”，A无法收到B发出的原始咨询内容。这条规则主要提醒自我安慰性的求助，向反对者求助就是承认自身行为导致问题无解。
+  - 在父项目，各隔离分支将使用不同记账单位。相同金额不同单位，视为同工同酬。比如采用PS标准的分支使用M为单位，不采用PS标准分支使用N为单位，自由兑换的平衡点是1M兑换10N。一项工作的报酬是5，两个分支账号分别得到5M（可兑换50N）、5N的报酬。

@@ -8,18 +8,18 @@ item:
   - sortid: 1
     type: term
     id: 33523fe1
-    path: term.2.yaml
+    path: term.33523fe1.yaml
   - sortid: 2
     type: term
     id: a1c197a9
-    path: term.3.yaml
+    path: term.33523fe1.yaml
   - sortid: 3
     type: term
     id: 259076a4
     map:
       term:
         '1': 1
-    path: term.4.yaml
+    path: term.259076a4.yaml
 readme: |
   - upgradeby应该分内部、外部两种情况定义。
 effect: ''

@@ -1,0 +1,29 @@
+name: 制定规则
+id: 600f6f80
+level: 1
+interface:
+  term:
+    '1': 分支隔离规则
+item:
+  - sortid: 1
+    type: term
+    id: 50d2347f
+    path: term.50d2347f.yaml
+  - sortid: 2
+    type: term
+    id: 4c37b176
+    path: term.4c37b176.yaml
+  - sortid: 3
+    type: term
+    id: 55c25f3f
+    path: term.55c25f3f.yaml
+  - sortid: 4
+    type: term
+    id: 064129fa
+    map:
+      term:
+        '1': 1
+    path: term.064129fa.yaml
+readme: |
+  说明：
+    比如不采用PS标准的共同体，制定规章时以采用PS标准分支下的案例为依据，则自动增加采用PS标准的动议，切换生效之后才能讨论所制定规章。

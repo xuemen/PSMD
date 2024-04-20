@@ -141,7 +141,10 @@ function commit() {
             if (termset.item[itemid].type == "term") {
 
                 if (termmap[termset.item[itemid].id] != null) {
+                    var oldid = termset.item[itemid].id;
                     termset.item[itemid].id = termmap[termset.item[itemid].id];
+                    console.log("path replace:" + termset.item[itemid].path, termset.item[itemid].path.replace("." + oldid + ".", "." + termmap[oldid] + "."));
+                    termset.item[itemid].path = termset.item[itemid].path.replace("." + oldid + ".", "." + termmap[oldid] + ".");
                 } else {
                     console.log("旧文件:" + oldfilename + "中item:" + itemid + "的id:" + termset.item[itemid].id + "未能替换，请人工检查。");
                 }
@@ -149,11 +152,15 @@ function commit() {
 
             } else if (termset.item[itemid].type == "termset") {
                 if (termsetmap[termset.item[itemid].id] != null) {
+                    var oldid = termset.item[itemid].id;
                     termset.item[itemid].id = termsetmap[termset.item[itemid].id];
+
+                    console.log("path replace:" + termset.item[itemid].path, termset.item[itemid].path.replace("." + oldid + ".", "." + termsetmap[oldid] + "."));
+                    termset.item[itemid].path = termset.item[itemid].path.replace("." + oldid + ".", "." + termsetmap[oldid] + ".");
                 } else {
                     console.log("旧文件:" + oldfilename + "中itemset:" + itemid + "的id:" + termset.item[itemid].id + "未能替换，请人工检查。");
                 }
-                
+
             } else {
                 console.log("invaild type: " + termset.item[itemid].type + " in file:" + oldfilename);
             }
@@ -176,7 +183,7 @@ function maketermsetview(termsetid) {
     var termsettext = maketermsettext(termsetid, "", null);
 
     var viewfilename = viewpath + "termset." + termsetid + ".md";
-    fs.writeFileSync(viewfilename, yaml.dump(termsettext));
+    fs.writeFileSync(viewfilename, termsettext);
     console.log(viewfilename + "文件更新，内容如下:\n" + termsettext);
 }
 
@@ -204,8 +211,13 @@ function maketermsettext(termsetid, prefix, map) {
 
             var newplaceholder = "";
             if (map != null) {
-                // replace the placeholder use the map from upper level
-                newplaceholder = "<" + interfacetype + "." + map[interfacetype][localid] + ">";
+                if (map[interfacetype][localid] != null) {
+                    // replace the placeholder use the map from upper level
+                    newplaceholder = "<" + interfacetype + "." + map[interfacetype][localid] + ">";
+                } else {
+                    // default: replace the placeholder use local interface
+                    newplaceholder = termsetobj.interface[interfacetype][localid];
+                }
             } else {
                 // default: replace the placeholder use local interface
                 newplaceholder = termsetobj.interface[interfacetype][localid];
@@ -217,10 +229,17 @@ function maketermsettext(termsetid, prefix, map) {
             console.log(termsettext);
         }
     }
+
+    if ((prefix == "") & (termsetobj.readme != null)) {
+        // top level, add readme.
+        termsettext = termsettext + "\n\n---\n\n" + termsetobj.readme + "\n---\n";
+    }
+
     return termsettext;
 }
 
 function maketermtext(termid, prefix, map) {
+    //console.log("enter maketermtext:"+termid+prefix);
     var termfilename = datapath + "term." + termid + ".yaml";
     var termobj = yaml.load(fs.readFileSync(termfilename, 'utf8'));
 
@@ -234,23 +253,27 @@ function maketermtext(termid, prefix, map) {
 
             var newplaceholder = "";
             if (map != null) {
-                // replace the placeholder use the map from upper level
-                newplaceholder = "<" + interfacetype + "." + map[interfacetype][localid] + ">";
+                if (map[interfacetype][localid] != null) {
+                    // replace the placeholder use the map from upper level
+                    newplaceholder = "<" + interfacetype + "." + map[interfacetype][localid] + ">";
+                } else {
+                    // default: replace the placeholder use local interface
+                    newplaceholder = termobj.interface[interfacetype][localid];
+                }
             } else {
                 // default: replace the placeholder use local interface
-                newplaceholder = termobj.interface[interfacetype][i];
+                newplaceholder = termobj.interface[interfacetype][localid];
             }
+            console.log(placeholder + " -> " + newplaceholder);
+
+            //termtext = termtext.replace(placeholder, newplaceholder);
+            termtext = termtext.split(placeholder).join(newplaceholder);
+            console.log(termtext);
         }
-
-        console.log(placeholder + " -> " + newplaceholder);
-
-        //termtext = termtext.replace(placeholder, newplaceholder);
-        termtext = termtext.split(placeholder).join(newplaceholder);
-        console.log(termtext);
     }
 
 
-    termtext = prefix + " " + termtext;
+    termtext = prefix + "" + termtext;
     return termtext;
 }
 

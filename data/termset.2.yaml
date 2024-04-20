@@ -1,25 +1,74 @@
-name: 符合某条件的条款
+name: 入门目录202404151600
 id: 2
-level: 1
+level: 2
 interface:
   term:
-    1: 容器规则
+    20: 附件20
+    21: 附件21
+    30: 附件30
+    42: 附件42
+    31: 附件31
+    32: 附件32
+    33: 附件33
+    34: 附件34
 item:
   - sortid: 1
     type: term
-    id: 2
-    path: term.2.yaml
+    id: 5
+    path: term.5.yaml
   - sortid: 2
-    type: term
-    id: 3
-    path: term.3.yaml
-  - sortid: 3
-    type: term
-    id: 4
+    type: termset
+    id: 1
     map:
       term:
-        1: 1
-    path: term.4.yaml
-readme: |
-  - upgradeby应该分内部、外部两种情况定义。
-effect: |
+        1: 20
+        2: 30
+        3: 42
+        4: 31
+        5: 32
+        6: 33
+        7: 34
+    path: termset.1.yaml
+  - sortid: 3
+    type: term
+    id: 6
+    path: term.6.yaml
+  - sortid: 附件20
+    type: termset
+    id: dbe32f79
+    map:
+      term:
+        1: 21
+    path: termset.dbe32f79.yaml
+  - sortid: 附件21
+    type: termset
+    id: d0111eb4 
+    path: termset.d0111eb4.yaml
+  - sortid: 附件30
+    type: term
+    id: 7
+    path: termset.7.yaml
+  - sortid: 附件31
+    type: termset
+    id: 6d206b54
+    path: termset.6d206b54.yaml
+  - sortid: 附件32
+    type: termset
+    id: 9e6bc34f 
+    path: termset.9e6bc34f .yaml
+  - sortid: 附件33
+    type: termset
+    id: 600f6f80
+    path: termset.600f6f80.yaml
+  - sortid: 附件34
+    type: termset
+    id: 12119600 
+    path: termset.12119600.yaml
+  - sortid: 附件42
+    type: term
+    id: 8
+    path: termset.8.yaml
+  - sortid: 附件43
+    type: term
+    id: 9
+    path: termset.9.yaml

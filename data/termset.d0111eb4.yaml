@@ -1,0 +1,12 @@
+name: 实施效果的核实
+id: d0111eb4
+level: 1
+item:
+  - sortid: 1
+    type: term
+    id: 4116b506
+    path: term.4116b506.yaml
+  - sortid: 2
+    type: term
+    id: 607455c0
+    path: term.607455c0.yaml
