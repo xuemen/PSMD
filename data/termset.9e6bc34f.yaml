@@ -7,24 +7,23 @@ interface:
 item:
   - sortid: 1
     type: term
-    id: "d1f88a2c"
+    id: d1f88a2c
     path: term.d1f88a2c.yaml
   - sortid: 2
     type: term
-    id: "2e758794"
+    id: 2e758794
     map:
       term:
         '1': 1
     path: term.2e758794.yaml
   - sortid: 3
     type: term
-    id: "d13b27d1"
+    id: d13b27d1
     path: term.d13b27d1.yaml
   - sortid: 4
     type: term
-    id: "df39a1ed"
+    id: df39a1ed
     path: term.df39a1ed.yaml
 readme: |
-  说明：
   - 顶层权利分配规则肯定在保密制度之上，因此PSMD只讨论公开资料。
   - 如果某个审议环节从某网址取得一份资料，这份资料从产生、生效、所有使用环节都从这个网址获得。比如是指令，下达指令者应在这个网址发布指令，然后通知接受指令者去阅读。

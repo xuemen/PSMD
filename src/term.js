@@ -166,6 +166,7 @@ function commit() {
             }
         }
 
+        //var option = new Object({forceQuotes:true}); 
         fs.writeFileSync(newfilename, yaml.dump(termset));
         console.log(newfilename + "文件已更新。" + oldfilename + "可以删除。");
     }
@@ -178,29 +179,55 @@ function maketermview(termid) {
 function maketermsetview(termsetid) {
     //console.log("enter maketermsetview:"+termsetid)
     var termsetfilename = datapath + "termset." + termsetid + ".yaml";
-    var termsetobj = yaml.load(fs.readFileSync(termsetfilename, 'utf8'));
+    //var termsetobj = yaml.load(fs.readFileSync(termsetfilename, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA }););
+    var termsetasitem = new Object();
+    termsetasitem.sortid = "";
+    termsetfilename.type = "termset";
+    termsetasitem.id = termsetid;
+    termsetasitem.path = termsetfilename;
 
-    var termsettext = maketermsettext(termsetid, "", null);
+    var termsettext = maketermsettext(termsetasitem, "", null);
+
+    //console.log("maketermsettext()返回值内容如下:\n" + termsettext);
+    //console.log("\ntreetext内容如下:\n" + termsetasitem.treetext);
+    //console.log("\ntreereadme内容如下:\n" + termsetasitem.treereadme);
 
     var viewfilename = viewpath + "termset." + termsetid + ".md";
     fs.writeFileSync(viewfilename, termsettext);
     console.log(viewfilename + "文件更新，内容如下:\n" + termsettext);
 }
 
-function maketermsettext(termsetid, prefix, map) {
-    var termsetfilename = datapath + "termset." + termsetid + ".yaml";
-    var termsetobj = yaml.load(fs.readFileSync(termsetfilename, 'utf8'));
+function maketermsettext(termset, prefix, map) {
+    var termsetfilename = datapath + "termset." + termset.id + ".yaml";
+    var termsetobj = yaml.load(fs.readFileSync(termsetfilename, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
 
-    var termsettext = "";
+    var treetext = "";
+    var treereadme = "";
+    if ((termsetobj.readme != null)&(termsetobj.readme != "")) {
+        treereadme = termsetobj.readme;
+    } else {
+        treereadme = "";
+    }
+    //console.log("termsetobj.readme: "+termsetobj.readme);
+    //console.log("begin "+treereadme);
 
     for (var i in termsetobj.item) {
         var item = termsetobj.item[i];
+        var subprefix = prefix + item.sortid + "."
         if (item.type == "termset") {
-            var itemtext = maketermsettext(item.id, prefix + item.sortid + ".", item.map);
-            termsettext = termsettext + itemtext;
+            var itemtext = maketermsettext(item, subprefix, item.map);
+            treetext = treetext + subprefix + "\n" + item.treetext;
+            if (item.treereadme != "") {
+                treereadme = treereadme + subprefix + " readme:\n" + item.treereadme;
+            }
+            //treereadme = treereadme + item.treereadme;
         } else {
-            var termtext = maketermtext(item.id, prefix + item.sortid + ". ", item.map);
-            termsettext = termsettext + termtext;
+            //console.log("before enter maketerttext(), item:"+yaml.dump(item))
+            var termtext = maketermtext(item, subprefix, item.map);
+            treetext = treetext + subprefix + " " + item.treetext;
+            if (item.treereadme != null) {
+                treereadme = treereadme + subprefix + " readme:\n" + item.treereadme;
+            }
         }
     }
 
@@ -208,8 +235,8 @@ function maketermsettext(termsetid, prefix, map) {
     for (var interfacetype in termsetobj.interface) {
         for (var localid in termsetobj.interface[interfacetype]) {
             var placeholder = "<" + interfacetype + "." + localid + ">";
-
             var newplaceholder = "";
+
             if (map != null) {
                 if (map[interfacetype][localid] != null) {
                     // replace the placeholder use the map from upper level
@@ -222,36 +249,42 @@ function maketermsettext(termsetid, prefix, map) {
                 // default: replace the placeholder use local interface
                 newplaceholder = termsetobj.interface[interfacetype][localid];
             }
-            console.log(placeholder + " -> " + newplaceholder);
+            //console.log(placeholder + " -> " + newplaceholder);
 
             //termsettext = termsettext.replace(placeholder, newplaceholder);
-            termsettext = termsettext.split(placeholder).join(newplaceholder);
-            console.log(termsettext);
+            treetext = treetext.split(placeholder).join(newplaceholder);
+            //console.log("treetext:  \n" + treetext);
+
+            treereadme = treereadme.split(placeholder).join(newplaceholder);
+            //console.log("treereadme:  \n" + treereadme);
         }
     }
 
-    if ((prefix == "") & (termsetobj.readme != null)) {
-        // top level, add readme.
-        termsettext = termsettext + "\n\n---\n\n" + termsetobj.readme + "\n---\n";
+    termset.treetext = treetext;
+    termset.treereadme = treereadme;
+
+    if (treereadme != "") {
+        return prefix + treetext + "\n---\n\n" + treereadme + "\n---\n";
+    } else {
+        return prefix + treetext;
     }
 
-    return termsettext;
 }
 
-function maketermtext(termid, prefix, map) {
+function maketermtext(term, prefix, map) {
     //console.log("enter maketermtext:"+termid+prefix);
-    var termfilename = datapath + "term." + termid + ".yaml";
-    var termobj = yaml.load(fs.readFileSync(termfilename, 'utf8'));
+    var termfilename = datapath + "term." + term.id + ".yaml";
+    var termobj = yaml.load(fs.readFileSync(termfilename, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
 
-    var termtext = termobj.text;
-
+    var treetext = termobj.text;
+    var treereadme = termobj.readme;
 
     for (var interfacetype in termobj.interface) {
         for (var localid in termobj.interface[interfacetype]) {
             //var localid = termobj.interface[interfacetype][i].id;
             var placeholder = "<" + interfacetype + "." + localid + ">";
-
             var newplaceholder = "";
+
             if (map != null) {
                 if (map[interfacetype][localid] != null) {
                     // replace the placeholder use the map from upper level
@@ -264,17 +297,23 @@ function maketermtext(termid, prefix, map) {
                 // default: replace the placeholder use local interface
                 newplaceholder = termobj.interface[interfacetype][localid];
             }
-            console.log(placeholder + " -> " + newplaceholder);
+            //console.log(placeholder + " -> " + newplaceholder);
 
-            //termtext = termtext.replace(placeholder, newplaceholder);
-            termtext = termtext.split(placeholder).join(newplaceholder);
-            console.log(termtext);
+            treetext = treetext.split(placeholder).join(newplaceholder);
+            //console.log("treetext:  \n" + treetext);
+            if (treereadme != null) {
+                treereadme = treereadme.split(placeholder).join(newplaceholder);
+                //console.log("treereadme:  \n" + treereadme);
+            }
         }
     }
-
-
-    termtext = prefix + "" + termtext;
-    return termtext;
+    term.treetext = treetext;
+    if (treereadme != null) {
+        term.treereadme = treereadme;
+        return prefix + treetext + "\n\n---\n\n" + treereadme + "\n---\n";
+    } else {
+        return prefix + treetext;
+    }
 }
 
 //util

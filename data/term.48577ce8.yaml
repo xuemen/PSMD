@@ -1,0 +1,14 @@
+name: 直接指挥权
+id: 48577ce8
+interface:
+  entity:
+    '1': 经理
+    '2': 执行部门
+    '3': 决策部门
+  term:
+    '1': 基本制度
+    '3': 劳动合同
+  asset:
+    '1': 通用工单
+text: |
+  在<entity.2>内，<term.1>和<term.3>未定义的事项由<entity.1>直接指挥。
