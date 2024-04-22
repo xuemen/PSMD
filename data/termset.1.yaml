@@ -1,71 +1,57 @@
-name: 1406动议
+name: 预设1406动议
 id: 1
 level: 1
 interface:
   entity:
-    1: 经理
-    2: 执行部门
-    3: 决策部门
-  term:
-    1: 基本制度
-    2: 具体规章
-    3: 劳动合同
+    e1: 共同体
+    e2: 经理
+    e3: 决策部门
+    e4: 执行部门
+    e5: 下达指令者
   asset:
-    1: 通用工单
-    2: 审议报告
+    a1: 通用工单
+    a2: 审议报告
+    a3: 工作日志
+  term:
+    '1': 基本制度
+    '2': 具体规章
+    '3': 劳动合同
+    44: 附件44
+    1406: 附件1406
 item:
   - sortid: 1
+    type: term
+    id: 2
+    map:
+      term:
+        1: 44
+        2: 1406
+    path: term.2.yaml
+  - sortid: 附件44
     type: term
     id: 1
     map:
       entity:
-        1: 1
-        2: 2
-        3: 3
-      term:
-        1: 1
-        3: 3
+        1: e1
+        2: e5
+        3: e3
+        4: e4
       asset:
-        1: 1
+        1: a1
     path: term.1.yaml
-  - sortid: 2
-    type: term
-    id: 2
+  - sortid: 附件1406
+    type: termset
+    id: 056e71fb
     map:
       entity:
-        1: 1
-        2: 2
-        3: 3
+        '1': e2
+        '2': e4
+        '3': e3
       term:
-        2: 2
+        '1': 1
+        '2': 2
+        '3': 3
       asset:
-        1: 1
-    path: term.2.yaml
-  - sortid: 3
-    type: term
-    id: 3
-    map:
-      entity:
-        1: 1
-        2: 2
-        3: 3
-      asset:
-        1: 1
-    path: term.3.yaml
-  - sortid: 4
-    type: term
-    id: 4
-    map:
-      entity:
-        1: 1
-        2: 2
-        3: 3
-      term:
-        1: 1
-        2: 2
-      asset:
-        1: 1
-        2: 2
-    path: term.4.yaml
-readme: |
-  1406准确的定位是<entity.3>的动议套件，可以用作其它模型的附件。 ​​​
+        '1': a1
+        '2': a2
+    path: termset.056e71fb.yaml

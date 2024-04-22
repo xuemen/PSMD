@@ -178,6 +178,15 @@ error:
 ~~~
 name:
 id:
+interface:
+  entity:
+    id: name
+  asset:
+    id: name
+  term:
+    id: name
+  event:
+    id: name
 text: |
 readme: |
 bind:
@@ -203,7 +212,20 @@ bind:
 ~~~
 name:
 id:
-envid:
+env:
+  term:
+    - id:
+    - id:
+  termset:
+    - id:
+    - id:
+  error:
+    - id
+    - id
+  text: |
+depend:
+  error:
+    id: 
 term:
   - id:
 termset:

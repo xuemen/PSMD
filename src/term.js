@@ -238,10 +238,15 @@ function maketermsettext(termset, prefix, map) {
             var newplaceholder = "";
 
             if (map != null) {
-                if (map[interfacetype][localid] != null) {
-                    // replace the placeholder use the map from upper level
-                    newplaceholder = "<" + interfacetype + "." + map[interfacetype][localid] + ">";
-                } else {
+                if(map[interfacetype] != null){
+                    if (map[interfacetype][localid] != null) {
+                        // replace the placeholder use the map from upper level
+                        newplaceholder = "<" + interfacetype + "." + map[interfacetype][localid] + ">";
+                    } else {
+                        // default: replace the placeholder use local interface
+                        newplaceholder = termsetobj.interface[interfacetype][localid];
+                    }
+                }else{
                     // default: replace the placeholder use local interface
                     newplaceholder = termsetobj.interface[interfacetype][localid];
                 }
@@ -286,10 +291,15 @@ function maketermtext(term, prefix, map) {
             var newplaceholder = "";
 
             if (map != null) {
-                if (map[interfacetype][localid] != null) {
-                    // replace the placeholder use the map from upper level
-                    newplaceholder = "<" + interfacetype + "." + map[interfacetype][localid] + ">";
-                } else {
+                if(map[interfacetype] != null){
+                    if (map[interfacetype][localid] != null) {
+                        // replace the placeholder use the map from upper level
+                        newplaceholder = "<" + interfacetype + "." + map[interfacetype][localid] + ">";
+                    } else {
+                        // default: replace the placeholder use local interface
+                        newplaceholder = termobj.interface[interfacetype][localid];
+                    }
+                }else{
                     // default: replace the placeholder use local interface
                     newplaceholder = termobj.interface[interfacetype][localid];
                 }

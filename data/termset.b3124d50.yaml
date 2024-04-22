@@ -1,0 +1,57 @@
+name: 预设1406动议
+id: b3124d50
+level: 1
+interface:
+  entity:
+    e1: 共同体
+    e2: 经理
+    e3: 决策部门
+    e4: 执行部门
+    e5: 下达指令者
+  asset:
+    a1: 通用工单
+    a2: 审议报告
+    a3: 工作日志
+  term:
+    '1': 基本制度
+    '2': 具体规章
+    '3': 劳动合同
+    '44': 附件44
+    '1406': 附件1406
+item:
+  - sortid: 1
+    type: term
+    id: 583d6243
+    map:
+      term:
+        '1': 44
+        '2': 1406
+    path: term.583d6243.yaml
+  - sortid: 附件44
+    type: term
+    id: 0ccddb29
+    map:
+      entity:
+        '1': e1
+        '2': e5
+        '3': e3
+        '4': e4
+      asset:
+        '1': a1
+    path: term.0ccddb29.yaml
+  - sortid: 附件1406
+    type: termset
+    id: 056e71fb
+    map:
+      entity:
+        '1': e2
+        '2': e4
+        '3': e3
+      term:
+        '1': 1
+        '2': 2
+        '3': 3
+      asset:
+        '1': a1
+        '2': a2
+    path: termset.056e71fb.yaml
