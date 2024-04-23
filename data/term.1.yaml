@@ -9,6 +9,8 @@ interface:
   asset:
     1: 工单
     2: 日志
+  term:
+    1: 资源不足
 text: |
   出现以下情况之一：
   - <entity.3>未界定<entity.4>工作的合规性要求。

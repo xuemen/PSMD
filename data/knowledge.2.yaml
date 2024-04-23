@@ -7,7 +7,7 @@ env:
     无法有效分配未来收入
 depend:
   error:
-    id: cde3c3e2
+  - id: cde3c3e2
 term:
   - id: 5b4e0597
 error:

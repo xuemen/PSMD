@@ -16,6 +16,7 @@ interface:
     '1': 基本制度
     '2': 具体规章
     '3': 劳动合同
+    42: 附件42
     44: 附件44
     1406: 附件1406
 item:
@@ -27,6 +28,10 @@ item:
         1: 44
         2: 1406
     path: term.2.yaml
+  - sortid: '附件42'
+    type: 'term'
+    id: 'cb4ab0e9'
+    path: 'termset.cb4ab0e9.yaml'
   - sortid: 附件44
     type: term
     id: 1
@@ -38,6 +43,8 @@ item:
         4: e4
       asset:
         1: a1
+      term:
+        1: 42
     path: term.1.yaml
   - sortid: 附件1406
     type: termset

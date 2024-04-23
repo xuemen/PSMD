@@ -12,6 +12,7 @@ const viewpath = "../view/";
 const helpstr = `
 node term all   : term metada + termset metadata → allterm metadata
 node term commit:   temp metadata → formal metadata
+node term commit filename: temp metadata → formal metadata
 node term term id   : term metadata → term markdown + html
 node term termset id    ： termset metadata → termset markdown + html
 `;
@@ -29,6 +30,9 @@ if (arguments.length > 0) {
     } else if ((arguments.length == 1) & (arguments[0] == "commit")) {
         // node term commit:   temp metadata → formal metadata
         commit();
+    } else if ((arguments.length == 2) & (arguments[0] == "commit")) {
+        var filename = arguments[1];
+        commit(filename);
     } else if ((arguments.length == 2) & (arguments[0] == "term")) {
         // node term term id   : term metadata → term markdown + html
         var termid = arguments[1];
@@ -84,26 +88,51 @@ function makeallterm() {
 function commit() {
     var alltempterm = new Object();
     var alltemptermset = new Object();
+    var alltemperror = new Object();
+    var alltempknowledge = new Object();
     var termmap = new Object();
     var termsetmap = new Object();
+    var errormap = new Object();
+    var knowledgemap = new Object();
 
     fs.readdirSync(datapath).forEach(file => {
-        if ((file.substr(0, 5) == "term.") & (file.length == 11)) {
+        if ((file.substr(0, 5) == "term.") & (file.length < 18)) {
+            console.log("commit "+ file);
             var tempterm = yaml.load(fs.readFileSync(datapath + file, 'utf8'));
             alltempterm[tempterm.id] = tempterm;
 
-            var hashid = crypto.createHash("sha256").update(tempterm.name).digest("hex").slice(0, 8);
+            //var hashid = crypto.createHash("sha256").update(tempterm.name).digest("hex").slice(0, 8);
+            var hashid = makemetafileid(tempterm.name);
             console.log(tempterm.name, hashid);
             termmap[tempterm.id] = hashid;
         }
-        if ((file.substr(0, 8) == "termset.") & (file.length == 14)) {
+        if ((file.substr(0, 8) == "termset.") & (file.length < 21)) {
+            console.log("commit "+ file);
             var temptermset = yaml.load(fs.readFileSync(datapath + file, 'utf8'));
             alltemptermset[temptermset.id] = temptermset;
 
 
-            var hashid = crypto.createHash("sha256").update(temptermset.name).digest("hex").slice(0, 8);
+            //var hashid = crypto.createHash("sha256").update(temptermset.name).digest("hex").slice(0, 8);
+            var hashid = makemetafileid(temptermset.name);
             console.log(temptermset.name, hashid);
             termsetmap[temptermset.id] = hashid;
+        }
+        if ((file.substr(0, 6) == "error.") & (file.length < 19)) {
+            console.log("commit "+ file);
+            var temperror = yaml.load(fs.readFileSync(datapath + file, 'utf8'));
+            alltemperror[temperror.id] = temperror;
+
+            var hashid = makemetafileid(temperror.name);
+            console.log(temperror.name, hashid);
+            errormap[temperror.id] = hashid;
+        }if ((file.substr(0, 10) == "knowledge.") & (file.length < 23)) {
+            console.log("commit "+ file);
+            var tempknowledge = yaml.load(fs.readFileSync(datapath + file, 'utf8'));
+            alltempknowledge[tempknowledge.id] = tempknowledge;
+
+            var hashid = makemetafileid(tempknowledge.name);
+            console.log(tempknowledge.name, hashid);
+            knowledgemap[tempknowledge.id] = hashid;
         }
     });
 
@@ -123,6 +152,22 @@ function commit() {
         var newfilename = datapath + "term." + termmap[id] + ".yaml";
 
         fs.writeFileSync(newfilename, yaml.dump(term));
+        console.log(newfilename + "文件已更新。" + oldfilename + "可以删除。");
+    }
+
+    for (var id in alltemperror) {
+        var error = alltemperror[id];
+        var oldfilename = datapath + "error." + id + ".yaml";
+
+        if (errormap[id] != null) {
+            error.id = errormap[id];
+        } else {
+            console.log("旧文件:" + oldfilename + "中的id:" + id + "未能替换，请人工检查。")
+        }
+
+        var newfilename = datapath + "error." + errormap[id] + ".yaml";
+
+        fs.writeFileSync(newfilename, yaml.dump(error));
         console.log(newfilename + "文件已更新。" + oldfilename + "可以删除。");
     }
 
@@ -170,7 +215,133 @@ function commit() {
         fs.writeFileSync(newfilename, yaml.dump(termset));
         console.log(newfilename + "文件已更新。" + oldfilename + "可以删除。");
     }
+
+    for (var id in alltempknowledge) {
+        var knowledge = alltempknowledge[id];
+        var oldfilename = datapath + "knowledge." + id + ".yaml";
+
+        if (knowledgemap[id] != null) {
+            knowledge.id = knowledgemap[id];
+        } else {
+            console.log("旧文件:" + oldfilename + "未能替换，请人工检查。")
+        }
+        var newfilename = datapath + "knowledge." + knowledgemap[id] + ".yaml";
+
+        for (var type in knowledge.env) {
+            for(var i in knowledge.env[type]){
+                if(type == "term"){
+                    if(termmap[knowledge.env[type][i].id] != null){
+                        var oldid = knowledge.env[type][i].id ;
+                        console.log("knowledge env replace. type: " + type + "id: " + knowledge.env[type][i].id + " -> " + termmap[knowledge.env[type][i].id]) ;
+                        knowledge.env[type][i].id = termmap[knowledge.env[type][i].id];
+                    }else{
+                        console.log("旧文件:" + oldfilename + "中env字段, type:" + type + "的id:" + knowledge.env[type][i].id + "未能替换，请人工检查。");
+                    }
+                } else if (type == "termset") {
+                    if(termsetmap[knowledge.env[type][i].id] != null){
+                        var oldid = knowledge.env[type][i].id ;
+                        console.log("knowledge env replace. type: " + type + "id: " + knowledge.env[type][i].id + " -> " + termsetmap[knowledge.env[type][i].id]) ;
+                        knowledge.env[type][i].id = termsetmap[knowledge.env[type][i].id];
+                    }else{
+                        console.log("旧文件:" + oldfilename + "中env字段, type:" + type + "的id:" + knowledge.env[type][i].id + "未能替换，请人工检查。");
+                    }
+                } else if (type == "error") {
+                    if(errormap[knowledge.env[type][i].id] != null){
+                        var oldid = knowledge.env[type][i].id ;
+                        console.log("knowledge env replace. type: " + type + "id: " + knowledge.env[type][i].id + " -> " + errormap[knowledge.env[type][i].id]) ;
+                        knowledge.env[type][i].id = errormap[knowledge.env[type][i].id];
+                    }else{
+                        console.log("旧文件:" + oldfilename + "中env字段, type:" + type + "的id:" + knowledge.env[type][i].id + "未能替换，请人工检查。");
+                    }
+                }
+            }
+        }
+
+        for(var type in knowledge.depend){
+            for(var i in knowledge.depend[type]){
+                if(type == "term"){
+                    if(termmap[knowledge.depend[type][i].id] != null){
+                        var oldid = knowledge.depend[type][i].id ;
+                        console.log("knowledge depend replace. type: " + type + "id: " + knowledge.depend[type][i].id + " -> " + termmap[knowledge.depend[type][i].id]) ;
+                        knowledge.depend[type][i].id = termmap[knowledge.depend[type][i].id];
+                    }else{
+                        console.log("旧文件:" + oldfilename + "中depend字段, type:" + type + "的id:" + knowledge.depend[type][i].id + "未能替换，请人工检查。");
+                    }
+                } else if (type == "termset") {
+                    if(termsetmap[knowledge.depend[type][i].id] != null){
+                        var oldid = knowledge.depend[type][i].id ;
+                        console.log("knowledge depend replace. type: " + type + "id: " + knowledge.depend[type][i].id + " -> " + termsetmap[knowledge.depend[type][i].id]) ;
+                        knowledge.depend[type][i].id = termsetmap[knowledge.depend[type][i].id];
+                    }else{
+                        console.log("旧文件:" + oldfilename + "中depend字段, type:" + type + "的id:" + knowledge.depend[type][i].id + "未能替换，请人工检查。");
+                    }
+                } else if (type == "error") {
+                    if(errormap[knowledge.depend[type][i].id] != null){
+                        var oldid = knowledge.depend[type][i].id ;
+                        console.log("knowledge depend replace. type: " + type + "id: " + knowledge.depend[type][i].id + " -> " + errormap[knowledge.depend[type][i].id]) ;
+                        knowledge.depend[type][i].id = errormap[knowledge.depend[type][i].id];
+                    }else{
+                        console.log("旧文件:" + oldfilename + "中depend字段, type:" + type + "的id:" + knowledge.depend[type][i].id + "未能替换，请人工检查。");
+                    }
+                }
+            }
+        }
+
+        for(var i in knowledge.term){
+            if(termmap[knowledge.term[i].id] != null){
+                var oldid = knowledge.term[i].id ;
+                console.log("knowledge term replace. id: " + knowledge.term[i].id + " -> " + termmap[knowledge.term[i].id]) ;
+                knowledge.term[i].id = termmap[knowledge.term[i].id];
+            }else{
+                console.log("旧文件:" + oldfilename + "中term字段, id:" + knowledge.term[i].id + "未能替换，请人工检查。");
+            }
+        }
+        
+        for(var i in knowledge.termset){
+            if(termsetmap[knowledge.termset[i].id] != null){
+                var oldid = knowledge.termset[i].id ;
+                console.log("knowledge termset replace. id: " + knowledge.termset[i].id + " -> " + termsetmap[knowledge.termset[i].id]) ;
+                knowledge.termset[i].id = termsetmap[knowledge.termset[i].id];
+            }else{
+                console.log("旧文件:" + oldfilename + "中termset字段, id:" + knowledge.termset[i].id + "未能替换，请人工检查。");
+            }
+        }
+        
+        for(var i in knowledge.error){
+            if(errormap[knowledge.error[i].id] != null){
+                var oldid = knowledge.error[i].id ;
+                console.log("knowledge error replace. id: " + knowledge.error[i].id + " -> " + errormap[knowledge.error[i].id]) ;
+                knowledge.error[i].id = errormap[knowledge.error[i].id];
+            }else{
+                console.log("旧文件:" + oldfilename + "中error字段, id:" + knowledge.error[i].id + "未能替换，请人工检查。");
+            }
+        }
+
+        //var option = new Object({forceQuotes:true}); 
+        fs.writeFileSync(newfilename, yaml.dump(knowledge));
+        console.log(newfilename + "文件已更新。" + oldfilename + "可以删除。");
+    }
 }
+
+// commit a temp metadata file
+// type unknown
+function committemp(filename){
+
+}
+
+function committempterm(obj){
+
+}
+
+function committemptermset(obj){
+
+}
+
+
+function committemperror(obj){
+
+}
+
 
 function maketermview(termid) {
 
@@ -327,3 +498,7 @@ function maketermtext(term, prefix, map) {
 }
 
 //util
+function makemetafileid(name){
+    var hashid = crypto.createHash("sha256").update(name).digest("hex").slice(0, 8);
+    return hashid;
+}
