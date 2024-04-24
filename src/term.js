@@ -15,10 +15,15 @@ node term commit:   temp metadata → formal metadata
 node term commit filename: temp metadata → formal metadata
 node term term id   : term metadata → term markdown + html
 node term termset id    ： termset metadata → termset markdown + html
+node term error id    ： error metadata → error markdown + html
+node term knowledge    ： knowledge metadata → allknowledge metadata
+node term knowledge id    ： knowledge metadata → knowledge markdown + html
 `;
 
 var termmap = new Object();
 var termsetmap = new Object();
+var errormap = new Object();
+var knowledgemap = new Object();
 
 // read the arguments
 var arguments = process.argv.splice(2);
@@ -27,6 +32,10 @@ if (arguments.length > 0) {
         // node term all   : term metada + termset metadata → allterm metadata
         loadallterm();
         makeallterm();
+    } else if ((arguments.length == 1) & (arguments[0] == "knowledge")) {
+        // node term knowledge    ： knowledge metadata → allknowledge metadata
+        loadallknowledge();
+        makeallknowledge();
     } else if ((arguments.length == 1) & (arguments[0] == "commit")) {
         // node term commit:   temp metadata → formal metadata
         commit();
@@ -44,6 +53,16 @@ if (arguments.length > 0) {
         var termsetid = arguments[1];
         loadallterm();
         maketermsetview(termsetid);
+    }else if ((arguments.length == 2) & (arguments[0] == "error")) {
+        // node term error id    ： error metadata → error markdown + html
+        var errorid = arguments[1];
+        loadallknowledge();
+        makeerrorview(errorid);
+    }else if ((arguments.length == 2) & (arguments[0] == "knowledge")) {
+        // node term knowledge id    ： knowledge metadata → knowledge markdown + html
+        var knowledgeid = arguments[1];
+        loadallknowledge();
+        makeknowledgeview(knowledgeid);
     } else {
         console.log(helpstr);
         process.exit();
@@ -53,16 +72,16 @@ if (arguments.length > 0) {
     process.exit();
 }
 
-function loadallterm() {
+function loadallterm(){
     try {
         fs.readdirSync(datapath).forEach(file => {
             if (file.substr(0, 5) == "term.") {
-                var t = yaml.load(fs.readFileSync(datapath + file, 'utf8'));
+                var t = yaml.load(fs.readFileSync(datapath + file, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
                 termmap[t.id] = t;
 
             }
             if (file.substr(0, 8) == "termset.") {
-                var ts = yaml.load(fs.readFileSync(datapath + file, 'utf8'));
+                var ts = yaml.load(fs.readFileSync(datapath + file, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
                 termsetmap[ts.id] = ts;
             }
         });
@@ -70,6 +89,34 @@ function loadallterm() {
         // failure
         console.log("yaml read error！" + e);
     }
+}
+
+function loadallknowledge() {
+    try {
+        fs.readdirSync(datapath).forEach(file => {
+            if (file.substr(0, 6) == "error.") {
+                var e = yaml.load(fs.readFileSync(datapath + file, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
+                errormap[e.id] = e;
+
+            }
+            if (file.substr(0, 10) == "knowledge.") {
+                var k = yaml.load(fs.readFileSync(datapath + file, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
+                knowledgemap[k.id] = k;
+            }
+        });
+    } catch (e) {
+        // failure
+        console.log("yaml read error！" + e);
+    }
+}
+
+function makeallknowledge(){
+    var allknowledge = new Object();
+    allknowledge["error"] = errormap;
+    allknowledge["knowledge"] = knowledgemap;
+
+    fs.writeFileSync(datapath + "allknowledge.yaml", yaml.dump(allknowledge));
+    console.log(datapath + 'allknowledge.yaml文件已更新。\n'+yaml.dump(allknowledge));
 }
 
 function makeallterm() {
@@ -344,7 +391,20 @@ function committemperror(obj){
 
 
 function maketermview(termid) {
+    var term = new Object();
+    term.id = termid ;
+    var termtext = maketermtext(term,"",null);
 
+    //console.log("return value:"+termtext) ;
+    //console.log("return obj:\n"+yaml.dump(term));
+
+    var viewfilename = viewpath + "term." + termid + ".md";
+    var viewstr = "条款 "+termid+" 正文:\n"+term.treetext;
+    if(term.treereadme != null){
+        viewstr = viewstr+"\n---\n条款 "+termid+" readme:\n"+term.treereadme
+    }
+    fs.writeFileSync(viewfilename, viewstr);
+    console.log(viewfilename + "文件更新，内容如下:\n" + viewstr);
 }
 
 function maketermsetview(termsetid) {
@@ -392,13 +452,15 @@ function maketermsettext(termset, prefix, map) {
                 treereadme = treereadme + subprefix + " readme:\n" + item.treereadme;
             }
             //treereadme = treereadme + item.treereadme;
-        } else {
+        } else if (item.type == "term") {
             //console.log("before enter maketerttext(), item:"+yaml.dump(item))
             var termtext = maketermtext(item, subprefix, item.map);
             treetext = treetext + subprefix + " " + item.treetext;
             if (item.treereadme != null) {
                 treereadme = treereadme + subprefix + " readme:\n" + item.treereadme;
             }
+        } else{
+            console.log("maketermsettext() non't know this type:"+ item.type);
         }
     }
 
@@ -447,6 +509,7 @@ function maketermsettext(termset, prefix, map) {
 
 }
 
+
 function maketermtext(term, prefix, map) {
     //console.log("enter maketermtext:"+termid+prefix);
     var termfilename = datapath + "term." + term.id + ".yaml";
@@ -491,6 +554,106 @@ function maketermtext(term, prefix, map) {
     term.treetext = treetext;
     if (treereadme != null) {
         term.treereadme = treereadme;
+        return prefix + treetext + "\n\n---\n\n" + treereadme + "\n---\n";
+    } else {
+        return prefix + treetext;
+    }
+}
+
+function makeerrorview(errorid){
+    var error = new Object();
+    error.id = errorid ;
+    var errortext = makeerrortext(error,"",null);
+
+    //console.log("return value:"+errortext) ;
+    //console.log("return obj:\n"+yaml.dump(error));
+
+    var viewfilename = viewpath + "error." + errorid + ".md";
+    var viewstr = "问题 "+errorid+" 正文:\n"+error.treetext;
+    if(error.treereadme != null){
+        viewstr = viewstr+"\n---\n问题 "+errorid+" readme:\n"+error.treereadme
+    }
+
+    var knowledgetable = new Object();
+    makeerrornet(errorid,knowledgetable);
+    //fs.writeFileSync(viewfilename, viewstr);
+    console.log(viewfilename + "文件更新，内容如下:\n" + viewstr);
+}
+
+// generate the error-depend error + knowledge- depend error 
+function makeerrornet(errorid,knowledgetable){
+    console.log("enter makeerrornet: "+errorid+" 已查找的knowledge:\n"+yaml.dump(knowledgetable));
+    //console.log("allknowledge:\n"+yaml.dump(knowledgemap));
+    for(var id in knowledgemap){
+        console.log("search knowledge: "+id)
+        var knowledgeobj = knowledgemap[id] ;
+        for(var effectid in knowledgeobj.error){
+            if(knowledgeobj.error[effectid].id == errorid){
+                // find a effective knowledge
+                if(knowledgetable[id] == null){
+                    console.log("发现knowledge "+id+" 可以解决 error "+errorid+" 有效率: "+ knowledgeobj.error[effectid].percent)
+                    knowledgetable[id] = true ;
+                    if(knowledgeobj.depend.error != null){
+                        console.log("knowledge "+id+" 生效有先决条件，先解决error:");
+                        for(var dependid in knowledgeobj.depend.error){
+                            console.log("error:"+knowledgeobj.depend.error[dependid].id);
+                            makeerrornet(knowledgeobj.depend.error[dependid].id,knowledgetable);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+function makeknowledgeview(){
+
+}
+
+function makeerrortext(error,prefix,map){
+    var errorfilename = datapath + "error." + error.id + ".yaml";
+    var errorobj = yaml.load(fs.readFileSync(errorfilename, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
+
+    var treetext = errorobj.text;
+    var treereadme = errorobj.readme;
+
+    for (var interfacetype in errorobj.interface) {
+        for (var localid in errorobj.interface[interfacetype]) {
+            //var localid = errorobj.interface[interfacetype][i].id;
+            var placeholder = "<" + interfacetype + "." + localid + ">";
+            var newplaceholder = "";
+
+            if (map != null) {
+                if(map[interfacetype] != null){
+                    if (map[interfacetype][localid] != null) {
+                        // replace the placeholder use the map from upper level
+                        newplaceholder = "<" + interfacetype + "." + map[interfacetype][localid] + ">";
+                    } else {
+                        // default: replace the placeholder use local interface
+                        newplaceholder = errorobj.interface[interfacetype][localid];
+                    }
+                }else{
+                    // default: replace the placeholder use local interface
+                    newplaceholder = errorobj.interface[interfacetype][localid];
+                }
+            } else {
+                // default: replace the placeholder use local interface
+                newplaceholder = errorobj.interface[interfacetype][localid];
+            }
+            //console.log(placeholder + " -> " + newplaceholder);
+
+            treetext = treetext.split(placeholder).join(newplaceholder);
+            //console.log("treetext:  \n" + treetext);
+            if (treereadme != null) {
+                treereadme = treereadme.split(placeholder).join(newplaceholder);
+                //console.log("treereadme:  \n" + treereadme);
+            }
+        }
+    }
+    error.treetext = treetext;
+    if (treereadme != null) {
+        error.treereadme = treereadme;
         return prefix + treetext + "\n\n---\n\n" + treereadme + "\n---\n";
     } else {
         return prefix + treetext;
