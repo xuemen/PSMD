@@ -2,8 +2,12 @@ var fs = require('fs');
 var yaml = require('js-yaml');
 //var Hashes = require('jshashes');
 const crypto = require('crypto');
+//import * as globalpath from "../../ego/src/path.js";
+const globalpath = require('../../ego/src/path.js');
 
 const gitpath = "../../";
+const egosrcpath = "../../ego/src/";
+
 const rawrepopath = "../../raw/";
 const draftrepopath = "../../draft/";
 const datapath = "../data/";
@@ -274,93 +278,68 @@ function commit() {
         }
         var newfilename = datapath + "knowledge." + knowledgemap[id] + ".yaml";
 
-        for (var type in knowledge.env) {
-            for(var i in knowledge.env[type]){
-                if(type == "term"){
-                    if(termmap[knowledge.env[type][i].id] != null){
-                        var oldid = knowledge.env[type][i].id ;
-                        console.log("knowledge env replace. type: " + type + "id: " + knowledge.env[type][i].id + " -> " + termmap[knowledge.env[type][i].id]) ;
-                        knowledge.env[type][i].id = termmap[knowledge.env[type][i].id];
-                    }else{
-                        console.log("旧文件:" + oldfilename + "中env字段, type:" + type + "的id:" + knowledge.env[type][i].id + "未能替换，请人工检查。");
-                    }
-                } else if (type == "termset") {
-                    if(termsetmap[knowledge.env[type][i].id] != null){
-                        var oldid = knowledge.env[type][i].id ;
-                        console.log("knowledge env replace. type: " + type + "id: " + knowledge.env[type][i].id + " -> " + termsetmap[knowledge.env[type][i].id]) ;
-                        knowledge.env[type][i].id = termsetmap[knowledge.env[type][i].id];
-                    }else{
-                        console.log("旧文件:" + oldfilename + "中env字段, type:" + type + "的id:" + knowledge.env[type][i].id + "未能替换，请人工检查。");
-                    }
-                } else if (type == "error") {
-                    if(errormap[knowledge.env[type][i].id] != null){
-                        var oldid = knowledge.env[type][i].id ;
-                        console.log("knowledge env replace. type: " + type + "id: " + knowledge.env[type][i].id + " -> " + errormap[knowledge.env[type][i].id]) ;
-                        knowledge.env[type][i].id = errormap[knowledge.env[type][i].id];
-                    }else{
-                        console.log("旧文件:" + oldfilename + "中env字段, type:" + type + "的id:" + knowledge.env[type][i].id + "未能替换，请人工检查。");
-                    }
+        for(var errorid in knowledge.depend){
+            var oldid = errorid ;
+            if(errormap[oldid] != null){
+                var newid = errormap[oldid];
+                console.log("knowledge depend replace. error:" + oldid + " -> " + newid) ;
+                var newobj = yaml.load(yaml.dump(knowledge.depend[oldid]));
+                knowledge.depend[newid] = newobj;
+                delete knowledge.depend[oldid];
+            }else{
+                console.log("旧文件:" + oldfilename + "中depend字段的id: " +oldid + " 未能替换，请人工检查。");
+            }
+        }
+
+        if(knowledge.type == "termtoerror"){
+            //replace the objid
+            var oldid = knowledge.objid ;
+            if(termmap[oldid] != null){
+                var newid = termmap[oldid];
+                console.log("knowledge objid replace:" + oldid + " -> " + newid) ;
+                knowledge.objid = newid;
+            }else{
+                console.log("旧文件:" + oldfilename + "中objid: " +oldid + " 未能替换，请人工检查。");
+            }
+
+            //replace the effect
+            for(var id in knowledge.effect){
+                oldid = id ;
+                if(errormap[oldid] != null){
+                    var newid = errormap[oldid];
+                    console.log("knowledge effect replace. id:" + oldid + " -> " + newid) ;
+                    var newobj = yaml.load(yaml.dump(knowledge.effect[oldid]));
+                    knowledge.effect[newid] = newobj;
+                    delete knowledge.effect[oldid];
+                }else{
+                    console.log("旧文件:" + oldfilename + "中effect字段的id: " +oldid + " 未能替换，请人工检查。");
                 }
             }
         }
 
-        for(var type in knowledge.depend){
-            for(var i in knowledge.depend[type]){
-                if(type == "term"){
-                    if(termmap[knowledge.depend[type][i].id] != null){
-                        var oldid = knowledge.depend[type][i].id ;
-                        console.log("knowledge depend replace. type: " + type + "id: " + knowledge.depend[type][i].id + " -> " + termmap[knowledge.depend[type][i].id]) ;
-                        knowledge.depend[type][i].id = termmap[knowledge.depend[type][i].id];
-                    }else{
-                        console.log("旧文件:" + oldfilename + "中depend字段, type:" + type + "的id:" + knowledge.depend[type][i].id + "未能替换，请人工检查。");
-                    }
-                } else if (type == "termset") {
-                    if(termsetmap[knowledge.depend[type][i].id] != null){
-                        var oldid = knowledge.depend[type][i].id ;
-                        console.log("knowledge depend replace. type: " + type + "id: " + knowledge.depend[type][i].id + " -> " + termsetmap[knowledge.depend[type][i].id]) ;
-                        knowledge.depend[type][i].id = termsetmap[knowledge.depend[type][i].id];
-                    }else{
-                        console.log("旧文件:" + oldfilename + "中depend字段, type:" + type + "的id:" + knowledge.depend[type][i].id + "未能替换，请人工检查。");
-                    }
-                } else if (type == "error") {
-                    if(errormap[knowledge.depend[type][i].id] != null){
-                        var oldid = knowledge.depend[type][i].id ;
-                        console.log("knowledge depend replace. type: " + type + "id: " + knowledge.depend[type][i].id + " -> " + errormap[knowledge.depend[type][i].id]) ;
-                        knowledge.depend[type][i].id = errormap[knowledge.depend[type][i].id];
-                    }else{
-                        console.log("旧文件:" + oldfilename + "中depend字段, type:" + type + "的id:" + knowledge.depend[type][i].id + "未能替换，请人工检查。");
-                    }
-                }
+        if(knowledge.type == "termsettoerror"){
+            //replace the objid
+            var oldid = knowledge.objid ;
+            if(termsetmap[oldid] != null){
+                var newid = termsetmap[oldid];
+                console.log("knowledge objid replace:" + oldid + " -> " + newid) ;
+                knowledge.objid = newid;
+            }else{
+                console.log("旧文件:" + oldfilename + "中objid: " +oldid + " 未能替换，请人工检查。");
             }
-        }
 
-        for(var i in knowledge.term){
-            if(termmap[knowledge.term[i].id] != null){
-                var oldid = knowledge.term[i].id ;
-                console.log("knowledge term replace. id: " + knowledge.term[i].id + " -> " + termmap[knowledge.term[i].id]) ;
-                knowledge.term[i].id = termmap[knowledge.term[i].id];
-            }else{
-                console.log("旧文件:" + oldfilename + "中term字段, id:" + knowledge.term[i].id + "未能替换，请人工检查。");
-            }
-        }
-        
-        for(var i in knowledge.termset){
-            if(termsetmap[knowledge.termset[i].id] != null){
-                var oldid = knowledge.termset[i].id ;
-                console.log("knowledge termset replace. id: " + knowledge.termset[i].id + " -> " + termsetmap[knowledge.termset[i].id]) ;
-                knowledge.termset[i].id = termsetmap[knowledge.termset[i].id];
-            }else{
-                console.log("旧文件:" + oldfilename + "中termset字段, id:" + knowledge.termset[i].id + "未能替换，请人工检查。");
-            }
-        }
-        
-        for(var i in knowledge.error){
-            if(errormap[knowledge.error[i].id] != null){
-                var oldid = knowledge.error[i].id ;
-                console.log("knowledge error replace. id: " + knowledge.error[i].id + " -> " + errormap[knowledge.error[i].id]) ;
-                knowledge.error[i].id = errormap[knowledge.error[i].id];
-            }else{
-                console.log("旧文件:" + oldfilename + "中error字段, id:" + knowledge.error[i].id + "未能替换，请人工检查。");
+            //replace the effect
+            for(var id in knowledge.effect){
+                oldid = id ;
+                if(errormap[oldid] != null){
+                    var newid = errormap[oldid];
+                    console.log("knowledge effect replace. id:" + oldid + " -> " + newid) ;
+                    var newobj = yaml.load(yaml.dump(knowledge.effect[oldid]));
+                    knowledge.effect[newid] = newobj;
+                    delete knowledge.effect[oldid];
+                }else{
+                    console.log("旧文件:" + oldfilename + "中effect字段的id: " +oldid + " 未能替换，请人工检查。");
+                }
             }
         }
 

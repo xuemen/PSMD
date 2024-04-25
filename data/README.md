@@ -212,29 +212,23 @@ bind:
 ~~~
 name:
 id:
-env:
-  term:
-    - id:
-    - id:
-  termset:
-    - id:
-    - id:
-  error:
-    - id
-    - id
-  text: |
+type:
+objid:
 depend:
-  error:
-    id: 
-term:
-  - id:
-termset:
-  - id:
-  - id
-error:
-  - id:
+  errorid:
+    percent:
+    text: | 
+together:
+  errorid:
+    percent:
+    text: |
+effect:
+  id:
     percent:
     text:
 readme: |
 ~~~
-在env下，term和termset生效就有多大可能性消除error。
+- depeng: 部署本条款（解决本error）之前先解决该error
+- together：部署本条款（解决本error）的同时开始解决该error
+- 解决方案只含一条term或者termset。
+- 根据type：objid to effect

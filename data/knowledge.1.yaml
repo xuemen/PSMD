@@ -1,21 +1,16 @@
 name: 1406解决割据问题
 id: 1
-env:
-  error:
-    - id: 1
-  text: |
-    未解决割据问题。
-  readme: |
-    创始团队使用的外来模版。可能实施步骤使用了错误的次序，或者遗漏了部分规章章节（尤其是特定步骤中使用的过渡性规章章节）。
+type: termsettoerror
+objid: 056e71fb
 depend:
-  error:
-  - id: 2
-termset:
-  - id: 056e71fb
-error:
-  - id: 1
+  2:
+    percent: 50
+    text: |
+      抵押权力解决资源问题不再新增，再开始解决本问题。
+effect:
+  1: 
     percent: 50
     text: |
       - 1406动议可以消除已出现的割据问题。
       - 如果是因为资源问题未解决，欠付报酬而以一定范围割据作为抵押物，今后还会出现新的割据问题。这种情况需要同时处理历史欠账，并且根除资源问题。
-readme: |
+readme: ''

@@ -1,19 +1,16 @@
 name: 1609解决资源问题
 id: d8a0602f
-env:
-  error:
-    - id: 48291d8c
-  text: |
-    无法有效分配未来收入
+type: termtoerror
+objid: 5b4e0597
 depend:
-  error:
-    - id: cde3c3e2
-term:
-  - id: 5b4e0597
-error:
-  - id: 48291d8c
+  cde3c3e2:
+    percent: 100
+    text: |
+      必须在规则有效的环境下进行。
+effect:
+  48291d8c:
     percent: 60
     text: |
-      - 1609模型可用于解决资源问题。
+      - 1609模型可用于把薪酬、投资合二为一，极大提高调动未来收入的能力，缓解资源问题。
       - 如果规则无效问题未能解决，则1609模型无效。
 readme: ''
