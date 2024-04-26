@@ -1,6 +1,6 @@
 name: 预设1406动议
 id: b3124d50
-level: 1
+level: '1'
 interface:
   entity:
     e1: 共同体
@@ -20,13 +20,13 @@ interface:
     '44': 附件44
     '1406': 附件1406
 item:
-  - sortid: 1
+  - sortid: '1'
     type: term
     id: 583d6243
     map:
       term:
-        '1': 44
-        '2': 1406
+        '1': '44'
+        '2': '1406'
     path: term.583d6243.yaml
   - sortid: 附件42
     type: term
@@ -44,7 +44,7 @@ item:
       asset:
         '1': a1
       term:
-        '1': 42
+        '1': '42'
     path: term.0ccddb29.yaml
   - sortid: 附件1406
     type: termset
@@ -55,9 +55,9 @@ item:
         '2': e4
         '3': e3
       term:
-        '1': 1
-        '2': 2
-        '3': 3
+        '1': '1'
+        '2': '2'
+        '3': '3'
       asset:
         '1': a1
         '2': a2

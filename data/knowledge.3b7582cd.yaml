@@ -4,12 +4,12 @@ type: termsettoerror
 objid: 056e71fb
 depend:
   48291d8c:
-    percent: 50
+    percent: '50'
     text: |
       抵押权力解决资源问题不再新增，再开始解决本问题。
 effect:
   0ccddb29:
-    percent: 50
+    percent: '50'
     text: |
       - 1406动议可以消除已出现的割据问题。
       - 如果是因为资源问题未解决，欠付报酬而以一定范围割据作为抵押物，今后还会出现新的割据问题。这种情况需要同时处理历史欠账，并且根除资源问题。
