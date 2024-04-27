@@ -27,6 +27,58 @@ readme: |
 effect: |
 ~~~
 
+新的term结构： 
+
+- 增加item字段，改为subterm。
+  - 取消item.path，改由统一的接口从id获得path、obj
+  - 取消item.type，统统都是term
+  - 暂时保留upgradeby字段，实际使用后再定。
+- 增加depend、together字段，结合原有的effect字段代替knowledge
+  - 默认是termtoerror，因为没有type，而effect的id也是errorid
+  - 可能有不止一种效果，每种效果的depend、together不同，这时仍需要knowledge
+- 保留原有的text字段，作为高于item下子条款一级的正文。
+
+```
+name:
+id:
+interface:
+  entity:
+    id: name
+  asset:
+    id: name
+  term:
+    id: name
+  event:
+    id: name
+text: |
+subterm:
+  - sortid:
+      id:
+      upgradeby: // sortid.sortid.....id  上级定义覆盖下级定义
+      map:
+        entity:
+          localid: globalid
+        asset:
+          localid: globalid
+        term:
+          localid: globalid
+        event:
+          localid: globalid
+readme: |
+depend:
+  errorid:
+    percent:
+    text: | 
+together:
+  errorid:
+    percent:
+    text: |
+effect: |
+  errorid:
+    percent:
+    text: |
+```
+
 ### termset
 
 ~~~

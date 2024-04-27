@@ -1,6 +1,8 @@
 name: 执行部门陷入割据
 id: 1
 interface:
+  term:
+    1: 资源不足
   entity:
     1: 共同体
     2: 下达指令者

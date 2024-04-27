@@ -548,24 +548,30 @@ function makeerrorview(errorid) {
     //console.log("return obj:\n"+yaml.dump(error,{'lineWidth': -1}));
 
     var viewfilename = viewpath + "error." + errorid + ".md";
-    var viewstr = "问题 " + errorid + " 正文:\n" + error.treetext;
+    var viewstr = "问题 " + errorid + " 正文:  \n" + error.treetext;
     if (error.treereadme != null) {
         viewstr = viewstr + "\n---\n问题 " + errorid + " readme:\n" + error.treereadme
     }
 
     var knowledgetable = new Object();
-    viewstr = viewstr + "\n---\n解决建议:\n" +makeerrornet(errorid, errorid+">",knowledgetable)+"\n---\n";
-    //fs.writeFileSync(viewfilename, viewstr);
+    viewstr = viewstr + "\n---\n解决建议:  \n出现偏差的部门内部互相确认:相关职务行为是有意识还是无意识的。\n  - 无意识的行为：应暂时停职，由相关成员自行纠偏，然后根据情况复职或者重新竞聘。\n  - 有意识的行为：可以基于理性人假设，从行为偏差分析规章偏差，根据情况产生工单。";
+    var errornetstr = makeerrornet(errorid, "    - " + errorid+">",knowledgetable) ;
+    if(errornetstr == ""){
+        viewstr = viewstr + "如需进一步建议请联系<huang@mars22.com>  \n---\n" ;
+    }else{
+        viewstr = viewstr + "可以参考以下内容：  \n" + errornetstr + "\n---\n";
+    }
+    fs.writeFileSync(viewfilename, viewstr);
     console.log(viewfilename + "文件更新，内容如下:\n" + viewstr);
 }
 
 // generate the error-depend error + knowledge- depend error 
 function makeerrornet(errorid, prefix,knowledgetable) {
-    console.log(prefix+"enter makeerrornet: " + errorid + " 已查找的knowledge:\n" + yaml.dump(knowledgetable,{'lineWidth': -1}));
+    //console.log(prefix+"enter makeerrornet: " + errorid + " 已查找的knowledge:\n" + yaml.dump(knowledgetable,{'lineWidth': -1}));
     //console.log("allknowledge:\n"+yaml.dump(knowledgemap,{'lineWidth': -1}));
     var returnstr = "";
     for (var id in knowledgemap) {
-        console.log(prefix+"search knowledge: " + id)
+        //console.log(prefix+"search knowledge: " + id)
         var knowledgeobj = knowledgemap[id];
         //console.log("knowledgeobj:\n"+yaml.dump(knowledgeobj,{'lineWidth': -1}));
         for(effectid in knowledgeobj.effect){
@@ -588,12 +594,12 @@ function makeerrornet(errorid, prefix,knowledgetable) {
                     if (knowledgeobj.depend != null) {
                         var appendstr = prefix + "使用knowledge " + id + " 需要先解决error:" ;
                         console.log(appendstr);
-                        returnstr = returnstr + appendstr +"\n" ;
+                        returnstr = returnstr + appendstr;
                         for (var errorid in knowledgeobj.depend) {
                             var errorviewfilename = viewpath + "error." + errorid + ".md" ;
                             var appendstr = prefix+"[" + errorid + "](" + errorviewfilename +")"
                             console.log(appendstr);
-                            returnstr = returnstr + appendstr+"\n" ;
+                            returnstr = returnstr + "[" + errorid + "](" + errorviewfilename +") " ;
                             
                             returnstr = returnstr + "\n" + makeerrornet(errorid, prefix+errorid+">" ,knowledgetable);
                         }
@@ -606,7 +612,7 @@ function makeerrornet(errorid, prefix,knowledgetable) {
                             var errorviewfilename = viewpath + "error." + errorid + ".md" ;
                             var appendstr = prefix+"[" + errorid + "](" + errorviewfilename +")"
                             console.log(appendstr);
-                            returnstr = returnstr + appendstr+"\n" ;
+                            returnstr = returnstr + "[" + errorid + "](" + errorviewfilename +") " ;
                             returnstr = returnstr + "\n" + makeerrornet(errorid,prefix+errorid+">", knowledgetable);
                         }
                     }
