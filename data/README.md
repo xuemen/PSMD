@@ -27,7 +27,7 @@ readme: |
 effect: |
 ~~~
 
-新的term结构： 
+新的term结构方案一： 
 
 - 增加item字段，改为subterm。
   - 取消item.path，改由统一的接口从id获得path、obj
@@ -36,7 +36,8 @@ effect: |
 - 增加depend、together字段，结合原有的effect字段代替knowledge
   - 默认是termtoerror，因为没有type，而effect的id也是errorid
   - 可能有不止一种效果，每种效果的depend、together不同，这时仍需要knowledge
-- 保留原有的text字段，作为高于item下子条款一级的正文。
+- 保留原有的text字段，作为高于subterm子条款一级的正文。
+- 新增body字段，作为高于subterm自条款一级的正文。用termid引用但是不增加sortid，view中也不增加prefix。
 
 ```
 name:
@@ -51,6 +52,18 @@ interface:
   event:
     id: name
 text: |
+body:
+  id:
+    upgradeby: // sortid.sortid.....id  上级定义覆盖下级定义
+    map:
+      entity:
+        localid: globalid
+      asset:
+        localid: globalid
+      term:
+        localid: globalid
+      event:
+        localid: globalid
 subterm:
   - sortid:
       id:
@@ -64,6 +77,38 @@ subterm:
           localid: globalid
         event:
           localid: globalid
+readme: |
+depend:
+  errorid:
+    percent:
+    text: | 
+together:
+  errorid:
+    percent:
+    text: |
+effect:
+  errorid:
+    percent:
+    text: |
+```
+新的term结构方案二： 
+
+- 在方案一基础上去掉body和subterm
+- 保留termset并且升级
+
+```
+name:
+id:
+interface:
+  entity:
+    id: name
+  asset:
+    id: name
+  term:
+    id: name
+  event:
+    id: name
+text: |
 readme: |
 depend:
   errorid:
@@ -111,6 +156,68 @@ item:
       path:   // metadata location
 readme: |
 effect: |
+~~~
+
+- 新的termset（方案二）
+
+- 增加text字段，表示termset的正文。
+- 增加body字段，表示termset的正文，生成view时不增加sortid和prefix。
+- 取消path字段。
+- 在effect基础上，增加depend togetther 字段。
+- 新term结构中可以去掉subterm字段。
+~~~
+name:
+id:
+level:
+interface:
+  entity:
+    id: name
+  asset:
+    id: name
+  term:  //  引用其它条款，在termset、COM中根据联合使用情况绑定。
+    id: name
+  event:
+    id: name
+text: |
+body:
+  id: //termid
+    upgradeby:
+    map:    // interface 局部-全局映射表
+      entity:
+        localid: globalid
+      asset:
+        localid: globalid
+      term:  //  引用其它条款，在termset、COM中根据联合使用情况绑定。
+        localid: globalid
+      event:
+        localid: globalid
+item:
+  - sortid: // item在termset中的排序
+      type:  term\termset
+      id:     // termid or termsetid
+      upgradeby: // sortid.sortid.....id  上级定义覆盖下级定义
+      map:    // interface 局部-全局映射表
+        entity:
+          localid: globalid
+        asset:
+          localid: globalid
+        term:  //  引用其它条款，在termset、COM中根据联合使用情况绑定。
+          localid: globalid
+        event:
+          localid: globalid
+readme: |
+depend:
+  errorid:
+    percent:
+    text: | 
+together:
+  errorid:
+    percent:
+    text: |
+effect: |
+  errorid:
+    percent:
+    text: |
 ~~~
 
 ###  COM
