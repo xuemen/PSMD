@@ -1,0 +1,10 @@
+name: 利益分配比例
+id: 3
+interface:
+  <3.asset.1>: p
+item:
+  - localid: 0
+    text: |
+      <3.asset.1>=20，<3.asset.1>%=20%。
+readme: |
+effect: |

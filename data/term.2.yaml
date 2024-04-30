@@ -1,8 +1,10 @@
-name: 如果割据就启用1406
+name: 自修订条款
 id: 2
 interface:
-  term:
-    1: 附件44
-    2: 附件1406
-text: |
-  如果符合<term.1>的情况，则<term.2>自动生效。
+  <2.entity.1>: deployer
+item:
+  - localid: 0
+    text: |
+      由<2.entity.1>书面提交即生效。
+readme: |
+effect: |

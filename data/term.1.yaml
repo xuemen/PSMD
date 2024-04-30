@@ -1,35 +1,25 @@
 name: 调整分配主比例
 id: 1
 interface:
-  entity:
-    '1': deployer
-    '2': director
-  asset:
-    '1': p
-text: |
-body: 
-  64eb9304:
-    upgradeby: 64eb9304
+  <1.entity.1>: deployer
+  <1.entity.2>: director
+  <1.asset.1>: p
+item:
+  - localid: 0
+    termid: 2
+    upgradeby: <1.localid.0>
     map:
-      entity:
-        '1': 1
-subterm:
-  - sortid: 1
-    type: term
-    id: bba7c6f1
-    upgradeby: 64eb9304
-    path: PSMD/data/term.bba7c6f1.yaml
+      <2.entity.1>: <1.entity.1>
+  - localid: 1
+    termid: 3
+    upgradeby: <1.localid.0>
     map:
-      asset:
-        '1': 1
-  - sortid: 2
-    type: term
-    id: 177700d4
-    upgradeby: 64eb9304
-    path: PSMD/data/term.177700d4.yaml
+      <3.asset.1>: <1.asset.1>
+  - localid: 2
+    termid: 4
+    upgradeby: <1.localid.0>
     map:
-      entity:
-        '1': 2
+      <4.entity.1>: <1.entity.2>
 readme: |
 depend:
   errorid:

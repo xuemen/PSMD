@@ -1,0 +1,10 @@
+name: 集体决策
+id: 4
+interface:
+  <4.entity.1>: director
+item:
+  - localid: 0
+    text: |
+      由<4.entity.1>表决按一人一票表决，超过80%出席会议有效，赞成票超过超过三分之二为通过。
+readme: |
+effect: |
