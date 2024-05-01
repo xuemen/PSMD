@@ -25,36 +25,42 @@
 name:
 id:
 interface:
-  <termid.entity.1>: name
-  <termid.entity.2>: name
-  <termid.asset.1>: name
-  <termid.term.1>: name
-  <termid.event.1>: name
-  <termid.localid.1>: name
+  <term.termid.entity.1>: value
+  <term.termid.entity.2>: value
+  <term.termid.asset.1>: value
+  <term.termid.term.1>: value
+  <term.termid.event.1>: value
+  <term.termid.localid.1>: value
 item:
   - localid:
-      text: |
-      termid: 
-      upgradeby: // localid.localid.....localid
-      map:
-        <termid.entity.1>: <termid.entity.1>
-        <termid.entity.2>: <termid.entity.2>
-        <termid.asset.1>: <termid.asset.1>
-        <termid.term.1>: <termid.term.1>
-        <termid.event.1>: <termid.event.1>
-        <termid.localid.1>: <termid.localid.1>
+    text: |
+    termid: 
+    upgradeby: // localid.localid.....localid
+    map:
+      <term.termid.entity.1>: <term.termid.entity.1>
+      <term.termid.entity.2>: <term.termid.entity.2>
+      <term.termid.asset.1>: <term.termid.asset.1>
+      <term.termid.term.1>: <term.termid.term.1>
+      <term.termid.event.1>: <term.termid.event.1>
+      <term.termid.localid.1>: <term.termid.localid.1>
 readme: |
 depend:
-  errorid:
+  - errorid:
     percent:
+    map:
+        <term.termid.entity.1>: <term.termid.entity.1>
     text: | 
 together:
-  errorid:
+  - errorid:
     percent:
+    map:
+        <error.errorid.entity.1>: <term.termid.entity.1>
     text: |
 effect:
-  errorid:
+  - errorid:
     percent:
+    map:
+        <error.errorid.entity.1>: <term.termid.entity.1>
     text: |
 ~~~
 
@@ -80,13 +86,13 @@ name:
 id:
 interface:
   entity:
-    id: name
+    id: value
   asset:
-    id: name
+    id: value
   term:  //  引用其它条款，在termset、COM中根据联合使用情况绑定。
-    id: name
+    id: value
   event:
-    id: name
+    id: value
 COM:
     sortid: // 部署的次序，逐个部署。例如:自然人部署筹备组COD，筹备组COD部署正式COD。后续COD的部署者deployer可以是前面的sortid。
         type:   // termset or COM
@@ -117,13 +123,13 @@ id:
 deployid:   // 也可以在log中体现。
 interface:
   entity:
-    id: name
+    id: value
   asset:
-    id: name
+    id: value
   term:  //  引用其它条款，在termset、COM中根据联合使用情况绑定。
-    id: name
+    id: value
   event:
-    id: name
+    id: value
 item:
     sortid: // item在termset中的排序
       type:  term\termset
@@ -177,13 +183,13 @@ name:
 id:
 interface:
   entity:
-    id: name
+    id: value
   asset:
-    id: name
+    id: value
   term:
-    id: name
+    id: value
   event:
-    id: name
+    id: value
 text: |
 readme: |
 bind:

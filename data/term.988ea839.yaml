@@ -1,0 +1,11 @@
+name: 集体决策
+id: 988ea839
+interface:
+  <term.988ea839.entity.1>: director
+item:
+  - localid: ''
+    text: |
+      由<term.988ea839.entity.1>表决按一人一票表决，超过80%出席会议有效，赞成票超过超过三分之二为通过。
+readme: |
+  本条款是权力分配中的二级条款。
+effect: ''

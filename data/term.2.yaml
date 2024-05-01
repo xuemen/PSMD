@@ -1,10 +1,11 @@
 name: 自修订条款
 id: 2
 interface:
-  <2.entity.1>: deployer
+  <term.2.entity.1>: deployer
 item:
-  - localid: 0
+  - localid: ""
     text: |
-      由<2.entity.1>书面提交即生效。
+      由<term.2.entity.1>书面提交即生效。
 readme: |
+  自修订条款是权力分配中的顶级条款。
 effect: |

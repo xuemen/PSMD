@@ -1,0 +1,40 @@
+name: 调整分配主比例
+id: 01e1c775
+interface:
+  <term.01e1c775.entity.1>: deployer
+  <term.01e1c775.entity.2>: director
+  <term.01e1c775.entity.3>: 共同体
+  <term.01e1c775.asset.1>: p
+item:
+  - localid: '1'
+    termid: 23f76740
+    upgradeby: <term.01e1c775.localid.1>
+    map:
+      <term.23f76740.entity.1>: <term.01e1c775.entity.1>
+  - localid: '2'
+    termid: bafdd0aa
+    upgradeby: <term.01e1c775.localid.1>
+    map:
+      <term.bafdd0aa.asset.1>: <term.01e1c775.asset.1>
+  - localid: '3'
+    termid: 988ea839
+    upgradeby: <term.01e1c775.localid.1>
+    map:
+      <term.988ea839.entity.1>: <term.01e1c775.entity.2>
+readme: |
+  本条款是模型1609利益分配的核心条款。
+depend:
+  - errorid: 'null'
+    percent: 'null'
+    text: ''
+together:
+  - errorid: 'null'
+    percent: 'null'
+    text: ''
+effect:
+  - errorid: 48291d8c
+    percent: '50'
+    map:
+      <error.48291d8c.entity.1>: <term.01e1c775.entity.3>
+    text: |
+      1609模型可以有效分配未来收入，本条款是其中一部分。

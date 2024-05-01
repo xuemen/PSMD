@@ -1,0 +1,11 @@
+name: 自修订条款
+id: 23f76740
+interface:
+  <term.23f76740.entity.1>: deployer
+item:
+  - localid: ''
+    text: |
+      由<term.23f76740.entity.1>书面提交即生效。
+readme: |
+  自修订条款是权力分配中的顶级条款。
+effect: ''
