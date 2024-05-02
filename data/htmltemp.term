@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <script>
+    <% if (alert) { %>
+        <%-alertstr%>
+    <% } %>
+    <% if (confirm) { %>
+        <%-confirmstr%>
+    <% } %>
+    <% if (prompt) { %>
+        <%-promptstr%>
+    <% } %>
+    </script>
+</head>
+
+<body>
+    <hr />
+    <h3>条款<%-termid%></h3>
+    <br />
+    <hr />
+    正文:
+    <br />
+    <%-treehtml%>
+    <br />
+    <hr />
+    <% if (readme) { %>
+    readme:
+    <br />
+    <%-treereadmehtml%>
+    <hr />
+    <% } %>
+</body>
+
+</html>

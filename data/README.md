@@ -182,19 +182,14 @@ error:
 name:
 id:
 interface:
-  entity:
-    id: value
-  asset:
-    id: value
-  term:
-    id: value
-  event:
-    id: value
+  <error.termid.entity.1>: value
+  <error.termid.entity.2>: value
+  <error.termid.asset.1>: value
+  <error.termid.term.1>: value
+  <error.termid.event.1>: value
+  <error.termid.localid.1>: value
 text: |
 readme: |
-bind:
-  - type: term、termset、COM、deploy、COD
-     id:
 ~~~
 
 ### log
@@ -235,3 +230,30 @@ readme: |
 - together：部署本条款（解决本error）的同时开始解决该error
 - 解决方案只含一条term或者termset。
 - 根据type：objid to effect
+
+### view
+
+
+```
+name:
+id:
+template:
+  txt:
+  markdown:
+  html:
+  ofd:
+  tex:
+data:
+  content:
+  email:
+  alert: text
+  confirm:
+    text:
+    yes: path or null
+    no: path or null
+  prompt:
+    text:
+    defaul:
+    pass: 
+    fault: path 
+```

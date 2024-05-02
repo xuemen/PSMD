@@ -1,5 +1,6 @@
-var fs = require('fs');
-var yaml = require('js-yaml');
+const fs = require('fs');
+const yaml = require('js-yaml');
+const ejs = require('ejs');
 
 const gitpath = "../../";
 const egosrcpath = "../../ego/src/";
@@ -238,10 +239,10 @@ function commit() {
                 if (errormap[errorid] != null) {
                     var oldplaceholder = new RegExp("<error." + errorid + ".", "g");
                     var newplaceholder = "<error." + errormap[errorid] + ".";
-                    console.log("before replace the %d-th effect:\n", effectid, yaml.dump(term, { 'lineWidth': -1 }));
+                    //console.log("before replace the %d-th effect:\n%s", effectid, yaml.dump(term, { 'lineWidth': -1 }));
                     term.effect[effectid].errorid = errormap[errorid];
                     term = yaml.load(yaml.dump(term, { 'lineWidth': -1 }).replace(oldplaceholder, newplaceholder), { schema: yaml.FAILSAFE_SCHEMA });
-                    console.log("after replace the %d-th effect:\n", effectid, yaml.dump(term, { 'lineWidth': -1 }));
+                    //console.log("after replace the %d-th effect:\n%s", effectid, yaml.dump(term, { 'lineWidth': -1 }));
                 }
             }
         }
@@ -250,14 +251,19 @@ function commit() {
         fs.writeFileSync(newfilename, yaml.dump(term, { 'lineWidth': -1 }));
         console.log(newfilename + "文件已更新。" + oldfilename + "可以删除。");
     }
-    return;
 
     for (var id in alltemperror) {
         var error = alltemperror[id];
         var oldfilename = datapath + "error." + id + ".yaml";
 
         if (errormap[id] != null) {
+
+            var oldplaceholder = new RegExp("<error." + id + ".", "g");
+            var newplaceholder = "<error." + errormap[id] + ".";
+            //console.log("before replace the error:\n%s", id, yaml.dump(error, { 'lineWidth': -1 }));
             error.id = errormap[id];
+            error = yaml.load(yaml.dump(error, { 'lineWidth': -1 }).replace(oldplaceholder, newplaceholder), { schema: yaml.FAILSAFE_SCHEMA });
+            //console.log("after replace the error:\n%s", id, yaml.dump(error, { 'lineWidth': -1 }));
         } else {
             console.log("旧文件:" + oldfilename + "中的id:" + id + "未能替换，请人工检查。")
         }
@@ -265,51 +271,6 @@ function commit() {
         var newfilename = datapath + "error." + errormap[id] + ".yaml";
 
         fs.writeFileSync(newfilename, yaml.dump(error, { 'lineWidth': -1 }));
-        console.log(newfilename + "文件已更新。" + oldfilename + "可以删除。");
-    }
-
-    for (var id in alltemptermset) {
-        var termset = alltemptermset[id];
-        var oldfilename = datapath + "termset." + id + ".yaml";
-
-        if (termsetmap[id] != null) {
-            termset.id = termsetmap[id];
-        } else {
-            console.log("旧文件:" + oldfilename + "中的id:" + id + "未能替换，请人工检查。")
-        }
-        var newfilename = datapath + "termset." + termsetmap[id] + ".yaml";
-
-        for (var itemid in termset.item) {
-            if (termset.item[itemid].type == "term") {
-
-                if (termmap[termset.item[itemid].id] != null) {
-                    var oldid = termset.item[itemid].id;
-                    termset.item[itemid].id = termmap[termset.item[itemid].id];
-                    console.log("path replace:" + termset.item[itemid].path, termset.item[itemid].path.replace("." + oldid + ".", "." + termmap[oldid] + "."));
-                    termset.item[itemid].path = termset.item[itemid].path.replace("." + oldid + ".", "." + termmap[oldid] + ".");
-                } else {
-                    console.log("旧文件:" + oldfilename + "中item:" + itemid + "的id:" + termset.item[itemid].id + "未能替换，请人工检查。");
-                }
-
-
-            } else if (termset.item[itemid].type == "termset") {
-                if (termsetmap[termset.item[itemid].id] != null) {
-                    var oldid = termset.item[itemid].id;
-                    termset.item[itemid].id = termsetmap[termset.item[itemid].id];
-
-                    console.log("path replace:" + termset.item[itemid].path, termset.item[itemid].path.replace("." + oldid + ".", "." + termsetmap[oldid] + "."));
-                    termset.item[itemid].path = termset.item[itemid].path.replace("." + oldid + ".", "." + termsetmap[oldid] + ".");
-                } else {
-                    console.log("旧文件:" + oldfilename + "中itemset:" + itemid + "的id:" + termset.item[itemid].id + "未能替换，请人工检查。");
-                }
-
-            } else {
-                console.log("invaild type: " + termset.item[itemid].type + " in file:" + oldfilename);
-            }
-        }
-
-        //var option = new Object({forceQuotes:true}); 
-        fs.writeFileSync(newfilename, yaml.dump(termset, { 'lineWidth': -1 }));
         console.log(newfilename + "文件已更新。" + oldfilename + "可以删除。");
     }
 
@@ -342,32 +303,6 @@ function commit() {
             var oldid = knowledge.objid;
             if (termmap[oldid] != null) {
                 var newid = termmap[oldid];
-                console.log("knowledge objid replace:" + oldid + " -> " + newid);
-                knowledge.objid = newid;
-            } else {
-                console.log("旧文件:" + oldfilename + "中objid: " + oldid + " 未能替换，请人工检查。");
-            }
-
-            //replace the effect
-            for (var id in knowledge.effect) {
-                oldid = id;
-                if (errormap[oldid] != null) {
-                    var newid = errormap[oldid];
-                    console.log("knowledge effect replace. id:" + oldid + " -> " + newid);
-                    var newobj = yaml.load(yaml.dump(knowledge.effect[oldid], { 'lineWidth': -1 }));
-                    knowledge.effect[newid] = newobj;
-                    delete knowledge.effect[oldid];
-                } else {
-                    console.log("旧文件:" + oldfilename + "中effect字段的id: " + oldid + " 未能替换，请人工检查。");
-                }
-            }
-        }
-
-        if (knowledge.type == "termsettoerror") {
-            //replace the objid
-            var oldid = knowledge.objid;
-            if (termsetmap[oldid] != null) {
-                var newid = termsetmap[oldid];
                 console.log("knowledge objid replace:" + oldid + " -> " + newid);
                 knowledge.objid = newid;
             } else {
@@ -430,6 +365,37 @@ function maketermview(termid) {
     }
     fs.writeFileSync(viewfilename, viewstr);
     console.log(viewfilename + "文件更新，内容如下:\n" + viewstr);
+
+
+    item.treehtml = item.treetext.replace(/\n/g,'<br/>\n');
+    item.treereadmehtml = item.treereadme.replace(/\n/g,'<br/>\n');
+
+    var termhtml = maketermhtml(item);
+    viewfilename = viewpath + "term." + termid + ".html";
+    
+    fs.writeFileSync(viewfilename, termhtml);
+    console.log(viewfilename + "文件更新，内容如下:\n" + termhtml);
+}
+
+
+
+function maketermhtml(item){
+    const tempfilename = datapath + "htmltemp.term" ;
+    var tempstr = fs.readFileSync(tempfilename,'utf-8');
+
+    item.alert = false;
+    item.confirm = false;
+    item.prompt = false;
+    item.readme = true;
+
+    item.alertstr = "alert(\"alert test.\")";
+    item.confirmstr = "confirm(\"confirm test.\")";
+    item.promptstr = "prompt(\"prompt test.\",\"default\")";
+    //console.log("item:\n"+yaml.dump(item));
+    var htmlstr = ejs.render(tempstr, item);
+    //console.log("html file:\n"+htmlstr);
+    return htmlstr ;
+
 }
 
 function maketermsetview(termsetid) {
@@ -541,7 +507,7 @@ function maketermtext(item, prefix, map) {
     var termobj = yaml.load(fs.readFileSync(termfilename, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
 
     var treetext = "";
-    var treereadme ;
+    var treereadme;
     if ((termobj.readme != null) & (termobj.readme != "")) {
         treereadme = termobj.readme;
     } else {
@@ -551,19 +517,19 @@ function maketermtext(item, prefix, map) {
     for (var itemid in termobj.item) {
         var itemobj = termobj.item[itemid];
         var subprefix = prefix;
-        if((itemobj.localid != null)&&(itemobj.localid != "")){
+        if ((itemobj.localid != null) && (itemobj.localid != "")) {
             subprefix = prefix + itemobj.localid + "."
         }
         //console.log("subprefix:"+subprefix);
 
-        if(itemobj.text != null){
-            treetext = treetext + subprefix + " " + itemobj.text ; // + "\n"
+        if (itemobj.text != null) {
+            treetext = treetext + subprefix + " " + itemobj.text; // + "\n"
         }
-        if(itemobj.termid != null){
+        if (itemobj.termid != null) {
             var itemtext = maketermtext(itemobj, subprefix, itemobj.map);
             treetext = treetext + itemobj.treetext;
             //treetext = treetext + subprefix + "\n" + itemobj.treetext;
-            if ((itemobj.treereadme != null)&&(itemobj.treereadme != "")) {
+            if ((itemobj.treereadme != null) && (itemobj.treereadme != "")) {
                 treereadme = treereadme + subprefix + " " + itemobj.treereadme;// + "\n";
                 //treereadme = treereadme + subprefix + " readme:\n" + item.treereadme;
             }
@@ -578,7 +544,7 @@ function maketermtext(item, prefix, map) {
                 value = map[placeholder];
             }
             treetext = treetext.split(placeholder).join(value);
-            if(treereadme != null) {
+            if (treereadme != null) {
                 treereadme = treereadme.split(placeholder).join(value);
                 //console.log("treereadme:  \n" + treereadme);
             }
@@ -689,39 +655,23 @@ function makeerrortext(error, prefix, map) {
     var treetext = errorobj.text;
     var treereadme = errorobj.readme;
 
-    for (var interfacetype in errorobj.interface) {
-        for (var localid in errorobj.interface[interfacetype]) {
-            //var localid = errorobj.interface[interfacetype][i].id;
-            var placeholder = "<" + interfacetype + "." + localid + ">";
-            var newplaceholder = "";
-
-            if (map != null) {
-                if (map[interfacetype] != null) {
-                    if (map[interfacetype][localid] != null) {
-                        // replace the placeholder use the map from upper level
-                        newplaceholder = "<" + interfacetype + "." + map[interfacetype][localid] + ">";
-                    } else {
-                        // default: replace the placeholder use local interface
-                        newplaceholder = errorobj.interface[interfacetype][localid];
-                    }
-                } else {
-                    // default: replace the placeholder use local interface
-                    newplaceholder = errorobj.interface[interfacetype][localid];
-                }
-            } else {
-                // default: replace the placeholder use local interface
-                newplaceholder = errorobj.interface[interfacetype][localid];
-            }
-            //console.log(placeholder + " -> " + newplaceholder);
-
-            treetext = treetext.split(placeholder).join(newplaceholder);
-            //console.log("treetext:  \n" + treetext);
-            if (treereadme != null) {
-                treereadme = treereadme.split(placeholder).join(newplaceholder);
-                //console.log("treereadme:  \n" + treereadme);
-            }
+    for (var placeholder in errorobj.interface) {
+        var newvalue;
+        if ((map != null)&&(map[placeholder] != null)) {
+            // use global placeholder
+            newvalue = map[placeholder];
+        } else {
+            // use local value
+            newvalue = errorobj.interface[placeholder];
+        }
+        treetext = treetext.split(placeholder).join(newvalue);
+        //console.log("treetext:  \n" + treetext);
+        if (treereadme != null) {
+            treereadme = treereadme.split(placeholder).join(newvalue);
+            //console.log("treereadme:  \n" + treereadme);
         }
     }
+
     error.treetext = treetext;
     if (treereadme != null) {
         error.treereadme = treereadme;

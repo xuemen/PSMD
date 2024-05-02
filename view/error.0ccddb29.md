@@ -15,10 +15,5 @@
 解决建议:  
 出现偏差的部门内部互相确认:相关职务行为是有意识还是无意识的。
   - 无意识的行为：应暂时停职，由相关成员自行纠偏，然后根据情况复职或者重新竞聘。
-  - 有意识的行为：可以基于理性人假设，从行为偏差分析规章偏差，根据情况产生工单。可以参考以下内容：  
-    - 0ccddb29>发现knowledge 3b7582cd :使用termset [056e71fb](../view/term.056e71fb.md)  可能解决 error 0ccddb29 预估有效的比例是 50%
-    - 0ccddb29>使用knowledge 3b7582cd 需要先解决error:[48291d8c](../view/error.48291d8c.md) 
-    - 0ccddb29>48291d8c>发现knowledge d8a0602f :使用term [5b4e0597](../view/term.5b4e0597.md) 可能解决 error 48291d8c 预估有效的比例是 60%
-    - 0ccddb29>48291d8c>使用knowledge d8a0602f 需要先解决error:[cde3c3e2](../view/error.cde3c3e2.md) 
-
+  - 有意识的行为：可以基于理性人假设，从行为偏差分析规章偏差，根据情况产生工单。如需进一步建议请联系<huang@mars22.com>  
 ---
