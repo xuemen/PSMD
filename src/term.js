@@ -1,6 +1,7 @@
 const fs = require('fs');
 const yaml = require('js-yaml');
 const ejs = require('ejs');
+const jade = require('jade');
 
 const gitpath = "../../";
 const egosrcpath = "../../ego/src/";
@@ -377,25 +378,44 @@ function maketermview(termid) {
     console.log(viewfilename + "文件更新，内容如下:\n" + termhtml);
 }
 
-
-
 function maketermhtml(item){
-    const tempfilename = datapath + "htmltemp.term" ;
-    var tempstr = fs.readFileSync(tempfilename,'utf-8');
 
-    item.alert = false;
-    item.confirm = false;
-    item.prompt = false;
-    item.readme = true;
+    if(true){
+        //jade
+        const tempfilename = datapath + "termtemp.jade" ;
+        var tempstr = fs.readFileSync(tempfilename,'utf-8');
 
-    item.alertstr = "alert(\"alert test.\")";
-    item.confirmstr = "confirm(\"confirm test.\")";
-    item.promptstr = "prompt(\"prompt test.\",\"default\")";
-    //console.log("item:\n"+yaml.dump(item));
-    var htmlstr = ejs.render(tempstr, item);
-    //console.log("html file:\n"+htmlstr);
-    return htmlstr ;
+        item.alert = false;
+        item.confirm = true;
+        item.prompt = false;
+        item.readme = true;
+    
+        item.alertstr = "alert(\"alert test.\")";
+        item.confirmstr = "confirm(\"confirm test.\")";
+        item.promptstr = "prompt(\"prompt test.\",\"default\")";
+        var fn = jade.compile(tempstr);
 
+        var htmlstr = fn(item);
+        //console.log("html file:\n"+htmlstr);
+        return htmlstr ;
+    }else{
+        //ejs
+        const tempfilename = datapath + "termtemp.ejs" ;
+        var tempstr = fs.readFileSync(tempfilename,'utf-8');
+    
+        item.alert = false;
+        item.confirm = false;
+        item.prompt = false;
+        item.readme = true;
+    
+        item.alertstr = "alert(\"alert test.\")";
+        item.confirmstr = "confirm(\"confirm test.\")";
+        item.promptstr = "prompt(\"prompt test.\",\"default\")";
+        //console.log("item:\n"+yaml.dump(item));
+        var htmlstr = ejs.render(tempstr, item);
+        //console.log("html file:\n"+htmlstr);
+        return htmlstr ;
+    }
 }
 
 function maketermsetview(termsetid) {
@@ -500,7 +520,6 @@ function maketermsettext(termset, prefix, map) {
 
 }
 
-
 function maketermtext(item, prefix, map) {
     //console.log("enter maketermtext:"+item.termid+"\tprefix:"+prefix);
     var termfilename = datapath + "term." + item.termid + ".yaml";
@@ -516,14 +535,36 @@ function maketermtext(item, prefix, map) {
 
     for (var itemid in termobj.item) {
         var itemobj = termobj.item[itemid];
+        
+        // make prefix
         var subprefix = prefix;
         if ((itemobj.localid != null) && (itemobj.localid != "")) {
             subprefix = prefix + itemobj.localid + "."
         }
         //console.log("subprefix:"+subprefix);
 
+        // make upgrade by...
+        var upgradestr = "";
+        if(itemobj.upgradeby != null){
+            console.log("%s>local upgradeby slice:\n0~6:%s\n6~14:%s\n14~22:%s\n23~-1:%s",item.termid,itemobj.upgradeby.slice(0,6),itemobj.upgradeby.slice(6,14),itemobj.upgradeby.slice(14,22),itemobj.upgradeby.slice(23,-1))
+        }
+        
+        if(item.upgradeby != null){
+            // use global item's metadata
+            upgradestr = "本条款按照" + item.upgradeby + "条款修订。"
+        }else if((itemobj.upgradeby != null)&&(itemobj.upgradeby.slice(0,6) == "<term.")&&(itemobj.upgradeby.slice(6,14) == item.termid)&&(itemobj.upgradeby.slice(14,22) == ".localid")){
+            // use local metadata
+            var localupgradeby = prefix + itemobj.upgradeby.slice(23,-1) + ".";
+            if(localupgradeby == subprefix){
+                localupgradeby = "本";
+            }
+            upgradestr = "本条款按照" + localupgradeby + "条款修订。"
+            itemobj.upgradeby = localupgradeby ;
+        }
+        console.log("%s>upgradestr:%s",item.termid,upgradestr);
+
         if (itemobj.text != null) {
-            treetext = treetext + subprefix + " " + itemobj.text; // + "\n"
+            treetext = treetext + subprefix + " " + upgradestr + itemobj.text; // + "\n"
         }
         if (itemobj.termid != null) {
             var itemtext = maketermtext(itemobj, subprefix, itemobj.map);
@@ -536,6 +577,8 @@ function maketermtext(item, prefix, map) {
         }
     }
 
+    // all placeholders must been defined in local interface
+    // all placeholders in global map must been defined in local interface 
     if (termobj.interface != null) {
         for (var placeholder in termobj.interface) {
             var value = termobj.interface[placeholder];

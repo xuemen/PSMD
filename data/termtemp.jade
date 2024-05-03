@@ -1,0 +1,21 @@
+﻿html(lang="zh-cn")
+  head
+    title term html sample
+    script
+      if alert
+        !{alertstr}
+      if confirm
+        !{confirmstr}
+      if prompt
+        !{apromptstr}
+
+  body
+    h3 条款 #{termid}
+    hr
+    p 正文:
+    p !{treehtml}
+    hr
+    if(readme)
+      p 注释:
+      p !{treereadmehtml}
+      hr

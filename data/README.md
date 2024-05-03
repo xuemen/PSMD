@@ -1,7 +1,6 @@
 # PSMD meta data
 
-1. term定义条款，重点在接口。
-1. termset定义条款集，定义条款的次序、接口映射、修订关系。
+1. termset合并到term里，定义条款和条款集，包括正文、注释、接口，次级条款的次序、接口映射、修订关系。
 1. COM定义共同体模型，定义主体termset，并且以error定义可选termset。
 1. deploy定义部署的初始条件、接口映射和逐步生效的过程，期间有过渡性的条款或模型。
 1. COD定义共同体的现状，要考虑主体、条款的不断修订。
@@ -226,7 +225,7 @@ effect:
     text:
 readme: |
 ~~~
-- depeng: 部署本条款（解决本error）之前先解决该error
+- depend: 部署本条款（解决本error）之前先解决该error
 - together：部署本条款（解决本error）的同时开始解决该error
 - 解决方案只含一条term或者termset。
 - 根据type：objid to effect
