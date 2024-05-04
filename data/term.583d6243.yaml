@@ -1,8 +1,9 @@
 name: 如果割据就启用1406
 id: 583d6243
 interface:
-  term:
-    '1': 附件44
-    '2': 附件1406
-text: |
-  如果符合<term.1>的情况，则<term.2>自动生效。
+  <term.583d6243.term.1>: 附件44
+  <term.583d6243.term.2>: 附件1406
+item:
+  - localid: ''
+    text: |
+      如果符合<term.583d6243.term.1>的情况，则<term.583d6243.term.2>自动生效。

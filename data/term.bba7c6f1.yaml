@@ -1,9 +1,10 @@
 name: 利益分配比例
 id: bba7c6f1
 interface:
-  asset:
-    1: p
-text: |
-  <asset.1>=20，<asset.1>%=20%。
-readme: |
-effect: |
+  <term.bba7c6f1.asset.1>: p
+readme: ''
+effect: ''
+item:
+  - localid: ''
+    text: |
+      <term.bba7c6f1.asset.1>=20，<term.bba7c6f1.asset.1>%=20%。

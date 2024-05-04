@@ -1,0 +1,48 @@
+name: 入门目录202404151600
+id: 9d12877c
+interface:
+  <term.9d12877c.term.20>: 附件20
+  <term.9d12877c.term.21>: 附件21
+  <term.9d12877c.term.30>: 附件30
+  <term.9d12877c.term.31>: 附件31
+  <term.9d12877c.term.32>: 附件32
+  <term.9d12877c.term.33>: 附件33
+  <term.9d12877c.term.34>: 附件34
+  <term.9d12877c.term.42>: 附件42
+item:
+  - localid: '1'
+    termid: cc0fba2f
+  - localid: '2'
+    termid: e6976035
+    map:
+      <term.e6976035.term.1>: <term.9d12877c.term.20>
+      <term.e6976035.term.2>: <term.9d12877c.term.30>
+      <term.e6976035.term.3>: <term.9d12877c.term.42>
+      <term.e6976035.term.4>: <term.9d12877c.term.31>
+      <term.e6976035.term.5>: <term.9d12877c.term.32>
+      <term.e6976035.term.6>: <term.9d12877c.term.33>
+      <term.e6976035.term.7>: <term.9d12877c.term.34>
+  - localid: '3'
+    termid: 4b12ac08
+  - localid: 附件20
+    termid: dbe32f79
+    map:
+      <term.dbe32f79.term.1>: <term.9d12877c.term.21>
+  - localid: 附件21
+    termid: d0111eb4
+  - localid: 附件30
+    termid: 91ff9448
+  - localid: 附件31
+    termid: 6d206b54
+  - localid: 附件32
+    termid: 9e6bc34f
+    map:
+      <term.9e6bc34f.term.1>: <term.9d12877c.term.31>
+  - localid: 附件33
+    termid: 600f6f80
+  - localid: 附件34
+    termid: '12119600'
+  - localid: 附件42
+    termid: cb4ab0e9
+  - localid: 附件43
+    termid: 5ab2b2ba

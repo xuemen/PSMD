@@ -7,23 +7,24 @@ var termsetmap = new Object();
 
 try {
     fs.readdirSync(datapath).forEach(file => {
-        if (file.substr(0, 5) == "term-") {
+        if (file.substr(0,5) == "term.") {
             var t = yaml.load(fs.readFileSync(datapath + file, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
             termmap[t.id] = t;
 
             var newobj = termtoterm(t);
             if (newobj != null) {
-                //fs.writeFileSync(file,yaml.dump(newobj,{ 'lineWidth': -1 }));
+                fs.writeFileSync(datapath + file,yaml.dump(newobj,{ 'lineWidth': -1 }));
                 console.log("文件%s已经更新，内容：\n%s", file, yaml.dump(newobj, { 'lineWidth': -1 }));
             }
         }
-        if (file.substr(0, 8) == "termset.") {
+        if (file.substr(0,8) == "termset.") {
             var ts = yaml.load(fs.readFileSync(datapath + file, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
             termsetmap[ts.id] = ts;
 
             var newobj = termsettoterm(ts);
+            var newtermfilename = "term." + newobj.id + ".yaml"
             if (newobj != null) {
-                //fs.writeFileSync(file,yaml.dump(newobj,{ 'lineWidth': -1 }));
+                fs.writeFileSync(datapath + newtermfilename,yaml.dump(newobj,{ 'lineWidth': -1 }));
                 console.log("文件%s已经更新，内容：\n%s", file, yaml.dump(newobj, { 'lineWidth': -1 }));
             }
 
@@ -35,7 +36,7 @@ try {
 }
 
 function termtoterm(termobj) {
-    console.log("enter termtoterm(), term id:", termobj.id);
+    //console.log("enter termtoterm(), term id:", termobj.id);
     var bconver = false;
     var newobj = new Object();
 
@@ -43,7 +44,7 @@ function termtoterm(termobj) {
         //console.log("interface before conver:\n%s", yaml.dump(termobj.interface));
         for (var key in termobj.interface) {
             if (key.slice(0, 6) == "<term.") {
-                console.log("it is a new version term metadata.")
+                //console.log("it is a new version term metadata.")
                 break;
             } else {
                 var interfacetype = key;
@@ -65,11 +66,11 @@ function termtoterm(termobj) {
         }
         //console.log("interface after conver:\n%s", yaml.dump(termobj.interface));
     } else {
-        console.log("no interface field here.")
+        //console.log("no interface field here.")
     }
 
     if (termobj.text != null) {
-        console.log("it has a text field. move to item level.")
+        //console.log("it has a text field. move to item level.")
         termobj.item = new Array();
         var item = new Object();
         item.localid = "";

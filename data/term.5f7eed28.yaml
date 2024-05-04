@@ -1,4 +1,6 @@
 name: PS标准-2
 id: 5f7eed28
-text: |
-  人员的上下级关系，根据任免权定义。
+item:
+  - localid: ''
+    text: |
+      人员的上下级关系，根据任免权定义。

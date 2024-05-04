@@ -1,9 +1,10 @@
 name: 集体决策
 id: 177700d4
 interface:
-  entity:
-    1: director
-text: |
-  由<entity.1>表决按一人一票表决，超过80%出席会议有效，赞成票超过超过三分之二为通过。
-readme: |
-effect: |
+  <term.177700d4.entity.1>: director
+readme: ''
+effect: ''
+item:
+  - localid: ''
+    text: |
+      由<term.177700d4.entity.1>表决按一人一票表决，超过80%出席会议有效，赞成票超过超过三分之二为通过。

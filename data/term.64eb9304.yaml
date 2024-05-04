@@ -1,9 +1,10 @@
 name: 自修订条款
 id: 64eb9304
 interface:
-  entity:
-    1: deployer
-text: |
-  由<entity.1>书面提交即生效。
-readme: |
-effect: |
+  <term.64eb9304.entity.1>: deployer
+readme: ''
+effect: ''
+item:
+  - localid: ''
+    text: |
+      由<term.64eb9304.entity.1>书面提交即生效。

@@ -1,0 +1,14 @@
+name: 符合某条件
+id: dbe32f79
+interface:
+  <term.dbe32f79.term.1>: 附件21.容器规则
+  <term.dbe32f79.term.2>: 第2条
+item:
+  - localid: '1'
+    termid: bb8005b9
+    map:
+      <term.bb8005b9.term.1>: <term.dbe32f79.term.2>
+  - localid: '2'
+    termid: 949e69e3
+    map:
+      <term.949e69e3.term.1>: <term.dbe32f79.term.1>

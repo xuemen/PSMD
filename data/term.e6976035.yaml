@@ -1,0 +1,38 @@
+name: 入门目录202404151600-2
+id: e6976035
+interface:
+  <term.e6976035.term.1>: 附件20
+  <term.e6976035.term.2>: 附件30
+  <term.e6976035.term.3>: 附件42
+  <term.e6976035.term.4>: 附件31
+  <term.e6976035.term.5>: 附件32
+  <term.e6976035.term.6>: 附件33
+  <term.e6976035.term.7>: 附件34
+item:
+  - localid: '1'
+    termid: 5b4e0597
+    map:
+      <term.5b4e0597.term.1>: <term.e6976035.term.1>
+      <term.5b4e0597.term.2>: <term.e6976035.term.2>
+      <term.5b4e0597.term.3>: <term.e6976035.term.3>
+      <term.5b4e0597.term.4>: <term.e6976035.term.4>
+      <term.5b4e0597.term.5>: <term.e6976035.term.5>
+      <term.5b4e0597.term.6>: <term.e6976035.term.6>
+      <term.5b4e0597.term.7>: <term.e6976035.term.7>
+  - localid: '2'
+    termid: 52edbf25
+    map:
+      <term.52edbf25.term.1>: <term.e6976035.term.1>
+      <term.52edbf25.term.2>: <term.e6976035.term.2>
+      <term.52edbf25.term.3>: <term.e6976035.term.3>
+      <term.52edbf25.term.4>: <term.e6976035.term.4>
+      <term.52edbf25.term.5>: <term.e6976035.term.5>
+      <term.52edbf25.term.6>: <term.e6976035.term.6>
+      <term.52edbf25.term.7>: <term.e6976035.term.7>
+  - localid: '3'
+    termid: 7288c99c
+    map:
+      <term.7288c99c.term.1>: <term.e6976035.term.1>
+      <term.7288c99c.term.2>: <term.e6976035.term.2>
+  - localid: '4'
+    termid: dd1bc41b

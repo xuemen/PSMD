@@ -1,0 +1,45 @@
+name: 预设1406动议
+id: b3124d50
+interface:
+  <term.b3124d50.entity.e1>: 共同体
+  <term.b3124d50.entity.e2>: 经理
+  <term.b3124d50.entity.e3>: 决策部门
+  <term.b3124d50.entity.e4>: 执行部门
+  <term.b3124d50.entity.e5>: 下达指令者
+  <term.b3124d50.asset.a1>: 通用工单
+  <term.b3124d50.asset.a2>: 审议报告
+  <term.b3124d50.asset.a3>: 工作日志
+  <term.b3124d50.term.1>: 基本制度
+  <term.b3124d50.term.2>: 具体规章
+  <term.b3124d50.term.3>: 劳动合同
+  <term.b3124d50.term.42>: 附件42
+  <term.b3124d50.term.44>: 附件44
+  <term.b3124d50.term.1406>: 附件1406
+item:
+  - localid: '1'
+    termid: 583d6243
+    map:
+      <term.583d6243.term.1>: <term.b3124d50.term.44>
+      <term.583d6243.term.2>: <term.b3124d50.term.1406>
+  - localid: 附件42
+    termid: cb4ab0e9
+  - localid: 附件44
+    termid: 0ccddb29
+    map:
+      <term.0ccddb29.entity.1>: <term.b3124d50.entity.e1>
+      <term.0ccddb29.entity.2>: <term.b3124d50.entity.e5>
+      <term.0ccddb29.entity.3>: <term.b3124d50.entity.e3>
+      <term.0ccddb29.entity.4>: <term.b3124d50.entity.e4>
+      <term.0ccddb29.asset.1>: <term.b3124d50.asset.a1>
+      <term.0ccddb29.term.1>: <term.b3124d50.term.42>
+  - localid: 附件1406
+    termid: 056e71fb
+    map:
+      <term.056e71fb.entity.1>: <term.b3124d50.entity.e2>
+      <term.056e71fb.entity.2>: <term.b3124d50.entity.e4>
+      <term.056e71fb.entity.3>: <term.b3124d50.entity.e3>
+      <term.056e71fb.term.1>: <term.b3124d50.term.1>
+      <term.056e71fb.term.2>: <term.b3124d50.term.2>
+      <term.056e71fb.term.3>: <term.b3124d50.term.3>
+      <term.056e71fb.asset.1>: <term.b3124d50.asset.a1>
+      <term.056e71fb.asset.2>: <term.b3124d50.asset.a2>

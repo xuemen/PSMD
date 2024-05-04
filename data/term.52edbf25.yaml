@@ -1,15 +1,15 @@
 name: 入门目录202404151600-2-2
 id: 52edbf25
 interface:
-  term:
-    '1': 附件20
-    '2': 附件30
-    '3': 附件42
-    '4': 附件31
-    '5': 附件32
-    '6': 附件33
-    '7': 附件34
-text: >
-  条件：同意按照<term.1>增加补充信息，补充关于<term.2>，<term.3>，<term.4>、<term.5>、<term.6>、<term.7>的补充信息，且判断符合附件<term.2>，<term.3>，不全符合符合<term.4>、<term.5>、<term.6>、<term.7>。
-
-  建议：先参考default+1406标准模型开展业务，逐步完善规章，取得进步后重新增加关于附件<term.4>、<term.5>、<term.6>、<term.7>的补充信息。
+  <term.52edbf25.term.1>: 附件20
+  <term.52edbf25.term.2>: 附件30
+  <term.52edbf25.term.3>: 附件42
+  <term.52edbf25.term.4>: 附件31
+  <term.52edbf25.term.5>: 附件32
+  <term.52edbf25.term.6>: 附件33
+  <term.52edbf25.term.7>: 附件34
+item:
+  - localid: ''
+    text: |
+      条件：同意按照<term.52edbf25.term.1>增加补充信息，补充关于<term.52edbf25.term.2>，<term.52edbf25.term.3>，<term.52edbf25.term.4>、<term.52edbf25.term.5>、<term.52edbf25.term.6>、<term.52edbf25.term.7>的补充信息，且判断符合附件<term.52edbf25.term.2>，<term.52edbf25.term.3>，不全符合符合<term.52edbf25.term.4>、<term.52edbf25.term.5>、<term.52edbf25.term.6>、<term.52edbf25.term.7>。
+      建议：先参考default+1406标准模型开展业务，逐步完善规章，取得进步后重新增加关于附件<term.52edbf25.term.4>、<term.52edbf25.term.5>、<term.52edbf25.term.6>、<term.52edbf25.term.7>的补充信息。

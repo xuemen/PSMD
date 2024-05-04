@@ -1,0 +1,18 @@
+name: 制定规则
+id: 600f6f80
+readme: |
+  比如不采用<term.600f6f80.term.2>的共同体，制定规章时以采用PS标准分支下的案例为依据，则自动增加采用PS标准的动议，切换生效之后才能讨论所制定规章。
+interface:
+  <term.600f6f80.term.1>: 分支隔离规则
+  <term.600f6f80.term.2>: PS标准
+item:
+  - localid: '1'
+    termid: 50d2347f
+  - localid: '2'
+    termid: 4c37b176
+  - localid: '3'
+    termid: 55c25f3f
+  - localid: '4'
+    termid: 064129fa
+    map:
+      <term.064129fa.term.1>: <term.600f6f80.term.1>
