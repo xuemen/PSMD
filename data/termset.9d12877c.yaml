@@ -56,6 +56,9 @@ item:
     type: 'termset'
     id: '9e6bc34f'
     path: 'termset.9e6bc34f.yaml'
+    map:
+      term:
+        '1': 31
   - sortid: '附件33'
     type: 'termset'
     id: '600f6f80'

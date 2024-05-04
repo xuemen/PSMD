@@ -465,6 +465,7 @@ function maketermsettext(termset, prefix, map) {
             //treereadme = treereadme + item.treereadme;
         } else if (item.type == "term") {
             //console.log("before enter maketerttext(), item:"+yaml.dump(item,{'lineWidth': -1}));
+            item.termid = item.id;
             var termtext = maketermtext(item, subprefix, item.map);
             treetext = treetext + subprefix + " " + item.treetext;
             if (item.treereadme != null) {
@@ -521,7 +522,7 @@ function maketermsettext(termset, prefix, map) {
 }
 
 function maketermtext(item, prefix, map) {
-    //console.log("enter maketermtext:"+item.termid+"\tprefix:"+prefix);
+    console.log("enter maketermtext:"+item.termid+"\tprefix:"+prefix);
     var termfilename = datapath + "term." + item.termid + ".yaml";
     var termobj = yaml.load(fs.readFileSync(termfilename, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
 
@@ -574,6 +575,13 @@ function maketermtext(item, prefix, map) {
                 treereadme = treereadme + subprefix + " " + itemobj.treereadme;// + "\n";
                 //treereadme = treereadme + subprefix + " readme:\n" + item.treereadme;
             }
+        }
+    }
+
+    // depend, together, effect field -> text
+    if(termobj.depend != null){
+        for(var id in termobj,depend){
+
         }
     }
 
