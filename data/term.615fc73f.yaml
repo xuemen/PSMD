@@ -1,0 +1,12 @@
+name: 董事会职权（四）
+id: 615fc73f
+interface:
+  <term.615fc73f.entity.1>: 公司
+  <term.615fc73f.asset.1>: 预算方案
+  <term.615fc73f.asset.2>: 决算方案
+item:
+  - localid: ''
+    text: |
+      制订<term.615fc73f.entity.1>的年度财务<term.615fc73f.asset.1>、<term.615fc73f.asset.2>；
+readme: |
+  注意：新公司法已取消。

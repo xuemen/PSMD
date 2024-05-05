@@ -1,0 +1,8 @@
+name: 监事职权（一）
+id: b96e83c2
+interface:
+  <term.b96e83c2.entity.1>: 公司
+item:
+  - localid: ''
+    text: |
+      检查<term.b96e83c2.entity.1>财务；

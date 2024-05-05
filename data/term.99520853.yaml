@@ -1,0 +1,13 @@
+name: 监事职权（二）
+id: '99520853'
+interface:
+  <term.99520853.entity.1>: 公司
+  <term.99520853.entity.2>: 董事
+  <term.99520853.entity.3>: 高级管理人员
+  <term.99520853.entity.4>: 股东会
+  <term.99520853.term.1>: 章程
+  <term.99520853.asset.1>: 罢免的建议
+item:
+  - localid: ''
+    text: |
+      对<term.99520853.entity.2>、<term.99520853.entity.3>执行<term.99520853.entity.1>职务的行为进行监督，对违反法律、行政法规、<term.99520853.entity.1><term.99520853.term.1>或者<term.99520853.entity.4>决议的<term.99520853.entity.2>、<term.99520853.entity.3>提出<term.99520853.asset.1>；

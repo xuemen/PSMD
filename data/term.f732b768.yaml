@@ -1,0 +1,10 @@
+name: 监事职权（六）
+id: f732b768
+interface:
+  <term.f732b768.entity.1>: 董事
+  <term.f732b768.entity.2>: 高级管理人员
+  <term.f732b768.term.1>: 《公司法》第一百五十二条
+item:
+  - localid: ''
+    text: |
+      依照<term.f732b768.term.1>的规定，对<term.f732b768.entity.1>、<term.f732b768.entity.2>提起诉讼； 

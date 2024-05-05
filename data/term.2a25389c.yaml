@@ -1,0 +1,10 @@
+name: 经理职权（二）
+id: 2a25389c
+interface:
+  <term.2a25389c.entity.1>: 公司
+  <term.2a25389c.asset.1>: 经营计划
+  <term.2a25389c.asset.2>: 投资方案
+item:
+  - localid: ''
+    text: |
+      组织实施<term.2a25389c.entity.1>年度<term.2a25389c.asset.1>和<term.2a25389c.asset.2>；

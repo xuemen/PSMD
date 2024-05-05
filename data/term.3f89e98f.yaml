@@ -1,0 +1,9 @@
+name: 经理职权（一）
+id: 3f89e98f
+interface:
+  <term.3f89e98f.entity.1>: 公司
+  <term.3f89e98f.entity.2>: 董事会
+item:
+  - localid: ''
+    text: |
+      主持<term.3f89e98f.entity.1>的生产经营管理工作，组织实施<term.3f89e98f.entity.2>决议；

@@ -1,0 +1,9 @@
+name: 监事职权（五）
+id: aa469da0
+interface:
+  <term.aa469da0.entity.1>: 股东会
+  <term.aa469da0.asset.1>: 提案
+item:
+  - localid: ''
+    text: |
+      向<term.aa469da0.entity.1>会议提出<term.aa469da0.asset.1>；

@@ -1,6 +1,8 @@
-name: 股东会职权（七）
+name: 经理职权（七）
 id: 7
+interface:
+  <term.7.entity.1>: 董事会
 item:
   - localid: ""
     text: |
-      对公司增加或者减少注册资本作出决议；
+      决定聘任或者解聘除应由<term.7.entity.1>决定聘任或者解聘以外的负责管理人员；

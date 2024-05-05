@@ -1,9 +1,10 @@
 name: 股东会职权（十）
 id: 62c421f2
 interface:
-  <term.62c421f2.asset.1>: 公司章程
+  <term.62c421f2.entity.1>: 公司
+  <term.62c421f2.asset.1>: 章程
 item:
   - localid: ''
     upgradeby: <term.62c421f2.localid.>
     text: |
-      修改<term.62c421f2.asset.1>；
+      修改<term.62c421f2.entity.1><term.62c421f2.asset.1>；

@@ -1,0 +1,33 @@
+name: 监事职权
+id: 6208f678
+interface:
+  <term.f732b768.08f678.entity.1>: 监事
+  <term.f732b768.08f678.entity.2>: 董事会
+  <term.f732b768.08f678.term.1>: 章程第八条（十）
+item:
+  - localid: ''
+    upgradeby: <term.f732b768.08f678.term.1>
+    text: |
+      <term.f732b768.08f678.entity.1>行使下列职权：
+  - localid: （一）
+    upgradeby: <term.f732b768.08f678.term.1>
+    termid: b96e83c2
+  - localid: （二）
+    upgradeby: <term.f732b768.08f678.term.1>
+    termid: '99520853'
+  - localid: （三）
+    upgradeby: <term.f732b768.08f678.term.1>
+    termid: 5fec38ed
+  - localid: （四）
+    upgradeby: <term.f732b768.08f678.term.1>
+    termid: c0eb6977
+  - localid: （五）
+    upgradeby: <term.f732b768.08f678.term.1>
+    termid: aa469da0
+  - localid: （六）
+    upgradeby: <term.f732b768.08f678.term.1>
+    termid: f732b768
+  - localid: ''
+    upgradeby: <term.f732b768.08f678.term.1>
+    text: |
+      <term.f732b768.08f678.entity.1>可以列席<term.f732b768.08f678.entity.2>会议。

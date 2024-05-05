@@ -1,9 +1,9 @@
-name: 股东会职权（十）
+name: 董事会职权（十）
 id: 10
 interface:
-  <term.10.asset.1>: 公司章程
+  <term.10.entity.1>: 公司
+  <term.10.term.1>: 基本管理制度
 item:
   - localid: ""
-    upgradeby: <term.10.localid.>
     text: |
-      修改<term.10.asset.1>；
+      制定<term.10.entity.1>的<term.10.term.1>；

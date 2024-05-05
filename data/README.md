@@ -1,14 +1,15 @@
 # PSMD meta data
 
-1. termset合并到term里，定义条款和条款集，包括正文、注释、接口，次级条款的次序、接口映射、修订关系。
-1. COM定义共同体模型，定义主体termset，并且以error定义可选termset。
-1. deploy定义部署的初始条件、接口映射和逐步生效的过程，期间有过渡性的条款或模型。
-1. COD定义共同体的现状，要考虑主体、条款的不断修订。
-1. error定义有效果偏差的termset、COM，以及有效果的termset、COM。索引位置暂定在allterm metadata。
+1. term定义条款和合同，包括正文、注释、层次结构、次序、修订关系，以及占位符、各级映射。
+1. COM定义共同体的模型：placeholder替换成中性词，列出各局部的多种可以互相替换、效果相近的term。各COD的部署和运行经验汇总到COM。
+1. deploy定义部署的初始条件、内部词汇和占位符的映射和term逐步生效的过程，期间可以有过渡性的条款或模型。
+1. COD定义共同体的实例。实例中出现的error和term汇总到建模者，也可以发布新的COM。
+1. error定义有效果偏差的term，以及有效果的term。索引位置暂定在allterm metadata。
 
 ## 数据结构
 
 ###  term
+term定义条款和合同，包括正文、注释、层次结构、次序、修订关系，以及占位符、各级映射。
 
 - 增加item字段。
   - 取消item.path，改由统一的接口从id获得path、obj
@@ -64,21 +65,86 @@ effect:
 ~~~
 
 ###  COM
+COM定义共同体的模型：placeholder替换成中性词，列出各局部的多种可以互相替换、效果相近的term。各COD的部署和运行经验汇总到COM。
+
+- 
+- 
 
 ~~~
 name:
 id:
-maintermset:    // termsetid 
-option:         // 可选的条款
-    sortid:     
-        type:  // error term termset
-        id:    // errorid termid termsetid
+interface:
+  <term.termid.entity.1>: value
+  <term.termid.entity.2>: value
+  <term.termid.asset.1>: value
+  <term.termid.term.1>: value
+  <term.termid.event.1>: value
+  <term.termid.localid.1>: value
+item:
+  level0:
+    permanent: //不可修订条款
+      - termid:
+        map:
         readme: |
-readme: |
-effect:
+      - termid:
+    self: //自修订条款
+      - termid:
+        map:
+        readme: |
+      - termid:
+  level1:
+    - upgradeby:
+      option:
+        - termid:
+          map:
+          readme: |
+        - termid:
+    - upgradeby: //对于开源信息可以解决的，可以用readme说明而不列出具体term。
+      readme:
+  level2:
+    - upgradeby:
+      option:
+        - termid:
+          map:
+          readme: |
+        - termid:
 ~~~
 
 ###  deploy
+
+备选结构
+```
+deploy:
+  init: 
+    - termid:
+      y: 
+        termid:
+        y:
+        n:
+        case:
+          - cod: id
+            log: |
+            readme: |
+        readme: |
+      n: 
+        errorid:
+        y:
+        n:
+    - errorid:
+      y: 
+        termid:
+        y:
+        n:
+        case:
+          - cod: id
+            log: |
+            readme: |
+        readme: |
+execution:
+
+readme: |
+effect:
+```
 
 ~~~
 name:

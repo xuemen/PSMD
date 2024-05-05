@@ -1,0 +1,8 @@
+name: 董事会职权（一）
+id: f64809f8
+interface:
+  <term.f64809f8.entity.1>: 股东会
+item:
+  - localid: ''
+    text: |
+      负责召集<term.f64809f8.entity.1>，并向<term.f64809f8.entity.1>报告工作；

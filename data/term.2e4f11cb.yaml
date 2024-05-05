@@ -1,0 +1,31 @@
+name: 章程部分条款
+id: 2e4f11cb
+interface:
+  <term.2e4f11cb.entity.1>: 公司
+  <term.2e4f11cb.entity.2>: 董事会
+  <term.2e4f11cb.term.1>: 第八条.（十）.
+item:
+  - localid: 第八条
+    upgradeby: <term.2e4f11cb.term.1>
+    map:
+      <term.e55c000c.localid.（十）>: <term.2e4f11cb.term.1>
+    termid: e55c000c
+  - localid: 第十五条
+    upgradeby: <term.2e4f11cb.term.1>
+    termid: 25c83dac
+  - localid: 第十八条
+    upgradeby: <term.2e4f11cb.term.1>
+    termid: 4bbd5668
+  - localid: 第二十条
+    upgradeby: <term.2e4f11cb.term.1>
+    termid: 6208f678
+depend:
+  - errorid: 0ccddb29
+    percent: 50
+    map: 
+      <error.0ccddb29.entity.1>: <term.2e4f11cb.entity.1>
+      <error.0ccddb29.entity.3>: <term.2e4f11cb.entity.2>
+    text: |
+      测试字符串。。。。<term.2e4f11cb.term.1>。。。
+readme: |
+  章程是<term.2e4f11cb.entity.1>的顶级规章。但它的条款在修订层次上并不平等。

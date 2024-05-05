@@ -1,9 +1,10 @@
-name: 股东会职权（四）
+name: 监事职权（四）
 id: 4
 interface:
-  <term.4.entity.1>: 监事
-  <term.4.asset.1>: 报告
+  <term.4.entity.1>: 股东会
+  <term.4.entity.2>: 董事会
+  <term.4.term.1>: 章程
 item:
   - localid: ""
     text: |
-      审议批准<term.4.entity.1>的<term.4.asset.1>；
+      提议召开临时<term.4.entity.1>会议，在<term.4.entity.2>不履行本<term.4.term.1>规定的召集和主持<term.4.entity.1>会议职责时召集和主持<term.4.entity.1>会议；

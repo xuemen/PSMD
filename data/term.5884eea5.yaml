@@ -1,0 +1,11 @@
+name: 董事会职权（九）
+id: 5884eea5
+interface:
+  <term.5884eea5.entity.0>: 公司
+  <term.5884eea5.entity.1>: 经理
+  <term.5884eea5.entity.2>: 副经理
+  <term.5884eea5.entity.3>: 财务负责人
+item:
+  - localid: ''
+    text: |
+      决定聘任或者解聘<term.5884eea5.entity.0><term.5884eea5.entity.1>及其报酬事项，并根据<term.5884eea5.entity.1>的提名决定聘任或者解聘<term.5884eea5.entity.0><term.5884eea5.entity.2>、<term.5884eea5.entity.3>及其报酬事项；

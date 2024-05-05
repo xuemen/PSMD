@@ -1,6 +1,8 @@
 name: 股东会职权（九）
 id: f3cc3036
+interface:
+  <term.f3cc3036.entity.1>: 公司
 item:
   - localid: ''
     text: |
-      对公司合并、分立、解散、清算或者变更公司形式作出决议；
+      对<term.f3cc3036.entity.1>合并、分立、解散、清算或者变更<term.f3cc3036.entity.1>形式作出决议；

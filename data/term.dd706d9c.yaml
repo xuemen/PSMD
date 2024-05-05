@@ -1,0 +1,8 @@
+name: 经理职权（七）
+id: dd706d9c
+interface:
+  <term.dd706d9c.entity.1>: 董事会
+item:
+  - localid: ''
+    text: |
+      决定聘任或者解聘除应由<term.dd706d9c.entity.1>决定聘任或者解聘以外的负责管理人员；

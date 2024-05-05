@@ -1,0 +1,10 @@
+name: 监事职权（三）
+id: 5fec38ed
+interface:
+  <term.5fec38ed.entity.1>: 公司
+  <term.5fec38ed.entity.2>: 董事
+  <term.5fec38ed.entity.3>: 高级管理人员
+item:
+  - localid: ''
+    text: |
+      当<term.5fec38ed.entity.2>、<term.5fec38ed.entity.3>的行为损害<term.5fec38ed.entity.1>的利益时，要求<term.5fec38ed.entity.2>、<term.5fec38ed.entity.3>予以纠正；

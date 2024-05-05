@@ -1,8 +1,8 @@
-name: 股东会职权（八）
+name: 经理职权（八）
 id: 8
 interface:
-  <term.8.asset.1>: 公司债券
+  <term.8.entity.1>: 董事会
 item:
   - localid: ""
     text: |
-      对发行<term.8.asset.1>作出决议；
+      <term.8.entity.1>授予的其他职权。

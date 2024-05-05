@@ -1,0 +1,9 @@
+name: 经理职权（四）
+id: f81cd0f0
+interface:
+  <term.f81cd0f0.entity.1>: 公司
+  <term.f81cd0f0.term.1>: 基本管理制度
+item:
+  - localid: ''
+    text: |
+      拟订<term.f81cd0f0.entity.1>的<term.f81cd0f0.term.1>；

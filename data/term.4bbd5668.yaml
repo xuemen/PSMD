@@ -1,0 +1,40 @@
+name: 经理职权
+id: 4bbd5668
+interface:
+  <term.f81cd0f0.bd5668.entity.1>: 公司
+  <term.f81cd0f0.bd5668.entity.2>: 董事会
+  <term.f81cd0f0.bd5668.entity.3>: 经理
+  <term.f81cd0f0.bd5668.term.1>: 章程第八条（十）
+item:
+  - localid: ''
+    upgradeby: <term.f81cd0f0.bd5668.term.1>
+    text: |
+      <term.f81cd0f0.bd5668.entity.1>设<term.f81cd0f0.bd5668.entity.3>，由<term.f81cd0f0.bd5668.entity.2>决定聘任或者解聘。<term.f81cd0f0.bd5668.entity.3>对<term.f81cd0f0.bd5668.entity.2>负责，行使下列职权：
+  - localid: （一）
+    upgradeby: <term.f81cd0f0.bd5668.term.1>
+    termid: 3f89e98f
+  - localid: （二）
+    upgradeby: <term.f81cd0f0.bd5668.term.1>
+    termid: 2a25389c
+  - localid: （三）
+    upgradeby: <term.f81cd0f0.bd5668.term.1>
+    termid: b3012036
+  - localid: （四）
+    upgradeby: <term.f81cd0f0.bd5668.term.1>
+    termid: f81cd0f0
+  - localid: （五）
+    upgradeby: <term.f81cd0f0.bd5668.term.1>
+    termid: c73b28b3
+  - localid: （六）
+    upgradeby: <term.f81cd0f0.bd5668.term.1>
+    termid: 500e281d
+  - localid: （七）
+    upgradeby: <term.f81cd0f0.bd5668.term.1>
+    termid: dd706d9c
+  - localid: （八）
+    upgradeby: <term.f81cd0f0.bd5668.term.1>
+    termid: a2804f8b
+  - localid: ''
+    upgradeby: <term.f81cd0f0.bd5668.term.1>
+    text: |
+      <term.f81cd0f0.bd5668.entity.3>列席<term.f81cd0f0.bd5668.entity.2>会议。

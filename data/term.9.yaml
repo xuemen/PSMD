@@ -1,6 +1,11 @@
-name: 股东会职权（九）
+name: 董事会职权（九）
 id: 9
+interface:
+  <term.9.entity.0>: 公司
+  <term.9.entity.1>: 经理
+  <term.9.entity.2>: 副经理
+  <term.9.entity.3>: 财务负责人
 item:
   - localid: ""
     text: |
-      对公司合并、分立、解散、清算或者变更公司形式作出决议；
+      决定聘任或者解聘<term.9.entity.0><term.9.entity.1>及其报酬事项，并根据<term.9.entity.1>的提名决定聘任或者解聘<term.9.entity.0><term.9.entity.2>、<term.9.entity.3>及其报酬事项；

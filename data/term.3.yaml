@@ -1,9 +1,10 @@
-name: 股东会职权（三）
+name: 监事职权（三）
 id: 3
 interface:
-  <term.3.entity.1>: 董事会
-  <term.3.asset.1>: 报告
+  <term.3.entity.1>: 公司
+  <term.3.entity.2>: 董事
+  <term.3.entity.3>: 高级管理人员
 item:
   - localid: ""
     text: |
-      审议批准<term.3.entity.1>的<term.3.asset.1>；
+      当<term.3.entity.2>、<term.3.entity.3>的行为损害<term.3.entity.1>的利益时，要求<term.3.entity.2>、<term.3.entity.3>予以纠正；

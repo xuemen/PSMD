@@ -1,9 +1,10 @@
-name: 股东会职权（六）
+name: 监事职权（六）
 id: 6
 interface:
-  <term.6.asset.1>: 利润分配方案
-  <term.6.asset.2>: 弥补亏损的方案
+  <term.6.entity.1>: 董事
+  <term.6.entity.2>: 高级管理人员
+  <term.6.term.1>: 《公司法》第一百五十二条
 item:
   - localid: ""
     text: |
-      审议批准公司的<term.6.asset.1>和<term.6.asset.2>；
+      依照<term.6.term.1>的规定，对<term.6.entity.1>、<term.6.entity.2>提起诉讼； 

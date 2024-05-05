@@ -1,0 +1,8 @@
+name: 经理职权（八）
+id: a2804f8b
+interface:
+  <term.a2804f8b.entity.1>: 董事会
+item:
+  - localid: ''
+    text: |
+      <term.a2804f8b.entity.1>授予的其他职权。

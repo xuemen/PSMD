@@ -15,18 +15,16 @@ const datapath = "../data/";
 const viewpath = "../view/";
 
 const helpstr = `
-node term all   : term metada + termset metadata → allterm metadata
+node term all   : term metada metadata → allterm metadata
 node term commit:   temp metadata → formal metadata
 node term commit filename: temp metadata → formal metadata
 node term term id   : term metadata → term markdown + html
-node term termset id    : termset metadata → termset markdown + html
 node term error id    : error metadata → error markdown + html
 node term knowledge    : knowledge metadata → allknowledge metadata
 node term knowledge id    : knowledge metadata → knowledge markdown + html
 `;
 
 var termmap = new Object();
-var termsetmap = new Object();
 var errormap = new Object();
 var knowledgemap = new Object();
 
@@ -34,7 +32,7 @@ var knowledgemap = new Object();
 var arguments = process.argv.splice(2);
 if (arguments.length > 0) {
     if ((arguments.length == 1) & (arguments[0] == "all")) {
-        // node term all   : term metada + termset metadata → allterm metadata
+        // node term all   : term metada metadata → allterm metadata
         loadallterm();
         makeallterm();
     } else if ((arguments.length == 1) & (arguments[0] == "knowledge")) {
@@ -52,12 +50,6 @@ if (arguments.length > 0) {
         var termid = arguments[1];
         loadallterm();
         maketermview(termid);
-    } else if ((arguments.length == 2) & (arguments[0] == "termset")) {
-        // node term termset id    : termset metadata → termset markdown + html
-        //console.log("node term termset id    : termset metadata → termset markdown + html"+ arguments[1]) ;
-        var termsetid = arguments[1];
-        loadallterm();
-        maketermsetview(termsetid);
     } else if ((arguments.length == 2) & (arguments[0] == "error")) {
         // node term error id    : error metadata → error markdown + html
         var errorid = arguments[1];
@@ -85,10 +77,6 @@ function loadallterm() {
                 termmap[t.id] = t;
                 // test after conver
                 //maketermview(t.id);
-            }
-            if (file.substr(0, 8) == "termset.") {
-                var ts = yaml.load(fs.readFileSync(datapath + file, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
-                termsetmap[ts.id] = ts;
             }
         });
     } catch (e) {
@@ -127,10 +115,8 @@ function makeallknowledge() {
 
 function makeallterm() {
     //console.log(yaml.dump(termmap,{'lineWidth': -1}));
-    //console.log(yaml.dump(termsetmap,{'lineWidth': -1}));
     var allterm = new Object();
     allterm["term"] = termmap;
-    allterm["termset"] = termsetmap;
 
     fs.writeFile(datapath + "allterm.yaml", yaml.dump(allterm, { 'lineWidth': -1 }), (err) => {
         if (err) throw err;
@@ -140,11 +126,9 @@ function makeallterm() {
 
 function commit() {
     var alltempterm = new Object();
-    //var alltemptermset = new Object();
     var alltemperror = new Object();
     var alltempknowledge = new Object();
     var termmap = new Object();
-    //var termsetmap = new Object();
     var errormap = new Object();
     var knowledgemap = new Object();
 
@@ -179,7 +163,6 @@ function commit() {
     });
 
     //console.log(yaml.dump(alltempterm,{'lineWidth': -1}));
-    //console.log(yaml.dump(alltemptermset,{'lineWidth': -1}));
 
     for (var id in alltempterm) {
         var term = alltempterm[id];
@@ -342,11 +325,6 @@ function committempterm(obj) {
 
 }
 
-function committemptermset(obj) {
-
-}
-
-
 function committemperror(obj) {
 
 }
@@ -363,7 +341,10 @@ function maketermview(termid) {
     var viewfilename = viewpath + "term." + termid + ".md";
     var viewstr = "条款 " + termid + " 正文:\n" + item.treetext;
     if (item.treereadme != null) {
-        viewstr = viewstr + "\n---\n条款 " + termid + " readme:\n" + item.treereadme
+        viewstr = viewstr + "\n---\nreadme:\n条款 " + termid + ". " + item.treereadme
+    }
+    if (item.treedepend != null) {
+        viewstr = viewstr + "\n---\ndepend:\n条款 " + termid + ".\n" + item.treedepend
     }
     fs.writeFileSync(viewfilename, viewstr);
     console.log(viewfilename + "文件更新，内容如下:\n" + viewstr);
@@ -371,10 +352,16 @@ function maketermview(termid) {
 
     item.treehtml = item.treetext.replace(/\n/g, '<br/>\n');
     if (item.treereadme != null) {
-        item.readme = true ;
+        item.readme = true;
         item.treereadmehtml = item.treereadme.replace(/\n/g, '<br/>\n');
-    }else{
+    } else {
         item.readme = false;
+    }
+    if (item.treedepend != null) {
+        item.depend = true;
+        item.treedependhtml = item.treedepend.replace(/\n/g, '<br/>\n');
+    } else {
+        item.depend = false;
     }
 
     var termhtml = maketermhtml(item);
@@ -424,127 +411,45 @@ function maketermhtml(item) {
     }
 }
 
-function maketermsetview(termsetid) {
-    //console.log("enter maketermsetview:"+termsetid)
-    var termsetfilename = datapath + "termset." + termsetid + ".yaml";
-    //var termsetobj = yaml.load(fs.readFileSync(termsetfilename, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA }););
-    var termsetasitem = new Object();
-    termsetasitem.sortid = "";
-    termsetfilename.type = "termset";
-    termsetasitem.id = termsetid;
-    termsetasitem.path = termsetfilename;
-
-    var termsettext = maketermsettext(termsetasitem, "", null);
-
-    //console.log("maketermsettext()返回值内容如下:\n" + termsettext);
-    //console.log("\ntreetext内容如下:\n" + termsetasitem.treetext);
-    //console.log("\ntreereadme内容如下:\n" + termsetasitem.treereadme);
-
-    var viewfilename = viewpath + "termset." + termsetid + ".md";
-    fs.writeFileSync(viewfilename, termsettext);
-    console.log(viewfilename + "文件更新，内容如下:\n" + termsettext);
-}
-
-function maketermsettext(termset, prefix, map) {
-    var termsetfilename = datapath + "termset." + termset.id + ".yaml";
-    var termsetobj = yaml.load(fs.readFileSync(termsetfilename, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
-
-    var treetext = "";
-    var treereadme = "";
-    if ((termsetobj.readme != null) & (termsetobj.readme != "")) {
-        treereadme = termsetobj.readme;
-    } else {
-        treereadme = "";
-    }
-    //console.log("termsetobj.readme: "+termsetobj.readme);
-    //console.log("begin "+treereadme);
-
-    for (var i in termsetobj.item) {
-        var item = termsetobj.item[i];
-        var subprefix = prefix + item.sortid + "."
-        if (item.type == "termset") {
-            var itemtext = maketermsettext(item, subprefix, item.map);
-            treetext = treetext + subprefix + "\n" + item.treetext;
-            if (item.treereadme != "") {
-                treereadme = treereadme + subprefix + " readme:\n" + item.treereadme;
-            }
-            //treereadme = treereadme + item.treereadme;
-        } else if (item.type == "term") {
-            //console.log("before enter maketerttext(), item:"+yaml.dump(item,{'lineWidth': -1}));
-            item.termid = item.id;
-            var termtext = maketermtext(item, subprefix, item.map);
-            treetext = treetext + subprefix + " " + item.treetext;
-            if (item.treereadme != null) {
-                treereadme = treereadme + subprefix + " readme:\n" + item.treereadme;
-            }
-        } else {
-            console.log("maketermsettext() non't know this type:" + item.type);
-        }
-    }
-
-    // replace the placeholder
-    for (var interfacetype in termsetobj.interface) {
-        for (var localid in termsetobj.interface[interfacetype]) {
-            var placeholder = "<" + interfacetype + "." + localid + ">";
-            var newplaceholder = "";
-
-            if (map != null) {
-                if (map[interfacetype] != null) {
-                    if (map[interfacetype][localid] != null) {
-                        // replace the placeholder use the map from upper level
-                        newplaceholder = "<" + interfacetype + "." + map[interfacetype][localid] + ">";
-                    } else {
-                        // default: replace the placeholder use local interface
-                        newplaceholder = termsetobj.interface[interfacetype][localid];
-                    }
-                } else {
-                    // default: replace the placeholder use local interface
-                    newplaceholder = termsetobj.interface[interfacetype][localid];
-                }
-            } else {
-                // default: replace the placeholder use local interface
-                newplaceholder = termsetobj.interface[interfacetype][localid];
-            }
-            //console.log(placeholder + " -> " + newplaceholder);
-
-            //termsettext = termsettext.replace(placeholder, newplaceholder);
-            treetext = treetext.split(placeholder).join(newplaceholder);
-            //console.log("treetext:  \n" + treetext);
-
-            treereadme = treereadme.split(placeholder).join(newplaceholder);
-            //console.log("treereadme:  \n" + treereadme);
-        }
-    }
-
-    termset.treetext = treetext;
-    termset.treereadme = treereadme;
-
-    if (treereadme != "") {
-        return prefix + treetext + "\n---\n\n" + treereadme + "\n---\n";
-    } else {
-        return prefix + treetext;
-    }
-
-}
-
 function maketermtext(item, prefix, map) {
     console.log("enter maketermtext:" + item.termid + "\tprefix:" + prefix);
     var termfilename = datapath + "term." + item.termid + ".yaml";
     var termobj = yaml.load(fs.readFileSync(termfilename, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
 
     var treetext = "";
-    var treereadme;
+    var treereadme = "";
+    var treedepend = "";
+
+
+    // this level readme,depend,together,effect first.
     if ((termobj.readme != null) & (termobj.readme != "")) {
-        treereadme = termobj.readme;
-    } else {
-        treereadme = "";
+        treereadme = treereadme + termobj.readme;
     }
 
+    // depend, together, effect field -> text
+    if (termobj.depend != null) {
+        for (var i in termobj.depend) {
+            var error = termobj.depend[i];
+            if (termobj.depend[i].errorid != null) {
+                error.id = error.errorid;
+                //console.log("error:\n"+yaml.dump(error));
+                var errortext = makeerrortext(error, "", error.map);
+
+                treedepend = treedepend + "问题 " + error.errorid + ",影响率" + error.percent + "% 正文:  \n" + error.treetext;
+                if (error.treereadme != null) {
+                    treedepend = treedepend + "问题 " + error.errorid + " readme:\n" + error.treereadme;
+                }
+            } else if (termobj.depend[i].text != null) {
+                treedepend = treedepend + "事项" + (parseInt(i) + 1).toString() + ",影响率" + error.percent + "% :\n" + error.text;
+            }
+
+        }
+    }
+    var subprefix = prefix;
     for (var itemid in termobj.item) {
         var itemobj = termobj.item[itemid];
 
         // make prefix
-        var subprefix = prefix;
         if ((itemobj.localid != null) && (itemobj.localid != "")) {
             subprefix = prefix + itemobj.localid + "."
         }
@@ -552,28 +457,38 @@ function maketermtext(item, prefix, map) {
 
         // make upgrade by...
         var upgradestr = "";
-        if (itemobj.upgradeby != null) {
-            console.log("%s>local upgradeby slice:\n0~6:%s\n6~14:%s\n14~22:%s\n23~-1:%s", item.termid, itemobj.upgradeby.slice(0, 6), itemobj.upgradeby.slice(6, 14), itemobj.upgradeby.slice(14, 22), itemobj.upgradeby.slice(23, -1))
-        }
-
         if (item.upgradeby != null) {
             // use global item's metadata
-            upgradestr = "本条款按照" + item.upgradeby + "条款修订。"
+            //console.log("item.upgradeby:%s\tsubprefix:%s",item.upgradeby,subprefix)
+            if (item.upgradeby == subprefix) {
+                upgradestr = "本条款按照本条款修订。"
+            } else {
+                upgradestr = "本条款按照" + item.upgradeby + "条款修订。"
+            }
+            itemobj.upgradeby = item.upgradeby;
+            //console.log("%s>global upgradeby:%s", item.termid, item.upgradeby);
         } else if ((itemobj.upgradeby != null) && (itemobj.upgradeby.slice(0, 6) == "<term.") && (itemobj.upgradeby.slice(6, 14) == item.termid) && (itemobj.upgradeby.slice(14, 22) == ".localid")) {
-            // use local metadata
+            // use localid
             var localupgradeby = prefix + itemobj.upgradeby.slice(23, -1) + ".";
             if (localupgradeby == subprefix) {
                 localupgradeby = "本";
             }
             upgradestr = "本条款按照" + localupgradeby + "条款修订。"
             itemobj.upgradeby = localupgradeby;
+        } else if ((itemobj.upgradeby != null) && (itemobj.upgradeby.slice(0, 6) == "<term.") && (itemobj.upgradeby.slice(6, 14) == item.termid) && (itemobj.upgradeby.slice(14, 22) != ".localid")) {
+            // use local placeholder 
+            var localupgradeby = termobj.interface[itemobj.upgradeby];
+            upgradestr = "本条款按照" + localupgradeby + "条款修订。"
+            itemobj.upgradeby = localupgradeby;
         }
-        console.log("%s>upgradestr:%s", item.termid, upgradestr);
+        //console.log("%s>upgradestr:%s", item.termid, upgradestr);
 
         if (itemobj.text != null) {
             treetext = treetext + subprefix + " " + upgradestr + itemobj.text; // + "\n"
         }
         if (itemobj.termid != null) {
+
+            // lower level readme,depend,together,effect 
             var itemtext = maketermtext(itemobj, subprefix, itemobj.map);
             treetext = treetext + itemobj.treetext;
             //treetext = treetext + subprefix + "\n" + itemobj.treetext;
@@ -581,15 +496,14 @@ function maketermtext(item, prefix, map) {
                 treereadme = treereadme + subprefix + " " + itemobj.treereadme;// + "\n";
                 //treereadme = treereadme + subprefix + " readme:\n" + item.treereadme;
             }
+            if ((itemobj.treedepend != null) && (itemobj.treedepend != "")) {
+                treedepend = treedepend + subprefix + "\n" + itemobj.treedepend;// + "\n";
+                //treereadme = treereadme + subprefix + " readme:\n" + item.treereadme;
+            }
         }
     }
 
-    // depend, together, effect field -> text
-    if (termobj.depend != null) {
-        for (var id in termobj.depend) {
 
-        }
-    }
 
     // all placeholders must been defined in local interface
     // all placeholders in global map must been defined in local interface 
@@ -605,16 +519,25 @@ function maketermtext(item, prefix, map) {
                 treereadme = treereadme.split(placeholder).join(value);
                 //console.log("treereadme:  \n" + treereadme);
             }
+            if (treedepend != null) {
+                treedepend = treedepend.split(placeholder).join(value);
+                //console.log("treereadme:  \n" + treereadme);
+            }
         }
     }
 
+    var returnstr = prefix + treetext;
     item.treetext = treetext;
     if (treereadme != "") {
         item.treereadme = treereadme;
-        return prefix + treetext + "\n\n---\n\n" + treereadme + "\n---\n";
-    } else {
-        return prefix + treetext;
+        returnstr = returnstr + "\n\n---\n\n" + treereadme;
     }
+    if (treedepend != "") {
+        item.treedepend = treedepend;
+        returnstr = returnstr + "\n\n---\n\n" + treedepend;
+    }
+
+    return returnstr;
 }
 
 function makeerrorview(errorid) {
@@ -660,11 +583,6 @@ function makeerrornet(errorid, prefix, knowledgetable) {
                     if (knowledgeobj.type == "termtoerror") {
                         var termviewfilename = viewpath + "term." + knowledgeobj.objid + ".md";
                         var appendstr = prefix + "发现knowledge " + id + " :使用term [" + knowledgeobj.objid + "](" + termviewfilename + ") 可能解决 error " + errorid + " 预估有效的比例是 " + knowledgeobj.effect[effectid].percent + "%";
-                        console.log(appendstr);
-                        returnstr = returnstr + appendstr + "\n";
-                    } else if (knowledgeobj.type == "termsettoerror") {
-                        var termsetviewfilename = viewpath + "term." + knowledgeobj.objid + ".md";
-                        var appendstr = prefix + "发现knowledge " + id + " :使用termset [" + knowledgeobj.objid + "](" + termsetviewfilename + ")  可能解决 error " + errorid + " 预估有效的比例是 " + knowledgeobj.effect[effectid].percent + "%";
                         console.log(appendstr);
                         returnstr = returnstr + appendstr + "\n";
                     }

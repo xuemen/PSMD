@@ -1,0 +1,9 @@
+name: 经理职权（三）
+id: b3012036
+interface:
+  <term.b3012036.entity.1>: 公司
+  <term.b3012036.term.1>: 内部管理机构设置方案
+item:
+  - localid: ''
+    text: |
+      拟订<term.b3012036.entity.1><term.b3012036.term.1>；

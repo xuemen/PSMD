@@ -1,0 +1,10 @@
+name: 经理职权（六）
+id: 500e281d
+interface:
+  <term.500e281d.entity.1>: 公司
+  <term.500e281d.entity.2>: 副经理
+  <term.500e281d.entity.3>: 财务负责人
+item:
+  - localid: ''
+    text: |
+      提请聘任或者解聘<term.500e281d.entity.1><term.500e281d.entity.2>、<term.500e281d.entity.3>；

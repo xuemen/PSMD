@@ -1,0 +1,9 @@
+name: 经理职权（五）
+id: c73b28b3
+interface:
+  <term.c73b28b3.entity.1>: 公司
+  <term.c73b28b3.term.1>: 基本管理制度
+item:
+  - localid: ''
+    text: |
+      制定<term.c73b28b3.entity.1>的<term.c73b28b3.term.1>；

@@ -1,0 +1,10 @@
+name: 监事职权（四）
+id: c0eb6977
+interface:
+  <term.c0eb6977.entity.1>: 股东会
+  <term.c0eb6977.entity.2>: 董事会
+  <term.c0eb6977.term.1>: 章程
+item:
+  - localid: ''
+    text: |
+      提议召开临时<term.c0eb6977.entity.1>会议，在<term.c0eb6977.entity.2>不履行本<term.c0eb6977.term.1>规定的召集和主持<term.c0eb6977.entity.1>会议职责时召集和主持<term.c0eb6977.entity.1>会议；

@@ -1,0 +1,8 @@
+name: 董事会职权（二）
+id: '69632214'
+interface:
+  <term.69632214.entity.1>: 股东会
+item:
+  - localid: ''
+    text: |
+      执行<term.69632214.entity.1>的决议；

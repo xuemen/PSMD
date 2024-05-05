@@ -1,0 +1,10 @@
+name: 董事会职权（三）
+id: 423005c6
+interface:
+  <term.423005c6.entity.1>: 公司
+  <term.423005c6.asset.1>: 经营计划
+  <term.423005c6.asset.2>: 投资方案
+item:
+  - localid: ''
+    text: |
+      审定<term.423005c6.entity.1>的<term.423005c6.asset.1>和<term.423005c6.asset.2>；

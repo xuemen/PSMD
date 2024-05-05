@@ -1,0 +1,10 @@
+name: 董事会职权（六）
+id: 50430bca
+interface:
+  <term.50430bca.entity.1>: 公司
+  <term.50430bca.asset.1>: 注册资本
+  <term.50430bca.asset.2>: 债券
+item:
+  - localid: ''
+    text: |
+      制订<term.50430bca.entity.1>增加或者减少<term.50430bca.asset.1>以及发行<term.50430bca.entity.1><term.50430bca.asset.2>的方案；

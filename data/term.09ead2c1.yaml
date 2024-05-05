@@ -1,0 +1,10 @@
+name: 董事会职权（五）
+id: 09ead2c1
+interface:
+  <term.09ead2c1.entity.1>: 公司
+  <term.09ead2c1.asset.1>: 利润分配方案
+  <term.09ead2c1.asset.2>: 弥补亏损方案
+item:
+  - localid: ''
+    text: |
+      制订<term.09ead2c1.entity.1>的<term.09ead2c1.asset.1>和<term.09ead2c1.asset.2>；

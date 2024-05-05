@@ -1,6 +1,7 @@
 name: 股东会职权
 id: e55c000c
 interface:
+  <term.e55c000c.entity.0>: 公司
   <term.e55c000c.entity.1>: 股东
   <term.e55c000c.entity.2>: 股东会
   <term.e55c000c.asset.1>: 公司章程
@@ -8,7 +9,7 @@ item:
   - localid: ''
     upgradeby: <term.e55c000c.localid.（十）>
     text: |
-      <term.e55c000c.entity.2>由全体<term.e55c000c.entity.1>组成，是公司的权力机构，行使下列职权：
+      <term.e55c000c.entity.2>由全体<term.e55c000c.entity.1>组成，是<term.e55c000c.entity.0>的权力机构，行使下列职权：
   - localid: （一）
     upgradeby: <term.e55c000c.localid.（十）>
     termid: a540486e

@@ -1,6 +1,8 @@
 name: 股东会职权（七）
 id: 460c6741
+interface:
+  <term.460c6741.entity.1>: 公司
 item:
   - localid: ''
     text: |
-      对公司增加或者减少注册资本作出决议；
+      对<term.460c6741.entity.1>增加或者减少注册资本作出决议；
