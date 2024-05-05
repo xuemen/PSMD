@@ -1,0 +1,9 @@
+name: 股东会职权（六）
+id: '040463e3'
+interface:
+  <term.040463e3.asset.1>: 利润分配方案
+  <term.040463e3.asset.2>: 弥补亏损的方案
+item:
+  - localid: ''
+    text: |
+      审议批准公司的<term.040463e3.asset.1>和<term.040463e3.asset.2>；

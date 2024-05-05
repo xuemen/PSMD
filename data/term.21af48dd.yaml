@@ -1,0 +1,10 @@
+name: 股东会职权（二）
+id: 21af48dd
+interface:
+  <term.21af48dd.entity.1>: 董事
+  <term.21af48dd.entity.2>: 监事
+  <term.21af48dd.asset.1>: 报酬
+item:
+  - localid: ''
+    text: |
+      选举和更换非由职工代表担任的<term.21af48dd.entity.1>、<term.21af48dd.entity.2>，决定有关<term.21af48dd.entity.1>、<term.21af48dd.entity.2>的<term.21af48dd.asset.1>事项；

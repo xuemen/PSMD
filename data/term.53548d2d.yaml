@@ -1,0 +1,9 @@
+name: 股东会职权（五）
+id: 53548d2d
+interface:
+  <term.53548d2d.asset.1>: 预算方案
+  <term.53548d2d.asset.2>: 决算方案
+item:
+  - localid: ''
+    text: |
+      审议批准公司的年度财务<term.53548d2d.asset.1>、<term.53548d2d.asset.2>；

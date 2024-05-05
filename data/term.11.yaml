@@ -1,0 +1,41 @@
+name: 股东会职权
+id: 11
+interface:
+  <term.11.entity.1>: 股东
+  <term.11.entity.2>: 股东会
+  <term.11.asset.1>: 公司章程
+item:
+  - localid: ""
+    upgradeby: <term.11.localid.（十）>
+    text: |
+      <term.11.entity.2>由全体<term.11.entity.1>组成，是公司的权力机构，行使下列职权：
+  - localid: "（一）"
+    upgradeby: <term.11.localid.（十）>
+    termid: 1
+  - localid: "（二）"
+    upgradeby: <term.11.localid.（十）>
+    termid: 2
+  - localid: "（三）"
+    upgradeby: <term.11.localid.（十）>
+    termid: 3
+  - localid: "（四）"
+    upgradeby: <term.11.localid.（十）>
+    termid: 4
+  - localid: "（五）"
+    upgradeby: <term.11.localid.（十）>
+    termid: 5
+  - localid: "（六）"
+    upgradeby: <term.11.localid.（十）>
+    termid: 6
+  - localid: "（七）"
+    upgradeby: <term.11.localid.（十）>
+    termid: 7
+  - localid: "（八）"
+    upgradeby: <term.11.localid.（十）>
+    termid: 8
+  - localid: "（九）"
+    upgradeby: <term.11.localid.（十）>
+    termid: 9
+  - localid: "（十）"
+    upgradeby: <term.11.localid.（十）>
+    termid: 10

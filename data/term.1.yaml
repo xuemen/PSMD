@@ -1,0 +1,9 @@
+name: 股东会职权（一）
+id: 1
+interface:
+  <term.1.asset.1>: 经营方针
+  <term.1.asset.2>: 投资计划
+item:
+  - localid: ""
+    text: |
+      决定公司的<term.1.asset.1>和<term.1.asset.2>；

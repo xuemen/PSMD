@@ -1,0 +1,9 @@
+name: 股东会职权（三）
+id: 8b839d59
+interface:
+  <term.8b839d59.entity.1>: 董事会
+  <term.8b839d59.asset.1>: 报告
+item:
+  - localid: ''
+    text: |
+      审议批准<term.8b839d59.entity.1>的<term.8b839d59.asset.1>；

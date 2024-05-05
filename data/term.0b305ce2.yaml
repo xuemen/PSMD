@@ -1,0 +1,9 @@
+name: 股东会职权（四）
+id: 0b305ce2
+interface:
+  <term.0b305ce2.entity.1>: 监事
+  <term.0b305ce2.asset.1>: 报告
+item:
+  - localid: ''
+    text: |
+      审议批准<term.0b305ce2.entity.1>的<term.0b305ce2.asset.1>；

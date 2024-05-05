@@ -1,11 +1,10 @@
-name: 自修订条款
+name: 股东会职权（二）
 id: 2
 interface:
-  <term.2.entity.1>: deployer
+  <term.2.entity.1>: 董事
+  <term.2.entity.2>: 监事
+  <term.2.asset.1>: 报酬
 item:
   - localid: ""
     text: |
-      由<term.2.entity.1>书面提交即生效。
-readme: |
-  自修订条款是权力分配中的顶级条款。
-effect: |
+      选举和更换非由职工代表担任的<term.2.entity.1>、<term.2.entity.2>，决定有关<term.2.entity.1>、<term.2.entity.2>的<term.2.asset.1>事项；

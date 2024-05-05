@@ -1,11 +1,9 @@
-name: 集体决策
+name: 股东会职权（四）
 id: 4
 interface:
-  <term.4.entity.1>: director
+  <term.4.entity.1>: 监事
+  <term.4.asset.1>: 报告
 item:
   - localid: ""
     text: |
-      由<term.4.entity.1>表决按一人一票表决，超过80%出席会议有效，赞成票超过超过三分之二为通过。
-readme: |
-  本条款是权力分配中的二级条款。
-effect: |
+      审议批准<term.4.entity.1>的<term.4.asset.1>；

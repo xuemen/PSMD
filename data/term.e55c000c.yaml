@@ -1,0 +1,41 @@
+name: 股东会职权
+id: e55c000c
+interface:
+  <term.e55c000c.entity.1>: 股东
+  <term.e55c000c.entity.2>: 股东会
+  <term.e55c000c.asset.1>: 公司章程
+item:
+  - localid: ''
+    upgradeby: <term.e55c000c.localid.（十）>
+    text: |
+      <term.e55c000c.entity.2>由全体<term.e55c000c.entity.1>组成，是公司的权力机构，行使下列职权：
+  - localid: （一）
+    upgradeby: <term.e55c000c.localid.（十）>
+    termid: a540486e
+  - localid: （二）
+    upgradeby: <term.e55c000c.localid.（十）>
+    termid: 21af48dd
+  - localid: （三）
+    upgradeby: <term.e55c000c.localid.（十）>
+    termid: 8b839d59
+  - localid: （四）
+    upgradeby: <term.e55c000c.localid.（十）>
+    termid: 0b305ce2
+  - localid: （五）
+    upgradeby: <term.e55c000c.localid.（十）>
+    termid: 53548d2d
+  - localid: （六）
+    upgradeby: <term.e55c000c.localid.（十）>
+    termid: '040463e3'
+  - localid: （七）
+    upgradeby: <term.e55c000c.localid.（十）>
+    termid: 460c6741
+  - localid: （八）
+    upgradeby: <term.e55c000c.localid.（十）>
+    termid: 393c92a3
+  - localid: （九）
+    upgradeby: <term.e55c000c.localid.（十）>
+    termid: f3cc3036
+  - localid: （十）
+    upgradeby: <term.e55c000c.localid.（十）>
+    termid: 62c421f2

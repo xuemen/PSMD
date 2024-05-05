@@ -1,11 +1,9 @@
-name: 利益分配比例
+name: 股东会职权（三）
 id: 3
 interface:
-  <term.3.asset.1>: p
+  <term.3.entity.1>: 董事会
+  <term.3.asset.1>: 报告
 item:
   - localid: ""
     text: |
-      <term.3.asset.1>=20，<term.3.asset.1>%=20%。
-readme: |
-  本条款设置了参数<term.3.asset.1>的初始值。
-effect: |
+      审议批准<term.3.entity.1>的<term.3.asset.1>；

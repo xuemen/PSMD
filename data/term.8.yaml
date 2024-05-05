@@ -1,0 +1,8 @@
+name: 股东会职权（八）
+id: 8
+interface:
+  <term.8.asset.1>: 公司债券
+item:
+  - localid: ""
+    text: |
+      对发行<term.8.asset.1>作出决议；
