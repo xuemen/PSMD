@@ -1,0 +1,33 @@
+name: xuemen
+id: xuemen
+modeler:
+  IRI: ego.mars22.com
+interface:
+  <term.termid.entity.1>: value
+  <term.termid.entity.2>: value
+  <term.termid.asset.1>: value
+  <term.termid.term.1>: value
+  <term.termid.event.1>: value
+  <term.termid.localid.1>: value
+termmaker:
+  loop: 
+    - termid: e55c000c
+  level1:
+    - upgradeby: <COM.xuemen.loop.0.（十）>
+      termid: 25c83dac
+    - upgradeby: <COM.xuemen.loop.0.（十）>
+      termid: 4bbd5668
+    - upgradeby: <COM.xuemen.loop.0.（十）>
+      termid: 6208f678
+      readme: |
+        章程内容都在level1
+    - // 章程实施细则
+    
+  level2:
+    - upgradeby:
+      option:
+        - termid:
+          map:
+          readme: |
+        - termid:
+termid: // not term maker

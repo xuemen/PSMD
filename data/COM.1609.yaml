@@ -1,0 +1,32 @@
+name: COM范例[1609]
+id: 1609
+modeler:
+  IRI: ego.mars22.com
+interface:
+  <COM.1609.entity.deployer>: deployer
+  <term.termid.entity.2>: value
+  <term.termid.asset.1>: value
+  <term.termid.term.1>: value
+  <term.termid.event.1>: value
+  <term.termid.localid.1>: value
+item:
+  loop: //自修订条款
+    - termid: 64eb9304
+      map:
+        <term.64eb9304.entity.1>: <COM.1609.entity.deployer>
+  level1:
+    - upgradeby: <COM.1609.loop.1>
+      option:
+        - termid:
+          map:
+          readme: |
+        - termid:
+    - upgradeby: //对于开源信息可以解决的，可以用readme说明而不列出具体term。
+      readme:
+  level2:
+    - upgradeby:
+      option:
+        - termid:
+          map:
+          readme: |
+        - termid:

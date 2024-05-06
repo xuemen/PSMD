@@ -27,5 +27,11 @@ depend:
       <error.0ccddb29.entity.3>: <term.2e4f11cb.entity.2>
     text: |
       测试字符串。。。。<term.2e4f11cb.term.1>。。。
+together:
+  - errorid: 48291d8c
+    percent: 90
+effect:
+  - errorid: cde3c3e2
+    percent: 60
 readme: |
   章程是<term.2e4f11cb.entity.1>的顶级规章。但它的条款在修订层次上并不平等。

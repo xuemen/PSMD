@@ -67,12 +67,17 @@ effect:
 ###  COM
 COM定义共同体的模型：placeholder替换成中性词，列出各局部的多种可以互相替换、效果相近的term。各COD的部署和运行经验汇总到COM。
 
-- 
-- 
+- 主要以权力分配为主线。利益分配、角色任免关系是否需要单独定义，或者建立索引，实际使用后回顾。
 
-~~~
+
+```
 name:
 id:
+modeler:
+  name:
+  id:
+  COM:
+  IRI: //代替其它字段
 interface:
   <term.termid.entity.1>: value
   <term.termid.entity.2>: value
@@ -82,12 +87,12 @@ interface:
   <term.termid.localid.1>: value
 item:
   level0:
-    permanent: //不可修订条款
+    const: //不可修订条款
       - termid:
         map:
         readme: |
       - termid:
-    self: //自修订条款
+    loop: //自修订条款
       - termid:
         map:
         readme: |
@@ -108,42 +113,125 @@ item:
           map:
           readme: |
         - termid:
-~~~
+```
+实际使用：
+- loop term要不要有localid。
+    - 按修订层次排序应该固化吗，还是其中一种布局。
+    - 可互相替换的条款，肯定需要在COM而不是term中表达。
+- level0可以去掉，减少一层。
+- 可互相替换的条款，序号怎么定，互相引用关系怎么定。
+    - leveln.m
+- 新的提议：
+```
+name:
+id:
+modeler:
+  name:
+  id:
+  COM:
+  IRI: //代替其它字段
+interface:
+  <term.termid.entity.1>: value
+  <term.termid.entity.2>: value
+  <term.termid.asset.1>: value
+  <term.termid.term.1>: value
+  <term.termid.event.1>: value
+  <term.termid.localid.1>: value
+termmaker:
+  const: //不可修订条款
+    - termid:
+      map:
+      readme: |
+    - termid:
+  loop: //自修订条款
+    - termid:
+      map:
+      readme: |
+    - termid:
+  level1:
+    - upgradeby:
+      option:
+        - termid:
+          map:
+          readme: |
+        - termid:
+    - upgradeby: //对于开源信息可以解决的，可以用readme说明而不列出具体term。
+      readme:
+  level2:
+    - upgradeby:
+      option:
+        - termid:
+          map:
+          readme: |
+        - termid:
+termid: // not term maker
+```
 
 ###  deploy
+deploy定义部署的初始条件、内部词汇和占位符的映射和term逐步生效的过程，期间可以有过渡性的条款或模型。
 
-备选结构
+- 部署过程应能自动生成专题讨论。
+  - 对外的专题讨论，使用COMinterface替换placeholder。
+  - 内部的专题讨论，使用interface替换placeholder。
+
 ```
-deploy:
-  init: 
-    - termid:
-      y: 
-        termid:
-        y:
-        n:
-        case:
-          - cod: id
-            log: |
-            readme: |
+name:
+id:
+COM:
+COMinterface:
+  <term.termid.entity.1>: value
+  <term.termid.entity.2>: value
+  <term.termid.asset.1>: value
+  <term.termid.term.1>: value
+  <term.termid.event.1>: value
+  <term.termid.localid.1>: value
+deployer: 
+  name:
+  id:
+  COM:
+  IRI: //代替其它字段
+interface:
+  <term.termid.entity.1>: value
+  <term.termid.entity.2>: value
+  <term.termid.asset.1>: value
+  <term.termid.term.1>: value
+  <term.termid.event.1>: value
+  <term.termid.localid.1>: value
+step:
+  - termid:
+    y: 
+      termid:
+      y:
+      n:
+      case:
+        - cod: id
+          log: |
+          readme: |
+      issue: //可以设计编号规则，单独另建专题（文件、文件夹或讨论区）。
+        name:
+        id:
+        path:
+      readme: |
+        //案例分析，发言素材，讨论推演。
+    n: 
+      errorid:
+      y:
+      n:
         readme: |
-      n: 
-        errorid:
-        y:
-        n:
-    - errorid:
-      y: 
-        termid:
-        y:
-        n:
-        case:
-          - cod: id
-            log: |
-            readme: |
-        readme: |
-execution:
-
+          deploy failure.
+          detail info...
+  - errorid:
+    y: 
+      termid:
+      y:
+      n:
+      case:
+        - cod: id
+          log: |
+          readme: |
+      readme: |
 readme: |
-effect:
+logpath:
 ```
 
 ~~~
@@ -181,6 +269,35 @@ effect:
 ~~~
 
 ### COD
+COD定义共同体的实例。实例中出现的error和term汇总到建模者，也可以发布新的COM。
+
+- 应能自动生成专题讨论：
+  - 对外的专题讨论，使用COMinterface替换placeholder。
+  - 内部的专题讨论，使用interface替换placeholder。
+- 应能自动生成COM的主要信息，发布经验。
+```
+name:
+id:
+COM:
+deploy:
+COMinterface:
+  <term.termid.entity.1>: value
+  <term.termid.entity.2>: value
+  <term.termid.asset.1>: value
+  <term.termid.term.1>: value
+  <term.termid.event.1>: value
+  <term.termid.localid.1>: value
+interface:
+  <term.termid.entity.1>: value
+  <term.termid.entity.2>: value
+  <term.termid.asset.1>: value
+  <term.termid.term.1>: value
+  <term.termid.event.1>: value
+  <term.termid.localid.1>: value
+termid:
+logpath:
+```
+
 
 ~~~
 name:

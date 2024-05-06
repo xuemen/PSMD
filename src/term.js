@@ -346,6 +346,12 @@ function maketermview(termid) {
     if (item.treedepend != null) {
         viewstr = viewstr + "\n---\ndepend:\n条款 " + termid + ".\n" + item.treedepend
     }
+    if (item.treetogether != null) {
+        viewstr = viewstr + "\n---\ntogether:\n条款 " + termid + ".\n" + item.treetogether
+    }
+    if (item.treeeffect != null) {
+        viewstr = viewstr + "\n---\neffect:\n条款 " + termid + ".\n" + item.treeeffect
+    }
     fs.writeFileSync(viewfilename, viewstr);
     console.log(viewfilename + "文件更新，内容如下:\n" + viewstr);
 
@@ -362,6 +368,18 @@ function maketermview(termid) {
         item.treedependhtml = item.treedepend.replace(/\n/g, '<br/>\n');
     } else {
         item.depend = false;
+    }
+    if (item.treetogether != null) {
+        item.together = true;
+        item.treetogetherhtml = item.treetogether.replace(/\n/g, '<br/>\n');
+    } else {
+        item.together = false;
+    }
+    if (item.treeeffect != null) {
+        item.effect = true;
+        item.treeeffecthtml = item.treetogether.replace(/\n/g, '<br/>\n');
+    } else {
+        item.effect = false;
     }
 
     var termhtml = maketermhtml(item);
@@ -419,6 +437,8 @@ function maketermtext(item, prefix, map) {
     var treetext = "";
     var treereadme = "";
     var treedepend = "";
+    var treetogether = "";
+    var treeeffect = "";
 
 
     // this level readme,depend,together,effect first.
@@ -445,6 +465,43 @@ function maketermtext(item, prefix, map) {
 
         }
     }
+
+    if (termobj.together != null) {
+        for (var i in termobj.together) {
+            var error = termobj.together[i];
+            if (termobj.together[i].errorid != null) {
+                error.id = error.errorid;
+                //console.log("error:\n"+yaml.dump(error));
+                var errortext = makeerrortext(error, "", error.map);
+
+                treetogether = treetogether + "问题 " + error.errorid + ",影响率" + error.percent + "% 正文:  \n" + error.treetext;
+                if (error.treereadme != null) {
+                    treetogether = treetogether + "问题 " + error.errorid + " readme:\n" + error.treereadme;
+                }
+            } else if (termobj.together[i].text != null) {
+                treetogether = treetogether + "事项" + (parseInt(i) + 1).toString() + ",影响率" + error.percent + "% :\n" + error.text;
+            }
+        }
+    }
+
+    if (termobj.effect != null) {
+        for (var i in termobj.effect) {
+            var error = termobj.effect[i];
+            if (termobj.effect[i].errorid != null) {
+                error.id = error.errorid;
+                //console.log("error:\n"+yaml.dump(error));
+                var errortext = makeerrortext(error, "", error.map);
+
+                treeeffect = treeeffect + "问题 " + error.errorid + ",有效率" + error.percent + "% 正文:  \n" + error.treetext;
+                if (error.treereadme != null) {
+                    treeeffect = treeeffect + "问题 " + error.errorid + " readme:\n" + error.treereadme;
+                }
+            } else if (termobj.effect[i].text != null) {
+                treeeffect = treeeffect + "事项" + (parseInt(i) + 1).toString() + ",有效率" + error.percent + "% :\n" + error.text;
+            }
+        }
+    }
+
     var subprefix = prefix;
     for (var itemid in termobj.item) {
         var itemobj = termobj.item[itemid];
@@ -452,6 +509,8 @@ function maketermtext(item, prefix, map) {
         // make prefix
         if ((itemobj.localid != null) && (itemobj.localid != "")) {
             subprefix = prefix + itemobj.localid + "."
+        }else{
+            subprefix = prefix;
         }
         //console.log("subprefix:"+subprefix);
 
@@ -487,23 +546,24 @@ function maketermtext(item, prefix, map) {
             treetext = treetext + subprefix + " " + upgradestr + itemobj.text; // + "\n"
         }
         if (itemobj.termid != null) {
-
             // lower level readme,depend,together,effect 
             var itemtext = maketermtext(itemobj, subprefix, itemobj.map);
             treetext = treetext + itemobj.treetext;
             //treetext = treetext + subprefix + "\n" + itemobj.treetext;
             if ((itemobj.treereadme != null) && (itemobj.treereadme != "")) {
                 treereadme = treereadme + subprefix + " " + itemobj.treereadme;// + "\n";
-                //treereadme = treereadme + subprefix + " readme:\n" + item.treereadme;
             }
             if ((itemobj.treedepend != null) && (itemobj.treedepend != "")) {
                 treedepend = treedepend + subprefix + "\n" + itemobj.treedepend;// + "\n";
-                //treereadme = treereadme + subprefix + " readme:\n" + item.treereadme;
+            }
+            if ((itemobj.treetogether != null) && (itemobj.treetogether != "")) {
+                treetogether = treetogether + subprefix + "\n" + itemobj.treetogether;// + "\n";
+            }
+            if ((itemobj.treeeffect != null) && (itemobj.treeeffect != "")) {
+                treeeffect = treeeffect + subprefix + "\n" + itemobj.treeeffect;// + "\n";
             }
         }
     }
-
-
 
     // all placeholders must been defined in local interface
     // all placeholders in global map must been defined in local interface 
@@ -535,6 +595,14 @@ function maketermtext(item, prefix, map) {
     if (treedepend != "") {
         item.treedepend = treedepend;
         returnstr = returnstr + "\n\n---\n\n" + treedepend;
+    }
+    if (treetogether != "") {
+        item.treetogether = treetogether;
+        returnstr = returnstr + "\n\n---\n\n" + treetogether;
+    }
+    if (treeeffect != "") {
+        item.treeeffect = treeeffect;
+        returnstr = returnstr + "\n\n---\n\n" + treeeffect;
     }
 
     return returnstr;

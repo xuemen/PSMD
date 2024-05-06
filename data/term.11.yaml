@@ -1,13 +1,11 @@
-name: 章程部分条款
+name: 学门科技
 id: 11
 interface:
-  <term.11.term.1>: 第八条（十）
+  <term.11.term.1>: 章程.第八条.（十）.
 item:
-  - localid: "第八条"
+  - localid: "章程"
     upgradeby: <term.11.term.1>
-    map:
-      <term.e55c000c.localid.（十）>: <term.11.term.1>
-    termid: e55c000c
+    termid: 2e4f11cb
   - localid: "第十五条"
     upgradeby: <term.11.term.1>
     termid: 25c83dac

@@ -1,0 +1,21 @@
+name: xuemen
+id: xuemen
+COM: xuemen
+deploy:
+  IRI: ego.mars22.com
+COMinterface:
+  <term.termid.entity.1>: value
+  <term.termid.entity.2>: value
+  <term.termid.asset.1>: value
+  <term.termid.term.1>: value
+  <term.termid.event.1>: value
+  <term.termid.localid.1>: value
+interface:
+  <term.termid.entity.1>: value
+  <term.termid.entity.2>: value
+  <term.termid.asset.1>: value
+  <term.termid.term.1>: value
+  <term.termid.event.1>: value
+  <term.termid.localid.1>: value
+termid:
+logpath:

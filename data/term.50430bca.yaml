@@ -8,3 +8,14 @@ item:
   - localid: ''
     text: |
       制订<term.50430bca.entity.1>增加或者减少<term.50430bca.asset.1>以及发行<term.50430bca.entity.1><term.50430bca.asset.2>的方案；
+effect:
+  - text: |
+      测试字符串: <term.50430bca.asset.1>不足。
+    percent: 40
+together:
+  - text: |
+      测试字符串：<term.50430bca.asset.2>融资成本低。
+    percent: 30
+depend:
+  - errorid: cde3c3e2
+    percent: 70

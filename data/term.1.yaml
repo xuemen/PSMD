@@ -1,8 +1,12 @@
-name: 监事职权（一）
+name: 产品部(IPU:Inner Product Unit)
 id: 1
 interface:
   <term.1.entity.1>: 公司
+  <term.1.entity.2>: 产品部(IPU:Inner Product Unit)
+  <term.1.entity.3>: JPU（Joint Product Unit）
+  <term.1.term.1>: 章程.第十五条.（八）.
 item:
   - localid: ""
+    upgradeby: <term.1.term.1>
     text: |
-      检查<term.1.entity.1>财务；
+      <term.1.entity.1>设置<term.1.entity.2>，负责参与<term.1.entity.3.>。
