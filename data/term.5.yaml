@@ -1,9 +1,13 @@
-name: 监事职权（五）
+name: 代码的调阅权限
 id: 5
 interface:
-  <term.5.entity.1>: 股东会
-  <term.5.asset.1>: 提案
+  <term.5.entity.1>: 董事
+  <term.5.entity.2>: 监事
+  <term.5.asset.1>: 数学模型的代码实现
+  <term.5.status.S3>: S3（稳定或缩减状态）
+  <term.5.term.1>: 章程.第十五条.（八）.
 item:
   - localid: ""
+    upgradeby: <term.5.term.1>
     text: |
-      向<term.5.entity.1>会议提出<term.5.asset.1>；
+      在<term.5.status.S3>状态下：<term.5.entity.1>、<term.5.entity.2>可以调阅规章制度、<term.5.asset.1>。

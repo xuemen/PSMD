@@ -1,0 +1,13 @@
+name: 经理在S2的汇报
+id: 4d2e92b6
+interface:
+  <term.4d2e92b6.entity.1>: 监事
+  <term.4d2e92b6.entity.2>: 董事会
+  <term.4d2e92b6.entity.3>: 经理
+  <term.4d2e92b6.status.S2>: S2（增长状态）
+  <term.4d2e92b6.term.1>: 章程.第十五条.（八）.
+item:
+  - localid: ''
+    upgradeby: <term.4d2e92b6.term.1>
+    text: |
+      在<term.4d2e92b6.status.S2>状态下：<term.4d2e92b6.entity.3>每个月向<term.4d2e92b6.entity.1>、<term.4d2e92b6.entity.2>书面汇报工作。

@@ -1,0 +1,13 @@
+name: 代码的调阅权限
+id: 41e708f1
+interface:
+  <term.41e708f1.entity.1>: 董事
+  <term.41e708f1.entity.2>: 监事
+  <term.41e708f1.asset.1>: 数学模型的代码实现
+  <term.41e708f1.status.S3>: S3（稳定或缩减状态）
+  <term.41e708f1.term.1>: 章程.第十五条.（八）.
+item:
+  - localid: ''
+    upgradeby: <term.41e708f1.term.1>
+    text: |
+      在<term.41e708f1.status.S3>状态下：<term.41e708f1.entity.1>、<term.41e708f1.entity.2>可以调阅规章制度、<term.41e708f1.asset.1>。

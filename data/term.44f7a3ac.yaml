@@ -1,0 +1,17 @@
+name: 章程实施细则-董事会决议
+id: 44f7a3ac
+interface:
+  <term.4d2e92b6.f7a3ac.entity.1>: 董事
+  <term.4d2e92b6.f7a3ac.entity.2>: 高级管理人员
+  <term.4d2e92b6.f7a3ac.term.1>: 《公司法》第一百五十二条
+item:
+  - localid: '1'
+    termid: a419e125
+  - localid: '2'
+    termid: '0719e045'
+  - localid: '3'
+    termid: c6e8bb3f
+  - localid: '4'
+    termid: 4d2e92b6
+  - localid: '5'
+    termid: 41e708f1

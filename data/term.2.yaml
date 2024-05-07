@@ -9,8 +9,10 @@ interface:
   <term.2.asset.4>: 内部记账单位
   <term.2.asset.5>: 知识产权
   <term.2.term.1>: 章程.第十五条.（八）.
+  <term.2.status.S2>: S2（增长状态）
+  <term.2.status.S3>: S3（稳定或缩减状态）
 item:
   - localid: ""
     upgradeby: <term.2.term.1>
     text: |
-      <term.2.entity.1>设置<term.2.entity.2>，委托<term.2.entity.2>管理<term.2.entity.1>的资产（<term.2.asset.1>、<term.2.asset.2>、<term.2.asset.3>、<term.2.asset.4>、<term.2.asset.5>）。
+      在<term.2.status.S2>、<term.2.status.S3>状态下：<term.2.entity.1>设置<term.2.entity.2>，委托<term.2.entity.2>管理<term.2.entity.1>的资产（<term.2.asset.1>、<term.2.asset.2>、<term.2.asset.3>、<term.2.asset.4>、<term.2.asset.5>）。

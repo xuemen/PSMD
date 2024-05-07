@@ -1,0 +1,14 @@
+name: 产品部(IPU:Inner Product Unit)
+id: a419e125
+interface:
+  <term.a419e125.entity.1>: 公司
+  <term.a419e125.entity.2>: 产品部(IPU:Inner Product Unit)
+  <term.a419e125.entity.3>: JPU（Joint Product Unit）
+  <term.a419e125.term.1>: 章程.第十五条.（八）.
+  <term.a419e125.status.S2>: S2（增长状态）
+  <term.a419e125.status.S3>: S3（稳定或缩减状态）
+item:
+  - localid: ''
+    upgradeby: <term.a419e125.term.1>
+    text: |
+      在<term.a419e125.status.S2>、<term.a419e125.status.S3>状态下：<term.a419e125.entity.1>设置<term.a419e125.entity.2>，负责参与<term.a419e125.entity.3>。

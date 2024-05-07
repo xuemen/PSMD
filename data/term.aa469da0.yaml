@@ -1,9 +1,11 @@
 name: 监事职权（五）
 id: aa469da0
 interface:
-  <term.aa469da0.entity.1>: 股东会
-  <term.aa469da0.asset.1>: 提案
+  <term.aa469da0.entity.1>: 董事
+  <term.aa469da0.entity.2>: 监事
+  <term.aa469da0.asset.1>: 数学模型的代码实现
+  <term.1.status.S3>: S3（稳定或缩减状态）
 item:
   - localid: ''
     text: |
-      向<term.aa469da0.entity.1>会议提出<term.aa469da0.asset.1>；
+      在<term.1.status.S3>状态下：<term.aa469da0.entity.1>、<term.aa469da0.entity.2>可以调阅规章制度、<term.aa469da0.asset.1>。

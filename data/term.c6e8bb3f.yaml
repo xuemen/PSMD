@@ -1,0 +1,11 @@
+name: 经理在S2的保底责任
+id: c6e8bb3f
+interface:
+  <term.c6e8bb3f.entity.1>: 经理
+  <term.c6e8bb3f.status.S2>: S2（增长状态）
+  <term.c6e8bb3f.term.1>: 章程.第十五条.（八）.
+item:
+  - localid: ''
+    upgradeby: <term.c6e8bb3f.term.1>
+    text: |
+      在<term.c6e8bb3f.status.S2>状态下：无人承担的任务均由<term.c6e8bb3f.entity.1>承担。当这种情形发生时，按300%计算报酬。
