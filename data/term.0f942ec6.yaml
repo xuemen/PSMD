@@ -1,0 +1,23 @@
+name: S1状态下的董事
+id: 0f942ec6
+interface:
+  <term.0f942ec6.entity.1>: 公司
+  <term.0f942ec6.entity.2>: 董事会
+  <term.0f942ec6.entity.3>: 董事
+  <term.0f942ec6.entity.4>: 经理
+  <term.0f942ec6.term.1>: 章程.第十五条.（八）.
+  <term.0f942ec6.term.2>: 公司法
+  <term.0f942ec6.term.3>: 章程
+  <term.0f942ec6.asset.1>: 财务会计报告
+  <term.0f942ec6.asset.2>: 利润分配方案
+  <term.0f942ec6.asset.3>: 弥补亏损方案
+item:
+  - localid: ''
+    upgradeby: <term.0f942ec6.term.1>
+    text: |
+      <term.0f942ec6.entity.1>不设<term.0f942ec6.entity.2>，设一名<term.0f942ec6.entity.3>，行使<term.0f942ec6.term.2>和<term.0f942ec6.term.3>规定的<term.0f942ec6.entity.2>的职权。该<term.0f942ec6.entity.3>兼任<term.0f942ec6.entity.1><term.0f942ec6.entity.4>。<term.0f942ec6.entity.3>任期三年，任期届满，可连选连任。如果任期内<term.0f942ec6.entity.2>席位数发生变化，视为任期提前结束，重新进行选举。选举方法：采用累积投票制。
+      该<term.0f942ec6.entity.3>任职期间出现赤字，支出由该<term.0f942ec6.entity.3>垫付，记为公司向个人借款。任期结束时，该<term.0f942ec6.entity.3>向下一届<term.0f942ec6.entity.2>提交：
+          1. 任职期间的<term.0f942ec6.asset.1>；
+          2. 任职期间的<term.0f942ec6.asset.2>和<term.0f942ec6.asset.3>的提案，内容包括公司向董事借款的利息及偿还方案；
+          3. 任职期间<term.0f942ec6.entity.3>报酬的提案。
+      并接受下一届<term.0f942ec6.entity.2>制订的方案和报酬。

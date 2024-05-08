@@ -1,13 +1,11 @@
-name: 经理在S2的汇报
+name: 1609-二级决策条款-3
 id: 4
 interface:
-  <term.4.entity.1>: 监事
-  <term.4.entity.2>: 董事会
-  <term.4.entity.3>: 经理
-  <term.4.status.S2>: S2（增长状态）
-  <term.4.term.1>: 章程.第十五条.（八）.
+  <term.4.entity.1>: director
+  <term.4.entity.2>: deployer
+  <term.4.term.1>: 自修订条款
+  <term.4.term.2>: director会议议事规则
 item:
   - localid: ""
     upgradeby: <term.4.term.1>
-    text: |
-      在<term.4.status.S2>状态下：<term.4.entity.3>每个月向<term.4.entity.1>、<term.4.entity.2>书面汇报工作。
+    text: 由<term.4.entity.2>提出。根据<term.4.term.2>，经全体<term.4.entity.1>通过可以作出决议。

@@ -1,0 +1,15 @@
+name: 设置董事会
+id: 10009b73
+interface:
+  <term.10009b73.entity.1>: 公司
+  <term.10009b73.entity.2>: 董事会
+  <term.10009b73.entity.3>: 股东会
+  <term.10009b73.entity.4>: 董事
+  <term.10009b73.entity.5>: 董事长
+  <term.10009b73.term.1>: 章程.第十五条.（八）.
+item:
+  - localid: ''
+    upgradeby: <term.10009b73.term.1>
+    text: |
+      <term.10009b73.entity.1>设<term.10009b73.entity.2>，成员为三人，由<term.10009b73.entity.3>选举产生。<term.10009b73.entity.4>任期三年，任期届满，可连选连任。如果任期内<term.10009b73.entity.2>席位数发生变化，视为任期提前结束，重新进行选举。选举方法：采用累积投票制。
+      <term.10009b73.entity.2>设<term.10009b73.entity.5>一人，由<term.10009b73.entity.2>选举产生。

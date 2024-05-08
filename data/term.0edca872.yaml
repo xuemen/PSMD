@@ -1,0 +1,10 @@
+name: 1609-二级决策条款-5
+id: 0edca872
+interface:
+  <term.0edca872.entity.1>: supervisor
+  <term.0edca872.term.1>: 自修订条款
+  <term.0edca872.term.2>: supervisor会议议事规则
+item:
+  - localid: ''
+    upgradeby: <term.0edca872.term.1>
+    text: 根据<term.0edca872.term.2>，经三分之二supervisor通过可以作出决议。

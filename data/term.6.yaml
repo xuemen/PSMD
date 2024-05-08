@@ -1,17 +1,10 @@
-name: 章程实施细则-董事会决议
+name: 1609-二级决策条款-5
 id: 6
 interface:
-  <term.6.entity.1>: 董事
-  <term.6.entity.2>: 高级管理人员
-  <term.6.term.1>: 《公司法》第一百五十二条
+  <term.6.entity.1>: supervisor
+  <term.6.term.1>: 自修订条款
+  <term.6.term.2>: supervisor会议议事规则
 item:
-  - localid: "1"
-    termid: 1
-  - localid: "2"
-    termid: 2
-  - localid: "3"
-    termid: 3
-  - localid: "4"
-    termid: 4
-  - localid: "5"
-    termid: 5
+  - localid: ""
+    upgradeby: <term.6.term.1>
+    text: 根据<term.6.term.2>，经三分之二supervisor通过可以作出决议。

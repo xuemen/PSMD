@@ -1,0 +1,17 @@
+name: 1609-二级决策条款-6
+id: 32e45dee
+interface:
+  <term.32e45dee.entity.1>: trustee
+  <term.32e45dee.entity.2>: director
+  <term.32e45dee.entity.3>: supervisor
+  <term.32e45dee.term.1>: 自修订条款
+  <term.32e45dee.asset.1>: 预算透支限额
+  <term.32e45dee.asset.2>: 代码
+item:
+  - localid: ''
+    upgradeby: <term.32e45dee.term.1>
+    text: |
+      由<term.32e45dee.entity.1>书面提交修订以下事项，提交时生效：
+      - <term.32e45dee.asset.1>
+      - <term.32e45dee.entity.2>任期提前结束，重新进行选举。
+      - <term.32e45dee.entity.3>任期提前结束，重新进行选举。

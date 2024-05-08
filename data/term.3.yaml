@@ -1,11 +1,11 @@
-name: 经理在S2的保底责任
+name: 1609-二级决策条款-2
 id: 3
 interface:
-  <term.3.entity.1>: 经理
-  <term.3.status.S2>: S2（增长状态）
-  <term.3.term.1>: 章程.第十五条.（八）.
+  <term.3.entity.1>: director
+  <term.3.term.1>: 自修订条款
+  <term.3.term.2>: director会议议事规则
 item:
   - localid: ""
     upgradeby: <term.3.term.1>
     text: |
-      在<term.3.status.S2>状态下：无人承担的任务均由<term.3.entity.1>承担。当这种情形发生时，按300%计算报酬。
+      根据<term.3.term.2>，经二分之一以上<term.3.entity.1>通过可以作出决议。

@@ -1,14 +1,23 @@
-name: 产品部(IPU:Inner Product Unit)
+name: 1609-自修订条款
 id: 1
 interface:
-  <term.1.entity.1>: 公司
-  <term.1.entity.2>: 产品部(IPU:Inner Product Unit)
-  <term.1.entity.3>: JPU（Joint Product Unit）
-  <term.1.term.1>: 章程.第十五条.（八）.
-  <term.1.status.S2>: S2（增长状态）
-  <term.1.status.S3>: S3（稳定或缩减状态）
+  <term.1.entity.1>: deployer
+  <term.1.entity.2>: director
+  <term.1.entity.3>: supervisor
+  <term.1.entity.4>: trustee
+  <term.1.asset.1>: p
 item:
-  - localid: ""
-    upgradeby: <term.1.term.1>
+  - localid: ''
     text: |
-      在<term.1.status.S2>、<term.1.status.S3>状态下：<term.1.entity.1>设置<term.1.entity.2>，负责参与<term.1.entity.3>。
+      由<term.1.entity.1>书面提交修订以下事项，提交时生效：
+      - <term.1.asset.1>%
+      - <term.1.entity.2>席位数
+      - <term.1.entity.2>会议议事规则
+      - <term.1.entity.3>席位数
+      - <term.1.entity.3>会议议事规则
+      - <term.1.entity.2>和<term.1.entity.3>任期及选举程序
+      - <term.1.entity.4>任期及任免程序
+      - 第一届<term.1.entity.2>
+      - 第一届<term.1.entity.3>
+      - 下一任<term.1.entity.1>
+      - 本条款内容

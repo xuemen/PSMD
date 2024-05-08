@@ -10,6 +10,9 @@ item:
     map:
       <term.e55c000c.localid.（十）>: <term.2e4f11cb.term.1>
     termid: e55c000c
+  - localid: 第十四条
+    upgradeby: <term.2e4f11cb.term.1>
+    termid: 10009b73
   - localid: 第十五条
     upgradeby: <term.2e4f11cb.term.1>
     termid: 25c83dac

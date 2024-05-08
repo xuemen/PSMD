@@ -1,0 +1,11 @@
+name: 董事会职权（十）S3
+id: 60f842d6
+interface:
+  <term.60f842d6.entity.1>: 公司
+  <term.60f842d6.term.1>: 基本管理制度
+  <term.60f842d6.asset.1>: 数学模型
+  <term.60f842d6.asset.2>: 代码
+item:
+  - localid: ''
+    text: |
+      制定<term.60f842d6.entity.1>的<term.60f842d6.term.1>，包括配套的<term.60f842d6.asset.1>及<term.60f842d6.asset.2>；

@@ -1,0 +1,12 @@
+name: 1609-二级决策条款-4
+id: 95eab800
+interface:
+  <term.95eab800.entity.1>: director
+  <term.95eab800.entity.2>: deployer
+  <term.95eab800.entity.3>: trustee
+  <term.95eab800.term.1>: 自修订条款
+  <term.95eab800.term.2>: director会议议事规则
+item:
+  - localid: ''
+    upgradeby: <term.95eab800.term.1>
+    text: 由<term.95eab800.entity.2>提出。根据<term.95eab800.term.2>，经全体<term.95eab800.entity.1>和<term.95eab800.entity.3>通过可以作出决议。

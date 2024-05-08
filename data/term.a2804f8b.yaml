@@ -2,7 +2,9 @@ name: 经理职权（八）
 id: a2804f8b
 interface:
   <term.a2804f8b.entity.1>: 董事会
+  <term.a2804f8b.term.1>: 章程.第十五条.（八）.
 item:
   - localid: ''
+    upgradeby: <term.a2804f8b.term.1>
     text: |
-      <term.a2804f8b.entity.1>授予的其他职权。
+      <term.a2804f8b.entity.1>授予的其他职权，授权时应规定行使这些职权的方式和时限，以及相应的奖惩办法。

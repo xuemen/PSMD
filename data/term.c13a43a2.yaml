@@ -1,0 +1,23 @@
+name: 1609-自修订条款
+id: c13a43a2
+interface:
+  <term.c13a43a2.entity.1>: deployer
+  <term.c13a43a2.entity.2>: director
+  <term.c13a43a2.entity.3>: supervisor
+  <term.c13a43a2.entity.4>: trustee
+  <term.c13a43a2.asset.1>: p
+item:
+  - localid: ''
+    text: |
+      由<term.c13a43a2.entity.1>书面提交修订以下事项，提交时生效：
+      - <term.c13a43a2.asset.1>%
+      - <term.c13a43a2.entity.2>席位数
+      - <term.c13a43a2.entity.2>会议议事规则
+      - <term.c13a43a2.entity.3>席位数
+      - <term.c13a43a2.entity.3>会议议事规则
+      - <term.c13a43a2.entity.2>和<term.c13a43a2.entity.3>任期及选举程序
+      - <term.c13a43a2.entity.4>任期及任免程序
+      - 第一届<term.c13a43a2.entity.2>
+      - 第一届<term.c13a43a2.entity.3>
+      - 下一任<term.c13a43a2.entity.1>
+      - 本条款内容

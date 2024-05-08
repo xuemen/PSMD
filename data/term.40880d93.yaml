@@ -1,0 +1,11 @@
+name: 1609-二级决策条款-2
+id: 40880d93
+interface:
+  <term.40880d93.entity.1>: director
+  <term.40880d93.term.1>: 自修订条款
+  <term.40880d93.term.2>: director会议议事规则
+item:
+  - localid: ''
+    upgradeby: <term.40880d93.term.1>
+    text: |
+      根据<term.40880d93.term.2>，经二分之一以上<term.40880d93.entity.1>通过可以作出决议。

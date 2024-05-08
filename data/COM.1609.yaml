@@ -4,25 +4,56 @@ modeler:
   IRI: ego.mars22.com
 interface:
   <COM.1609.entity.deployer>: deployer
+  <COM.1609.entity.director>: director
+  <COM.1609.entity.trustee>: trustee
+  <COM.1609.entity.supervisor>: supervisor
   <term.termid.entity.2>: value
   <term.termid.asset.1>: value
-  <term.termid.term.1>: value
-  <term.termid.event.1>: value
+  <term.termid.term.1>: 自修订条款
+  <term.termid.term.2>: director会议议事规则
+  <term.termid.term.3>: supervisor会议议事规则
   <term.termid.localid.1>: value
-item:
-  loop: //自修订条款
-    - termid: 64eb9304
+termmaker:
+  loop:
+    - termid: c13a43a2
       map:
-        <term.64eb9304.entity.1>: <COM.1609.entity.deployer>
+        <term.c13a43a2.entity.1>: <COM.1609.entity.deployer>
   level1:
     - upgradeby: <COM.1609.loop.1>
-      option:
-        - termid:
-          map:
-          readme: |
-        - termid:
-    - upgradeby: //对于开源信息可以解决的，可以用readme说明而不列出具体term。
-      readme:
+      termid: 71da4d25
+      map:
+        <term.71da4d25.entity.1>: <COM.1609.entity.director>
+    - upgradeby: <COM.1609.loop.1>
+      termid: 40880d93
+      map:
+        <term.40880d93.entity.1>: <COM.1609.entity.director>
+    - upgradeby: <COM.1609.loop.1>
+      termid: 54b6949d
+      map:
+        <term.54b6949d.entity.1>: <COM.1609.entity.director>
+        <term.54b6949d.entity.2>: <COM.1609.entity.deployer>
+    - upgradeby: <COM.1609.loop.1>
+      termid: 95eab800
+      map:
+        <term.95eab800.entity.1>: <COM.1609.entity.director>
+        <term.95eab800.entity.2>: <COM.1609.entity.deployer>
+        <term.95eab800.entity.3>: <COM.1609.entity.trustee>
+    - upgradeby: <COM.1609.loop.1>
+      termid: 0edca872
+      map:
+        <term.0edca872.entity.1>: <COM.1609.entity.supervisor>
+        <term.0edca872.term.1>: <term.termid.term.1>
+        <term.0edca872.term.2>: <term.termid.term.2>
+    - upgradeby: <COM.1609.loop.1>
+      termid: 32e45dee
+      map:
+        <term.32e45dee.entity.1>: <COM.1609.entity.trustee>
+        <term.32e45dee.entity.2>: <COM.1609.entity.director>
+        <term.32e45dee.entity.3>: <COM.1609.entity.supervisor>
+    - upgradeby: <COM.1609.loop.1>
+      readme: <term.termid.term.2>，可以根据该届<COM.1609.entity.director>的工作习惯，选择主流议事规则之一。
+    - upgradeby: <COM.1609.loop.1>
+      readme: <term.termid.term.3>，可以根据该届<COM.1609.entity.supervisor>的工作习惯，选择主流议事规则之一。
   level2:
     - upgradeby:
       option:
@@ -30,3 +61,11 @@ item:
           map:
           readme: |
         - termid:
+  level2:
+    - upgradeby:
+      option:
+        - termid:
+          map:
+          readme: |
+        - termid:
+termid: // not term maker

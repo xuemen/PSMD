@@ -1,0 +1,54 @@
+name: 董事会职权S3
+id: f094ea3f
+interface:
+  <term.f094ea3f.entity.1>: 董事会
+  <term.f094ea3f.term.1>: 章程第八条（十）
+  <term.f094ea3f.term.2>: 中华人民共和国公司法
+item:
+  - localid: ''
+    upgradeby: <term.f094ea3f.term.1>
+    text: |
+      <term.f094ea3f.entity.1>行使下列职权：：
+  - localid: （一）
+    upgradeby: <term.f094ea3f.term.1>
+    termid: f64809f8
+  - localid: （二）
+    upgradeby: <term.f094ea3f.term.1>
+    termid: '69632214'
+  - localid: （三）
+    upgradeby: <term.f094ea3f.term.1>
+    termid: 423005c6
+  - localid: （四）
+    upgradeby: <term.f094ea3f.term.1>
+    termid: 615fc73f
+  - localid: （五）
+    upgradeby: <term.f094ea3f.term.1>
+    termid: 09ead2c1
+  - localid: （六）
+    upgradeby: <term.f094ea3f.term.1>
+    termid: 50430bca
+  - localid: （七）
+    upgradeby: <term.f094ea3f.term.1>
+    termid: bb0ea239
+  - localid: （八）
+    upgradeby: <term.f094ea3f.term.1>
+    termid: 79f4f1e0
+  - localid: （九）
+    upgradeby: <term.f094ea3f.term.1>
+    termid: 5884eea5
+  - localid: （十）
+    upgradeby: <term.f094ea3f.term.1>
+    termid: 32e45dee
+depend:
+  - text: |
+      测试字符串: <term.f094ea3f.term.2>生效。
+    percent: '50'
+together:
+  - text: |
+      测试字符串：<term.f094ea3f.term.1>是条款之王。
+    percent: '90'
+effect:
+  - errorid: cde3c3e2
+    percent: '50'
+readme: |
+  <term.f094ea3f.entity.1>是决策部门，在不同类型共同体中可能称为董事会、理事会、委员会等等。
