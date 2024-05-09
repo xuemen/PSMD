@@ -1,0 +1,12 @@
+name: 1609-三级决策条款-4
+id: efaeac70
+interface:
+  <term.efaeac70.entity.1>: trustee
+  <term.efaeac70.term.1>: 二级决策程序4.
+  <term.efaeac70.asset.1>: RIU
+item:
+  - localid: ''
+    upgradeby: <term.efaeac70.term.1>
+    text: |
+      本条款按照<term.efaeac70.term.1>修订。全体<term.efaeac70.asset.1>持有者选举，以持有的<term.efaeac70.asset.1>为权重。
+      - 任免trustee。

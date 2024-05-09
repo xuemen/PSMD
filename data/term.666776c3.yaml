@@ -1,0 +1,16 @@
+name: 1609-三级决策条款-3
+id: 666776c3
+interface:
+  <term.666776c3.entity.1>: director
+  <term.666776c3.entity.2>: supervisor
+  <term.666776c3.entity.3>: worker
+  <term.666776c3.term.1>: 二级决策程序3.
+  <term.666776c3.asset.1>: RIU
+  <term.666776c3.asset.2>: p
+item:
+  - localid: ''
+    upgradeby: <term.666776c3.term.1>
+    text: |
+      全体<term.666776c3.entity.3>、<term.666776c3.asset.1>持有者选举。假设<term.666776c3.entity.3>合同的报酬<term.666776c3.asset.1>总额为w，<term.666776c3.asset.1>总额为r，席位为x，<term.666776c3.entity.3>手中合同的每个<term.666776c3.asset.1>报酬权重为r*x*<term.666776c3.asset.2>，<term.666776c3.asset.1>持有者持有的每个<term.666776c3.asset.1>权重为w*x*(100-<term.666776c3.asset.2>)。选举采用累积投票制，不对单独席位进行罢免投票，每次都全部重选。
+      - 选举<term.666776c3.entity.1>
+      - 选举<term.666776c3.entity.2>

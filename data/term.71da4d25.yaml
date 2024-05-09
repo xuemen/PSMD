@@ -7,4 +7,5 @@ interface:
 item:
   - localid: ''
     upgradeby: <term.71da4d25.term.1>
-    text: 根据<term.71da4d25.term.2>，经三分之二以上<term.71da4d25.entity.1>通过可以作出决议。
+    text: |
+      根据<term.71da4d25.term.2>，经三分之二以上<term.71da4d25.entity.1>通过可以作出决议。

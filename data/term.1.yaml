@@ -1,23 +1,9 @@
-name: 1609-自修订条款
+name: 1609-保密制度-1
 id: 1
 interface:
-  <term.1.entity.1>: deployer
-  <term.1.entity.2>: director
-  <term.1.entity.3>: supervisor
-  <term.1.entity.4>: trustee
-  <term.1.asset.1>: p
+  <term.1.term.1>: 自修订条款1.
 item:
   - localid: ''
+    upgradeby: <term.1.term.1>
     text: |
-      由<term.1.entity.1>书面提交修订以下事项，提交时生效：
-      - <term.1.asset.1>%
-      - <term.1.entity.2>席位数
-      - <term.1.entity.2>会议议事规则
-      - <term.1.entity.3>席位数
-      - <term.1.entity.3>会议议事规则
-      - <term.1.entity.2>和<term.1.entity.3>任期及选举程序
-      - <term.1.entity.4>任期及任免程序
-      - 第一届<term.1.entity.2>
-      - 第一届<term.1.entity.3>
-      - 下一任<term.1.entity.1>
-      - 本条款内容
+      本制度正文公开。

@@ -1,0 +1,18 @@
+name: 1609-三级决策条款-1
+id: 88e5c5f4
+interface:
+  <term.88e5c5f4.entity.1>: admin
+  <term.88e5c5f4.term.1>: 二级决策程序2.
+  <term.88e5c5f4.asset.1>: 工作计划
+  <term.88e5c5f4.asset.2>: 工作报告
+  <term.88e5c5f4.asset.3>: 具体规章
+  <term.88e5c5f4.asset.4>: worker名册（及合同）
+item:
+  - localid: ''
+    upgradeby: <term.88e5c5f4.term.1>
+    text: |
+      由<term.88e5c5f4.entity.1>书面提交修订以下事项，提交时生效：
+      - <term.88e5c5f4.asset.1>草案
+      - <term.88e5c5f4.asset.2>
+      - <term.88e5c5f4.asset.3>
+      - <term.88e5c5f4.asset.4>

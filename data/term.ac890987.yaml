@@ -1,0 +1,25 @@
+name: 1609-保密制度
+id: ac890987
+interface:
+  <term.ac890987.term.1>: 自修订条款1.
+  <term.ac890987.term.2>: 二级决策程序1.
+  <term.ac890987.term.3>: 不可修订条款
+  <term.ac890987.term.4>: 自修订条款
+  <term.ac890987.term.5>: 二级决策条款
+item:
+  - localid: '1'
+    upgradeby: <term.ac890987.term.1>
+    termid: 72af7dea
+  - localid: '2'
+    upgradeby: <term.ac890987.term.1>
+    termid: 02c7d037
+    map:
+      <term.02c7d037.term.1>: <term.ac890987.term.3>
+      <term.02c7d037.term.2>: <term.ac890987.term.4>
+      <term.02c7d037.term.3>: <term.ac890987.term.5>
+      <term.02c7d037.term.4>: <term.ac890987.term.1>
+  - localid: '3'
+    upgradeby: <term.ac890987.term.2>
+    termid: ef4cdffe
+    map:
+      <term.ef4cdffe.term.1>: <term.ac890987.term.2>

@@ -1,0 +1,12 @@
+name: 1609-保密制度-2
+id: 02c7d037
+interface:
+  <term.02c7d037.term.1>: 不可修订条款
+  <term.02c7d037.term.2>: 自修订条款
+  <term.02c7d037.term.3>: 二级决策条款
+  <term.02c7d037.term.4>: 自修订条款1.
+item:
+  - localid: ''
+    upgradeby: <term.02c7d037.term.4>
+    text: |
+      <term.02c7d037.term.1>、<term.02c7d037.term.2>、<term.02c7d037.term.3>的正文以及执行记录的保密事项由这些条款自己定义，本制度不得规定。

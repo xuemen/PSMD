@@ -7,12 +7,15 @@ interface:
   <COM.1609.entity.director>: director
   <COM.1609.entity.trustee>: trustee
   <COM.1609.entity.supervisor>: supervisor
-  <term.termid.entity.2>: value
-  <term.termid.asset.1>: value
-  <term.termid.term.1>: 自修订条款
-  <term.termid.term.2>: director会议议事规则
-  <term.termid.term.3>: supervisor会议议事规则
-  <term.termid.localid.1>: value
+  <COM.1609.entity.admin>: admin
+  <COM.1609.entity.worker>: worker
+  <COM.1609.entity.2>: value
+  <COM.1609.asset.1>: RIU
+  <COM.1609.asset.2>: p
+  <COM.1609.term.1>: 自修订条款
+  <COM.1609.term.2>: director会议议事规则
+  <COM.1609.term.3>: supervisor会议议事规则
+  <COM.1609.localid.1>: value
 termmaker:
   loop:
     - termid: c13a43a2
@@ -42,8 +45,8 @@ termmaker:
       termid: 0edca872
       map:
         <term.0edca872.entity.1>: <COM.1609.entity.supervisor>
-        <term.0edca872.term.1>: <term.termid.term.1>
-        <term.0edca872.term.2>: <term.termid.term.2>
+        <term.0edca872.term.1>: <COM.1609.term.1>
+        <term.0edca872.term.2>: <COM.1609.term.3>
     - upgradeby: <COM.1609.loop.1>
       termid: 32e45dee
       map:
@@ -51,21 +54,36 @@ termmaker:
         <term.32e45dee.entity.2>: <COM.1609.entity.director>
         <term.32e45dee.entity.3>: <COM.1609.entity.supervisor>
     - upgradeby: <COM.1609.loop.1>
-      readme: <term.termid.term.2>，可以根据该届<COM.1609.entity.director>的工作习惯，选择主流议事规则之一。
+      readme: <COM.1609.e.term.2>，可以根据该届<COM.1609.entity.director>的工作习惯，选择主流议事规则之一。
     - upgradeby: <COM.1609.loop.1>
-      readme: <term.termid.term.3>，可以根据该届<COM.1609.entity.supervisor>的工作习惯，选择主流议事规则之一。
+      readme: <COM.1609.e.term.3>，可以根据该届<COM.1609.entity.supervisor>的工作习惯，选择主流议事规则之一。
   level2:
-    - upgradeby:
-      option:
-        - termid:
-          map:
-          readme: |
-        - termid:
-  level2:
-    - upgradeby:
-      option:
-        - termid:
-          map:
-          readme: |
-        - termid:
+    - upgradeby: <COM.1609.level1.1>
+      termid: 88e5c5f4
+      map:
+        <term.88e5c5f4.entity.1>: <COM.1609.entity.admin>
+        <term.88e5c5f4.term.1>: <COM.1609.level1.1>
+    - upgradeby: <COM.1609.level1.3>
+      termid: 4e9e9c33
+      map:
+        <term.4e9e9c33.entity.1>: <COM.1609.entity.deployer>
+        <term.4e9e9c33.entity.2>: <COM.1609.entity.worker>
+        <term.4e9e9c33.term.1>: <COM.1609.level1.3>
+        <term.4e9e9c33.asset.1>: <COM.1609.asset.1>
+        <term.4e9e9c33.asset.2>: <COM.1609.asset.2>
+    - upgradeby: <COM.1609.level1.3>
+      termid: 666776c3
+      map:
+        <term.666776c3.entity.1>: <COM.1609.entity.director>
+        <term.666776c3.entity.2>: <COM.1609.entity.supervisor>
+        <term.666776c3.entity.3>: <COM.1609.entity.worker>
+        <term.666776c3.term.1>: <COM.1609.level1.3>
+        <term.666776c3.asset.1>: <COM.1609.asset.1>
+        <term.666776c3.asset.2>: <COM.1609.asset.2>
+    - upgradeby: <COM.1609.level1.4>
+      termid: efaeac70
+      map:
+        <term.efaeac70.entity.1>: <COM.1609.entity.trustee>
+        <term.efaeac70.term.1>: <COM.1609.level1.4>
+        <term.efaeac70.asset.1>: <COM.1609.asset.1>
 termid: // not term maker

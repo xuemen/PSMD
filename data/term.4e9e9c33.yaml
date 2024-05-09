@@ -1,0 +1,14 @@
+name: 1609-三级决策条款-2
+id: 4e9e9c33
+interface:
+  <term.4e9e9c33.entity.1>: deployer
+  <term.4e9e9c33.entity.2>: worker
+  <term.4e9e9c33.term.1>: 二级决策程序3.
+  <term.4e9e9c33.asset.1>: RIU
+  <term.4e9e9c33.asset.2>: p
+item:
+  - localid: ''
+    upgradeby: <term.4e9e9c33.term.1>
+    text: |
+      全体<term.4e9e9c33.entity.2>、<term.4e9e9c33.asset.1>持有者选举。假设<term.4e9e9c33.entity.2>合同的报酬<term.4e9e9c33.asset.1>总额为w，<term.4e9e9c33.asset.1>总额为r，<term.4e9e9c33.entity.2>手中合同的每个<term.4e9e9c33.asset.1>报酬权重为r*(100-<term.4e9e9c33.asset.2>)，<term.4e9e9c33.asset.1>持有者持有的每个<term.4e9e9c33.asset.1>权重为w*<term.4e9e9c33.asset.2>。 
+      - 如果<term.4e9e9c33.entity.1>没有指定继任者又不能工作，选举新任<term.4e9e9c33.entity.1>。

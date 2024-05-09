@@ -9,4 +9,5 @@ interface:
 item:
   - localid: ''
     upgradeby: <term.95eab800.term.1>
-    text: 由<term.95eab800.entity.2>提出。根据<term.95eab800.term.2>，经全体<term.95eab800.entity.1>和<term.95eab800.entity.3>通过可以作出决议。
+    text: |
+      由<term.95eab800.entity.2>提出。根据<term.95eab800.term.2>，经全体<term.95eab800.entity.1>和<term.95eab800.entity.3>通过可以作出决议。

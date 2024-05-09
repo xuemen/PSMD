@@ -8,4 +8,5 @@ interface:
 item:
   - localid: ''
     upgradeby: <term.54b6949d.term.1>
-    text: 由<term.54b6949d.entity.2>提出。根据<term.54b6949d.term.2>，经全体<term.54b6949d.entity.1>通过可以作出决议。
+    text: |
+      由<term.54b6949d.entity.2>提出。根据<term.54b6949d.term.2>，经全体<term.54b6949d.entity.1>通过可以作出决议。

@@ -1,11 +1,25 @@
-name: 1609-二级决策条款-3
+name: 1609-保密制度
 id: 4
 interface:
-  <term.4.entity.1>: director
-  <term.4.entity.2>: deployer
-  <term.4.term.1>: 自修订条款
-  <term.4.term.2>: director会议议事规则
+  <term.4.term.1>: 自修订条款1.
+  <term.4.term.2>: 二级决策程序1.
+  <term.4.term.3>: 不可修订条款
+  <term.4.term.4>: 自修订条款
+  <term.4.term.5>: 二级决策条款
 item:
-  - localid: ""
+  - localid: "1"
     upgradeby: <term.4.term.1>
-    text: 由<term.4.entity.2>提出。根据<term.4.term.2>，经全体<term.4.entity.1>通过可以作出决议。
+    termid: 1
+  - localid: "2"
+    upgradeby: <term.4.term.1>
+    termid: 2
+    map:
+      <term.2.term.1>: <term.4.term.3>
+      <term.2.term.2>: <term.4.term.4>
+      <term.2.term.3>: <term.4.term.5>
+      <term.2.term.4>: <term.4.term.1>
+  - localid: "3"
+    upgradeby: <term.4.term.2>
+    termid: 3
+    map:
+      <term.3.term.1>: <term.4.term.2>
