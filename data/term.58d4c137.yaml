@@ -1,0 +1,12 @@
+name: 1609-利益分配-5
+id: 58d4c137
+interface:
+  <term.58d4c137.entity.1>: deployer
+item:
+  - localid: ''
+    text: |
+      <term.58d4c137.entity.1>专户：
+  - localid: '1'
+    termid: c1f65b6d
+  - localid: '2'
+    termid: 6568c500

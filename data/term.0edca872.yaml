@@ -7,5 +7,4 @@ interface:
 item:
   - localid: ''
     upgradeby: <term.0edca872.term.1>
-    text: |
-      根据<term.0edca872.term.2>，经三分之二supervisor通过可以作出决议。
+    text: 根据<term.0edca872.term.2>，经三分之二supervisor通过可以作出决议。

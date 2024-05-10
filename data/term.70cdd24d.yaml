@@ -1,0 +1,14 @@
+name: 1609-利益分配-7-5
+id: 70cdd24d
+interface:
+  <term.70cdd24d.entity.1>: director
+  <term.70cdd24d.asset.1>: p
+  <term.70cdd24d.asset.2>: RIU
+  <term.70cdd24d.asset.3>: 工作计划
+  <term.70cdd24d.asset.4>: 预算案
+  <term.70cdd24d.term.1>: 二级决策条款3.
+item:
+  - localid: ''
+    upgradeby: <term.70cdd24d.term.1>
+    text: |
+      <term.70cdd24d.entity.1>按<term.70cdd24d.entity.1><term.70cdd24d.asset.3>（含<term.70cdd24d.asset.4>）使用<term.70cdd24d.entity.1>专户余额，余额不足时后续条款的支出暂缓。

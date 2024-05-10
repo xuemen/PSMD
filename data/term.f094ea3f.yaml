@@ -38,7 +38,7 @@ item:
     termid: 5884eea5
   - localid: （十）
     upgradeby: <term.f094ea3f.term.1>
-    termid: 32e45dee
+    termid: 96b99526
 depend:
   - text: |
       测试字符串: <term.f094ea3f.term.2>生效。

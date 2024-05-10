@@ -1,0 +1,11 @@
+name: 1609-利益分配-6-1
+id: 8a5d94dc
+interface:
+  <term.8a5d94dc.term.1>: 二级决策条款4.
+  <term.8a5d94dc.entity.1>: trustee
+  <term.8a5d94dc.asset.1>: RIU
+item:
+  - localid: ''
+    upgradeby: <term.8a5d94dc.term.1>
+    text: |
+      <term.8a5d94dc.asset.1>持有者可以将<term.8a5d94dc.asset.1>转入<term.8a5d94dc.entity.1>专户，委托<term.8a5d94dc.entity.1>卖出。

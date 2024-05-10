@@ -1,0 +1,12 @@
+name: 1609-利益分配-8-1
+id: af62f03b
+interface:
+  <term.af62f03b.term.1>: 二级决策条款1.
+  <term.af62f03b.entity.1>: admin
+  <term.af62f03b.asset.1>: 工作计划
+  <term.af62f03b.asset.2>: 预算案
+item:
+  - localid: ''
+    upgradeby: <term.af62f03b.term.1>
+    text: |
+      <term.af62f03b.entity.1>按<term.af62f03b.entity.1><term.af62f03b.asset.1>（含<term.af62f03b.asset.2>）调用<term.af62f03b.entity.1>专户中的资源。

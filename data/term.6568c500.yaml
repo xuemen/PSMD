@@ -1,0 +1,13 @@
+name: 1609-利益分配-5-2
+id: 6568c500
+interface:
+  <term.6568c500.term.1>: 二级决策条款3.
+  <term.6568c500.entity.1>: director
+  <term.6568c500.entity.2>: deployer
+item:
+  - localid: ''
+    upgradeby: <term.6568c500.term.1>
+    text: |
+      每月末将<term.6568c500.entity.1>专户余额的0.5%转入<term.6568c500.entity.2>专户。
+readme: |
+  <term.6568c500.entity.2>使用资源的优先级高于<term.6568c500.entity.1>。

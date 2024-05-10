@@ -1,0 +1,13 @@
+name: 1609-利益分配-6-3
+id: 3176f00c
+interface:
+  <term.3176f00c.asset.1>: p
+  <term.3176f00c.asset.2>: RIU
+  <term.3176f00c.entity.1>: trustee
+  <term.3176f00c.entity.2>: director
+item:
+  - localid: ''
+    text: |
+      收入的<term.3176f00c.asset.1>%用于购买<term.3176f00c.entity.1>专户中的<term.3176f00c.asset.2>，低价优先。交易获得的<term.3176f00c.asset.2>支付<term.3176f00c.entity.1>报酬后，余额转入<term.3176f00c.entity.2>专户。
+readme: |
+  大部分收入还是由<term.3176f00c.entity.2>使用，其中<term.3176f00c.asset.1>%体现为<term.3176f00c.asset.2>（扣除<term.3176f00c.entity.1>报酬），其余体现为对外交易约定的资源。

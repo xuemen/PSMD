@@ -1,0 +1,12 @@
+name: 1609-利益分配-7-1
+id: 6d2ca266
+interface:
+  <term.6d2ca266.term.1>: 二级决策条款3.
+  <term.6d2ca266.entity.1>: director
+  <term.6d2ca266.asset.1>: RIU
+  <term.6d2ca266.asset.2>: 预算透支限额
+item:
+  - localid: ''
+    upgradeby: <term.6d2ca266.term.1>
+    text: |
+      <term.6d2ca266.entity.1>专户中的<term.6d2ca266.asset.1>可以是负数，最小值由<term.6d2ca266.asset.2>确定。

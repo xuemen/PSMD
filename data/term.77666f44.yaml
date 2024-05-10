@@ -1,0 +1,11 @@
+name: 1609-普通条款
+id: 77666f44
+interface:
+  <term.77666f44.entity.1>: 公司
+  <term.77666f44.entity.2>: 董事会
+  <term.77666f44.term.1>: 第八条.（十）.
+item:
+  - localid: 保密制度
+    termid: ac890987
+  - localid: 利益分配
+    termid: de47ace4

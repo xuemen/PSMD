@@ -1,0 +1,13 @@
+name: 1609-利益分配-8-3
+id: e4495f38
+interface:
+  <term.e4495f38.entity.1>: admin
+  <term.e4495f38.entity.2>: worker
+  <term.e4495f38.term.1>: 二级决策条款1.
+item:
+  - localid: ''
+    upgradeby: <term.e4495f38.term.1>
+    text: |
+      <term.e4495f38.entity.1>从<term.e4495f38.entity.1>专户领取报酬（优先级在<term.e4495f38.entity.2>之后），竞聘者须明确报酬的计算公式。本专户数额不足而等候期间不计利息。
+readme: |
+  - <term.e4495f38.entity.1>任期内报酬公式不变，如果情况变化可以辞职，再与其他竞聘者一起根据当时情况竞聘。

@@ -551,7 +551,7 @@ function maketermtext(item, prefix, map) {
             treetext = treetext + itemobj.treetext;
             //treetext = treetext + subprefix + "\n" + itemobj.treetext;
             if ((itemobj.treereadme != null) && (itemobj.treereadme != "")) {
-                treereadme = treereadme + subprefix + " " + itemobj.treereadme;// + "\n";
+                treereadme = treereadme + subprefix + "\n" + itemobj.treereadme;// + "\n";
             }
             if ((itemobj.treedepend != null) && (itemobj.treedepend != "")) {
                 treedepend = treedepend + subprefix + "\n" + itemobj.treedepend;// + "\n";

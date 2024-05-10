@@ -1,9 +1,0 @@
-name: 1609-保密制度-3
-id: 3
-interface:
-  <term.3.term.1>: 二级决策程序1.
-item:
-  - localid: ""
-    upgradeby: <term.3.term.1>
-    text: |
-      其它规章正文及执行记录默认为公开。

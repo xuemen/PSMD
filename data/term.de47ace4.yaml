@@ -1,0 +1,23 @@
+name: 1609-利益分配
+id: de47ace4
+interface:
+  <term.de47ace4.entity.1>: 公司
+  <term.de47ace4.entity.2>: 董事会
+  <term.de47ace4.term.1>: 第八条.（十）.
+item:
+  - localid: '1'
+    termid: c046b09d
+  - localid: '2'
+    termid: 3638eac6
+  - localid: '3'
+    termid: 1558e5e1
+  - localid: '4'
+    termid: 814f76cb
+  - localid: '5'
+    termid: 58d4c137
+  - localid: '6'
+    termid: d8bd8aa6
+  - localid: '7'
+    termid: 96b99526
+  - localid: '8'
+    termid: 12d14064

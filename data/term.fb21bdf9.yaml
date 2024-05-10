@@ -1,0 +1,11 @@
+name: 1609-利益分配-7-2
+id: fb21bdf9
+interface:
+  <term.fb21bdf9.term.1>: 二级决策条款3.
+  <term.fb21bdf9.entity.1>: director
+  <term.fb21bdf9.asset.1>: p
+item:
+  - localid: ''
+    upgradeby: <term.fb21bdf9.term.1>
+    text: |
+      收入的(100-<term.fb21bdf9.asset.1>)%转入<term.fb21bdf9.entity.1>专户。

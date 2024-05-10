@@ -1,0 +1,15 @@
+name: 1609-利益分配-5-1
+id: c1f65b6d
+interface:
+  <term.c1f65b6d.term.1>: 自修订条款1.
+  <term.c1f65b6d.entity.1>: deployer
+  <term.c1f65b6d.asset.1>: 工作计划
+  <term.c1f65b6d.asset.2>: 预算案
+item:
+  - localid: ''
+    upgradeby: <term.c1f65b6d.term.1>
+    text: |
+      <term.c1f65b6d.entity.1>专户用于<term.c1f65b6d.entity.1>工作经费，以及重构期间发生的短期支出。
+readme: |
+  - <term.c1f65b6d.entity.1>无须制订<term.c1f65b6d.asset.1>和<term.c1f65b6d.asset.2>。
+  - 部署时根据实际情况确定本条的记账方式。

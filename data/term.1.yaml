@@ -1,9 +1,0 @@
-name: 1609-保密制度-1
-id: 1
-interface:
-  <term.1.term.1>: 自修订条款1.
-item:
-  - localid: ''
-    upgradeby: <term.1.term.1>
-    text: |
-      本制度正文公开。

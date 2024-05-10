@@ -1,0 +1,11 @@
+name: 1609-利益分配-6-4
+id: a8ca0160
+interface:
+  <term.a8ca0160.term.1>: 二级决策条款4.
+  <term.a8ca0160.asset.1>: RIU
+  <term.a8ca0160.entity.1>: trustee
+item:
+  - localid: ''
+    upgradeby: <term.a8ca0160.term.1>
+    text: |
+      <term.a8ca0160.asset.1>交易由<term.a8ca0160.entity.1>按价格优先、时间优先原则撮合。

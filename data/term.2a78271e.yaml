@@ -1,0 +1,12 @@
+name: 1609-利益分配-6-5
+id: 2a78271e
+interface:
+  <term.2a78271e.entity.1>: trustee
+  <term.2a78271e.asset.1>: p
+  <term.2a78271e.asset.2>: RIU
+item:
+  - localid: ''
+    text: |
+      <term.2a78271e.entity.1>从收入的<term.2a78271e.asset.1>%购买的<term.2a78271e.asset.2>中领取报酬，竞聘者须明确报酬的计算公式。
+readme: |
+  <term.2a78271e.entity.1>任期内报酬公式不变，如果情况变化可以辞职，再与其他竞聘者一起根据当时情况竞聘。

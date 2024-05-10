@@ -1,0 +1,25 @@
+name: 1609-利益分配-6
+id: d8bd8aa6
+interface:
+  <term.d8bd8aa6.entity.1>: trustee
+  <term.d8bd8aa6.term.1>: 二级决策条款4.
+item:
+  - localid: ''
+    upgradeby: <term.d8bd8aa6.term.1>
+    text: |
+      <term.d8bd8aa6.entity.1>专户：
+  - localid: '1'
+    upgradeby: <term.d8bd8aa6.term.1>
+    termid: 8a5d94dc
+  - localid: '2'
+    upgradeby: <term.d8bd8aa6.term.1>
+    termid: 34be50e1
+  - localid: '3'
+    upgradeby: <term.d8bd8aa6.term.1>
+    termid: 3176f00c
+  - localid: '4'
+    upgradeby: <term.d8bd8aa6.term.1>
+    termid: a8ca0160
+  - localid: '5'
+    upgradeby: <term.d8bd8aa6.term.1>
+    termid: 2a78271e

@@ -1,0 +1,16 @@
+name: 1609-利益分配-7-4
+id: a8d575a7
+interface:
+  <term.a8d575a7.term.1>: 二级决策条款3.
+  <term.a8d575a7.asset.1>: RIU
+  <term.a8d575a7.asset.2>: 工作计划
+  <term.a8d575a7.asset.3>: 预算案
+  <term.a8d575a7.entity.1>: director
+  <term.a8d575a7.entity.2>: supervisor
+item:
+  - localid: ''
+    upgradeby: <term.a8d575a7.term.1>
+    text: |
+      <term.a8d575a7.entity.2>按<term.a8d575a7.entity.2><term.a8d575a7.asset.2>（含<term.a8d575a7.asset.3>）使用<term.a8d575a7.entity.1>专户余额，余额不足时后续条款的支出暂缓。
+readme: |
+  <term.a8d575a7.entity.2>使用资源的优先级高于<term.a8d575a7.entity.1>。

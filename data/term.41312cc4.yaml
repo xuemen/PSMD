@@ -1,0 +1,17 @@
+name: 1609-利益分配-7-6
+id: 41312cc4
+interface:
+  <term.41312cc4.entity.1>: director
+  <term.41312cc4.entity.2>: deployer
+  <term.41312cc4.entity.3>: supervisor
+  <term.41312cc4.entity.4>: director
+  <term.41312cc4.entity.5>: director
+  <term.41312cc4.term.1>: 二级决策条款3.
+item:
+  - localid: ''
+    upgradeby: <term.41312cc4.term.1>
+    text: |
+      <term.41312cc4.entity.2>、<term.41312cc4.entity.1>、<term.41312cc4.entity.3>从<term.41312cc4.entity.1>专户领取报酬，<term.41312cc4.entity.1>、<term.41312cc4.entity.3>竞聘者须明确报酬的计算公式，<term.41312cc4.entity.2>报酬数额为<term.41312cc4.entity.1>、<term.41312cc4.entity.3>报酬的中位数。<term.41312cc4.entity.1>专户数额不足时以应发数额为权重按比例分配，等候期间不计利息。
+readme: |
+  - <term.41312cc4.entity.2>、<term.41312cc4.entity.1>、<term.41312cc4.entity.3>的报酬优先级低于工作支出。
+  - <term.41312cc4.entity.1>、<term.41312cc4.entity.3>任期内报酬公式不变，如果情况变化可以辞职，再与其他竞聘者一起根据当时情况竞聘。

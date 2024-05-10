@@ -1,0 +1,19 @@
+name: 1609-利益分配-7-3
+id: 7f7a536f
+interface:
+  <term.7f7a536f.asset.1>: p
+  <term.7f7a536f.asset.2>: RIU
+  <term.7f7a536f.asset.3>: 工作计划
+  <term.7f7a536f.asset.4>: 预算案
+  <term.7f7a536f.entity.1>: director
+  <term.7f7a536f.entity.2>: admin
+  <term.7f7a536f.entity.3>: supervisor
+  <term.7f7a536f.term.1>: 二级决策条款3.
+item:
+  - localid: ''
+    upgradeby: <term.7f7a536f.term.1>
+    text: |
+      按生效的<term.7f7a536f.entity.2><term.7f7a536f.asset.3>（含<term.7f7a536f.asset.4>）从<term.7f7a536f.entity.1>专户转入<term.7f7a536f.entity.2>专户，余额不足时后续条款的支出暂缓。
+readme: |
+  - <term.7f7a536f.asset.3>和<term.7f7a536f.asset.4>可以根据工作需要规定资源转入时间，滚动利用预算周期内的交易收入。
+  - <term.7f7a536f.entity.2>使用资源的优先级高于<term.7f7a536f.entity.1>和<term.7f7a536f.entity.3>。

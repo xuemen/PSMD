@@ -1,0 +1,15 @@
+name: 1609-利益分配-3
+id: 1558e5e1
+interface:
+  <term.1558e5e1.entity.1>: 共同体
+  <term.1558e5e1.entity.2>: deployer
+  <term.1558e5e1.entity.3>: trustee
+  <term.1558e5e1.entity.4>: director
+  <term.1558e5e1.entity.5>: supervisor
+  <term.1558e5e1.entity.6>: admin
+  <term.1558e5e1.term.1>: 自修订条款1.
+item:
+  - localid: ''
+    upgradeby: <term.1558e5e1.term.1>
+    text: |
+      设四个<term.1558e5e1.entity.1>专户，每个专户可以容纳所有种类的资产。分别由：<term.1558e5e1.entity.2>、<term.1558e5e1.entity.3>、<term.1558e5e1.entity.4>和<term.1558e5e1.entity.5>、<term.1558e5e1.entity.6>管理。

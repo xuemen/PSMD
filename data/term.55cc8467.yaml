@@ -1,0 +1,16 @@
+name: 1609-利益分配-8-2
+id: 55cc8467
+interface:
+  <term.55cc8467.term.1>: 二级决策条款1.
+  <term.55cc8467.entity.1>: admin
+  <term.55cc8467.entity.2>: member
+  <term.55cc8467.entity.3>: worker
+  <term.55cc8467.asset.1>: 合同
+item:
+  - localid: ''
+    upgradeby: <term.55cc8467.term.1>
+    text: |
+      <term.55cc8467.entity.2>的工作成果提交到<term.55cc8467.entity.1>专户，从<term.55cc8467.entity.1>专户领取报酬，报酬金额在<term.55cc8467.asset.1>中规定。
+readme: |
+  - <term.55cc8467.entity.2>所包括角色范围根据实际情况界定。通常包括<term.55cc8467.entity.1>、<term.55cc8467.entity.3>，有时也包括一些外部人员、机构。
+  - 报酬可能包括不同种类的资源。

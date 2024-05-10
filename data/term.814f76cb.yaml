@@ -1,0 +1,15 @@
+name: 1609-利益分配-4
+id: 814f76cb
+interface:
+  <term.814f76cb.term.1>: 自修订条款1.
+  <term.814f76cb.term.2>: 二级决策条款2.
+  <term.814f76cb.asset.1>: RIU
+  <term.814f76cb.asset.2>: 工作计划
+  <term.814f76cb.asset.3>: 预算案
+  <term.814f76cb.entity.1>: director
+  <term.814f76cb.entity.2>: supervisor
+item:
+  - localid: ''
+    upgradeby: <term.814f76cb.term.1>
+    text: |
+      按照<term.814f76cb.term.2>设立部门时，开设部门专户，并明确与其它专户的资源交换规则。
