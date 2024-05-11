@@ -54,9 +54,9 @@ termmaker:
         <term.32e45dee.entity.2>: <COM.1609.entity.director>
         <term.32e45dee.entity.3>: <COM.1609.entity.supervisor>
     - upgradeby: <COM.1609.loop.1>
-      readme: <COM.1609.e.term.2>，可以根据该届<COM.1609.entity.director>的工作习惯，选择主流议事规则之一。
+      readme: <COM.1609.term.2>，可以根据该届<COM.1609.entity.director>的工作习惯，选择主流议事规则之一。
     - upgradeby: <COM.1609.loop.1>
-      readme: <COM.1609.e.term.3>，可以根据该届<COM.1609.entity.supervisor>的工作习惯，选择主流议事规则之一。
+      readme: <COM.1609.term.3>，可以根据该届<COM.1609.entity.supervisor>的工作习惯，选择主流议事规则之一。
   level2:
     - upgradeby: <COM.1609.level1.1>
       termid: 88e5c5f4

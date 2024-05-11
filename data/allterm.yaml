@@ -1,40 +1,22 @@
 term:
-  '2':
-    name: 自修订条款
-    id: '2'
+  '11':
+    name: 学门科技
+    id: '11'
     interface:
-      <term.2.entity.1>: deployer
+      <term.11.term.1>: 章程.第八条.（十）.
     item:
-      - localid: ''
-        text: |
-          由<term.2.entity.1>书面提交即生效。
-    readme: |
-      自修订条款是权力分配中的顶级条款。
-    effect: ''
-  '3':
-    name: 利益分配比例
-    id: '3'
-    interface:
-      <term.3.asset.1>: p
-    item:
-      - localid: ''
-        text: |
-          <term.3.asset.1>=20，<term.3.asset.1>%=20%。
-    readme: |
-      本条款设置了参数<term.3.asset.1>的初始值。
-    effect: ''
-  '4':
-    name: 集体决策
-    id: '4'
-    interface:
-      <term.4.entity.1>: director
-    item:
-      - localid: ''
-        text: |
-          由<term.4.entity.1>表决按一人一票表决，超过80%出席会议有效，赞成票超过超过三分之二为通过。
-    readme: |
-      本条款是权力分配中的二级条款。
-    effect: ''
+      - localid: 章程
+        upgradeby: <term.11.term.1>
+        termid: 2e4f11cb
+      - localid: 第十五条
+        upgradeby: <term.11.term.1>
+        termid: 25c83dac
+      - localid: 第十八条
+        upgradeby: <term.11.term.1>
+        termid: 4bbd5668
+      - localid: 第二十条
+        upgradeby: <term.11.term.1>
+        termid: 6208f678
   '12119600':
     name: 分支隔离规则
     id: '12119600'
@@ -52,6 +34,29 @@ term:
         termid: 5c7d5a18
       - localid: '4'
         termid: 5f7bbbe4
+  '69632214':
+    name: 董事会职权（二）
+    id: '69632214'
+    interface:
+      <term.69632214.entity.1>: 股东会
+    item:
+      - localid: ''
+        text: |
+          执行<term.69632214.entity.1>的决议；
+  '99520853':
+    name: 监事职权（二）
+    id: '99520853'
+    interface:
+      <term.99520853.entity.1>: 公司
+      <term.99520853.entity.2>: 董事
+      <term.99520853.entity.3>: 高级管理人员
+      <term.99520853.entity.4>: 股东会
+      <term.99520853.term.1>: 章程
+      <term.99520853.asset.1>: 罢免的建议
+    item:
+      - localid: ''
+        text: |
+          对<term.99520853.entity.2>、<term.99520853.entity.3>执行<term.99520853.entity.1>职务的行为进行监督，对违反法律、行政法规、<term.99520853.entity.1><term.99520853.term.1>或者<term.99520853.entity.4>决议的<term.99520853.entity.2>、<term.99520853.entity.3>提出<term.99520853.asset.1>；
   01e1c775:
     name: 调整分配主比例
     id: 01e1c775
@@ -75,6 +80,30 @@ term:
         upgradeby: <term.01e1c775.localid.1>
         map:
           <term.177700d4.entity.1>: <term.01e1c775.entity.2>
+  02c7d037:
+    name: 1609-保密制度-2
+    id: 02c7d037
+    interface:
+      <term.02c7d037.term.1>: 不可修订条款
+      <term.02c7d037.term.2>: 自修订条款
+      <term.02c7d037.term.3>: 二级决策条款
+      <term.02c7d037.term.4>: 自修订条款1.
+    item:
+      - localid: ''
+        upgradeby: <term.02c7d037.term.4>
+        text: |
+          <term.02c7d037.term.1>、<term.02c7d037.term.2>、<term.02c7d037.term.3>的正文以及执行记录的保密事项由这些条款自己定义，本制度不得规定。
+  '040463e3':
+    name: 股东会职权（六）
+    id: '040463e3'
+    interface:
+      <term.040463e3.entity.1>: 公司
+      <term.040463e3.asset.1>: 利润分配方案
+      <term.040463e3.asset.2>: 弥补亏损的方案
+    item:
+      - localid: ''
+        text: |
+          审议批准<term.040463e3.entity.1>的<term.040463e3.asset.1>和<term.040463e3.asset.2>；
   056e71fb:
     name: 1406动议
     id: 056e71fb
@@ -133,6 +162,46 @@ term:
       - localid: ''
         text: |
           <term.064129fa.term.1>适用于制定规章。一个分支的共同体内制定规章时，所提供依据如果使用其它分支的案例，将自动增加切换规章的动议作为前提。
+  '0719e045':
+    name: 内务部(ISU:Inner Service Unit)
+    id: '0719e045'
+    interface:
+      <term.0719e045.entity.1>: 公司
+      <term.0719e045.entity.2>: 内务部(ISU:Inner Service Unit)
+      <term.0719e045.asset.1>: 办公室
+      <term.0719e045.asset.2>: 服务器及域名
+      <term.0719e045.asset.3>: 人民币
+      <term.0719e045.asset.4>: 内部记账单位
+      <term.0719e045.asset.5>: 知识产权
+      <term.0719e045.term.1>: 章程.第十五条.（八）.
+      <term.0719e045.status.S2>: S2（增长状态）
+      <term.0719e045.status.S3>: S3（稳定或缩减状态）
+    item:
+      - localid: ''
+        upgradeby: <term.0719e045.term.1>
+        text: |
+          在<term.0719e045.status.S2>、<term.0719e045.status.S3>状态下：<term.0719e045.entity.1>设置<term.0719e045.entity.2>，委托<term.0719e045.entity.2>管理<term.0719e045.entity.1>的资产（<term.0719e045.asset.1>、<term.0719e045.asset.2>、<term.0719e045.asset.3>、<term.0719e045.asset.4>、<term.0719e045.asset.5>）。
+  09ead2c1:
+    name: 董事会职权（五）
+    id: 09ead2c1
+    interface:
+      <term.09ead2c1.entity.1>: 公司
+      <term.09ead2c1.asset.1>: 利润分配方案
+      <term.09ead2c1.asset.2>: 弥补亏损方案
+    item:
+      - localid: ''
+        text: |
+          制订<term.09ead2c1.entity.1>的<term.09ead2c1.asset.1>和<term.09ead2c1.asset.2>；
+  0b305ce2:
+    name: 股东会职权（四）
+    id: 0b305ce2
+    interface:
+      <term.0b305ce2.entity.1>: 监事
+      <term.0b305ce2.asset.1>: 报告
+    item:
+      - localid: ''
+        text: |
+          审议批准<term.0b305ce2.entity.1>的<term.0b305ce2.asset.1>；
   0ccddb29:
     name: 执行部门陷入割据
     id: 0ccddb29
@@ -156,6 +225,93 @@ term:
           - <term.0ccddb29.entity.3>界定了<term.0ccddb29.entity.4>工作的合规性要求。
             - <term.0ccddb29.entity.4>成员对指令不进行合规检查，即使不合规也执行。
             - <term.0ccddb29.entity.4>成员及<term.0ccddb29.entity.2>未按要求填写和提交表单，比如<term.0ccddb29.asset.1>、<term.0ccddb29.asset.2>。
+  0edca872:
+    name: 1609-二级决策条款-5
+    id: 0edca872
+    interface:
+      <term.0edca872.entity.1>: supervisor
+      <term.0edca872.term.1>: 自修订条款
+      <term.0edca872.term.2>: supervisor会议议事规则
+    item:
+      - localid: ''
+        upgradeby: <term.0edca872.term.1>
+        text: 根据<term.0edca872.term.2>，经三分之二supervisor通过可以作出决议。
+  0f942ec6:
+    name: S1状态下的董事
+    id: 0f942ec6
+    interface:
+      <term.0f942ec6.entity.1>: 公司
+      <term.0f942ec6.entity.2>: 董事会
+      <term.0f942ec6.entity.3>: 董事
+      <term.0f942ec6.entity.4>: 经理
+      <term.0f942ec6.term.1>: 章程.第十五条.（八）.
+      <term.0f942ec6.term.2>: 公司法
+      <term.0f942ec6.term.3>: 章程
+      <term.0f942ec6.asset.1>: 财务会计报告
+      <term.0f942ec6.asset.2>: 利润分配方案
+      <term.0f942ec6.asset.3>: 弥补亏损方案
+    item:
+      - localid: ''
+        upgradeby: <term.0f942ec6.term.1>
+        text: |
+          <term.0f942ec6.entity.1>不设<term.0f942ec6.entity.2>，设一名<term.0f942ec6.entity.3>，行使<term.0f942ec6.term.2>和<term.0f942ec6.term.3>规定的<term.0f942ec6.entity.2>的职权。该<term.0f942ec6.entity.3>兼任<term.0f942ec6.entity.1><term.0f942ec6.entity.4>。<term.0f942ec6.entity.3>任期三年，任期届满，可连选连任。如果任期内<term.0f942ec6.entity.2>席位数发生变化，视为任期提前结束，重新进行选举。选举方法：采用累积投票制。
+          该<term.0f942ec6.entity.3>任职期间出现赤字，支出由该<term.0f942ec6.entity.3>垫付，记为公司向个人借款。任期结束时，该<term.0f942ec6.entity.3>向下一届<term.0f942ec6.entity.2>提交：
+              1. 任职期间的<term.0f942ec6.asset.1>；
+              2. 任职期间的<term.0f942ec6.asset.2>和<term.0f942ec6.asset.3>的提案，内容包括公司向董事借款的利息及偿还方案；
+              3. 任职期间<term.0f942ec6.entity.3>报酬的提案。
+          并接受下一届<term.0f942ec6.entity.2>制订的方案和报酬。
+  10009b73:
+    name: 设置董事会
+    id: 10009b73
+    interface:
+      <term.10009b73.entity.1>: 公司
+      <term.10009b73.entity.2>: 董事会
+      <term.10009b73.entity.3>: 股东会
+      <term.10009b73.entity.4>: 董事
+      <term.10009b73.entity.5>: 董事长
+      <term.10009b73.term.1>: 章程.第十五条.（八）.
+    item:
+      - localid: ''
+        upgradeby: <term.10009b73.term.1>
+        text: |
+          <term.10009b73.entity.1>设<term.10009b73.entity.2>，成员为三人，由<term.10009b73.entity.3>选举产生。<term.10009b73.entity.4>任期三年，任期届满，可连选连任。如果任期内<term.10009b73.entity.2>席位数发生变化，视为任期提前结束，重新进行选举。选举方法：采用累积投票制。
+          <term.10009b73.entity.2>设<term.10009b73.entity.5>一人，由<term.10009b73.entity.2>选举产生。
+  12d14064:
+    name: 1609-利益分配-8
+    id: 12d14064
+    interface:
+      <term.c046b09d.d14064.entity.1>: admin
+      <term.c046b09d.d14064.term.1>: 二级决策条款1.
+    item:
+      - localid: ''
+        upgradeby: <term.c046b09d.d14064.term.1>
+        text: |
+          <term.c046b09d.d14064.entity.1>专户：
+      - localid: '1'
+        upgradeby: <term.c046b09d.d14064.term.1>
+        termid: af62f03b
+      - localid: '2'
+        upgradeby: <term.c046b09d.d14064.term.1>
+        termid: 55cc8467
+      - localid: '3'
+        upgradeby: <term.c046b09d.d14064.term.1>
+        termid: e4495f38
+  1558e5e1:
+    name: 1609-利益分配-3
+    id: 1558e5e1
+    interface:
+      <term.1558e5e1.entity.1>: 共同体
+      <term.1558e5e1.entity.2>: deployer
+      <term.1558e5e1.entity.3>: trustee
+      <term.1558e5e1.entity.4>: director
+      <term.1558e5e1.entity.5>: supervisor
+      <term.1558e5e1.entity.6>: admin
+      <term.1558e5e1.term.1>: 自修订条款1.
+    item:
+      - localid: ''
+        upgradeby: <term.1558e5e1.term.1>
+        text: |
+          设四个<term.1558e5e1.entity.1>专户，每个专户可以容纳所有种类的资产。分别由：<term.1558e5e1.entity.2>、<term.1558e5e1.entity.3>、<term.1558e5e1.entity.4>和<term.1558e5e1.entity.5>、<term.1558e5e1.entity.6>管理。
   177700d4:
     name: 集体决策
     id: 177700d4
@@ -178,6 +334,17 @@ term:
       - localid: ''
         text: |
           对相同事项的不同处理方法，视为同一规章的不同分支版本。对该事项未做任何规定，也视为其中一个分支版本。
+  21af48dd:
+    name: 股东会职权（二）
+    id: 21af48dd
+    interface:
+      <term.21af48dd.entity.1>: 董事
+      <term.21af48dd.entity.2>: 监事
+      <term.21af48dd.asset.1>: 报酬
+    item:
+      - localid: ''
+        text: |
+          选举和更换非由职工代表担任的<term.21af48dd.entity.1>、<term.21af48dd.entity.2>，决定有关<term.21af48dd.entity.1>、<term.21af48dd.entity.2>的<term.21af48dd.asset.1>事项；
   23f76740:
     name: 自修订条款
     id: 23f76740
@@ -199,6 +366,61 @@ term:
       - localid: ''
         text: |
           涉事各方签署 <term.259076a4.term.1>，承诺遵守该条件，将生效、执行的记录作为补充信息。
+  25c83dac:
+    name: 董事会职权
+    id: 25c83dac
+    interface:
+      <term.25c83dac.entity.1>: 董事会
+      <term.25c83dac.term.1>: 章程第八条（十）
+      <term.25c83dac.term.2>: 中华人民共和国公司法
+    item:
+      - localid: ''
+        upgradeby: <term.25c83dac.term.1>
+        text: |
+          <term.25c83dac.entity.1>行使下列职权：：
+      - localid: （一）
+        upgradeby: <term.25c83dac.term.1>
+        termid: f64809f8
+      - localid: （二）
+        upgradeby: <term.25c83dac.term.1>
+        termid: '69632214'
+      - localid: （三）
+        upgradeby: <term.25c83dac.term.1>
+        termid: 423005c6
+      - localid: （四）
+        upgradeby: <term.25c83dac.term.1>
+        termid: 615fc73f
+      - localid: （五）
+        upgradeby: <term.25c83dac.term.1>
+        termid: 09ead2c1
+      - localid: （六）
+        upgradeby: <term.25c83dac.term.1>
+        termid: 50430bca
+      - localid: （七）
+        upgradeby: <term.25c83dac.term.1>
+        termid: bb0ea239
+      - localid: （八）
+        upgradeby: <term.25c83dac.term.1>
+        termid: 79f4f1e0
+      - localid: （九）
+        upgradeby: <term.25c83dac.term.1>
+        termid: 5884eea5
+      - localid: （十）
+        upgradeby: <term.25c83dac.term.1>
+        termid: 7957be41
+    depend:
+      - text: |
+          测试字符串: <term.25c83dac.term.2>生效。
+        percent: '50'
+    together:
+      - text: |
+          测试字符串：<term.25c83dac.term.1>是条款之王。
+        percent: '90'
+    effect:
+      - errorid: cde3c3e2
+        percent: '50'
+    readme: |
+      <term.25c83dac.entity.1>是决策部门，在不同类型共同体中可能称为董事会、理事会、委员会等等。
   260ca049:
     name: 直接指挥的归档
     id: 260ca049
@@ -216,6 +438,71 @@ term:
           <term.260ca049.entity.1>和执行人员都要向<term.260ca049.entity.3>归档<term.260ca049.asset.1>。执行人员应在收到或自行填写<term.260ca049.asset.1>24小时内归档。<term.260ca049.entity.1>填写的<term.260ca049.asset.1>归档要求是：
             - 在<term.260ca049.entity.3>的一个审议周期内，每一事项的前3份<term.260ca049.asset.1>，应在出具24小时内向<term.260ca049.entity.3>归档；
             - 在<term.260ca049.entity.3>的一个审议周期内，同一事项的第4份<term.260ca049.asset.1>起，可以汇总后在审议周期结束前一并归档。
+  2a25389c:
+    name: 经理职权（二）
+    id: 2a25389c
+    interface:
+      <term.2a25389c.entity.1>: 公司
+      <term.2a25389c.asset.1>: 经营计划
+      <term.2a25389c.asset.2>: 投资方案
+    item:
+      - localid: ''
+        text: |
+          组织实施<term.2a25389c.entity.1>年度<term.2a25389c.asset.1>和<term.2a25389c.asset.2>；
+  2a78271e:
+    name: 1609-利益分配-6-5
+    id: 2a78271e
+    interface:
+      <term.2a78271e.entity.1>: trustee
+      <term.2a78271e.asset.1>: p
+      <term.2a78271e.asset.2>: RIU
+    item:
+      - localid: ''
+        text: |
+          <term.2a78271e.entity.1>从收入的<term.2a78271e.asset.1>%购买的<term.2a78271e.asset.2>中领取报酬，竞聘者须明确报酬的计算公式。
+    readme: |
+      <term.2a78271e.entity.1>任期内报酬公式不变，如果情况变化可以辞职，再与其他竞聘者一起根据当时情况竞聘。
+  2e4f11cb:
+    name: 章程部分条款
+    id: 2e4f11cb
+    interface:
+      <term.2e4f11cb.entity.1>: 公司
+      <term.2e4f11cb.entity.2>: 董事会
+      <term.2e4f11cb.term.1>: 第八条.（十）.
+    item:
+      - localid: 第八条
+        upgradeby: <term.2e4f11cb.term.1>
+        map:
+          <term.e55c000c.localid.（十）>: <term.2e4f11cb.term.1>
+        termid: e55c000c
+      - localid: 第十四条
+        upgradeby: <term.2e4f11cb.term.1>
+        termid: 10009b73
+      - localid: 第十五条
+        upgradeby: <term.2e4f11cb.term.1>
+        termid: 25c83dac
+      - localid: 第十八条
+        upgradeby: <term.2e4f11cb.term.1>
+        termid: 4bbd5668
+      - localid: 第二十条
+        upgradeby: <term.2e4f11cb.term.1>
+        termid: 6208f678
+    depend:
+      - errorid: 0ccddb29
+        percent: '50'
+        map:
+          <error.0ccddb29.entity.1>: <term.2e4f11cb.entity.1>
+          <error.0ccddb29.entity.3>: <term.2e4f11cb.entity.2>
+        text: |
+          测试字符串。。。。<term.2e4f11cb.term.1>。。。
+    together:
+      - errorid: 48291d8c
+        percent: '90'
+    effect:
+      - errorid: cde3c3e2
+        percent: '60'
+    readme: |
+      章程是<term.2e4f11cb.entity.1>的顶级规章。但它的条款在修订层次上并不平等。
   '2e758794':
     name: 保密规则-2
     id: '2e758794'
@@ -229,6 +516,38 @@ term:
       - localid: ''
         text: |
           按<term.2e758794.term.1>上溯得出顶级规章，从顶级规章到保密制度之间的上下级规章链条（包括保密制度），这组规章的密级均为公开，这组规章的工作记录的密级由该规章自行规定，保密制度不得改变。
+  3176f00c:
+    name: 1609-利益分配-6-3
+    id: 3176f00c
+    interface:
+      <term.3176f00c.asset.1>: p
+      <term.3176f00c.asset.2>: RIU
+      <term.3176f00c.entity.1>: trustee
+      <term.3176f00c.entity.2>: director
+    item:
+      - localid: ''
+        text: |
+          收入的<term.3176f00c.asset.1>%用于购买<term.3176f00c.entity.1>专户中的<term.3176f00c.asset.2>，低价优先。交易获得的<term.3176f00c.asset.2>支付<term.3176f00c.entity.1>报酬后，余额转入<term.3176f00c.entity.2>专户。
+    readme: |
+      大部分收入还是由<term.3176f00c.entity.2>使用，其中<term.3176f00c.asset.1>%体现为<term.3176f00c.asset.2>（扣除<term.3176f00c.entity.1>报酬），其余体现为对外交易约定的资源。
+  32e45dee:
+    name: 1609-二级决策条款-6
+    id: 32e45dee
+    interface:
+      <term.32e45dee.entity.1>: trustee
+      <term.32e45dee.entity.2>: director
+      <term.32e45dee.entity.3>: supervisor
+      <term.32e45dee.term.1>: 自修订条款
+      <term.32e45dee.asset.1>: 预算透支限额
+      <term.32e45dee.asset.2>: 代码
+    item:
+      - localid: ''
+        upgradeby: <term.32e45dee.term.1>
+        text: |
+          由<term.32e45dee.entity.1>书面提交修订以下事项，提交时生效：
+          - <term.32e45dee.asset.1>
+          - <term.32e45dee.entity.2>任期提前结束，重新进行选举。
+          - <term.32e45dee.entity.3>任期提前结束，重新进行选举。
   33523fe1:
     name: 符合某条件1
     id: 33523fe1
@@ -238,6 +557,58 @@ term:
           涉事各方全体同意，推举一名或多名保证人：
             - 保证人在其它事项中符合该条件，并按照本附件提供补充信息。
             - 由保证人调查涉事各方是否符合该条件，将调查记录作为补充信息。
+  34be50e1:
+    name: 1609-利益分配-6-2
+    id: 34be50e1
+    interface:
+      <term.34be50e1.term.1>: 二级决策条款4.
+      <term.34be50e1.entity.1>: trustee
+    item:
+      - localid: ''
+        upgradeby: <term.34be50e1.term.1>
+        text: |
+          投资者可以将其它资源转入<term.34be50e1.entity.1>专户，委托<term.34be50e1.entity.1>买入RIU。
+  3638eac6:
+    name: 1609-利益分配-2
+    id: 3638eac6
+    item:
+      - localid: ''
+        text: |
+          每个成员设一个专户，每个专户可以容纳所有种类的资产。
+    readme: |
+      - 所有工作成果都属于资产。
+  393c92a3:
+    name: 股东会职权（八）
+    id: 393c92a3
+    interface:
+      <term.393c92a3.entity.1>: 公司
+      <term.393c92a3.asset.1>: 债券
+    item:
+      - localid: ''
+        text: |
+          对发行<term.393c92a3.entity.1><term.393c92a3.asset.1>作出决议；
+  3f89e98f:
+    name: 经理职权（一）
+    id: 3f89e98f
+    interface:
+      <term.3f89e98f.entity.1>: 公司
+      <term.3f89e98f.entity.2>: 董事会
+    item:
+      - localid: ''
+        text: |
+          主持<term.3f89e98f.entity.1>的生产经营管理工作，组织实施<term.3f89e98f.entity.2>决议；
+  40880d93:
+    name: 1609-二级决策条款-2
+    id: 40880d93
+    interface:
+      <term.40880d93.entity.1>: director
+      <term.40880d93.term.1>: 自修订条款
+      <term.40880d93.term.2>: director会议议事规则
+    item:
+      - localid: ''
+        upgradeby: <term.40880d93.term.1>
+        text: |
+          根据<term.40880d93.term.2>，经二分之一以上<term.40880d93.entity.1>通过可以作出决议。
   4116b506:
     name: 公布日志
     id: 4116b506
@@ -246,6 +617,76 @@ term:
         text: |
           公布完整、连续、不可删改的执行记录，证实方案的效果。
             - 如果以前的执行记录不符合以上条件，可以在愿意按标准公布记录的独立第三方验证。
+  41312cc4:
+    name: 1609-利益分配-7-6
+    id: 41312cc4
+    interface:
+      <term.41312cc4.entity.1>: director
+      <term.41312cc4.entity.2>: deployer
+      <term.41312cc4.entity.3>: supervisor
+      <term.41312cc4.entity.4>: director
+      <term.41312cc4.entity.5>: director
+      <term.41312cc4.term.1>: 二级决策条款3.
+    item:
+      - localid: ''
+        upgradeby: <term.41312cc4.term.1>
+        text: |
+          <term.41312cc4.entity.2>、<term.41312cc4.entity.1>、<term.41312cc4.entity.3>从<term.41312cc4.entity.1>专户领取报酬，<term.41312cc4.entity.1>、<term.41312cc4.entity.3>竞聘者须明确报酬的计算公式，<term.41312cc4.entity.2>报酬数额为<term.41312cc4.entity.1>、<term.41312cc4.entity.3>报酬的中位数。<term.41312cc4.entity.1>专户数额不足时以应发数额为权重按比例分配，等候期间不计利息。
+    readme: |
+      - <term.41312cc4.entity.2>、<term.41312cc4.entity.1>、<term.41312cc4.entity.3>的报酬优先级低于工作支出。
+      - <term.41312cc4.entity.1>、<term.41312cc4.entity.3>任期内报酬公式不变，如果情况变化可以辞职，再与其他竞聘者一起根据当时情况竞聘。
+  41e708f1:
+    name: 代码的调阅权限
+    id: 41e708f1
+    interface:
+      <term.41e708f1.entity.1>: 董事
+      <term.41e708f1.entity.2>: 监事
+      <term.41e708f1.asset.1>: 数学模型的代码实现
+      <term.41e708f1.status.S3>: S3（稳定或缩减状态）
+      <term.41e708f1.term.1>: 章程.第十五条.（八）.
+    item:
+      - localid: ''
+        upgradeby: <term.41e708f1.term.1>
+        text: |
+          在<term.41e708f1.status.S3>状态下：<term.41e708f1.entity.1>、<term.41e708f1.entity.2>可以调阅规章制度、<term.41e708f1.asset.1>。
+  423005c6:
+    name: 董事会职权（三）
+    id: 423005c6
+    interface:
+      <term.423005c6.entity.1>: 公司
+      <term.423005c6.asset.1>: 经营计划
+      <term.423005c6.asset.2>: 投资方案
+    item:
+      - localid: ''
+        text: |
+          审定<term.423005c6.entity.1>的<term.423005c6.asset.1>和<term.423005c6.asset.2>；
+  44f7a3ac:
+    name: 章程实施细则-董事会决议
+    id: 44f7a3ac
+    interface:
+      <term.4d2e92b6.f7a3ac.entity.1>: 董事
+      <term.4d2e92b6.f7a3ac.entity.2>: 高级管理人员
+      <term.4d2e92b6.f7a3ac.term.1>: 《公司法》第一百五十二条
+    item:
+      - localid: '1'
+        termid: a419e125
+      - localid: '2'
+        termid: '0719e045'
+      - localid: '3'
+        termid: c6e8bb3f
+      - localid: '4'
+        termid: 4d2e92b6
+      - localid: '5'
+        termid: 41e708f1
+  460c6741:
+    name: 股东会职权（七）
+    id: 460c6741
+    interface:
+      <term.460c6741.entity.1>: 公司
+    item:
+      - localid: ''
+        text: |
+          对<term.460c6741.entity.1>增加或者减少注册资本作出决议；
   48577ce8:
     name: 直接指挥权
     id: 48577ce8
@@ -281,6 +722,47 @@ term:
       - localid: ''
         text: |
           如果有其它可行方案请发到<huangyg@mars22.com>，我将按照<term.4b12ac08.term.1>核实。
+  4bbd5668:
+    name: 经理职权
+    id: 4bbd5668
+    interface:
+      <term.f81cd0f0.bd5668.entity.1>: 公司
+      <term.f81cd0f0.bd5668.entity.2>: 董事会
+      <term.f81cd0f0.bd5668.entity.3>: 经理
+      <term.f81cd0f0.bd5668.term.1>: 章程第八条（十）
+    item:
+      - localid: ''
+        upgradeby: <term.f81cd0f0.bd5668.term.1>
+        text: |
+          <term.f81cd0f0.bd5668.entity.1>设<term.f81cd0f0.bd5668.entity.3>，由<term.f81cd0f0.bd5668.entity.2>决定聘任或者解聘。<term.f81cd0f0.bd5668.entity.3>对<term.f81cd0f0.bd5668.entity.2>负责，行使下列职权：
+      - localid: （一）
+        upgradeby: <term.f81cd0f0.bd5668.term.1>
+        termid: 3f89e98f
+      - localid: （二）
+        upgradeby: <term.f81cd0f0.bd5668.term.1>
+        termid: 2a25389c
+      - localid: （三）
+        upgradeby: <term.f81cd0f0.bd5668.term.1>
+        termid: b3012036
+      - localid: （四）
+        upgradeby: <term.f81cd0f0.bd5668.term.1>
+        termid: f81cd0f0
+      - localid: （五）
+        upgradeby: <term.f81cd0f0.bd5668.term.1>
+        termid: c73b28b3
+      - localid: （六）
+        upgradeby: <term.f81cd0f0.bd5668.term.1>
+        termid: 500e281d
+      - localid: （七）
+        upgradeby: <term.f81cd0f0.bd5668.term.1>
+        termid: dd706d9c
+      - localid: （八）
+        upgradeby: <term.f81cd0f0.bd5668.term.1>
+        termid: a2804f8b
+      - localid: ''
+        upgradeby: <term.f81cd0f0.bd5668.term.1>
+        text: |
+          <term.f81cd0f0.bd5668.entity.3>列席<term.f81cd0f0.bd5668.entity.2>会议。
   4c37b176:
     name: 制定规则-2
     id: 4c37b176
@@ -291,6 +773,106 @@ term:
       - localid: ''
         text: |
           接到质询时必须提供依据，依据必须是 外部法律 or 案例统计 两种方式之一。
+  4c77ae61:
+    name: 章程部分条款S3
+    id: 4c77ae61
+    interface:
+      <term.4c77ae61.entity.1>: 公司
+      <term.4c77ae61.entity.2>: 董事会
+      <term.4c77ae61.term.1>: 第八条.（十）.
+    item:
+      - localid: 第八条
+        upgradeby: <term.4c77ae61.term.1>
+        map:
+          <term.e55c000c.localid.（十）>: <term.4c77ae61.term.1>
+        termid: e55c000c
+      - localid: 第十五条
+        upgradeby: <term.4c77ae61.term.1>
+        termid: f094ea3f
+      - localid: 第十八条
+        upgradeby: <term.4c77ae61.term.1>
+        termid: 0edca872
+      - localid: 第二十条
+        upgradeby: <term.4c77ae61.term.1>
+        termid: 6208f678
+    depend:
+      - errorid: 0ccddb29
+        percent: '50'
+        map:
+          <error.0ccddb29.entity.1>: <term.4c77ae61.entity.1>
+          <error.0ccddb29.entity.3>: <term.4c77ae61.entity.2>
+        text: |
+          测试字符串。。。。<term.4c77ae61.term.1>。。。
+    together:
+      - errorid: 48291d8c
+        percent: '90'
+    effect:
+      - errorid: cde3c3e2
+        percent: '60'
+    readme: |
+      章程是<term.4c77ae61.entity.1>的顶级规章。但它的条款在修订层次上并不平等。
+  4d2e92b6:
+    name: 经理在S2的汇报
+    id: 4d2e92b6
+    interface:
+      <term.4d2e92b6.entity.1>: 监事
+      <term.4d2e92b6.entity.2>: 董事会
+      <term.4d2e92b6.entity.3>: 经理
+      <term.4d2e92b6.status.S2>: S2（增长状态）
+      <term.4d2e92b6.term.1>: 章程.第十五条.（八）.
+    item:
+      - localid: ''
+        upgradeby: <term.4d2e92b6.term.1>
+        text: |
+          在<term.4d2e92b6.status.S2>状态下：<term.4d2e92b6.entity.3>每个月向<term.4d2e92b6.entity.1>、<term.4d2e92b6.entity.2>书面汇报工作。
+  4e9e9c33:
+    name: 1609-三级决策条款-2
+    id: 4e9e9c33
+    interface:
+      <term.4e9e9c33.entity.1>: deployer
+      <term.4e9e9c33.entity.2>: worker
+      <term.4e9e9c33.term.1>: 二级决策程序3.
+      <term.4e9e9c33.asset.1>: RIU
+      <term.4e9e9c33.asset.2>: p
+    item:
+      - localid: ''
+        upgradeby: <term.4e9e9c33.term.1>
+        text: |
+          全体<term.4e9e9c33.entity.2>、<term.4e9e9c33.asset.1>持有者选举。假设<term.4e9e9c33.entity.2>合同的报酬<term.4e9e9c33.asset.1>总额为w，<term.4e9e9c33.asset.1>总额为r，<term.4e9e9c33.entity.2>手中合同的每个<term.4e9e9c33.asset.1>报酬权重为r*(100-<term.4e9e9c33.asset.2>)，<term.4e9e9c33.asset.1>持有者持有的每个<term.4e9e9c33.asset.1>权重为w*<term.4e9e9c33.asset.2>。 
+          - 如果<term.4e9e9c33.entity.1>没有指定继任者又不能工作，选举新任<term.4e9e9c33.entity.1>。
+  500e281d:
+    name: 经理职权（六）
+    id: 500e281d
+    interface:
+      <term.500e281d.entity.1>: 公司
+      <term.500e281d.entity.2>: 副经理
+      <term.500e281d.entity.3>: 财务负责人
+    item:
+      - localid: ''
+        text: |
+          提请聘任或者解聘<term.500e281d.entity.1><term.500e281d.entity.2>、<term.500e281d.entity.3>；
+  50430bca:
+    name: 董事会职权（六）
+    id: 50430bca
+    interface:
+      <term.50430bca.entity.1>: 公司
+      <term.50430bca.asset.1>: 注册资本
+      <term.50430bca.asset.2>: 债券
+    item:
+      - localid: ''
+        text: |
+          制订<term.50430bca.entity.1>增加或者减少<term.50430bca.asset.1>以及发行<term.50430bca.entity.1><term.50430bca.asset.2>的方案；
+    effect:
+      - text: |
+          测试字符串: <term.50430bca.asset.1>不足。
+        percent: '40'
+    together:
+      - text: |
+          测试字符串：<term.50430bca.asset.2>融资成本低。
+        percent: '30'
+    depend:
+      - errorid: cde3c3e2
+        percent: '70'
   50d2347f:
     name: 制定规则-1
     id: 50d2347f
@@ -314,6 +896,30 @@ term:
         text: |
           条件：同意按照<term.52edbf25.term.1>增加补充信息，补充关于<term.52edbf25.term.2>，<term.52edbf25.term.3>，<term.52edbf25.term.4>、<term.52edbf25.term.5>、<term.52edbf25.term.6>、<term.52edbf25.term.7>的补充信息，且判断符合附件<term.52edbf25.term.2>，<term.52edbf25.term.3>，不全符合符合<term.52edbf25.term.4>、<term.52edbf25.term.5>、<term.52edbf25.term.6>、<term.52edbf25.term.7>。
           建议：先参考default+1406标准模型开展业务，逐步完善规章，取得进步后重新增加关于附件<term.52edbf25.term.4>、<term.52edbf25.term.5>、<term.52edbf25.term.6>、<term.52edbf25.term.7>的补充信息。
+  53548d2d:
+    name: 股东会职权（五）
+    id: 53548d2d
+    interface:
+      <term.53548d2d.entity.1>: 公司
+      <term.53548d2d.asset.1>: 预算方案
+      <term.53548d2d.asset.2>: 决算方案
+    item:
+      - localid: ''
+        text: |
+          审议批准<term.53548d2d.entity.1>的年度财务<term.53548d2d.asset.1>、<term.53548d2d.asset.2>；
+  54b6949d:
+    name: 1609-二级决策条款-3
+    id: 54b6949d
+    interface:
+      <term.54b6949d.entity.1>: director
+      <term.54b6949d.entity.2>: deployer
+      <term.54b6949d.term.1>: 自修订条款
+      <term.54b6949d.term.2>: director会议议事规则
+    item:
+      - localid: ''
+        upgradeby: <term.54b6949d.term.1>
+        text: |
+          由<term.54b6949d.entity.2>提出。根据<term.54b6949d.term.2>，经全体<term.54b6949d.entity.1>通过可以作出决议。
   55c25f3f:
     name: 制定规则-3
     id: 55c25f3f
@@ -321,6 +927,23 @@ term:
       - localid: ''
         text: |
           如果是旧版本修订，制定者可以提出适用范围。只能向该适用范围内使用旧版规章的共同体发送修订通知。
+  55cc8467:
+    name: 1609-利益分配-8-2
+    id: 55cc8467
+    interface:
+      <term.55cc8467.term.1>: 二级决策条款1.
+      <term.55cc8467.entity.1>: admin
+      <term.55cc8467.entity.2>: member
+      <term.55cc8467.entity.3>: worker
+      <term.55cc8467.asset.1>: 合同
+    item:
+      - localid: ''
+        upgradeby: <term.55cc8467.term.1>
+        text: |
+          <term.55cc8467.entity.2>的工作成果提交到<term.55cc8467.entity.1>专户，从<term.55cc8467.entity.1>专户领取报酬，报酬金额在<term.55cc8467.asset.1>中规定。
+    readme: |
+      - <term.55cc8467.entity.2>所包括角色范围根据实际情况界定。通常包括<term.55cc8467.entity.1>、<term.55cc8467.entity.3>，有时也包括一些外部人员、机构。
+      - 报酬可能包括不同种类的资源。
   583d6243:
     name: 如果割据就启用1406
     id: 583d6243
@@ -331,6 +954,31 @@ term:
       - localid: ''
         text: |
           如果符合<term.583d6243.term.1>的情况，则<term.583d6243.term.2>自动生效。
+  5884eea5:
+    name: 董事会职权（九）
+    id: 5884eea5
+    interface:
+      <term.5884eea5.entity.0>: 公司
+      <term.5884eea5.entity.1>: 经理
+      <term.5884eea5.entity.2>: 副经理
+      <term.5884eea5.entity.3>: 财务负责人
+    item:
+      - localid: ''
+        text: |
+          决定聘任或者解聘<term.5884eea5.entity.0><term.5884eea5.entity.1>及其报酬事项，并根据<term.5884eea5.entity.1>的提名决定聘任或者解聘<term.5884eea5.entity.0><term.5884eea5.entity.2>、<term.5884eea5.entity.3>及其报酬事项；
+  58d4c137:
+    name: 1609-利益分配-5
+    id: 58d4c137
+    interface:
+      <term.58d4c137.entity.1>: deployer
+    item:
+      - localid: ''
+        text: |
+          <term.58d4c137.entity.1>专户：
+      - localid: '1'
+        termid: c1f65b6d
+      - localid: '2'
+        termid: 6568c500
   5ab2b2ba:
     name: 能力和贡献持续变化
     id: 5ab2b2ba
@@ -385,6 +1033,17 @@ term:
       - localid: ''
         text: |
           人员的上下级关系，根据任免权定义。
+  5fec38ed:
+    name: 监事职权（三）
+    id: 5fec38ed
+    interface:
+      <term.5fec38ed.entity.1>: 公司
+      <term.5fec38ed.entity.2>: 董事
+      <term.5fec38ed.entity.3>: 高级管理人员
+    item:
+      - localid: ''
+        text: |
+          当<term.5fec38ed.entity.2>、<term.5fec38ed.entity.3>的行为损害<term.5fec38ed.entity.1>的利益时，要求<term.5fec38ed.entity.2>、<term.5fec38ed.entity.3>予以纠正；
   600f6f80:
     name: 制定规则
     id: 600f6f80
@@ -411,6 +1070,117 @@ term:
       - localid: ''
         text: |
           已发布开放的要约，只有取得该效果才有收益。
+  60f842d6:
+    name: 董事会职权（十）S3
+    id: 60f842d6
+    interface:
+      <term.60f842d6.entity.1>: 公司
+      <term.60f842d6.term.1>: 基本管理制度
+      <term.60f842d6.asset.1>: 数学模型
+      <term.60f842d6.asset.2>: 代码
+    item:
+      - localid: ''
+        text: |
+          制定<term.60f842d6.entity.1>的<term.60f842d6.term.1>，包括配套的<term.60f842d6.asset.1>及<term.60f842d6.asset.2>；
+  6147e7dd:
+    name: 章程部分条款S1
+    id: 6147e7dd
+    interface:
+      <term.6147e7dd.entity.1>: 公司
+      <term.6147e7dd.entity.2>: 董事会
+      <term.6147e7dd.term.1>: 第八条.（十）.
+    item:
+      - localid: 第八条
+        upgradeby: <term.6147e7dd.term.1>
+        map:
+          <term.e55c000c.localid.（十）>: <term.6147e7dd.term.1>
+        termid: e55c000c
+      - localid: 第十四条
+        upgradeby: <term.6147e7dd.term.1>
+        termid: 814f76cb
+      - localid: 第十五条
+        upgradeby: <term.6147e7dd.term.1>
+        termid: 25c83dac
+      - localid: 第十八条
+        upgradeby: <term.6147e7dd.term.1>
+        termid: 4bbd5668
+      - localid: 第二十条
+        upgradeby: <term.6147e7dd.term.1>
+        termid: 6208f678
+    depend:
+      - errorid: 0ccddb29
+        percent: '50'
+        map:
+          <error.0ccddb29.entity.1>: <term.6147e7dd.entity.1>
+          <error.0ccddb29.entity.3>: <term.6147e7dd.entity.2>
+        text: |
+          测试字符串。。。。<term.6147e7dd.term.1>。。。
+    together:
+      - errorid: 48291d8c
+        percent: '90'
+    effect:
+      - errorid: cde3c3e2
+        percent: '60'
+    readme: |
+      章程是<term.6147e7dd.entity.1>的顶级规章。但它的条款在修订层次上并不平等。
+  615fc73f:
+    name: 董事会职权（四）
+    id: 615fc73f
+    interface:
+      <term.615fc73f.entity.1>: 公司
+      <term.615fc73f.asset.1>: 预算方案
+      <term.615fc73f.asset.2>: 决算方案
+    item:
+      - localid: ''
+        text: |
+          制订<term.615fc73f.entity.1>的年度财务<term.615fc73f.asset.1>、<term.615fc73f.asset.2>；
+    readme: |
+      注意：新公司法已取消。
+  6208f678:
+    name: 监事职权
+    id: 6208f678
+    interface:
+      <term.f732b768.08f678.entity.1>: 监事
+      <term.f732b768.08f678.entity.2>: 董事会
+      <term.f732b768.08f678.term.1>: 章程第八条（十）
+    item:
+      - localid: ''
+        upgradeby: <term.f732b768.08f678.term.1>
+        text: |
+          <term.f732b768.08f678.entity.1>行使下列职权：
+      - localid: （一）
+        upgradeby: <term.f732b768.08f678.term.1>
+        termid: b96e83c2
+      - localid: （二）
+        upgradeby: <term.f732b768.08f678.term.1>
+        termid: '99520853'
+      - localid: （三）
+        upgradeby: <term.f732b768.08f678.term.1>
+        termid: 5fec38ed
+      - localid: （四）
+        upgradeby: <term.f732b768.08f678.term.1>
+        termid: c0eb6977
+      - localid: （五）
+        upgradeby: <term.f732b768.08f678.term.1>
+        termid: aa469da0
+      - localid: （六）
+        upgradeby: <term.f732b768.08f678.term.1>
+        termid: f732b768
+      - localid: ''
+        upgradeby: <term.f732b768.08f678.term.1>
+        text: |
+          <term.f732b768.08f678.entity.1>可以列席<term.f732b768.08f678.entity.2>会议。
+  62c421f2:
+    name: 股东会职权（十）
+    id: 62c421f2
+    interface:
+      <term.62c421f2.entity.1>: 公司
+      <term.62c421f2.asset.1>: 章程
+    item:
+      - localid: ''
+        upgradeby: <term.62c421f2.localid.>
+        text: |
+          修改<term.62c421f2.entity.1><term.62c421f2.asset.1>；
   64eb9304:
     name: 自修订条款
     id: 64eb9304
@@ -422,6 +1192,37 @@ term:
       - localid: ''
         text: |
           由<term.64eb9304.entity.1>书面提交即生效。
+  6568c500:
+    name: 1609-利益分配-5-2
+    id: 6568c500
+    interface:
+      <term.6568c500.term.1>: 二级决策条款3.
+      <term.6568c500.entity.1>: director
+      <term.6568c500.entity.2>: deployer
+    item:
+      - localid: ''
+        upgradeby: <term.6568c500.term.1>
+        text: |
+          每月末将<term.6568c500.entity.1>专户余额的0.5%转入<term.6568c500.entity.2>专户。
+    readme: |
+      <term.6568c500.entity.2>使用资源的优先级高于<term.6568c500.entity.1>。
+  666776c3:
+    name: 1609-三级决策条款-3
+    id: 666776c3
+    interface:
+      <term.666776c3.entity.1>: director
+      <term.666776c3.entity.2>: supervisor
+      <term.666776c3.entity.3>: worker
+      <term.666776c3.term.1>: 二级决策程序3.
+      <term.666776c3.asset.1>: RIU
+      <term.666776c3.asset.2>: p
+    item:
+      - localid: ''
+        upgradeby: <term.666776c3.term.1>
+        text: |
+          全体<term.666776c3.entity.3>、<term.666776c3.asset.1>持有者选举。假设<term.666776c3.entity.3>合同的报酬<term.666776c3.asset.1>总额为w，<term.666776c3.asset.1>总额为r，席位为x，<term.666776c3.entity.3>手中合同的每个<term.666776c3.asset.1>报酬权重为r*x*<term.666776c3.asset.2>，<term.666776c3.asset.1>持有者持有的每个<term.666776c3.asset.1>权重为w*x*(100-<term.666776c3.asset.2>)。选举采用累积投票制，不对单独席位进行罢免投票，每次都全部重选。
+          - 选举<term.666776c3.entity.1>
+          - 选举<term.666776c3.entity.2>
   6988b66d:
     name: PS标准-1
     id: 6988b66d
@@ -447,6 +1248,46 @@ term:
         termid: c8254555
       - localid: '4'
         termid: 90c5a430
+  6d2ca266:
+    name: 1609-利益分配-7-1
+    id: 6d2ca266
+    interface:
+      <term.6d2ca266.term.1>: 二级决策条款3.
+      <term.6d2ca266.entity.1>: director
+      <term.6d2ca266.asset.1>: RIU
+      <term.6d2ca266.asset.2>: 预算透支限额
+    item:
+      - localid: ''
+        upgradeby: <term.6d2ca266.term.1>
+        text: |
+          <term.6d2ca266.entity.1>专户中的<term.6d2ca266.asset.1>可以是负数，最小值由<term.6d2ca266.asset.2>确定。
+  70cdd24d:
+    name: 1609-利益分配-7-5
+    id: 70cdd24d
+    interface:
+      <term.70cdd24d.entity.1>: director
+      <term.70cdd24d.asset.1>: p
+      <term.70cdd24d.asset.2>: RIU
+      <term.70cdd24d.asset.3>: 工作计划
+      <term.70cdd24d.asset.4>: 预算案
+      <term.70cdd24d.term.1>: 二级决策条款3.
+    item:
+      - localid: ''
+        upgradeby: <term.70cdd24d.term.1>
+        text: |
+          <term.70cdd24d.entity.1>按<term.70cdd24d.entity.1><term.70cdd24d.asset.3>（含<term.70cdd24d.asset.4>）使用<term.70cdd24d.entity.1>专户余额，余额不足时后续条款的支出暂缓。
+  71da4d25:
+    name: 1609-二级决策条款-1
+    id: 71da4d25
+    interface:
+      <term.71da4d25.entity.1>: director
+      <term.71da4d25.term.1>: 自修订条款
+      <term.71da4d25.term.2>: director会议议事规则
+    item:
+      - localid: ''
+        upgradeby: <term.71da4d25.term.1>
+        text: |
+          根据<term.71da4d25.term.2>，经三分之二以上<term.71da4d25.entity.1>通过可以作出决议。
   7288c99c:
     name: 入门目录202404151600-2-3
     id: 7288c99c
@@ -460,6 +1301,16 @@ term:
           - 不能按照<term.7288c99c.term.1>增加补充信息。
           - 同意按照<term.7288c99c.term.1>增加补充信息，补充关于<term.7288c99c.term.2>的补充信息，且判断为不符合。
           建议：在业务背景下，基于既成事实博弈。具体可以参考default标准模型。
+  72af7dea:
+    name: 1609-保密制度-1
+    id: 72af7dea
+    interface:
+      <term.72af7dea.term.1>: 自修订条款1.
+    item:
+      - localid: ''
+        upgradeby: <term.72af7dea.term.1>
+        text: |
+          本制度正文公开。
   7506353d:
     name: 直接指挥的方式
     id: 7506353d
@@ -477,6 +1328,112 @@ term:
           直接指挥的方式：
             - <term.7506353d.entity.1>填写<term.7506353d.asset.1>明确事项的处理要求，并交给负责执行的成员；
             - <term.7506353d.entity.1>制订<term.7506353d.term.2>明确事项的处理要求，并提交给<term.7506353d.entity.3>备案，<term.7506353d.entity.3>签收后<term.7506353d.term.2>即生效。<term.7506353d.entity.2>成员根据生效的<term.7506353d.term.2>自行填写<term.7506353d.asset.1>并执行。
+  77666f44:
+    name: 1609-普通条款
+    id: 77666f44
+    interface:
+      <term.77666f44.entity.1>: 公司
+      <term.77666f44.entity.2>: 董事会
+      <term.77666f44.term.1>: 第八条.（十）.
+    item:
+      - localid: 保密制度
+        termid: ac890987
+      - localid: 利益分配
+        termid: de47ace4
+  7957be41:
+    name: 董事会职权（十）
+    id: 7957be41
+    interface:
+      <term.7957be41.entity.1>: 公司
+      <term.7957be41.term.1>: 基本管理制度
+    item:
+      - localid: ''
+        text: |
+          制定<term.7957be41.entity.1>的<term.7957be41.term.1>；
+  79f4f1e0:
+    name: 董事会职权（八）
+    id: 79f4f1e0
+    item:
+      - localid: ''
+        text: |
+          决定公司内部管理机构的设置；
+  7f7a536f:
+    name: 1609-利益分配-7-3
+    id: 7f7a536f
+    interface:
+      <term.7f7a536f.asset.1>: p
+      <term.7f7a536f.asset.2>: RIU
+      <term.7f7a536f.asset.3>: 工作计划
+      <term.7f7a536f.asset.4>: 预算案
+      <term.7f7a536f.entity.1>: director
+      <term.7f7a536f.entity.2>: admin
+      <term.7f7a536f.entity.3>: supervisor
+      <term.7f7a536f.term.1>: 二级决策条款3.
+    item:
+      - localid: ''
+        upgradeby: <term.7f7a536f.term.1>
+        text: |
+          按生效的<term.7f7a536f.entity.2><term.7f7a536f.asset.3>（含<term.7f7a536f.asset.4>）从<term.7f7a536f.entity.1>专户转入<term.7f7a536f.entity.2>专户，余额不足时后续条款的支出暂缓。
+    readme: |
+      - <term.7f7a536f.asset.3>和<term.7f7a536f.asset.4>可以根据工作需要规定资源转入时间，滚动利用预算周期内的交易收入。
+      - <term.7f7a536f.entity.2>使用资源的优先级高于<term.7f7a536f.entity.1>和<term.7f7a536f.entity.3>。
+  814f76cb:
+    name: 1609-利益分配-4
+    id: 814f76cb
+    interface:
+      <term.814f76cb.term.1>: 自修订条款1.
+      <term.814f76cb.term.2>: 二级决策条款2.
+      <term.814f76cb.asset.1>: RIU
+      <term.814f76cb.asset.2>: 工作计划
+      <term.814f76cb.asset.3>: 预算案
+      <term.814f76cb.entity.1>: director
+      <term.814f76cb.entity.2>: supervisor
+    item:
+      - localid: ''
+        upgradeby: <term.814f76cb.term.1>
+        text: |
+          按照<term.814f76cb.term.2>设立部门时，开设部门专户，并明确与其它专户的资源交换规则。
+  88e5c5f4:
+    name: 1609-三级决策条款-1
+    id: 88e5c5f4
+    interface:
+      <term.88e5c5f4.entity.1>: admin
+      <term.88e5c5f4.term.1>: 二级决策程序2.
+      <term.88e5c5f4.asset.1>: 工作计划
+      <term.88e5c5f4.asset.2>: 工作报告
+      <term.88e5c5f4.asset.3>: 具体规章
+      <term.88e5c5f4.asset.4>: worker名册（及合同）
+    item:
+      - localid: ''
+        upgradeby: <term.88e5c5f4.term.1>
+        text: |
+          由<term.88e5c5f4.entity.1>书面提交修订以下事项，提交时生效：
+          - <term.88e5c5f4.asset.1>草案
+          - <term.88e5c5f4.asset.2>
+          - <term.88e5c5f4.asset.3>
+          - <term.88e5c5f4.asset.4>
+  8a5d94dc:
+    name: 1609-利益分配-6-1
+    id: 8a5d94dc
+    interface:
+      <term.8a5d94dc.term.1>: 二级决策条款4.
+      <term.8a5d94dc.entity.1>: trustee
+      <term.8a5d94dc.asset.1>: RIU
+    item:
+      - localid: ''
+        upgradeby: <term.8a5d94dc.term.1>
+        text: |
+          <term.8a5d94dc.asset.1>持有者可以将<term.8a5d94dc.asset.1>转入<term.8a5d94dc.entity.1>专户，委托<term.8a5d94dc.entity.1>卖出。
+  8b839d59:
+    name: 股东会职权（三）
+    id: 8b839d59
+    interface:
+      <term.8b839d59.entity.1>: 董事会
+      <term.8b839d59.asset.1>: 报告
+    item:
+      - localid: ''
+        text: |
+          审议批准<term.8b839d59.entity.1>的<term.8b839d59.asset.1>；
   90c5a430:
     name: PS标准-4
     id: 90c5a430
@@ -507,6 +1464,50 @@ term:
         termid: 259076a4
         map:
           <term.259076a4.term.1>: <term.949e69e3.term.1>
+  95eab800:
+    name: 1609-二级决策条款-4
+    id: 95eab800
+    interface:
+      <term.95eab800.entity.1>: director
+      <term.95eab800.entity.2>: deployer
+      <term.95eab800.entity.3>: trustee
+      <term.95eab800.term.1>: 自修订条款
+      <term.95eab800.term.2>: director会议议事规则
+    item:
+      - localid: ''
+        upgradeby: <term.95eab800.term.1>
+        text: |
+          由<term.95eab800.entity.2>提出。根据<term.95eab800.term.2>，经全体<term.95eab800.entity.1>和<term.95eab800.entity.3>通过可以作出决议。
+  96b99526:
+    name: 1609-利益分配-7
+    id: 96b99526
+    interface:
+      <term.96b99526.term.1>: 二级决策条款3.
+      <term.96b99526.entity.1>: director
+      <term.96b99526.entity.2>: supervisor
+    item:
+      - localid: ''
+        upgradeby: <term.96b99526.term.1>
+        text: |
+          <term.96b99526.entity.1>专户由<term.96b99526.entity.1>与<term.96b99526.entity.2>共同使用：
+      - localid: '1'
+        upgradeby: <term.96b99526.term.1>
+        termid: 6d2ca266
+      - localid: '2'
+        upgradeby: <term.96b99526.term.1>
+        termid: fb21bdf9
+      - localid: '3'
+        upgradeby: <term.96b99526.term.1>
+        termid: 7f7a536f
+      - localid: '4'
+        upgradeby: <term.96b99526.term.1>
+        termid: a8d575a7
+      - localid: '5'
+        upgradeby: <term.96b99526.term.1>
+        termid: 70cdd24d
+      - localid: '6'
+        upgradeby: <term.96b99526.term.1>
+        termid: 41312cc4
   988ea839:
     name: 集体决策
     id: 988ea839
@@ -594,6 +1595,133 @@ term:
       - localid: ''
         text: |
           涉事各方分别自述，交叉核实。将所有记录合并作为补充信息。
+  a2804f8b:
+    name: 经理职权（八）
+    id: a2804f8b
+    interface:
+      <term.a2804f8b.entity.1>: 董事会
+      <term.a2804f8b.term.1>: 章程.第十五条.（八）.
+    item:
+      - localid: ''
+        upgradeby: <term.a2804f8b.term.1>
+        text: |
+          <term.a2804f8b.entity.1>授予的其他职权，授权时应规定行使这些职权的方式和时限，以及相应的奖惩办法。
+  a419e125:
+    name: 产品部(IPU:Inner Product Unit)
+    id: a419e125
+    interface:
+      <term.a419e125.entity.1>: 公司
+      <term.a419e125.entity.2>: 产品部(IPU:Inner Product Unit)
+      <term.a419e125.entity.3>: JPU（Joint Product Unit）
+      <term.a419e125.term.1>: 章程.第十五条.（八）.
+      <term.a419e125.status.S2>: S2（增长状态）
+      <term.a419e125.status.S3>: S3（稳定或缩减状态）
+    item:
+      - localid: ''
+        upgradeby: <term.a419e125.term.1>
+        text: |
+          在<term.a419e125.status.S2>、<term.a419e125.status.S3>状态下：<term.a419e125.entity.1>设置<term.a419e125.entity.2>，负责参与<term.a419e125.entity.3>。
+  a540486e:
+    name: 股东会职权（一）
+    id: a540486e
+    interface:
+      <term.a540486e.entity.1>: 公司
+      <term.a540486e.asset.1>: 经营方针
+      <term.a540486e.asset.2>: 投资计划
+    item:
+      - localid: ''
+        text: |
+          决定<term.a540486e.entity.1>的<term.a540486e.asset.1>和<term.a540486e.asset.2>；
+  a8ca0160:
+    name: 1609-利益分配-6-4
+    id: a8ca0160
+    interface:
+      <term.a8ca0160.term.1>: 二级决策条款4.
+      <term.a8ca0160.asset.1>: RIU
+      <term.a8ca0160.entity.1>: trustee
+    item:
+      - localid: ''
+        upgradeby: <term.a8ca0160.term.1>
+        text: |
+          <term.a8ca0160.asset.1>交易由<term.a8ca0160.entity.1>按价格优先、时间优先原则撮合。
+  a8d575a7:
+    name: 1609-利益分配-7-4
+    id: a8d575a7
+    interface:
+      <term.a8d575a7.term.1>: 二级决策条款3.
+      <term.a8d575a7.asset.1>: RIU
+      <term.a8d575a7.asset.2>: 工作计划
+      <term.a8d575a7.asset.3>: 预算案
+      <term.a8d575a7.entity.1>: director
+      <term.a8d575a7.entity.2>: supervisor
+    item:
+      - localid: ''
+        upgradeby: <term.a8d575a7.term.1>
+        text: |
+          <term.a8d575a7.entity.2>按<term.a8d575a7.entity.2><term.a8d575a7.asset.2>（含<term.a8d575a7.asset.3>）使用<term.a8d575a7.entity.1>专户余额，余额不足时后续条款的支出暂缓。
+    readme: |
+      <term.a8d575a7.entity.2>使用资源的优先级高于<term.a8d575a7.entity.1>。
+  aa469da0:
+    name: 监事职权（五）
+    id: aa469da0
+    interface:
+      <term.aa469da0.entity.1>: 董事
+      <term.aa469da0.entity.2>: 监事
+      <term.aa469da0.asset.1>: 数学模型的代码实现
+      <term.1.status.S3>: S3（稳定或缩减状态）
+    item:
+      - localid: ''
+        text: |
+          在<term.1.status.S3>状态下：<term.aa469da0.entity.1>、<term.aa469da0.entity.2>可以调阅规章制度、<term.aa469da0.asset.1>。
+  ac890987:
+    name: 1609-保密制度
+    id: ac890987
+    interface:
+      <term.ac890987.term.1>: 自修订条款1.
+      <term.ac890987.term.2>: 二级决策程序1.
+      <term.ac890987.term.3>: 不可修订条款
+      <term.ac890987.term.4>: 自修订条款
+      <term.ac890987.term.5>: 二级决策条款
+    item:
+      - localid: '1'
+        upgradeby: <term.ac890987.term.1>
+        termid: 72af7dea
+      - localid: '2'
+        upgradeby: <term.ac890987.term.1>
+        termid: 02c7d037
+        map:
+          <term.02c7d037.term.1>: <term.ac890987.term.3>
+          <term.02c7d037.term.2>: <term.ac890987.term.4>
+          <term.02c7d037.term.3>: <term.ac890987.term.5>
+          <term.02c7d037.term.4>: <term.ac890987.term.1>
+      - localid: '3'
+        upgradeby: <term.ac890987.term.2>
+        termid: ef4cdffe
+        map:
+          <term.ef4cdffe.term.1>: <term.ac890987.term.2>
+  af62f03b:
+    name: 1609-利益分配-8-1
+    id: af62f03b
+    interface:
+      <term.af62f03b.term.1>: 二级决策条款1.
+      <term.af62f03b.entity.1>: admin
+      <term.af62f03b.asset.1>: 工作计划
+      <term.af62f03b.asset.2>: 预算案
+    item:
+      - localid: ''
+        upgradeby: <term.af62f03b.term.1>
+        text: |
+          <term.af62f03b.entity.1>按<term.af62f03b.entity.1><term.af62f03b.asset.1>（含<term.af62f03b.asset.2>）调用<term.af62f03b.entity.1>专户中的资源。
+  b3012036:
+    name: 经理职权（三）
+    id: b3012036
+    interface:
+      <term.b3012036.entity.1>: 公司
+      <term.b3012036.term.1>: 内部管理机构设置方案
+    item:
+      - localid: ''
+        text: |
+          拟订<term.b3012036.entity.1><term.b3012036.term.1>；
   b3124d50:
     name: 预设1406动议
     id: b3124d50
@@ -640,6 +1768,53 @@ term:
           <term.056e71fb.term.3>: <term.b3124d50.term.3>
           <term.056e71fb.asset.1>: <term.b3124d50.asset.a1>
           <term.056e71fb.asset.2>: <term.b3124d50.asset.a2>
+  b4675d71:
+    name: 经理职权S3
+    id: b4675d71
+    interface:
+      <term.f81cd0f0.bd5668.entity.1>: 公司
+      <term.f81cd0f0.bd5668.entity.2>: 董事会
+      <term.f81cd0f0.bd5668.entity.3>: 经理
+      <term.f81cd0f0.bd5668.term.1>: 章程第八条（十）
+    item:
+      - localid: ''
+        upgradeby: <term.f81cd0f0.bd5668.term.1>
+        text: |
+          <term.f81cd0f0.bd5668.entity.1>设<term.f81cd0f0.bd5668.entity.3>，由<term.f81cd0f0.bd5668.entity.2>决定聘任或者解聘。<term.f81cd0f0.bd5668.entity.3>对<term.f81cd0f0.bd5668.entity.2>负责，行使下列职权：
+      - localid: （一）
+        upgradeby: <term.f81cd0f0.bd5668.term.1>
+        termid: 3f89e98f
+      - localid: （二）
+        upgradeby: <term.f81cd0f0.bd5668.term.1>
+        termid: 2a25389c
+      - localid: （三）
+        upgradeby: <term.f81cd0f0.bd5668.term.1>
+        termid: b3012036
+      - localid: （四）
+        upgradeby: <term.f81cd0f0.bd5668.term.1>
+        termid: f81cd0f0
+      - localid: （五）
+        upgradeby: <term.f81cd0f0.bd5668.term.1>
+        termid: c73b28b3
+      - localid: （六）
+        upgradeby: <term.f81cd0f0.bd5668.term.1>
+        termid: 500e281d
+      - localid: （七）
+        upgradeby: <term.f81cd0f0.bd5668.term.1>
+        termid: dd706d9c
+      - localid: ''
+        upgradeby: <term.f81cd0f0.bd5668.term.1>
+        text: |
+          <term.f81cd0f0.bd5668.entity.3>列席<term.f81cd0f0.bd5668.entity.2>会议。
+  b96e83c2:
+    name: 监事职权（一）
+    id: b96e83c2
+    interface:
+      <term.b96e83c2.entity.1>: 公司
+    item:
+      - localid: ''
+        text: |
+          检查<term.b96e83c2.entity.1>财务；
   bafdd0aa:
     name: 利益分配比例
     id: bafdd0aa
@@ -652,6 +1827,15 @@ term:
     readme: |
       本条款设置了参数<term.bafdd0aa.asset.1>的初始值。
     effect: ''
+  bb0ea239:
+    name: 董事会职权（七）
+    id: bb0ea239
+    interface:
+      <term.bb0ea239.entity.1>: 公司
+    item:
+      - localid: ''
+        text: |
+          制订<term.bb0ea239.entity.1>合并、分立、变更<term.bb0ea239.entity.1>形式、解散的方案；
   bb8005b9:
     name: 符合某条件开头
     id: bb8005b9
@@ -672,6 +1856,86 @@ term:
       - localid: ''
         text: |
           <term.bba7c6f1.asset.1>=20，<term.bba7c6f1.asset.1>%=20%。
+  c046b09d:
+    name: 1609-利益分配-1
+    id: c046b09d
+    item:
+      - localid: ''
+        text: |
+          利益分配原则：优先劣后次序与决策层级相反。
+  c0eb6977:
+    name: 监事职权（四）
+    id: c0eb6977
+    interface:
+      <term.c0eb6977.entity.1>: 股东会
+      <term.c0eb6977.entity.2>: 董事会
+      <term.c0eb6977.term.1>: 章程
+    item:
+      - localid: ''
+        text: |
+          提议召开临时<term.c0eb6977.entity.1>会议，在<term.c0eb6977.entity.2>不履行本<term.c0eb6977.term.1>规定的召集和主持<term.c0eb6977.entity.1>会议职责时召集和主持<term.c0eb6977.entity.1>会议；
+  c13a43a2:
+    name: 1609-自修订条款
+    id: c13a43a2
+    interface:
+      <term.c13a43a2.entity.1>: deployer
+      <term.c13a43a2.entity.2>: director
+      <term.c13a43a2.entity.3>: supervisor
+      <term.c13a43a2.entity.4>: trustee
+      <term.c13a43a2.asset.1>: p
+    item:
+      - localid: ''
+        text: |
+          由<term.c13a43a2.entity.1>书面提交修订以下事项，提交时生效：
+          - <term.c13a43a2.asset.1>%
+          - <term.c13a43a2.entity.2>席位数
+          - <term.c13a43a2.entity.2>会议议事规则
+          - <term.c13a43a2.entity.3>席位数
+          - <term.c13a43a2.entity.3>会议议事规则
+          - <term.c13a43a2.entity.2>和<term.c13a43a2.entity.3>任期及选举程序
+          - <term.c13a43a2.entity.4>任期及任免程序
+          - 第一届<term.c13a43a2.entity.2>
+          - 第一届<term.c13a43a2.entity.3>
+          - 下一任<term.c13a43a2.entity.1>
+          - 本条款内容
+  c1f65b6d:
+    name: 1609-利益分配-5-1
+    id: c1f65b6d
+    interface:
+      <term.c1f65b6d.term.1>: 自修订条款1.
+      <term.c1f65b6d.entity.1>: deployer
+      <term.c1f65b6d.asset.1>: 工作计划
+      <term.c1f65b6d.asset.2>: 预算案
+    item:
+      - localid: ''
+        upgradeby: <term.c1f65b6d.term.1>
+        text: |
+          <term.c1f65b6d.entity.1>专户用于<term.c1f65b6d.entity.1>工作经费，以及重构期间发生的短期支出。
+    readme: |
+      - <term.c1f65b6d.entity.1>无须制订<term.c1f65b6d.asset.1>和<term.c1f65b6d.asset.2>。
+      - 部署时根据实际情况确定本条的记账方式。
+  c6e8bb3f:
+    name: 经理在S2的保底责任
+    id: c6e8bb3f
+    interface:
+      <term.c6e8bb3f.entity.1>: 经理
+      <term.c6e8bb3f.status.S2>: S2（增长状态）
+      <term.c6e8bb3f.term.1>: 章程.第十五条.（八）.
+    item:
+      - localid: ''
+        upgradeby: <term.c6e8bb3f.term.1>
+        text: |
+          在<term.c6e8bb3f.status.S2>状态下：无人承担的任务均由<term.c6e8bb3f.entity.1>承担。当这种情形发生时，按300%计算报酬。
+  c73b28b3:
+    name: 经理职权（五）
+    id: c73b28b3
+    interface:
+      <term.c73b28b3.entity.1>: 公司
+      <term.c73b28b3.term.1>: 基本管理制度
+    item:
+      - localid: ''
+        text: |
+          制定<term.c73b28b3.entity.1>的<term.c73b28b3.term.1>；
   c8254555:
     name: PS标准-3
     id: c8254555
@@ -738,6 +2002,32 @@ term:
       - localid: ''
         text: |
           所有人员的所有工作结果默认为公开，对外发布。
+  d8bd8aa6:
+    name: 1609-利益分配-6
+    id: d8bd8aa6
+    interface:
+      <term.d8bd8aa6.entity.1>: trustee
+      <term.d8bd8aa6.term.1>: 二级决策条款4.
+    item:
+      - localid: ''
+        upgradeby: <term.d8bd8aa6.term.1>
+        text: |
+          <term.d8bd8aa6.entity.1>专户：
+      - localid: '1'
+        upgradeby: <term.d8bd8aa6.term.1>
+        termid: 8a5d94dc
+      - localid: '2'
+        upgradeby: <term.d8bd8aa6.term.1>
+        termid: 34be50e1
+      - localid: '3'
+        upgradeby: <term.d8bd8aa6.term.1>
+        termid: 3176f00c
+      - localid: '4'
+        upgradeby: <term.d8bd8aa6.term.1>
+        termid: a8ca0160
+      - localid: '5'
+        upgradeby: <term.d8bd8aa6.term.1>
+        termid: 2a78271e
   dbe32f79:
     name: 符合某条件
     id: dbe32f79
@@ -761,6 +2051,39 @@ term:
         text: |
           条件：还在筹备因此无法补充信息的。
           建议：参考booting标准模型。
+  dd706d9c:
+    name: 经理职权（七）
+    id: dd706d9c
+    interface:
+      <term.dd706d9c.entity.1>: 董事会
+    item:
+      - localid: ''
+        text: |
+          决定聘任或者解聘除应由<term.dd706d9c.entity.1>决定聘任或者解聘以外的负责管理人员；
+  de47ace4:
+    name: 1609-利益分配
+    id: de47ace4
+    interface:
+      <term.de47ace4.entity.1>: 公司
+      <term.de47ace4.entity.2>: 董事会
+      <term.de47ace4.term.1>: 第八条.（十）.
+    item:
+      - localid: '1'
+        termid: c046b09d
+      - localid: '2'
+        termid: 3638eac6
+      - localid: '3'
+        termid: 1558e5e1
+      - localid: '4'
+        termid: 814f76cb
+      - localid: '5'
+        termid: 58d4c137
+      - localid: '6'
+        termid: d8bd8aa6
+      - localid: '7'
+        termid: 96b99526
+      - localid: '8'
+        termid: 12d14064
   df39a1ed:
     name: 保密规则-4
     id: df39a1ed
@@ -768,6 +2091,63 @@ term:
       - localid: ''
         text: |
           如果在密级规定范围内的人员都没有能力完成任务，制定保密制度相应条款的人员承担主要责任，赔偿损失。
+  e4495f38:
+    name: 1609-利益分配-8-3
+    id: e4495f38
+    interface:
+      <term.e4495f38.entity.1>: admin
+      <term.e4495f38.entity.2>: worker
+      <term.e4495f38.term.1>: 二级决策条款1.
+    item:
+      - localid: ''
+        upgradeby: <term.e4495f38.term.1>
+        text: |
+          <term.e4495f38.entity.1>从<term.e4495f38.entity.1>专户领取报酬（优先级在<term.e4495f38.entity.2>之后），竞聘者须明确报酬的计算公式。本专户数额不足而等候期间不计利息。
+    readme: |
+      - <term.e4495f38.entity.1>任期内报酬公式不变，如果情况变化可以辞职，再与其他竞聘者一起根据当时情况竞聘。
+  e55c000c:
+    name: 股东会职权
+    id: e55c000c
+    interface:
+      <term.e55c000c.entity.0>: 公司
+      <term.e55c000c.entity.1>: 股东
+      <term.e55c000c.entity.2>: 股东会
+      <term.e55c000c.asset.1>: 公司章程
+    item:
+      - localid: ''
+        upgradeby: <term.e55c000c.localid.（十）>
+        text: |
+          <term.e55c000c.entity.2>由全体<term.e55c000c.entity.1>组成，是<term.e55c000c.entity.0>的权力机构，行使下列职权：
+      - localid: （一）
+        upgradeby: <term.e55c000c.localid.（十）>
+        termid: a540486e
+      - localid: （二）
+        upgradeby: <term.e55c000c.localid.（十）>
+        termid: 21af48dd
+      - localid: （三）
+        upgradeby: <term.e55c000c.localid.（十）>
+        termid: 8b839d59
+      - localid: （四）
+        upgradeby: <term.e55c000c.localid.（十）>
+        termid: 0b305ce2
+      - localid: （五）
+        upgradeby: <term.e55c000c.localid.（十）>
+        termid: 53548d2d
+      - localid: （六）
+        upgradeby: <term.e55c000c.localid.（十）>
+        termid: '040463e3'
+      - localid: （七）
+        upgradeby: <term.e55c000c.localid.（十）>
+        termid: 460c6741
+      - localid: （八）
+        upgradeby: <term.e55c000c.localid.（十）>
+        termid: 393c92a3
+      - localid: （九）
+        upgradeby: <term.e55c000c.localid.（十）>
+        termid: f3cc3036
+      - localid: （十）
+        upgradeby: <term.e55c000c.localid.（十）>
+        termid: 62c421f2
   e6976035:
     name: 入门目录202404151600-2
     id: e6976035
@@ -807,484 +2187,150 @@ term:
           <term.7288c99c.term.2>: <term.e6976035.term.2>
       - localid: '4'
         termid: dd1bc41b
-termset:
-  '12119600':
-    name: 分支隔离规则
-    id: '12119600'
-    level: '1'
+  e6f0caec:
+    name: 学门科技
+    id: e6f0caec
     interface:
-      term:
-        '1': PS标准
+      <term.e6f0caec.term.1>: 章程.第八条.（十）.
     item:
-      - sortid: '1'
-        type: term
-        id: 1c3f8b06
-        path: term.1c3f8b06.yaml
-      - sortid: '2'
-        type: term
-        id: 49d40087
-        path: term.49d40087.yaml
-      - sortid: '3'
-        type: term
-        id: 5c7d5a18
-        path: term.5c7d5a18.yaml
-      - sortid: '4'
-        type: term
-        id: 5f7bbbe4
-        path: term.5f7bbbe4.yaml
+      - localid: 章程
+        upgradeby: <term.e6f0caec.term.1>
+        termid: 2e4f11cb
+      - localid: 第十五条
+        upgradeby: <term.e6f0caec.term.1>
+        termid: 25c83dac
+      - localid: 第十八条
+        upgradeby: <term.e6f0caec.term.1>
+        termid: 4bbd5668
+      - localid: 第二十条
+        upgradeby: <term.e6f0caec.term.1>
+        termid: 6208f678
+  ef4cdffe:
+    name: 1609-保密制度-3
+    id: ef4cdffe
+    interface:
+      <term.ef4cdffe.term.1>: 二级决策程序1.
+    item:
+      - localid: ''
+        upgradeby: <term.ef4cdffe.term.1>
+        text: |
+          其它规章正文及执行记录默认为公开。
+  efaeac70:
+    name: 1609-三级决策条款-4
+    id: efaeac70
+    interface:
+      <term.efaeac70.entity.1>: trustee
+      <term.efaeac70.term.1>: 二级决策程序4.
+      <term.efaeac70.asset.1>: RIU
+    item:
+      - localid: ''
+        upgradeby: <term.efaeac70.term.1>
+        text: |
+          本条款按照<term.efaeac70.term.1>修订。全体<term.efaeac70.asset.1>持有者选举，以持有的<term.efaeac70.asset.1>为权重。
+          - 任免trustee。
+  f094ea3f:
+    name: 董事会职权S3
+    id: f094ea3f
+    interface:
+      <term.f094ea3f.entity.1>: 董事会
+      <term.f094ea3f.term.1>: 章程第八条（十）
+      <term.f094ea3f.term.2>: 中华人民共和国公司法
+    item:
+      - localid: ''
+        upgradeby: <term.f094ea3f.term.1>
+        text: |
+          <term.f094ea3f.entity.1>行使下列职权：：
+      - localid: （一）
+        upgradeby: <term.f094ea3f.term.1>
+        termid: f64809f8
+      - localid: （二）
+        upgradeby: <term.f094ea3f.term.1>
+        termid: '69632214'
+      - localid: （三）
+        upgradeby: <term.f094ea3f.term.1>
+        termid: 423005c6
+      - localid: （四）
+        upgradeby: <term.f094ea3f.term.1>
+        termid: 615fc73f
+      - localid: （五）
+        upgradeby: <term.f094ea3f.term.1>
+        termid: 09ead2c1
+      - localid: （六）
+        upgradeby: <term.f094ea3f.term.1>
+        termid: 50430bca
+      - localid: （七）
+        upgradeby: <term.f094ea3f.term.1>
+        termid: bb0ea239
+      - localid: （八）
+        upgradeby: <term.f094ea3f.term.1>
+        termid: 79f4f1e0
+      - localid: （九）
+        upgradeby: <term.f094ea3f.term.1>
+        termid: 5884eea5
+      - localid: （十）
+        upgradeby: <term.f094ea3f.term.1>
+        termid: 96b99526
+    depend:
+      - text: |
+          测试字符串: <term.f094ea3f.term.2>生效。
+        percent: '50'
+    together:
+      - text: |
+          测试字符串：<term.f094ea3f.term.1>是条款之王。
+        percent: '90'
+    effect:
+      - errorid: cde3c3e2
+        percent: '50'
     readme: |
-      - 例如：共同体A采用<term.1>，共同体B、C没有。当B在上级规章未生效时要讨论下级规章。B向C提出咨询，C收到B发出的原始咨询内容。B向A提出咨询，咨询内容自动转化为“如何在规章中增加PS标准”，A无法收到B发出的原始咨询内容。这条规则主要提醒自我安慰性的求助，向反对者求助就是承认自身行为导致问题无解。
-      - 在父项目，各隔离分支将使用不同记账单位。相同金额不同单位，视为同工同酬。比如采用PS标准的分支使用M为单位，不采用<term.1>分支使用N为单位，自由兑换的平衡点是1M兑换10N。一项工作的报酬是5，两个分支账号分别得到5M（可兑换50N）、5N的报酬。
-  01e1c775:
-    name: 调整分配主比例
-    id: 01e1c775
-    level: '1'
+      <term.f094ea3f.entity.1>是决策部门，在不同类型共同体中可能称为董事会、理事会、委员会等等。
+  f3cc3036:
+    name: 股东会职权（九）
+    id: f3cc3036
     interface:
-      entity:
-        '1': deployer
-        '2': director
-      asset:
-        '1': p
+      <term.f3cc3036.entity.1>: 公司
     item:
-      - sortid: '1'
-        type: term
-        id: 64eb9304
-        upgradeby: '1'
-        path: PSMD/data/term.64eb9304.yaml
-        map:
-          entity:
-            '1': '1'
-      - sortid: '2'
-        type: term
-        id: bba7c6f1
-        upgradeby: '1'
-        path: PSMD/data/term.bba7c6f1.yaml
-        map:
-          asset:
-            '1': '1'
-      - sortid: '3'
-        type: term
-        id: 177700d4
-        upgradeby: '1'
-        path: PSMD/data/term.177700d4.yaml
-        map:
-          entity:
-            '1': '2'
-    readme: ''
-    effect: ''
-  056e71fb:
-    name: 1406动议
-    id: 056e71fb
-    level: '1'
+      - localid: ''
+        text: |
+          对<term.f3cc3036.entity.1>合并、分立、解散、清算或者变更<term.f3cc3036.entity.1>形式作出决议；
+  f64809f8:
+    name: 董事会职权（一）
+    id: f64809f8
     interface:
-      entity:
-        '1': 经理
-        '2': 执行部门
-        '3': 决策部门
-      term:
-        '1': 基本制度
-        '2': 具体规章
-        '3': 劳动合同
-      asset:
-        '1': 通用工单
-        '2': 审议报告
+      <term.f64809f8.entity.1>: 股东会
     item:
-      - sortid: '1'
-        type: term
-        id: 48577ce8
-        map:
-          entity:
-            '1': '1'
-            '2': '2'
-            '3': '3'
-          term:
-            '1': '1'
-            '3': '3'
-          asset:
-            '1': '1'
-        path: term.48577ce8.yaml
-      - sortid: '2'
-        type: term
-        id: 7506353d
-        map:
-          entity:
-            '1': '1'
-            '2': '2'
-            '3': '3'
-          term:
-            '2': '2'
-          asset:
-            '1': '1'
-        path: term.7506353d.yaml
-      - sortid: '3'
-        type: term
-        id: 260ca049
-        map:
-          entity:
-            '1': '1'
-            '2': '2'
-            '3': '3'
-          asset:
-            '1': '1'
-        path: term.260ca049.yaml
-      - sortid: '4'
-        type: term
-        id: c87ec159
-        map:
-          entity:
-            '1': '1'
-            '2': '2'
-            '3': '3'
-          term:
-            '1': '1'
-            '2': '2'
-          asset:
-            '1': '1'
-            '2': '2'
-        path: term.c87ec159.yaml
-    readme: |
-      1406准确的定位是<entity.3>的动议套件，可以用作其它模型的附件。 ​​​
-  600f6f80:
-    name: 制定规则
-    id: 600f6f80
-    level: '1'
+      - localid: ''
+        text: |
+          负责召集<term.f64809f8.entity.1>，并向<term.f64809f8.entity.1>报告工作；
+  f732b768:
+    name: 监事职权（六）
+    id: f732b768
     interface:
-      term:
-        '1': 分支隔离规则
-        '2': PS标准
+      <term.f732b768.entity.1>: 董事
+      <term.f732b768.entity.2>: 高级管理人员
+      <term.f732b768.term.1>: 《公司法》第一百五十二条
     item:
-      - sortid: '1'
-        type: term
-        id: 50d2347f
-        path: term.50d2347f.yaml
-      - sortid: '2'
-        type: term
-        id: 4c37b176
-        path: term.4c37b176.yaml
-      - sortid: '3'
-        type: term
-        id: 55c25f3f
-        path: term.55c25f3f.yaml
-      - sortid: '4'
-        type: term
-        id: 064129fa
-        map:
-          term:
-            '1': '1'
-        path: term.064129fa.yaml
-    readme: |
-      比如不采用<term.2>的共同体，制定规章时以采用PS标准分支下的案例为依据，则自动增加采用PS标准的动议，切换生效之后才能讨论所制定规章。
-  6d206b54:
-    name: PS标准
-    id: 6d206b54
-    level: '1'
-    item:
-      - sortid: '1'
-        type: term
-        id: 6988b66d
-        path: term.6988b66d.yaml
-      - sortid: '2'
-        type: term
-        id: 5f7eed28
-        path: term.5f7eed28.yaml
-      - sortid: '3'
-        type: term
-        id: c8254555
-        path: term.c8254555.yaml
-      - sortid: '4'
-        type: term
-        id: 90c5a430
-        path: term.90c5a430.yaml
-    readme: |
-      - 以“规章条款”为单位。比如某公司章程有一条：股东会三分之二表决权通过可以修订章程。这条本身就在章程里面，所以也能修订自己。（比如修改为：股东会四分之三表决权通过可以修订章程。）这个条款就比章程的其它条款都高一级。无论怎么组合编集，都不影响这种层级关系。
-      - 比如规章写明A任免B和C，即使在其它文件使用“B是C上级”、“C接受B的指令”这类措辞，本标准下BC平级、都是A下级。A缺席时B讨论C的人选即违规（如果B是章程中有PS标准的账号，会立刻被强制注销财产充公）。
-      - 无法判断时按最坏情况处理，比如因保密制度不能阅读就按未生效、未被执行看待。
-      - 上级规章制定过程可以讨论规章草案下的工作场景，包括制定下级规章的场景。只有特定上级规章导致特定下级规章草案不能产生，引入讨论才有意义。一旦离开上级规章制定程序的时间、地点、人员这些条件就不能提前讨论下级规章，因为这时上级规章（下级规章制定修订程序）还没有生效，不应该暗示自己的内定角色。
-      - 待实现的后续规则：不遵守则由自然人承担。比如一个共同体的上级规章被架空时讨论下级规章，则以该自然人代替共同体承担规章中的权利，比如向执行下级规章的员工发工资。（也就是从共同体剥离，并入个人领域）"
-  949e69e3:
-    name: 符合某条件的条款
-    id: 949e69e3
-    level: '1'
+      - localid: ''
+        text: |
+          依照<term.f732b768.term.1>的规定，对<term.f732b768.entity.1>、<term.f732b768.entity.2>提起诉讼； 
+  f81cd0f0:
+    name: 经理职权（四）
+    id: f81cd0f0
     interface:
-      term:
-        '1': 容器规则
+      <term.f81cd0f0.entity.1>: 公司
+      <term.f81cd0f0.term.1>: 基本管理制度
     item:
-      - sortid: '1'
-        type: term
-        id: 33523fe1
-        path: term.33523fe1.yaml
-      - sortid: '2'
-        type: term
-        id: a1c197a9
-        path: term.33523fe1.yaml
-      - sortid: '3'
-        type: term
-        id: 259076a4
-        map:
-          term:
-            '1': '1'
-        path: term.259076a4.yaml
-    readme: |
-      - upgradeby应该分内部、外部两种情况定义。
-    effect: ''
-  9d12877c:
-    name: 入门目录202404151600
-    id: 9d12877c
-    level: '2'
+      - localid: ''
+        text: |
+          拟订<term.f81cd0f0.entity.1>的<term.f81cd0f0.term.1>；
+  fb21bdf9:
+    name: 1609-利益分配-7-2
+    id: fb21bdf9
     interface:
-      term:
-        '20': 附件20
-        '21': 附件21
-        '30': 附件30
-        '31': 附件31
-        '32': 附件32
-        '33': 附件33
-        '34': 附件34
-        '42': 附件42
+      <term.fb21bdf9.term.1>: 二级决策条款3.
+      <term.fb21bdf9.entity.1>: director
+      <term.fb21bdf9.asset.1>: p
     item:
-      - sortid: '1'
-        type: term
-        id: cc0fba2f
-        path: term.cc0fba2f.yaml
-      - sortid: '2'
-        type: termset
-        id: e6976035
-        map:
-          term:
-            '1': '20'
-            '2': '30'
-            '3': '42'
-            '4': '31'
-            '5': '32'
-            '6': '33'
-            '7': '34'
-        path: termset.e6976035.yaml
-      - sortid: '3'
-        type: term
-        id: 4b12ac08
-        path: term.4b12ac08.yaml
-      - sortid: 附件20
-        type: termset
-        id: dbe32f79
-        map:
-          term:
-            '1': '21'
-        path: termset.dbe32f79.yaml
-      - sortid: 附件21
-        type: termset
-        id: d0111eb4
-        path: termset.d0111eb4.yaml
-      - sortid: 附件30
-        type: term
-        id: 91ff9448
-        path: termset.91ff9448.yaml
-      - sortid: 附件31
-        type: termset
-        id: 6d206b54
-        path: termset.6d206b54.yaml
-      - sortid: 附件32
-        type: termset
-        id: 9e6bc34f
-        path: termset.9e6bc34f.yaml
-        map:
-          term:
-            '1': '31'
-      - sortid: 附件33
-        type: termset
-        id: 600f6f80
-        path: termset.600f6f80.yaml
-      - sortid: 附件34
-        type: termset
-        id: '12119600'
-        path: termset.12119600.yaml
-      - sortid: 附件42
-        type: term
-        id: cb4ab0e9
-        path: termset.cb4ab0e9.yaml
-      - sortid: 附件43
-        type: term
-        id: 5ab2b2ba
-        path: termset.5ab2b2ba.yaml
-  9e6bc34f:
-    name: 保密规则
-    id: 9e6bc34f
-    level: '1'
-    interface:
-      term:
-        '1': PS标准
-    item:
-      - sortid: '1'
-        type: term
-        id: d1f88a2c
-        path: term.d1f88a2c.yaml
-      - sortid: '2'
-        type: term
-        id: '2e758794'
-        map:
-          term:
-            '1': '1'
-        path: term.2e758794.yaml
-      - sortid: '3'
-        type: term
-        id: d13b27d1
-        path: term.d13b27d1.yaml
-      - sortid: '4'
-        type: term
-        id: df39a1ed
-        path: term.df39a1ed.yaml
-    readme: |
-      - 顶层权利分配规则肯定在保密制度之上，因此PSMD只讨论公开资料。
-      - 如果某个审议环节从某网址取得一份资料，这份资料从产生、生效、所有使用环节都从这个网址获得。比如是指令，下达指令者应在这个网址发布指令，然后通知接受指令者去阅读。
-  b3124d50:
-    name: 预设1406动议
-    id: b3124d50
-    level: '1'
-    interface:
-      entity:
-        e1: 共同体
-        e2: 经理
-        e3: 决策部门
-        e4: 执行部门
-        e5: 下达指令者
-      asset:
-        a1: 通用工单
-        a2: 审议报告
-        a3: 工作日志
-      term:
-        '1': 基本制度
-        '2': 具体规章
-        '3': 劳动合同
-        '42': 附件42
-        '44': 附件44
-        '1406': 附件1406
-    item:
-      - sortid: '1'
-        type: term
-        id: 583d6243
-        map:
-          term:
-            '1': '44'
-            '2': '1406'
-        path: term.583d6243.yaml
-      - sortid: 附件42
-        type: term
-        id: cb4ab0e9
-        path: termset.cb4ab0e9.yaml
-      - sortid: 附件44
-        type: term
-        id: 0ccddb29
-        map:
-          entity:
-            '1': e1
-            '2': e5
-            '3': e3
-            '4': e4
-          asset:
-            '1': a1
-          term:
-            '1': '42'
-        path: term.0ccddb29.yaml
-      - sortid: 附件1406
-        type: termset
-        id: 056e71fb
-        map:
-          entity:
-            '1': e2
-            '2': e4
-            '3': e3
-          term:
-            '1': '1'
-            '2': '2'
-            '3': '3'
-          asset:
-            '1': a1
-            '2': a2
-        path: termset.056e71fb.yaml
-  d0111eb4:
-    name: 实施效果的核实
-    id: d0111eb4
-    level: '1'
-    item:
-      - sortid: '1'
-        type: term
-        id: 4116b506
-        path: term.4116b506.yaml
-      - sortid: '2'
-        type: term
-        id: 607455c0
-        path: term.607455c0.yaml
-  dbe32f79:
-    name: 符合某条件
-    id: dbe32f79
-    level: '2'
-    interface:
-      term:
-        '1': 附件21.容器规则
-        '2': 第2条
-    item:
-      - sortid: '1'
-        type: term
-        id: bb8005b9
-        map:
-          term:
-            '1': '2'
-        path: term.bb8005b9.yaml
-      - sortid: '2'
-        type: termset
-        id: 949e69e3
-        map:
-          term:
-            '1': '1'
-        path: termset.949e69e3.yaml
-  e6976035:
-    name: 入门目录202404151600-2
-    id: e6976035
-    level: '1'
-    interface:
-      term:
-        '1': 附件20
-        '2': 附件30
-        '3': 附件42
-        '4': 附件31
-        '5': 附件32
-        '6': 附件33
-        '7': 附件34
-    item:
-      - sortid: '1'
-        type: term
-        id: 5b4e0597
-        map:
-          term:
-            '1': '1'
-            '2': '2'
-            '3': '3'
-            '4': '4'
-            '5': '5'
-            '6': '6'
-            '7': '7'
-        path: term.5b4e0597.yaml
-      - sortid: '2'
-        type: term
-        id: 52edbf25
-        map:
-          term:
-            '1': '1'
-            '2': '2'
-            '3': '3'
-            '4': '4'
-            '5': '5'
-            '6': '6'
-            '7': '7'
-        path: term.52edbf25.yaml
-      - sortid: '3'
-        type: term
-        id: 7288c99c
-        map:
-          term:
-            '1': '1'
-            '2': '2'
-        path: term.7288c99c.yaml
-      - sortid: '4'
-        type: term
-        id: dd1bc41b
-        path: term.dd1bc41b.yaml
+      - localid: ''
+        upgradeby: <term.fb21bdf9.term.1>
+        text: |
+          收入的(100-<term.fb21bdf9.asset.1>)%转入<term.fb21bdf9.entity.1>专户。

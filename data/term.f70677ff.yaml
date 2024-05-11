@@ -1,0 +1,93 @@
+name: 1609模型
+id: f70677ff
+interface:
+  <term.f70677ff.entity.deployer>: deployer
+  <term.f70677ff.entity.director>: director
+  <term.f70677ff.entity.trustee>: trustee
+  <term.f70677ff.entity.supervisor>: supervisor
+  <term.f70677ff.entity.admin>: admin
+  <term.f70677ff.entity.worker>: worker
+  <term.f70677ff.entity.2>: value
+  <term.f70677ff.asset.1>: RIU
+  <term.f70677ff.asset.2>: p
+  <term.f70677ff.term.1>: 自修订条款1
+  <term.f70677ff.term.2>: director会议议事规则
+  <term.f70677ff.term.3>: supervisor会议议事规则
+  <term.f70677ff.localid.1>: value
+item:
+  - localid: 自修订条款1
+    upgradeby: <term.f70677ff.localid.自修订条款1>
+    termid: c13a43a2
+    map:
+      <term.c13a43a2.entity.1>: <term.f70677ff.entity.deployer>
+  - localid: 二级决策条款1
+    upgradeby: <term.f70677ff.localid.自修订条款1>
+    termid: 71da4d25
+    map:
+      <term.71da4d25.entity.1>: <term.f70677ff.entity.director>
+  - localid: 二级决策条款2
+    upgradeby: <term.f70677ff.localid.自修订条款1>
+    termid: 40880d93
+    map:
+      <term.40880d93.entity.1>: <term.f70677ff.entity.director>
+  - localid: 二级决策条款3
+    upgradeby: <term.f70677ff.localid.自修订条款1>
+    termid: 54b6949d
+    map:
+      <term.54b6949d.entity.1>: <term.f70677ff.entity.director>
+    <term.54b6949d.entity.2>: <term.f70677ff.entity.deployer>
+  - localid: 二级决策条款4
+    upgradeby: <term.f70677ff.localid.自修订条款1>
+    termid: 95eab800
+    map:
+      <term.95eab800.entity.1>: <term.f70677ff.entity.director>
+      <term.95eab800.entity.2>: <term.f70677ff.entity.deployer>
+      <term.95eab800.entity.3>: <term.f70677ff.entity.trustee>
+  - localid: 二级决策条款5
+    upgradeby: <term.f70677ff.term.1>
+    termid: 0edca872
+    map:
+      <term.0edca872.entity.1>: <term.f70677ff.entity.supervisor>
+      <term.0edca872.term.1>: <term.f70677ff.term.1>
+      <term.0edca872.term.2>: <term.f70677ff.term.3>
+  - localid: 二级决策条款6
+    upgradeby: <term.f70677ff.term.1>
+    termid: 32e45dee
+    map:
+      <term.32e45dee.entity.1>: <term.f70677ff.entity.trustee>
+      <term.32e45dee.entity.2>: <term.f70677ff.entity.director>
+      <term.32e45dee.entity.3>: <term.f70677ff.entity.supervisor>
+  - localid: 三级决策条款1
+    upgradeby: <term.f70677ff.localid.二级决策条款1>
+    termid: 88e5c5f4
+    map:
+      <term.88e5c5f4.entity.1>: <term.f70677ff.entity.admin>
+      <term.88e5c5f4.term.1>: <term.f70677ff.level1.1>
+  - localid: 三级决策条款2
+    upgradeby: <term.f70677ff.localid.二级决策条款3>
+    termid: 4e9e9c33
+    map:
+      <term.4e9e9c33.entity.1>: <term.f70677ff.entity.deployer>
+      <term.4e9e9c33.entity.2>: <term.f70677ff.entity.worker>
+      <term.4e9e9c33.term.1>: <term.f70677ff.level1.3>
+      <term.4e9e9c33.asset.1>: <term.f70677ff.asset.1>
+      <term.4e9e9c33.asset.2>: <term.f70677ff.asset.2>
+  - localid: 三级决策条款3
+    upgradeby: <term.f70677ff.localid.二级决策条款3>
+    termid: 666776c3
+    map:
+      <term.666776c3.entity.1>: <term.f70677ff.entity.director>
+      <term.666776c3.entity.2>: <term.f70677ff.entity.supervisor>
+      <term.666776c3.entity.3>: <term.f70677ff.entity.worker>
+      <term.666776c3.term.1>: <term.f70677ff.level1.3>
+      <term.666776c3.asset.1>: <term.f70677ff.asset.1>
+      <term.666776c3.asset.2>: <term.f70677ff.asset.2>
+  - localid: 三级决策条款4
+    upgradeby: <term.f70677ff.localid.二级决策条款4>
+    termid: efaeac70
+    map:
+      <term.efaeac70.entity.1>: <term.f70677ff.entity.trustee>
+      <term.efaeac70.term.1>: <term.f70677ff.level1.4>
+      <term.efaeac70.asset.1>: <term.f70677ff.asset.1>
+  - localid: 基本管理制度
+    termid: 77666f44

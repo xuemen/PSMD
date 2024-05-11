@@ -1,0 +1,47 @@
+name: deploy范例[X机构部署1609模型]
+id: X-1609
+COM: 1609
+interface:
+  <COM.1609.entity.deployer>: deployer
+  <COM.1609.entity.director>: director
+  <COM.1609.entity.trustee>: trustee
+  <COM.1609.entity.supervisor>: supervisor
+  <COM.1609.entity.admin>: admin
+  <COM.1609.entity.worker>: worker
+  <COM.1609.entity.2>: value
+  <COM.1609.asset.1>: RIU
+  <COM.1609.asset.2>: p
+  <COM.1609.term.1>: 自修订条款
+  <COM.1609.term.2>: director会议议事规则
+  <COM.1609.term.3>: supervisor会议议事规则
+  <COM.1609.localid.1>: value
+deployer: 
+  IRI: ego.mars22.com/hyg
+interface:
+  <term.X-1609.entity.1>: X机构
+  <term.X-1609.entity.2>: 张三
+  <term.X-1609.entity.3>: 李四
+step:
+  - termid: f70677ff
+    map:
+      <COM.1609.entity.deployer>: <term.X-1609.entity.2>
+      <COM.1609.entity.admin>: <term.X-1609.entity.3>
+    y:
+      termid: <COM.1609.term.2>
+      y:
+        termid: <COM.1609.term.3>
+    n: 
+      errorid: 48291d8c
+      y: 
+      n: 
+        termid: 056e71fb
+        readme: |
+          1406
+        y:
+          readme: |
+            先运行起来，根据团队对error 48291d8c的体会计划后续工作。
+        n:
+          readme: |
+            deploy failure.
+readme: |
+logpath: log.x.com

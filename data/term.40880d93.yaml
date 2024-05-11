@@ -2,10 +2,28 @@ name: 1609-二级决策条款-2
 id: 40880d93
 interface:
   <term.40880d93.entity.1>: director
+  <term.40880d93.entity.2>: admin
+  <term.40880d93.entity.3>: worker
   <term.40880d93.term.1>: 自修订条款
   <term.40880d93.term.2>: director会议议事规则
+  <term.40880d93.term.3>: 基本管理制度
+  <term.40880d93.asset.1>: 工作计划
+  <term.40880d93.asset.2>: 预算案
+  <term.40880d93.asset.3>: 工作报告
+  <term.40880d93.asset.4>: 审议报告
+  <term.40880d93.asset.5>: 劳动合同
 item:
   - localid: ''
     upgradeby: <term.40880d93.term.1>
     text: |
-      根据<term.40880d93.term.2>，经二分之一以上<term.40880d93.entity.1>通过可以作出决议。
+      根据<term.40880d93.term.2>，经二分之一以上<term.40880d93.entity.1>通过可以作出决议：
+        - <term.40880d93.entity.1><term.40880d93.asset.1>（含<term.40880d93.asset.2>）
+        - <term.40880d93.entity.1><term.40880d93.asset.3>
+        - <term.40880d93.asset.4>
+        - 任免<term.40880d93.entity.2>
+        - 设立、撤销部门
+        - <term.40880d93.entity.3><term.40880d93.asset.5>
+        - 制订<term.40880d93.term.3>
+        - 制订保密文件的脱敏版本
+readme: |
+  本条款是指针对未规定的事项，制订<term.40880d93.term.3>的第一版。后续版本按照各条款修订权产生。
