@@ -1,7 +1,7 @@
 name: 1609-保密制度-3
 id: ef4cdffe
 interface:
-  <term.ef4cdffe.term.1>: 二级决策程序1.
+  <term.ef4cdffe.term.1>: 二级决策条款1.
 item:
   - localid: ''
     upgradeby: <term.ef4cdffe.term.1>
