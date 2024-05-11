@@ -3,6 +3,7 @@ id: f70677ff
 interface:
   <term.f70677ff.entity.deployer>: deployer
   <term.f70677ff.entity.director>: director
+  <term.f70677ff.entity.directors>: director会议
   <term.f70677ff.entity.trustee>: trustee
   <term.f70677ff.entity.supervisor>: supervisor
   <term.f70677ff.entity.admin>: admin
@@ -91,3 +92,5 @@ item:
       <term.efaeac70.asset.1>: <term.f70677ff.asset.1>
   - localid: 基本管理制度
     termid: 77666f44
+    map:
+      <term.77666f44.entity.2>: <term.f70677ff.entity.directors>

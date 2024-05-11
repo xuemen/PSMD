@@ -11,3 +11,5 @@ item:
     termid: de47ace4
   - localid: 1406条款
     termid: 056e71fb
+    map:
+      <term.056e71fb.entity.3>: <term.77666f44.entity.2>
