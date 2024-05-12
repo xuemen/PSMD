@@ -23,6 +23,6 @@ item:
         - 任命第一届<term.06c7f1ef.entity.2>
         - 任命第一届<term.06c7f1ef.entity.3>
         - 任命下一任<term.06c7f1ef.entity.1>
-        - 修改<term.06c7f1ef.term.1>内容
+        - 修改<term.06c7f1ef.term.1>.内容
 readnme: |
   相对于程序上的细节，<term.06c7f1ef.entity.1>的职权范围应该锁死。

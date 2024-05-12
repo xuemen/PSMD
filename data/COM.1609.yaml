@@ -101,6 +101,10 @@ termmaker:
         <term.efaeac70.entity.1>: <COM.1609.entity.trustee>
         <term.efaeac70.term.1>: <COM.1609.level1.4>
         <term.efaeac70.asset.1>: <COM.1609.asset.1>
+    - upgradeby: <COM.1609.level1.4>
+      termid: 06c7f1ef
+      map:
+        <term.06c7f1ef.term.1>: <COM.1609.loop.1>
 termid: 77666f44
 map:
   <term.77666f44.term.2>: <COM.1609.level1.2>
