@@ -1,9 +1,5 @@
 name: 1609-利益分配
 id: de47ace4
-interface:
-  <term.de47ace4.entity.1>: 公司
-  <term.de47ace4.entity.2>: 董事会
-  <term.de47ace4.term.1>: 第八条.（十）.
 item:
   - localid: '1'
     termid: c046b09d

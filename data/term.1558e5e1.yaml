@@ -7,7 +7,7 @@ interface:
   <term.1558e5e1.entity.4>: director
   <term.1558e5e1.entity.5>: supervisor
   <term.1558e5e1.entity.6>: admin
-  <term.1558e5e1.term.1>: 自修订条款1.
+  <term.1558e5e1.term.1>: 自修订条款1
 item:
   - localid: ''
     upgradeby: <term.1558e5e1.term.1>

@@ -1,7 +1,7 @@
 name: 1609-保密制度-1
 id: 72af7dea
 interface:
-  <term.72af7dea.term.1>: 自修订条款1.
+  <term.72af7dea.term.1>: 自修订条款1
 item:
   - localid: ''
     upgradeby: <term.72af7dea.term.1>

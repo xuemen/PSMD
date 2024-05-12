@@ -1,8 +1,8 @@
 name: 1609-保密制度
 id: ac890987
 interface:
-  <term.ac890987.term.1>: 自修订条款1.
-  <term.ac890987.term.2>: 二级决策条款1.
+  <term.ac890987.term.1>: 自修订条款1
+  <term.ac890987.term.2>: 二级决策条款1
   <term.ac890987.term.3>: 不可修订条款
   <term.ac890987.term.4>: 自修订条款
   <term.ac890987.term.5>: 二级决策条款

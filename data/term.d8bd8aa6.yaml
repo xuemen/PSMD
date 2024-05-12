@@ -2,7 +2,7 @@ name: 1609-利益分配-6
 id: d8bd8aa6
 interface:
   <term.d8bd8aa6.entity.1>: trustee
-  <term.d8bd8aa6.term.1>: 二级决策条款4.
+  <term.d8bd8aa6.term.1>: 二级决策条款4
 item:
   - localid: ''
     upgradeby: <term.d8bd8aa6.term.1>

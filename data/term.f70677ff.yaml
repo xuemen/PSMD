@@ -14,6 +14,8 @@ interface:
   <term.f70677ff.term.1>: 自修订条款1
   <term.f70677ff.term.2>: director会议议事规则
   <term.f70677ff.term.3>: supervisor会议议事规则
+  <term.f70677ff.term.4>: 二级决策条款2
+  <term.f70677ff.term.5>: 基本管理制度
   <term.f70677ff.localid.1>: value
 item:
   - localid: 自修订条款1
@@ -90,7 +92,15 @@ item:
       <term.efaeac70.entity.1>: <term.f70677ff.entity.trustee>
       <term.efaeac70.term.1>: <term.f70677ff.level1.4>
       <term.efaeac70.asset.1>: <term.f70677ff.asset.1>
+  - localid: 职权分配1
+    upgradeby: <term.f70677ff.localid.二级决策条款4>
+    termid: 06c7f1ef
+    map:
+      <term.c13a43a2.term.1>: <term.f70677ff.term.1>
   - localid: 基本管理制度
     termid: 77666f44
     map:
       <term.77666f44.entity.2>: <term.f70677ff.entity.directors>
+      <term.77666f44.term.2>: <term.f70677ff.term.4>
+      <term.77666f44.entity.1>: <term.f70677ff.entity.admin>
+      <term.77666f44.term.1>: <term.f70677ff.term.5>

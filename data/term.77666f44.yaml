@@ -1,9 +1,10 @@
 name: 1609-普通条款
 id: 77666f44
 interface:
-  <term.77666f44.entity.1>: 公司
+  <term.77666f44.entity.1>: 总经理
   <term.77666f44.entity.2>: 董事会
-  <term.77666f44.term.1>: 第八条.（十）.
+  <term.77666f44.term.1>: 管理制度
+  <term.77666f44.term.2>: 第十五条.(十)
 item:
   - localid: 保密制度
     termid: ac890987
@@ -11,5 +12,9 @@ item:
     termid: de47ace4
   - localid: 1406条款
     termid: 056e71fb
+    upgradeby: <term.77666f44.term.2>
     map:
       <term.056e71fb.entity.3>: <term.77666f44.entity.2>
+      <term.056e71fb.term.4>: <term.77666f44.term.2>
+      <term.056e71fb.entity.1>: <term.77666f44.entity.1>
+      <term.056e71fb.term.1>: <term.77666f44.term.1>

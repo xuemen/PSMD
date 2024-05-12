@@ -9,11 +9,13 @@ interface:
   <term.056e71fb.term.1>: 基本管理制度
   <term.056e71fb.term.2>: 具体规章
   <term.056e71fb.term.3>: 劳动合同
+  <term.056e71fb.term.4>: 章程
   <term.056e71fb.asset.1>: 通用工单
   <term.056e71fb.asset.2>: 审议报告
 item:
   - localid: '1'
     termid: 48577ce8
+    upgradeby: <term.056e71fb.term.4>
     map:
       <term.48577ce8.entity.1>: <term.056e71fb.entity.1>
       <term.48577ce8.entity.2>: <term.056e71fb.entity.2>
@@ -23,6 +25,7 @@ item:
       <term.48577ce8.asset.1>: <term.056e71fb.asset.1>
   - localid: '2'
     termid: 7506353d
+    upgradeby: <term.056e71fb.term.4>
     map:
       <term.7506353d.entity.1>: <term.056e71fb.entity.1>
       <term.7506353d.entity.2>: <term.056e71fb.entity.2>
@@ -31,6 +34,7 @@ item:
       <term.7506353d.asset.1>: <term.056e71fb.asset.1>
   - localid: '3'
     termid: 260ca049
+    upgradeby: <term.056e71fb.term.4>
     map:
       <term.260ca049.entity.1>: <term.056e71fb.entity.1>
       <term.260ca049.entity.2>: <term.056e71fb.entity.2>
@@ -38,6 +42,7 @@ item:
       <term.260ca049.asset.1>: <term.056e71fb.asset.1>
   - localid: '4'
     termid: c87ec159
+    upgradeby: <term.056e71fb.term.4>
     map:
       <term.c87ec159.entity.1>: <term.056e71fb.entity.1>
       <term.c87ec159.entity.2>: <term.056e71fb.entity.2>

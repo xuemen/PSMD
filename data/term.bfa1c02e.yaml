@@ -1,0 +1,112 @@
+name: 基于1609模型决策条款设计的S2基本管理制度
+id: bfa1c02e
+interface:
+  <term.bfa1c02e.entity.deployer>: deployer
+  <term.bfa1c02e.entity.director>: director
+  <term.bfa1c02e.entity.directors>: director会议
+  <term.bfa1c02e.entity.trustee>: trustee
+  <term.bfa1c02e.entity.supervisor>: supervisor
+  <term.bfa1c02e.entity.admin>: admin
+  <term.bfa1c02e.entity.worker>: worker
+  <term.bfa1c02e.entity.1>: 共同体
+  <term.bfa1c02e.asset.1>: RIU
+  <term.bfa1c02e.asset.2>: p
+  <term.bfa1c02e.term.1>: 自修订条款1
+  <term.bfa1c02e.term.2>: director会议议事规则
+  <term.bfa1c02e.term.3>: supervisor会议议事规则
+  <term.bfa1c02e.term.4>: S2二级决策条款2
+  <term.bfa1c02e.term.5>: 基本管理制度
+  <term.bfa1c02e.localid.1>: value
+item:
+  - localid: 自修订条款1
+    upgradeby: <term.bfa1c02e.localid.自修订条款1>
+    termid: c13a43a2
+    map:
+      <term.c13a43a2.entity.1>: <term.bfa1c02e.entity.deployer>
+  - localid: S2二级决策条款1
+    upgradeby: <term.bfa1c02e.localid.自修订条款1>
+    termid: 71da4d25
+    map:
+      <term.71da4d25.entity.1>: <term.bfa1c02e.entity.director>
+  - localid: S2二级决策条款2
+    upgradeby: <term.bfa1c02e.localid.自修订条款1>
+    termid: 40880d93
+    map:
+      <term.40880d93.entity.1>: <term.bfa1c02e.entity.director>
+  - localid: S2二级决策条款3
+    upgradeby: <term.bfa1c02e.localid.自修订条款1>
+    termid: 54b6949d
+    map:
+      <term.54b6949d.entity.1>: <term.bfa1c02e.entity.director>
+    <term.54b6949d.entity.2>: <term.bfa1c02e.entity.deployer>
+  - localid: S2二级决策条款4
+    upgradeby: <term.bfa1c02e.localid.自修订条款1>
+    termid: 95eab800
+    map:
+      <term.95eab800.entity.1>: <term.bfa1c02e.entity.director>
+      <term.95eab800.entity.2>: <term.bfa1c02e.entity.deployer>
+      <term.95eab800.entity.3>: <term.bfa1c02e.entity.trustee>
+  - localid: S2二级决策条款5
+    upgradeby: <term.bfa1c02e.term.1>
+    termid: 0edca872
+    map:
+      <term.0edca872.entity.1>: <term.bfa1c02e.entity.supervisor>
+      <term.0edca872.term.1>: <term.bfa1c02e.term.1>
+      <term.0edca872.term.2>: <term.bfa1c02e.term.3>
+  - localid: S2二级决策条款6
+    upgradeby: <term.bfa1c02e.term.1>
+    termid: aa22a167
+    map:
+      <term.aa22a167.entity.1>: <term.bfa1c02e.entity.trustee>
+      <term.aa22a167.entity.2>: <term.bfa1c02e.entity.director>
+      <term.aa22a167.entity.3>: <term.bfa1c02e.entity.supervisor>
+      <term.aa22a167.entity.4>: <term.bfa1c02e.entity.1>
+  - localid: S2三级决策条款1
+    upgradeby: <term.bfa1c02e.localid.S2二级决策条款1>
+    termid: 88e5c5f4
+    map:
+      <term.88e5c5f4.entity.1>: <term.bfa1c02e.entity.admin>
+      <term.88e5c5f4.term.1>: <term.bfa1c02e.level1.1>
+  - localid: S2三级决策条款2
+    upgradeby: <term.bfa1c02e.localid.S2二级决策条款3>
+    termid: 4e9e9c33
+    map:
+      <term.4e9e9c33.entity.1>: <term.bfa1c02e.entity.deployer>
+      <term.4e9e9c33.entity.2>: <term.bfa1c02e.entity.worker>
+      <term.4e9e9c33.term.1>: <term.bfa1c02e.level1.3>
+      <term.4e9e9c33.asset.1>: <term.bfa1c02e.asset.1>
+      <term.4e9e9c33.asset.2>: <term.bfa1c02e.asset.2>
+  - localid: S2三级决策条款3
+    upgradeby: <term.bfa1c02e.localid.S2二级决策条款3>
+    termid: 666776c3
+    map:
+      <term.666776c3.entity.1>: <term.bfa1c02e.entity.director>
+      <term.666776c3.entity.2>: <term.bfa1c02e.entity.supervisor>
+      <term.666776c3.entity.3>: <term.bfa1c02e.entity.worker>
+      <term.666776c3.term.1>: <term.bfa1c02e.level1.3>
+      <term.666776c3.asset.1>: <term.bfa1c02e.asset.1>
+      <term.666776c3.asset.2>: <term.bfa1c02e.asset.2>
+  - localid: S2三级决策条款4
+    upgradeby: <term.bfa1c02e.localid.S2二级决策条款4>
+    termid: efaeac70
+    map:
+      <term.efaeac70.entity.1>: <term.bfa1c02e.entity.trustee>
+      <term.efaeac70.term.1>: <term.bfa1c02e.level1.4>
+      <term.efaeac70.asset.1>: <term.bfa1c02e.asset.1>
+  - localid: 职权分配1
+    upgradeby: <term.bfa1c02e.localid.S2二级决策条款4>
+    termid: 06c7f1ef
+    map:
+      <term.06c7f1ef.term.1>: <term.bfa1c02e.term.1>
+  - localid: S2基本管理制度
+    termid: 77666f44
+    map:
+      <term.77666f44.entity.2>: <term.bfa1c02e.entity.directors>
+      <term.77666f44.term.2>: <term.bfa1c02e.term.4>
+      <term.77666f44.entity.1>: <term.bfa1c02e.entity.admin>
+      <term.77666f44.term.1>: <term.bfa1c02e.term.5>
+  - localid: S2部门设置
+    termid: '85414146'
+    upgradeby: <term.bfa1c02e.localid.S2二级决策条款2>
+    map:
+      <term.85414146.term.1>: <term.bfa1c02e.term.5>

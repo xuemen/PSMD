@@ -1,0 +1,28 @@
+name: deployer职权
+id: 06c7f1ef
+interface:
+  <term.06c7f1ef.entity.1>: deployer
+  <term.06c7f1ef.entity.2>: director
+  <term.06c7f1ef.entity.3>: supervisor
+  <term.06c7f1ef.entity.4>: trustee
+  <term.06c7f1ef.asset.1>: p
+  <term.06c7f1ef.term.1>: 自修订条款1
+  <term.06c7f1ef.term.2>: 二级决策条款4
+item:
+  - localid: ''
+    upgradeby: <term.06c7f1ef.term.2>
+    text: |
+      <term.06c7f1ef.entity.1>行使以下职权：
+        - 设定<term.06c7f1ef.asset.1>%
+        - 设定<term.06c7f1ef.entity.2>席位数
+        - 制定<term.06c7f1ef.entity.2>会议议事规则
+        - 设定<term.06c7f1ef.entity.3>席位数
+        - 制定<term.06c7f1ef.entity.3>会议议事规则
+        - 确定<term.06c7f1ef.entity.2>和<term.06c7f1ef.entity.3>任期及选举程序
+        - 确定<term.06c7f1ef.entity.4>任期及任免程序
+        - 任命第一届<term.06c7f1ef.entity.2>
+        - 任命第一届<term.06c7f1ef.entity.3>
+        - 任命下一任<term.06c7f1ef.entity.1>
+        - 修改<term.06c7f1ef.term.1>内容
+readnme: |
+  相对于程序上的细节，<term.06c7f1ef.entity.1>的职权范围应该锁死。

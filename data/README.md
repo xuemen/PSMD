@@ -21,6 +21,12 @@ term定义条款和合同，包括正文、注释、层次结构、次序、修�
 - interface和map字段都去掉分类，直接排列所有placeholder的映射。
     - placeholder中添加termid，以示区别。
 
+- <term.termid.localid.id>只能用在upgradeby，不能用在map。
+- upgradeby的替换优先级是：
+  - 上级条款的upgradeby
+  - 用localid的本地upgradeby
+  - 上级条款的map
+  - 用term的本地upgradeby
 ~~~
 name:
 id:

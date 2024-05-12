@@ -1,0 +1,19 @@
+name: 1609-二级决策条款-6+设置状态
+id: aa22a167
+interface:
+  <term.aa22a167.entity.1>: trustee
+  <term.aa22a167.entity.2>: director
+  <term.aa22a167.entity.3>: supervisor
+  <term.aa22a167.entity.4>: 共同体
+  <term.aa22a167.term.1>: 自修订条款
+  <term.aa22a167.asset.1>: 预算透支限额
+  <term.aa22a167.asset.2>: 代码
+item:
+  - localid: ''
+    upgradeby: <term.aa22a167.term.1>
+    text: |
+      由<term.aa22a167.entity.1>书面提交修订以下事项，提交时生效：
+      - <term.aa22a167.asset.1>
+      - <term.aa22a167.entity.2>任期提前结束，重新进行选举。
+      - <term.aa22a167.entity.3>任期提前结束，重新进行选举。
+      - <term.aa22a167.entity.4>的状态

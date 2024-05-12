@@ -19,6 +19,7 @@ node term all   : term metada metadata → allterm metadata
 node term commit:   temp metadata → formal metadata
 node term commit filename: temp metadata → formal metadata
 node term term id   : term metadata → term markdown + html
+node term COM id   : COM metadata → COM markdown + html
 node term error id    : error metadata → error markdown + html
 node term knowledge    : knowledge metadata → allknowledge metadata
 node term knowledge id    : knowledge metadata → knowledge markdown + html
@@ -50,6 +51,11 @@ if (arguments.length > 0) {
         var termid = arguments[1];
         loadallterm();
         maketermview(termid);
+    } else if ((arguments.length == 2) & (arguments[0] == "COM")) {
+        // node term COM id   : COM metadata → COM markdown + html
+        var COMid = arguments[1];
+        loadallterm();
+        makeCOMview(COMid);
     } else if ((arguments.length == 2) & (arguments[0] == "error")) {
         // node term error id    : error metadata → error markdown + html
         var errorid = arguments[1];
@@ -329,6 +335,239 @@ function committemperror(obj) {
 
 }
 
+function makeCOMview(COMid) {
+    var COMmetadatafilename = datapath + "COM." + COMid + ".yaml";
+    var COMobj = yaml.load(fs.readFileSync(COMmetadatafilename, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
+
+    var COMmdfilename = viewpath + "COM." + COMid + ".md";
+    var COMhtmlfilename = viewpath + "COM." + COMid + ".html";
+    var mdtermstr = "# 共同体模型" + COMid + " 正文 \n";
+    var mdreadmestr = "";
+    var mddependstr = "";
+    var mdtogetherstr = "";
+    var mdeffectstr = "";
+    /*     var mdreadmestr = "# 共同体模型" + COMid + " readme \n";
+        var mddependstr = "# 共同体模型" + COMid + " depend \n";
+        var mdtogetherstr = "# 共同体模型" + COMid + " together \n";
+        var mdeffectstr = "# 共同体模型" + COMid + " effect \n"; */
+
+    var item = new Object();
+
+    if (COMobj.termmaker != null) {
+        mdtermstr = mdtermstr + "## 决策条款  \n";
+        if (COMobj.termmaker.const != null) {
+            mdtermstr = mdtermstr + "### 不可修订条款  \n";
+            for (var i in COMobj.termmaker.const) {
+                var element = COMobj.termmaker.const[i];
+                if (element.termid != null) {
+                    // use termid
+                    var localid = "不可修订条款" + (i + 1).toString() + ".";
+                    element.localid = localid;
+                    var termtext = maketermtext(element, localid, element.map);
+                    mdtermstr = mdtermstr + element.treetext;
+
+                    if (element.treereadme != null) {
+                        mdreadmestr = mdreadmestr + localid + " " + element.treereadme
+                    }
+                    if (element.treedepend != null) {
+                        mddependstr = mddependstr + localid + " " + element.treedepend
+                    }
+                    if (element.treetogether != null) {
+                        mdtogetherstr = mdtogetherstr + localid + " " + element.treetogether
+                    }
+                    if (element.treeeffect != null) {
+                        mdeffectstr = mdeffectstr + localid + " " + element.treeeffect
+                    }
+                } else if (element.readme != null) {
+                    // use readme
+                    mdtermstr = mdtermstr + element.readme;
+                } else {
+                    console.log("makeCOMview() > the const term has not termid and readme:", i);
+                }
+            }
+        }
+        if (COMobj.termmaker.loop != null) {
+            mdtermstr = mdtermstr + "### 自修订条款  \n";
+            for (var i in COMobj.termmaker.loop) {
+                var element = COMobj.termmaker.loop[i];
+                if (element.termid != null) {
+                    // use termid
+                    var localid = "自修订条款" + (parseInt(i) + 1).toString() + ".";
+                    element.localid = localid;
+                    element.upgradeby = localid;
+                    var termtext = maketermtext(element, localid, element.map);
+                    mdtermstr = mdtermstr + element.treetext;
+
+                    if (element.treereadme != null) {
+                        mdreadmestr = mdreadmestr + localid + " " + element.treereadme
+                    }
+                    if (element.treedepend != null) {
+                        mddependstr = mddependstr + localid + " " + element.treedepend
+                    }
+                    if (element.treetogether != null) {
+                        mdtogetherstr = mdtogetherstr + localid + " " + element.treetogether
+                    }
+                    if (element.treeeffect != null) {
+                        mdeffectstr = mdeffectstr + localid + " " + element.treeeffect
+                    }
+                } else if (element.readme != null) {
+                    // use readme
+                    mdtermstr = mdtermstr + element.readme;
+                } else {
+                    console.log("makeCOMview() > the const term has not termid and readme:", i);
+                }
+            }
+        }
+        if (COMobj.termmaker.level1 != null) {
+            mdtermstr = mdtermstr + "### 二级决策条款  \n";
+            for (var i in COMobj.termmaker.level1) {
+                var element = COMobj.termmaker.level1[i];
+                var localid = "二级决策条款" + (parseInt(i) + 1).toString() + ".";
+                if (element.termid != null) {
+                    // use termid
+                    element.localid = localid;
+                    var termtext = maketermtext(element, localid, element.map);
+                    mdtermstr = mdtermstr + element.treetext;
+
+                    if (element.treereadme != null) {
+                        mdreadmestr = mdreadmestr + localid + " " + element.treereadme
+                    }
+                    if (element.treedepend != null) {
+                        mddependstr = mddependstr + localid + " " + element.treedepend
+                    }
+                    if (element.treetogether != null) {
+                        mdtogetherstr = mdtogetherstr + localid + " " + element.treetogether
+                    }
+                    if (element.treeeffect != null) {
+                        mdeffectstr = mdeffectstr + localid + " " + element.treeeffect
+                    }
+                } else if (element.readme != null) {
+                    // use readme
+                    mdtermstr = mdtermstr + localid + " 本条款按照" + element.upgradeby + ".条款修订。 [本条款内容待定] "+ element.readme;
+                } else {
+                    console.log("makeCOMview() > the const term has not termid and readme:", i);
+                }
+            }
+        }
+        if (COMobj.termmaker.level2 != null) {
+            mdtermstr = mdtermstr + "### 三级决策条款  \n";
+            for (var i in COMobj.termmaker.level2) {
+                var element = COMobj.termmaker.level2[i];
+                var localid = "三级决策条款" + (parseInt(i) + 1).toString() + ".";
+                if (element.termid != null) {
+                    // use termid
+                    element.localid = localid;
+                    var termtext = maketermtext(element, localid, element.map);
+                    mdtermstr = mdtermstr + element.treetext;
+
+                    if (element.treereadme != null) {
+                        mdreadmestr = mdreadmestr + localid + " " + element.treereadme
+                    }
+                    if (element.treedepend != null) {
+                        mddependstr = mddependstr + localid + " " + element.treedepend
+                    }
+                    if (element.treetogether != null) {
+                        mdtogetherstr = mdtogetherstr + localid + " " + element.treetogether
+                    }
+                    if (element.treeeffect != null) {
+                        mdeffectstr = mdeffectstr + localid + " " + element.treeeffect
+                    }
+                } else if (element.readme != null) {
+                    // use readme
+                    mdtermstr = mdtermstr + localid + " 本条款按照" + element.upgradeby + ".条款修订。 [本条款内容待定] "+ element.readme;
+                } else {
+                    console.log("makeCOMview() > the const term has not termid and readme:", i);
+                }
+            }
+        }
+    } // end of termmaker
+
+    if (COMobj.termid != null) {
+        mdtermstr = mdtermstr + "### 基本管理制度  \n";
+        var element = new Object();
+        element.termid = COMobj.termid;
+        element.localid = "基本管理制度.";
+        element.upgradeby = COMobj.upgradeby;
+        element.map = COMobj.map;
+        var termtext = maketermtext(element, "基本管理制度.", COMobj.map);
+        mdtermstr = mdtermstr + element.treetext;
+
+        if (element.treereadme != null) {
+            mdreadmestr = mdreadmestr + localid + " " + element.treereadme
+        }
+        if (element.treedepend != null) {
+            mddependstr = mddependstr + localid + " " + element.treedepend
+        }
+        if (element.treetogether != null) {
+            mdtogetherstr = mdtogetherstr + localid + " " + element.treetogether
+        }
+        if (element.treeeffect != null) {
+            mdeffectstr = mdeffectstr + localid + " " + element.treeeffect
+        }
+    }
+
+    var mdstr = mdtermstr;
+    if (mdreadmestr != "") {
+        mdstr = mdstr + "\n---\n# 共同体模型" + COMid + " readme \n" + mdreadmestr;
+    }
+    if (mddependstr != "") {
+        mdstr = mdstr + "\n---\n# 共同体模型" + COMid + " depend \n" + mddependstr;
+    }
+    if (mdtogetherstr != "") {
+        mdstr = mdstr + "\n---\n# 共同体模型" + COMid + " together \n" + mdtogetherstr;
+    }
+    if (mdeffectstr != "") {
+        mdstr = mdstr + "\n---\n# 共同体模型" + COMid + " effect \n" + mdeffectstr;
+    }
+
+    var item = new Object();
+    item.treehtml = mdtermstr.replace(/\n/g, '<br/>\n');
+    if (mdreadmestr != "") {
+        item.readme = true;
+        item.treereadmehtml = mdreadmestr.replace(/\n/g, '<br/>\n');
+    } else {
+        item.readme = false;
+    }
+    if (mddependstr != "") {
+        item.depend = true;
+        item.treedependhtml = mddependstr.replace(/\n/g, '<br/>\n');
+    } else {
+        item.depend = false;
+    }
+    if (mdtogetherstr != "") {
+        item.together = true;
+        item.treetogetherhtml = mdtogetherstr.replace(/\n/g, '<br/>\n');
+    } else {
+        item.together = false;
+    }
+    if (mdeffectstr != "") {
+        item.effect = true;
+        item.treeeffecthtml = mdeffectstr.replace(/\n/g, '<br/>\n');
+    } else {
+        item.effect = false;
+    }
+
+    var termhtml = maketermhtml(item);
+
+    // all placeholders must been defined in local interface
+    // all placeholders in global map must been defined in local interface 
+    //console.log("makeCOMview() > before replace the plcaeholders\n"+mdstr);
+    if (COMobj.interface != null) {
+        for (var placeholder in COMobj.interface) {
+            var value = COMobj.interface[placeholder];
+
+            mdstr = mdstr.split(placeholder).join(value);
+            termhtml = termhtml.split(placeholder).join(value);
+        }
+    }
+
+    fs.writeFileSync(COMmdfilename, mdstr);
+    console.log("makeCOMview() > " + COMmdfilename + "文件更新，内容如下:\n" + mdstr);
+
+    fs.writeFileSync(COMhtmlfilename, termhtml);
+    console.log("makeCOMview() > " + COMhtmlfilename + "文件更新，内容如下:\n" + termhtml);
+}
+
 
 function maketermview(termid) {
     var item = new Object();
@@ -430,7 +669,7 @@ function maketermhtml(item) {
 }
 
 function maketermtext(item, prefix, map) {
-    console.log("enter maketermtext:" + item.termid + "\tprefix:" + prefix);
+    console.log("enter maketermtext:" + item.termid + "\tupgradeby:" + item.upgradeby + "\tprefix:" + prefix);
     var termfilename = datapath + "term." + item.termid + ".yaml";
     var termobj = yaml.load(fs.readFileSync(termfilename, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
 
@@ -509,7 +748,7 @@ function maketermtext(item, prefix, map) {
         // make prefix
         if ((itemobj.localid != null) && (itemobj.localid != "")) {
             subprefix = prefix + itemobj.localid + "."
-        }else{
+        } else {
             subprefix = prefix;
         }
         //console.log("subprefix:"+subprefix);
@@ -518,27 +757,28 @@ function maketermtext(item, prefix, map) {
         var upgradestr = "";
         if (item.upgradeby != null) {
             // use global item's metadata
-            //console.log("item.upgradeby:%s\tsubprefix:%s",item.upgradeby,subprefix)
+            //console.log("item.upgradeby:%s\tsubprefix:%s", item.upgradeby, subprefix)
             if (item.upgradeby == subprefix) {
                 upgradestr = "本条款按照本条款修订。"
             } else {
-                upgradestr = "本条款按照" + item.upgradeby + "条款修订。"
+                upgradestr = "本条款按照" + item.upgradeby + ".条款修订。"
             }
             itemobj.upgradeby = item.upgradeby;
             //console.log("%s>global upgradeby:%s", item.termid, item.upgradeby);
         } else if ((itemobj.upgradeby != null) && (itemobj.upgradeby.slice(0, 6) == "<term.") && (itemobj.upgradeby.slice(6, 14) == item.termid) && (itemobj.upgradeby.slice(14, 22) == ".localid")) {
             // use localid
-            var localupgradeby = prefix + itemobj.upgradeby.slice(23, -1) + ".";
+            var localupgradeby = prefix + itemobj.upgradeby.slice(23, -1);
             if (localupgradeby == subprefix) {
                 localupgradeby = "本";
             }
-            upgradestr = "本条款按照" + localupgradeby + "条款修订。"
+            upgradestr = "本条款按照" + localupgradeby + ".条款修订。"
             itemobj.upgradeby = localupgradeby;
         } else if ((itemobj.upgradeby != null) && (itemobj.upgradeby.slice(0, 6) == "<term.") && (itemobj.upgradeby.slice(6, 14) == item.termid) && (itemobj.upgradeby.slice(14, 22) != ".localid")) {
             // use local placeholder 
-            var localupgradeby = termobj.interface[itemobj.upgradeby];
-            upgradestr = "本条款按照" + localupgradeby + "条款修订。"
-            itemobj.upgradeby = localupgradeby;
+            //var localupgradeby = termobj.interface[itemobj.upgradeby];
+            //upgradestr = "本条款按照" + localupgradeby + ".条款修订。"
+            upgradestr = "本条款按照" + itemobj.upgradeby + ".条款修订。"
+            //itemobj.upgradeby = localupgradeby;
         }
         //console.log("%s>upgradestr:%s", item.termid, upgradestr);
 

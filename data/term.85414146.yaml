@@ -1,0 +1,18 @@
+name: S2部门设置
+id: '85414146'
+interface:
+  <term.85414146.entity.1>: 共同体
+  <term.85414146.entity.2>: 内务部(ISU:Inner Service Unit)
+  <term.85414146.ntity.3>: 产品部(IPU:Inner Product Unit)
+  <term.85414146.ntity.4>: JPU（Joint Product Unit）
+  <term.85414146.asset.1>: 办公室
+  <term.85414146.asset.2>: 服务器及域名
+  <term.85414146.asset.3>: 人民币
+  <term.85414146.asset.4>: 内部记账单位
+  <term.85414146.asset.5>: 知识产权
+  <term.85414146.term.1>: 二级决策条款2
+item:
+  - localid: ''
+    upgradeby: <term.85414146.term.1>
+    text: |
+      <term.85414146.entity.1>设置<term.85414146.ntity.3>，负责参与<term.85414146.ntity.4>。<term.85414146.entity.1>设置<term.85414146.entity.2>，委托<term.85414146.entity.2>管理<term.85414146.entity.1>的资产（<term.85414146.asset.1>、<term.85414146.asset.2>、<term.85414146.asset.3>、<term.85414146.asset.4>、<term.85414146.asset.5>）。

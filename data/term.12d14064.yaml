@@ -1,19 +1,19 @@
 name: 1609-利益分配-8
 id: 12d14064
 interface:
-  <term.c046b09d.d14064.entity.1>: admin
-  <term.c046b09d.d14064.term.1>: 二级决策条款1.
+  <term.12d14064.entity.1>: admin
+  <term.12d14064.term.1>: 二级决策条款1
 item:
   - localid: ''
-    upgradeby: <term.c046b09d.d14064.term.1>
+    upgradeby: <term.12d14064.term.1>
     text: |
-      <term.c046b09d.d14064.entity.1>专户：
+      <term.12d14064.entity.1>专户：
   - localid: '1'
-    upgradeby: <term.c046b09d.d14064.term.1>
+    upgradeby: <term.12d14064.term.1>
     termid: af62f03b
   - localid: '2'
-    upgradeby: <term.c046b09d.d14064.term.1>
+    upgradeby: <term.12d14064.term.1>
     termid: 55cc8467
   - localid: '3'
-    upgradeby: <term.c046b09d.d14064.term.1>
+    upgradeby: <term.12d14064.term.1>
     termid: e4495f38

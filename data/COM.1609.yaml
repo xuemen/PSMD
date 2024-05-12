@@ -5,6 +5,7 @@ modeler:
 interface:
   <COM.1609.entity.deployer>: deployer
   <COM.1609.entity.director>: director
+  <COM.1609.entity.directors>: director会议
   <COM.1609.entity.trustee>: trustee
   <COM.1609.entity.supervisor>: supervisor
   <COM.1609.entity.admin>: admin
@@ -15,7 +16,19 @@ interface:
   <COM.1609.term.1>: 自修订条款
   <COM.1609.term.2>: director会议议事规则
   <COM.1609.term.3>: supervisor会议议事规则
-  <COM.1609.localid.1>: value
+  <COM.1609.term.4>: 二级决策条款2
+  <COM.1609.term.5>: 基本管理制度
+  <COM.1609.loop.1>: 自修订条款1
+  <COM.1609.level1.1>: 二级决策条款1
+  <COM.1609.level1.2>: 二级决策条款2
+  <COM.1609.level1.3>: 二级决策条款3
+  <COM.1609.level1.4>: 二级决策条款4
+  <COM.1609.level1.5>: 二级决策条款5
+  <COM.1609.level1.6>: 二级决策条款6
+  <COM.1609.level2.1>: 三级决策条款1
+  <COM.1609.level2.2>: 三级决策条款2
+  <COM.1609.level2.3>: 三级决策条款3
+  <COM.1609.level2.4>: 三级决策条款4
 termmaker:
   loop:
     - termid: c13a43a2
@@ -54,9 +67,11 @@ termmaker:
         <term.32e45dee.entity.2>: <COM.1609.entity.director>
         <term.32e45dee.entity.3>: <COM.1609.entity.supervisor>
     - upgradeby: <COM.1609.loop.1>
-      readme: <COM.1609.term.2>，可以根据该届<COM.1609.entity.director>的工作习惯，选择主流议事规则之一。
+      readme: |
+        <COM.1609.term.2>，可以根据该届<COM.1609.entity.director>的工作习惯，选择主流议事规则之一。
     - upgradeby: <COM.1609.loop.1>
-      readme: <COM.1609.term.3>，可以根据该届<COM.1609.entity.supervisor>的工作习惯，选择主流议事规则之一。
+      readme: |
+        <COM.1609.term.3>，可以根据该届<COM.1609.entity.supervisor>的工作习惯，选择主流议事规则之一。
   level2:
     - upgradeby: <COM.1609.level1.1>
       termid: 88e5c5f4
@@ -87,3 +102,8 @@ termmaker:
         <term.efaeac70.term.1>: <COM.1609.level1.4>
         <term.efaeac70.asset.1>: <COM.1609.asset.1>
 termid: 77666f44
+map:
+  <term.77666f44.term.2>: <COM.1609.level1.2>
+  <term.77666f44.entity.2>: <COM.1609.entity.directors>
+  <term.77666f44.entity.1>: <COM.1609.entity.admin>
+  <term.77666f44.term.1>: <COM.1609.term.5>
