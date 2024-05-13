@@ -1,0 +1,21 @@
+name: 设置董事
+id: ecde06c5
+interface:
+  <term.ecde06c5.entity.1>: 公司
+  <term.ecde06c5.entity.2>: 董事会
+  <term.ecde06c5.entity.3>: 股东会
+  <term.ecde06c5.entity.4>: 董事
+  <term.ecde06c5.entity.5>: 董事长
+  <term.ecde06c5.term.1>: 第八条.（十）
+  <term.ecde06c5.asset.1>: 财务会计报告
+  <term.ecde06c5.asset.2>: 利润分配方案
+  <term.ecde06c5.asset.3>: 弥补亏损方案
+item:
+  - localid: ''
+    upgradeby: <term.ecde06c5.term.1>
+    text: |
+      <term.ecde06c5.entity.1>不设<term.ecde06c5.entity.2>，设一名<term.ecde06c5.entity.4>，行使公司法和章程规定的<term.ecde06c5.entity.2>的职权。该<term.ecde06c5.entity.4>兼任公司经理。<term.ecde06c5.entity.4>任期三年，任期届满，可连选连任。如果任期内<term.ecde06c5.entity.2>席位数发生变化，视为任期提前结束，重新进行选举。选举方法：采用累积投票制。
+        该<term.ecde06c5.entity.4>任职期间出现赤字，支出由该<term.ecde06c5.entity.4>垫付，记为公司向个人借款。任期结束时，该<term.ecde06c5.entity.4>向下一届<term.ecde06c5.entity.2>提交：
+        1. 任职期间的<term.ecde06c5.asset.1>;
+        2. 任职期间的<term.ecde06c5.asset.2>和<term.ecde06c5.asset.3>的提案，内容包括公司向<term.ecde06c5.entity.4>借款的利息及偿还方案；
+        3. 任职期间<term.ecde06c5.entity.4>报酬的提案。

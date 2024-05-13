@@ -3,7 +3,7 @@ id: 2e4f11cb
 interface:
   <term.2e4f11cb.entity.1>: 公司
   <term.2e4f11cb.entity.2>: 董事会
-  <term.2e4f11cb.term.1>: 第八条.（十）.
+  <term.2e4f11cb.term.1>: 第八条.（十）
 item:
   - localid: 第八条
     upgradeby: <term.2e4f11cb.term.1>

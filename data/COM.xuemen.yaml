@@ -21,8 +21,7 @@ termmaker:
       termid: 6208f678
       readme: |
         章程内容都在level1
-    - // 章程实施细则
-    
+   
   level2:
     - upgradeby:
       option:
