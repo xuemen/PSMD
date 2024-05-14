@@ -1,0 +1,31 @@
+name: 不全符合附件31~34
+id: 6c2eb032
+interface:
+  <term.6c2eb032.term.30>: 附件30
+  <term.6c2eb032.term.31>: 附件31
+  <term.6c2eb032.term.32>: 附件32
+  <term.6c2eb032.term.33>: 附件33
+  <term.6c2eb032.term.34>: 附件34
+  <term.6c2eb032.term.42>: 附件42
+  <term.6c2eb032.term.43>: 附件43
+item:
+  - localid: ''
+    text: |
+      条件：如果符合<term.6c2eb032.term.30>，但是不全符合<term.6c2eb032.term.31>、<term.6c2eb032.term.32>、<term.6c2eb032.term.33>、<term.6c2eb032.term.34>。
+      建议：针对<term.6c2eb032.term.42>、<term.6c2eb032.term.43>安排核实。
+  - localid: '1'
+    text: |
+      条件：如果<term.6c2eb032.term.42>、<term.6c2eb032.term.43>都符合。
+      建议：先参考default+1406标准模型开展业务，逐步完善规章，取得进步后重新增加关于<term.6c2eb032.term.31>、<term.6c2eb032.term.32>、<term.6c2eb032.term.33>、<term.6c2eb032.term.34>的补充信息。
+  - localid: '2'
+    text: |
+      条件：如果符合<term.6c2eb032.term.42>、不符合<term.6c2eb032.term.43>。
+      建议：在业务背景下，基于既成事实博弈。具体可以参考default标准模型。
+  - localid: '3'
+    text: |
+      条件：如果不符合<term.6c2eb032.term.42>、符合<term.6c2eb032.term.43>。
+      建议：先参考default+1406标准模型开展业务。
+  - localid: '4'
+    text: |
+      条件：如果<term.6c2eb032.term.42>、<term.6c2eb032.term.43>都不符合。
+      建议：在业务背景下，基于既成事实博弈。具体可以参考default标准模型。

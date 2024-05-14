@@ -9,20 +9,44 @@ interface:
   <term.9d12877c.term.33>: 附件33
   <term.9d12877c.term.34>: 附件34
   <term.9d12877c.term.42>: 附件42
+  <term.9d12877c.term.43>: 附件43
 item:
-  - localid: '1'
-    termid: cc0fba2f
-  - localid: '2'
-    termid: e6976035
+  - localid: ''
+    text: |
+      针对不同条件给出建议如下：
+  - localid: "1"
+    text: |
+      条件：如果不能按照<term.9d12877c.term.21>核实情况，也不能按照<term.9d12877c.term.20>补充信息。
+      建议：在业务背景下，基于既成事实博弈。具体可以参考default标准模型。
+  - localid: "2"
+    text: |
+      条件：如果能按照<term.9d12877c.term.21>核实情况，或者按照<term.9d12877c.term.20>补充信息。
+      建议：针对<term.9d12877c.term.30>、<term.9d12877c.term.31>、<term.9d12877c.term.32>、<term.9d12877c.term.33>、<term.9d12877c.term.34>安排核实。
+  - localid: "3"
+    text: |
+      条件：如果不符合<term.9d12877c.term.30>。
+      建议：在业务背景下，基于既成事实博弈。具体可以参考default标准模型。
+  - localid: "4"
+    termid: 6c2eb032
     map:
-      <term.e6976035.term.1>: <term.9d12877c.term.20>
-      <term.e6976035.term.2>: <term.9d12877c.term.30>
-      <term.e6976035.term.3>: <term.9d12877c.term.42>
-      <term.e6976035.term.4>: <term.9d12877c.term.31>
-      <term.e6976035.term.5>: <term.9d12877c.term.32>
-      <term.e6976035.term.6>: <term.9d12877c.term.33>
-      <term.e6976035.term.7>: <term.9d12877c.term.34>
-  - localid: '3'
+      <term.6c2eb032.term.30>: <term.9d12877c.term.30>
+      <term.6c2eb032.term.31>: <term.9d12877c.term.31>
+      <term.6c2eb032.term.32>: <term.9d12877c.term.32>
+      <term.6c2eb032.term.33>: <term.9d12877c.term.33>
+      <term.6c2eb032.term.34>: <term.9d12877c.term.34>
+      <term.6c2eb032.term.42>: <term.9d12877c.term.42>
+      <term.6c2eb032.term.43>: <term.9d12877c.term.43>
+  - localid: "5"
+    termid: 7db5064c
+    map:
+      <term.7db5064c.term.30>: <term.9d12877c.term.30>
+      <term.7db5064c.term.31>: <term.9d12877c.term.31>
+      <term.7db5064c.term.32>: <term.9d12877c.term.32>
+      <term.7db5064c.term.33>: <term.9d12877c.term.33>
+      <term.7db5064c.term.34>: <term.9d12877c.term.34>
+      <term.7db5064c.term.42>: <term.9d12877c.term.42>
+      <term.7db5064c.term.43>: <term.9d12877c.term.43>
+  - localid: '6'
     termid: 4b12ac08
   - localid: 附件20
     termid: dbe32f79
