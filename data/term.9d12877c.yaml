@@ -10,6 +10,7 @@ interface:
   <term.9d12877c.term.34>: 附件34
   <term.9d12877c.term.42>: 附件42
   <term.9d12877c.term.43>: 附件43
+  <term.9d12877c.url.1>: "<a href=\"mailto:huangyg@mars22.com?subject=其他可行方案&body=name: 入门目录202404151600%0D%0Aid: 9d12877c%0D%0A---请勿修改以上内容 从下一行开始写您的方案---%0D%0A\">发送电子邮件</a>​"
 item:
   - localid: ''
     text: |
@@ -48,6 +49,8 @@ item:
       <term.7db5064c.term.43>: <term.9d12877c.term.43>
   - localid: '6'
     termid: 4b12ac08
+    map:
+      <term.4b12ac08.url.1>: <term.9d12877c.url.1>
   - localid: 附件20
     termid: dbe32f79
   - localid: 附件21

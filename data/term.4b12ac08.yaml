@@ -2,6 +2,7 @@ name: 入门目录202404151600-3
 id: 4b12ac08
 interface:
   <term.4b12ac08.term.1>: 附件21
+  <term.4b12ac08.url.1>: "<a href=\"mailto:huangyg@mars22.com?subject=其他可行方案&body=name: 入门目录202404151600-3%0D%0Aid: 4b12ac08%0D%0A---请勿修改以上内容 从下一行开始写您的方案---%0D%0A\">发送电子邮件</a>​"
 readme: |
   - "可行"是指：
     - 方案的内容完整、准确、无二义性，具备相关岗位普通资质的人员可以自行阅读、使用。
@@ -10,4 +11,4 @@ readme: |
 item:
   - localid: ''
     text: |
-      如果有其它可行方案请发到< huangyg@mars22.com >，我将按照<term.4b12ac08.term.1>核实。
+      如果有其它可行方案请<term.4b12ac08.url.1>，我将按照<term.4b12ac08.term.1>核实。
