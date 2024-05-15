@@ -4,11 +4,17 @@ interface:
   <term.dbe32f79.term.1>: 附件21.容器规则
   <term.dbe32f79.term.2>: 第2条
 item:
+  - localid: ""
+    text: |
+      对于已发生的行为，按照以下方式之一进行核实：
   - localid: '1'
-    termid: bb8005b9
-    map:
-      <term.bb8005b9.term.1>: <term.dbe32f79.term.2>
+    text: |
+      提供完整、连续、不可删改的记录；
   - localid: '2'
-    termid: 949e69e3
-    map:
-      <term.949e69e3.term.1>: <term.dbe32f79.term.1>
+    text: |
+      提供涉事各方的自述，以及每一方对其他方自述的意见；
+  - localid: '3'
+    text: |
+      涉事各方全体同意，推举一名或多名保证人：
+          - 保证人在自己主要工作中，按照前两条之一公布信息；
+          - 由保证人调查涉事各方的历史行为，提供调查记录。

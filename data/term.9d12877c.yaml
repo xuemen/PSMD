@@ -13,19 +13,19 @@ interface:
 item:
   - localid: ''
     text: |
-      针对不同条件给出建议如下：
+      首先自检能否遵守<term.9d12877c.term.20>、<term.9d12877c.term.21>，针对不同情况给出建议如下：
   - localid: "1"
     text: |
-      条件：如果不能按照<term.9d12877c.term.21>核实情况，也不能按照<term.9d12877c.term.20>补充信息。
-      建议：在业务背景下，基于既成事实博弈。具体可以参考default标准模型。
+      条件：如果工作中不能按照<term.9d12877c.term.20>核实情况，也不能按照<term.9d12877c.term.21>提供依据。
+      建议：在业务背景下，基于既成事实博弈。具体可以参考default标准模型。考虑使用PSMD的团队委托。
   - localid: "2"
     text: |
-      条件：如果能按照<term.9d12877c.term.21>核实情况，或者按照<term.9d12877c.term.20>补充信息。
+      条件：如果工作中能按照<term.9d12877c.term.20>核实情况，按照<term.9d12877c.term.20>提供依据。
       建议：针对<term.9d12877c.term.30>、<term.9d12877c.term.31>、<term.9d12877c.term.32>、<term.9d12877c.term.33>、<term.9d12877c.term.34>安排核实。
   - localid: "3"
     text: |
       条件：如果不符合<term.9d12877c.term.30>。
-      建议：在业务背景下，基于既成事实博弈。具体可以参考default标准模型。
+      建议：在业务背景下，基于既成事实博弈。具体可以参考default标准模型。考虑使用PSMD的团队委托。
   - localid: "4"
     termid: 6c2eb032
     map:
@@ -50,10 +50,10 @@ item:
     termid: 4b12ac08
   - localid: 附件20
     termid: dbe32f79
-    map:
-      <term.dbe32f79.term.1>: <term.9d12877c.term.21>
   - localid: 附件21
     termid: d0111eb4
+    map:
+      <term.d0111eb4.term.1>:  <term.9d12877c.term.20>
   - localid: 附件30
     termid: 91ff9448
   - localid: 附件31
