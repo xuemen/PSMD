@@ -19,6 +19,7 @@ node term all   : term metada metadata → allterm metadata
 node term commit:   temp metadata → formal metadata
 node term commit filename: temp metadata → formal metadata
 node term term id   : term metadata → term markdown + html
+node term termtoCOM id   : term metadata → COM metadata
 node term COM id   : COM metadata → COM markdown + html
 node term error id    : error metadata → error markdown + html
 node term knowledge    : knowledge metadata → allknowledge metadata
@@ -51,6 +52,11 @@ if (arguments.length > 0) {
         var termid = arguments[1];
         loadallterm();
         maketermview(termid);
+    } else if ((arguments.length == 2) & (arguments[0] == "termtoCOM")) {
+        //node term termtoCOM id   : term metadata → COM metadata
+        var termid = arguments[1];
+        loadallterm();
+        termtoCOM(termid);
     } else if ((arguments.length == 2) & (arguments[0] == "COM")) {
         // node term COM id   : COM metadata → COM markdown + html
         var COMid = arguments[1];
@@ -335,6 +341,97 @@ function committemperror(obj) {
 
 }
 
+function termtoCOM(termid) {
+    var COMobj = new Object();
+    COMobj.upgrade = new Object();
+    COMobj.upgradeby = new Object();
+    COMobj.const = new Object();
+    COMobj.loop = new Object();
+    COMobj.term = new Object(); // termid -> termobj
+    COMobj.text = new Object(); // termid.localid -> text
+    COMobj.item = new Object(); // termid -> its item in father term
+
+    maketermrelation(COMobj, termid);
+}
+
+function maketermrelation(COMobj, termid) {
+    //console.log("maketermrelation > termid: "+ termid + "\n" + yaml.dump(COMobj));
+    console.log("maketermrelation > termid: " + termid + "\n" + yaml.dump(COMobj.upgrade));
+    var termfilename = datapath + "term." + termid + ".yaml";
+    var termobj = yaml.load(fs.readFileSync(termfilename, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
+    COMobj.term[termid] = termobj;
+
+    var localid = new Object();
+    for (var id in termobj.item) {
+        // replace the interface to termid or termid.localid
+        var itemobj = termobj.item[id];
+        var index = termid + '.' + itemobj.localid;
+        if (itemobj.termid != null) {
+            // a term
+            //localid[index] = itemobj.termid ;
+            localid[itemobj.localid] = itemobj.termid;
+        } else {
+            // a text
+            localid[itemobj.localid] = index;
+            COMobj.text[index] = itemobj.text;
+        }
+    }
+console.log("maketermrelation() > localid:\n"+yaml.dump(localid));
+
+
+    for (var id in termobj.item) {
+        var itemobj = termobj.item[id];
+        if (COMobj.upgradeby[termid] != null) {
+            //console.log("maketermrelation() > termid "+ termid + " is upgrade by " + COMobj.upgradeby[termid]);
+            itemobj.upgradeby = COMobj.upgradeby[termid];
+        } else if (itemobj.upgradeby != null) {
+            if (COMobj.item[termid] != null && COMobj.item[termid].map[itemobj.upgradeby] != null) {
+                // father term replace its upgradeby field
+                // a termid or termid.localid
+                itemobj.upgradeby = COMobj.item[termid].map[itemobj.upgradeby];
+            }
+            // if termid
+            if ((termobj.interface != null) && (termobj.interface[itemobj.upgradeby] != null) && (localid[termobj.interface[itemobj.upgradeby]] != null)) {
+                itemobj.upgradeby = localid[termobj.interface[itemobj.upgradeby]];
+            } else if (itemobj.upgradeby.slice(14, 22) == ".localid") {
+                // if termid.localid
+                itemobj.upgradeby = localid[itemobj.upgradeby.slice(23, -1)];
+            }
+        } else {
+            // it is const term
+        }
+
+        if (itemobj.termid != null) {
+            if (itemobj.upgradeby != null) {
+                COMobj.upgrade[itemobj.upgradeby] = itemobj.termid;
+                COMobj.upgradeby[itemobj.termid] = itemobj.upgradeby;
+            }
+
+            if (itemobj.map != null) {
+                for (var placeholder in itemobj.map) {
+                    if (localid[termobj.interface[itemobj.map[placeholder]]] != null) {
+                        // a termid or termid.localid
+                        itemobj.map[placeholder] = localid[termobj.interface[itemobj.map[placeholder]]];
+                    }
+                }
+            }
+
+            COMobj.item[itemobj.termid] = itemobj;
+            maketermrelation(COMobj, itemobj.termid);
+        } else {
+            // text term
+            var index = termid + "." + itemobj.localid;
+            COMobj.text[index] = termobj.text;
+            if (itemobj.upgradeby != null) {
+                COMobj.upgrade[itemobj.upgradeby] = index;
+                COMobj.upgradeby[index] = itemobj.upgradeby;
+            }
+        }
+    }
+
+    console.log("maketermrelation() >COMobj.upgrade:\n" + yaml.dump(COMobj.upgrade) + "COMobj.upgradeby:\n" + yaml.dump(COMobj.upgradeby));
+}
+
 function makeCOMview(COMid) {
     var COMmetadatafilename = datapath + "COM." + COMid + ".yaml";
     var COMobj = yaml.load(fs.readFileSync(COMmetadatafilename, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
@@ -443,7 +540,7 @@ function makeCOMview(COMid) {
                     }
                 } else if (element.readme != null) {
                     // use readme
-                    mdtermstr = mdtermstr + localid + " 本条款按照" + element.upgradeby + ".条款修订。 [本条款内容待定] "+ element.readme;
+                    mdtermstr = mdtermstr + localid + " 本条款按照" + element.upgradeby + ".条款修订。 [本条款内容待定] " + element.readme;
                 } else {
                     console.log("makeCOMview() > the const term has not termid and readme:", i);
                 }
@@ -474,7 +571,7 @@ function makeCOMview(COMid) {
                     }
                 } else if (element.readme != null) {
                     // use readme
-                    mdtermstr = mdtermstr + localid + " 本条款按照" + element.upgradeby + ".条款修订。 [本条款内容待定] "+ element.readme;
+                    mdtermstr = mdtermstr + localid + " 本条款按照" + element.upgradeby + ".条款修订。 [本条款内容待定] " + element.readme;
                 } else {
                     console.log("makeCOMview() > the const term has not termid and readme:", i);
                 }
