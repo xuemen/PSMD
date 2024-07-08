@@ -42,6 +42,7 @@ item:
 depend:
   - text: |
       测试字符串: <term.25c83dac.term.2>生效。
+      测试字符串: <term.2e4f11cb.term.1>生效。
     percent: 50
 together:
   - text: |
