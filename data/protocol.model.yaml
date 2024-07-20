@@ -1,0 +1,35 @@
+id: https://raw.githubusercontent.com/hyg/ego/vat/data/protocol
+name: protocol
+prefixes:
+  linkml: https://w3id.org/linkml/
+  protocol: https://raw.githubusercontent.com/hyg/ego/vat/data/protocol
+  ORCID: https://orcid.org/
+imports:
+  - linkml:types
+default_range: string
+default_prefix: protocol
+
+classes:
+  protocol:
+    attributes:
+      id:
+        identifier: true 
+      name:
+        required: true
+      data:
+        multivalued: true
+        inlined_as_list: true
+        range: protocoldata
+      readme:
+  protocoldata:
+    attributes:
+      type:
+        range: datatype
+      id:
+enums:
+  datatype:
+    permissible_values:
+      text:
+      law:
+      code:
+      unknown:

@@ -1,0 +1,14 @@
+id: 123456
+name: 入门目录
+data:
+  - type: text
+    data: |
+      sample text
+      sample text 2
+  - type: law
+    id: 9d12877c
+  - type: code
+    path: ..\src\protocol.123456.js
+readme: |
+  sample readme
+  sample readme 2

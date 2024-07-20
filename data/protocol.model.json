@@ -1,0 +1,60 @@
+{
+    "$defs": {
+        "Datatype": {
+            "description": "",
+            "enum": [
+                "text",
+                "law",
+                "code",
+                "unknown"
+            ],
+            "title": "Datatype",
+            "type": "string"
+        },
+        "Protocol": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "data": {
+                    "items": {
+                        "$ref": "#/$defs/Protocoldata"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "readme": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "name"
+            ],
+            "title": "Protocol",
+            "type": "object"
+        },
+        "Protocoldata": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/$defs/Datatype"
+                }
+            },
+            "title": "Protocoldata",
+            "type": "object"
+        }
+    },
+    "$id": "https://raw.githubusercontent.com/hyg/ego/vat/data/protocol",
+    "additionalProperties": true,
+    "title": "protocol",
+    "type": "object"
+}
