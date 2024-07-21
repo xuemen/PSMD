@@ -1,14 +1,15 @@
 id: 123456
 name: 入门目录
-data:
+manifest:
   - type: text
-    data: |
+    path: ../view/123.md
+    readme: |
       sample text
       sample text 2
   - type: law
     id: 9d12877c
   - type: code
-    path: ..\src\protocol.123456.js
+    path: ..\src\code.9d12877c.js
 readme: |
   sample readme
   sample readme 2

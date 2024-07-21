@@ -16,18 +16,20 @@ classes:
         identifier: true 
       name:
         required: true
-      data:
+      manifest:
         multivalued: true
         inlined_as_list: true
-        range: protocoldata
+        range: manifests
       readme:
-  protocoldata:
+  manifests:
     attributes:
       type:
-        range: datatype
+        range: manifesttype
       id:
+      path:
+      readme:
 enums:
-  datatype:
+  manifesttype:
     permissible_values:
       text:
       law:

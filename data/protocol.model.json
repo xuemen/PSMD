@@ -1,6 +1,26 @@
 {
     "$defs": {
-        "Datatype": {
+        "Manifests": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "readme": {
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/$defs/Manifesttype"
+                }
+            },
+            "title": "Manifests",
+            "type": "object"
+        },
+        "Manifesttype": {
             "description": "",
             "enum": [
                 "text",
@@ -8,21 +28,21 @@
                 "code",
                 "unknown"
             ],
-            "title": "Datatype",
+            "title": "Manifesttype",
             "type": "string"
         },
         "Protocol": {
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "data": {
-                    "items": {
-                        "$ref": "#/$defs/Protocoldata"
-                    },
-                    "type": "array"
-                },
                 "id": {
                     "type": "string"
+                },
+                "manifest": {
+                    "items": {
+                        "$ref": "#/$defs/Manifests"
+                    },
+                    "type": "array"
                 },
                 "name": {
                     "type": "string"
@@ -36,20 +56,6 @@
                 "name"
             ],
             "title": "Protocol",
-            "type": "object"
-        },
-        "Protocoldata": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "type": {
-                    "$ref": "#/$defs/Datatype"
-                }
-            },
-            "title": "Protocoldata",
             "type": "object"
         }
     },
