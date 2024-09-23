@@ -26,6 +26,11 @@ node term knowledge    : knowledge metadata → allknowledge metadata
 node term knowledge id    : knowledge metadata → knowledge markdown + html
 `;
 
+function log(...s) {
+    s[0] = log.caller.name + "> " + s[0];
+    console.log(...s);
+}
+
 var termmap = new Object();
 var errormap = new Object();
 var knowledgemap = new Object();
@@ -73,11 +78,11 @@ if (arguments.length > 0) {
         loadallknowledge();
         makeknowledgeview(knowledgeid);
     } else {
-        console.log(helpstr);
+        log(helpstr);
         process.exit();
     }
 } else {
-    console.log(helpstr);
+    log(helpstr);
     process.exit();
 }
 
@@ -93,7 +98,7 @@ function loadallterm() {
         });
     } catch (e) {
         // failure
-        console.log("yaml read error！" + e);
+        log("yaml read error！" + e);
     }
 }
 
@@ -112,7 +117,7 @@ function loadallknowledge() {
         });
     } catch (e) {
         // failure
-        console.log("yaml read error！" + e);
+        log("yaml read error！" + e);
     }
 }
 
@@ -122,17 +127,17 @@ function makeallknowledge() {
     allknowledge["knowledge"] = knowledgemap;
 
     fs.writeFileSync(datapath + "allknowledge.yaml", yaml.dump(allknowledge, { 'lineWidth': -1 }));
-    console.log(datapath + 'allknowledge.yaml文件已更新。\n' + yaml.dump(allknowledge, { 'lineWidth': -1 }));
+    log(datapath + 'allknowledge.yaml文件已更新。\n' + yaml.dump(allknowledge, { 'lineWidth': -1 }));
 }
 
 function makeallterm() {
-    //console.log(yaml.dump(termmap,{'lineWidth': -1}));
+    //log(yaml.dump(termmap,{'lineWidth': -1}));
     var allterm = new Object();
     allterm["term"] = termmap;
 
     fs.writeFile(datapath + "allterm.yaml", yaml.dump(allterm, { 'lineWidth': -1 }), (err) => {
         if (err) throw err;
-        console.log(datapath + 'allterm.yaml文件已更新。');
+        log(datapath + 'allterm.yaml文件已更新。');
     });
 }
 
@@ -146,35 +151,35 @@ function commit() {
 
     fs.readdirSync(datapath).forEach(file => {
         if ((file.substr(0, 5) == "term.") & (file.length < 18)) {
-            console.log("commit " + file);
+            log("commit " + file);
             var tempterm = yaml.load(fs.readFileSync(datapath + file, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
             alltempterm[tempterm.id] = tempterm;
 
             //var hashid = crypto.createHash("sha256").update(tempterm.name).digest("hex").slice(0, 8);
             var hashid = util.makemetafileid(tempterm.name);
-            console.log(tempterm.name, hashid);
+            log(tempterm.name, hashid);
             termmap[tempterm.id] = hashid;
         }
         if ((file.substr(0, 6) == "error.") & (file.length < 19)) {
-            console.log("commit " + file);
+            log("commit " + file);
             var temperror = yaml.load(fs.readFileSync(datapath + file, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
             alltemperror[temperror.id] = temperror;
 
             var hashid = util.makemetafileid(temperror.name);
-            console.log(temperror.name, hashid);
+            log(temperror.name, hashid);
             errormap[temperror.id] = hashid;
         } if ((file.substr(0, 10) == "knowledge.") & (file.length < 23)) {
-            console.log("commit " + file);
+            log("commit " + file);
             var tempknowledge = yaml.load(fs.readFileSync(datapath + file, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
             alltempknowledge[tempknowledge.id] = tempknowledge;
 
             var hashid = util.makemetafileid(tempknowledge.name);
-            console.log(tempknowledge.name, hashid);
+            log(tempknowledge.name, hashid);
             knowledgemap[tempknowledge.id] = hashid;
         }
     });
 
-    //console.log(yaml.dump(alltempterm,{'lineWidth': -1}));
+    //log(yaml.dump(alltempterm,{'lineWidth': -1}));
 
     for (var id in alltempterm) {
         var term = alltempterm[id];
@@ -184,12 +189,12 @@ function commit() {
             var oldplaceholder = new RegExp("<term." + id + ".", "g");
             var newplaceholder = "<term." + termmap[id] + ".";
 
-            //console.log("before replace the main id:\n", yaml.dump(term, { 'lineWidth': -1 }));
+            //log("before replace the main id:\n", yaml.dump(term, { 'lineWidth': -1 }));
             term.id = termmap[id];
             term = yaml.load(yaml.dump(term, { 'lineWidth': -1 }).replace(oldplaceholder, newplaceholder), { schema: yaml.FAILSAFE_SCHEMA });
-            //console.log("after replace the main id:\n", yaml.dump(term, { 'lineWidth': -1 }));
+            //log("after replace the main id:\n", yaml.dump(term, { 'lineWidth': -1 }));
         } else {
-            console.log("旧文件:" + oldfilename + "中的id:" + id + "未能替换，请人工检查。")
+            log("旧文件:" + oldfilename + "中的id:" + id + "未能替换，请人工检查。")
         }
 
         // replace the placeholds in item
@@ -199,10 +204,10 @@ function commit() {
                 var oldplaceholder = new RegExp("<term." + itemobj.termid + ".", "g");
                 var newplaceholder = "<term." + termmap[itemobj.termid] + ".";
 
-                //console.log("before replace the %d-th item:\n", itemid,yaml.dump(term, { 'lineWidth': -1 }));
+                //log("before replace the %d-th item:\n", itemid,yaml.dump(term, { 'lineWidth': -1 }));
                 term.item[itemid].termid = termmap[term.item[itemid].termid];
                 term = yaml.load(yaml.dump(term, { 'lineWidth': -1 }).replace(oldplaceholder, newplaceholder), { schema: yaml.FAILSAFE_SCHEMA });
-                //console.log("after replace the %d-th item:\n", itemid,yaml.dump(term, { 'lineWidth': -1 }));
+                //log("after replace the %d-th item:\n", itemid,yaml.dump(term, { 'lineWidth': -1 }));
             }
         }
         // replace the errorid
@@ -212,10 +217,10 @@ function commit() {
                 if (errormap[errorid] != null) {
                     var oldplaceholder = new RegExp("<error." + errorid + ".", "g");
                     var newplaceholder = "<error." + errormap[errorid] + ".";
-                    //console.log("before replace the %d-th depend:\n", dependid,yaml.dump(term, { 'lineWidth': -1 }));
+                    //log("before replace the %d-th depend:\n", dependid,yaml.dump(term, { 'lineWidth': -1 }));
                     term.depend[dependid].errorid = errormap[errorid];
                     term = yaml.load(yaml.dump(term, { 'lineWidth': -1 }).replace(oldplaceholder, newplaceholder), { schema: yaml.FAILSAFE_SCHEMA });
-                    //console.log("after replace the %d-th depend:\n", dependid,yaml.dump(term, { 'lineWidth': -1 }));
+                    //log("after replace the %d-th depend:\n", dependid,yaml.dump(term, { 'lineWidth': -1 }));
                 }
             }
         }
@@ -236,17 +241,17 @@ function commit() {
                 if (errormap[errorid] != null) {
                     var oldplaceholder = new RegExp("<error." + errorid + ".", "g");
                     var newplaceholder = "<error." + errormap[errorid] + ".";
-                    //console.log("before replace the %d-th effect:\n%s", effectid, yaml.dump(term, { 'lineWidth': -1 }));
+                    //log("before replace the %d-th effect:\n%s", effectid, yaml.dump(term, { 'lineWidth': -1 }));
                     term.effect[effectid].errorid = errormap[errorid];
                     term = yaml.load(yaml.dump(term, { 'lineWidth': -1 }).replace(oldplaceholder, newplaceholder), { schema: yaml.FAILSAFE_SCHEMA });
-                    //console.log("after replace the %d-th effect:\n%s", effectid, yaml.dump(term, { 'lineWidth': -1 }));
+                    //log("after replace the %d-th effect:\n%s", effectid, yaml.dump(term, { 'lineWidth': -1 }));
                 }
             }
         }
 
         var newfilename = datapath + "term." + termmap[id] + ".yaml";
         fs.writeFileSync(newfilename, yaml.dump(term, { 'lineWidth': -1 }));
-        console.log(newfilename + "文件已更新。" + oldfilename + "可以删除。");
+        log(newfilename + "文件已更新。" + oldfilename + "可以删除。");
     }
 
     for (var id in alltemperror) {
@@ -257,18 +262,18 @@ function commit() {
 
             var oldplaceholder = new RegExp("<error." + id + ".", "g");
             var newplaceholder = "<error." + errormap[id] + ".";
-            //console.log("before replace the error:\n%s", id, yaml.dump(error, { 'lineWidth': -1 }));
+            //log("before replace the error:\n%s", id, yaml.dump(error, { 'lineWidth': -1 }));
             error.id = errormap[id];
             error = yaml.load(yaml.dump(error, { 'lineWidth': -1 }).replace(oldplaceholder, newplaceholder), { schema: yaml.FAILSAFE_SCHEMA });
-            //console.log("after replace the error:\n%s", id, yaml.dump(error, { 'lineWidth': -1 }));
+            //log("after replace the error:\n%s", id, yaml.dump(error, { 'lineWidth': -1 }));
         } else {
-            console.log("旧文件:" + oldfilename + "中的id:" + id + "未能替换，请人工检查。")
+            log("旧文件:" + oldfilename + "中的id:" + id + "未能替换，请人工检查。")
         }
 
         var newfilename = datapath + "error." + errormap[id] + ".yaml";
 
         fs.writeFileSync(newfilename, yaml.dump(error, { 'lineWidth': -1 }));
-        console.log(newfilename + "文件已更新。" + oldfilename + "可以删除。");
+        log(newfilename + "文件已更新。" + oldfilename + "可以删除。");
     }
 
     for (var id in alltempknowledge) {
@@ -278,7 +283,7 @@ function commit() {
         if (knowledgemap[id] != null) {
             knowledge.id = knowledgemap[id];
         } else {
-            console.log("旧文件:" + oldfilename + "未能替换，请人工检查。")
+            log("旧文件:" + oldfilename + "未能替换，请人工检查。")
         }
         var newfilename = datapath + "knowledge." + knowledgemap[id] + ".yaml";
 
@@ -286,12 +291,12 @@ function commit() {
             var oldid = errorid;
             if (errormap[oldid] != null) {
                 var newid = errormap[oldid];
-                console.log("knowledge depend replace. error:" + oldid + " -> " + newid);
+                log("knowledge depend replace. error:" + oldid + " -> " + newid);
                 var newobj = yaml.load(yaml.dump(knowledge.depend[oldid], { 'lineWidth': -1 }));
                 knowledge.depend[newid] = newobj;
                 delete knowledge.depend[oldid];
             } else {
-                console.log("旧文件:" + oldfilename + "中depend字段的id: " + oldid + " 未能替换，请人工检查。");
+                log("旧文件:" + oldfilename + "中depend字段的id: " + oldid + " 未能替换，请人工检查。");
             }
         }
 
@@ -300,10 +305,10 @@ function commit() {
             var oldid = knowledge.objid;
             if (termmap[oldid] != null) {
                 var newid = termmap[oldid];
-                console.log("knowledge objid replace:" + oldid + " -> " + newid);
+                log("knowledge objid replace:" + oldid + " -> " + newid);
                 knowledge.objid = newid;
             } else {
-                console.log("旧文件:" + oldfilename + "中objid: " + oldid + " 未能替换，请人工检查。");
+                log("旧文件:" + oldfilename + "中objid: " + oldid + " 未能替换，请人工检查。");
             }
 
             //replace the effect
@@ -311,19 +316,19 @@ function commit() {
                 oldid = id;
                 if (errormap[oldid] != null) {
                     var newid = errormap[oldid];
-                    console.log("knowledge effect replace. id:" + oldid + " -> " + newid);
+                    log("knowledge effect replace. id:" + oldid + " -> " + newid);
                     var newobj = yaml.load(yaml.dump(knowledge.effect[oldid], { 'lineWidth': -1 }));
                     knowledge.effect[newid] = newobj;
                     delete knowledge.effect[oldid];
                 } else {
-                    console.log("旧文件:" + oldfilename + "中effect字段的id: " + oldid + " 未能替换，请人工检查。");
+                    log("旧文件:" + oldfilename + "中effect字段的id: " + oldid + " 未能替换，请人工检查。");
                 }
             }
         }
 
         //var option = new Object({forceQuotes:true}); 
         fs.writeFileSync(newfilename, yaml.dump(knowledge, { 'lineWidth': -1 }));
-        console.log(newfilename + "文件已更新。" + oldfilename + "可以删除。");
+        log(newfilename + "文件已更新。" + oldfilename + "可以删除。");
     }
 }
 
@@ -355,8 +360,8 @@ function termtoCOM(termid) {
 }
 
 function maketermrelation(COMobj, termid) {
-    //console.log("maketermrelation > termid: "+ termid + "\n" + yaml.dump(COMobj));
-    console.log("maketermrelation > termid: " + termid + "\n" + yaml.dump(COMobj.upgrade));
+    //log("maketermrelation > termid: "+ termid + "\n" + yaml.dump(COMobj));
+    log("maketermrelation > termid: " + termid + "\n" + yaml.dump(COMobj.upgrade));
     var termfilename = datapath + "term." + termid + ".yaml";
     var termobj = yaml.load(fs.readFileSync(termfilename, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
     COMobj.term[termid] = termobj;
@@ -376,13 +381,13 @@ function maketermrelation(COMobj, termid) {
             COMobj.text[index] = itemobj.text;
         }
     }
-console.log("maketermrelation() > localid:\n"+yaml.dump(localid));
+log("maketermrelation() > localid:\n"+yaml.dump(localid));
 
 
     for (var id in termobj.item) {
         var itemobj = termobj.item[id];
         if (COMobj.upgradeby[termid] != null) {
-            //console.log("maketermrelation() > termid "+ termid + " is upgrade by " + COMobj.upgradeby[termid]);
+            //log("maketermrelation() > termid "+ termid + " is upgrade by " + COMobj.upgradeby[termid]);
             itemobj.upgradeby = COMobj.upgradeby[termid];
         } else if (itemobj.upgradeby != null) {
             if (COMobj.item[termid] != null && COMobj.item[termid].map[itemobj.upgradeby] != null) {
@@ -429,7 +434,7 @@ console.log("maketermrelation() > localid:\n"+yaml.dump(localid));
         }
     }
 
-    console.log("maketermrelation() >COMobj.upgrade:\n" + yaml.dump(COMobj.upgrade) + "COMobj.upgradeby:\n" + yaml.dump(COMobj.upgradeby));
+    log("maketermrelation() >COMobj.upgrade:\n" + yaml.dump(COMobj.upgrade) + "COMobj.upgradeby:\n" + yaml.dump(COMobj.upgradeby));
 }
 
 function makeCOMview(COMid) {
@@ -479,7 +484,7 @@ function makeCOMview(COMid) {
                     // use readme
                     mdtermstr = mdtermstr + element.readme;
                 } else {
-                    console.log("makeCOMview() > the const term has not termid and readme:", i);
+                    log("makeCOMview() > the const term has not termid and readme:", i);
                 }
             }
         }
@@ -511,7 +516,7 @@ function makeCOMview(COMid) {
                     // use readme
                     mdtermstr = mdtermstr + element.readme;
                 } else {
-                    console.log("makeCOMview() > the const term has not termid and readme:", i);
+                    log("makeCOMview() > the const term has not termid and readme:", i);
                 }
             }
         }
@@ -542,7 +547,7 @@ function makeCOMview(COMid) {
                     // use readme
                     mdtermstr = mdtermstr + localid + " 本条款按照" + element.upgradeby + ".条款修订。 [本条款内容待定] " + element.readme;
                 } else {
-                    console.log("makeCOMview() > the const term has not termid and readme:", i);
+                    log("makeCOMview() > the const term has not termid and readme:", i);
                 }
             }
         }
@@ -573,7 +578,7 @@ function makeCOMview(COMid) {
                     // use readme
                     mdtermstr = mdtermstr + localid + " 本条款按照" + element.upgradeby + ".条款修订。 [本条款内容待定] " + element.readme;
                 } else {
-                    console.log("makeCOMview() > the const term has not termid and readme:", i);
+                    log("makeCOMview() > the const term has not termid and readme:", i);
                 }
             }
         }
@@ -648,7 +653,7 @@ function makeCOMview(COMid) {
 
     // all placeholders must been defined in local interface
     // all placeholders in global map must been defined in local interface 
-    //console.log("makeCOMview() > before replace the plcaeholders\n"+mdstr);
+    //log("makeCOMview() > before replace the plcaeholders\n"+mdstr);
     if (COMobj.interface != null) {
         for (var placeholder in COMobj.interface) {
             var value = COMobj.interface[placeholder];
@@ -659,38 +664,32 @@ function makeCOMview(COMid) {
     }
 
     fs.writeFileSync(COMmdfilename, mdstr);
-    console.log("makeCOMview() > " + COMmdfilename + "文件更新，内容如下:\n" + mdstr);
+    log("makeCOMview() > " + COMmdfilename + "文件更新，内容如下:\n" + mdstr);
 
     fs.writeFileSync(COMhtmlfilename, termhtml);
-    console.log("makeCOMview() > " + COMhtmlfilename + "文件更新，内容如下:\n" + termhtml);
+    log("makeCOMview() > " + COMhtmlfilename + "文件更新，内容如下:\n" + termhtml);
 }
 
-
-function maketermview(termid) {
-    var item = new Object();
-    item.termid = termid;
-    var termtext = maketermtext(item, "", null);
-
-    //console.log("return value:"+termtext) ;
-    //console.log("return obj:\n"+yaml.dump(term,{'lineWidth': -1}));
-
-    var viewfilename = viewpath + "term." + termid + ".md";
-    var viewstr = "条款 " + termid + " 正文:\n" + item.treetext;
+function savemdfile(item){
+    var mdfilename = viewpath + "term." + item.termid + ".md";
+    var mdstr = "条款 " + termid + " 正文:\n" + item.treetext;
     if (item.treereadme != null) {
-        viewstr = viewstr + "\n---\nreadme:\n条款 " + termid + ". " + item.treereadme
+        mdstr = mdstr + "\n---\nreadme:\n条款 " + termid + ". " + item.treereadme
     }
     if (item.treedepend != null) {
-        viewstr = viewstr + "\n---\ndepend:\n条款 " + termid + ".\n" + item.treedepend
+        mdstr = mdstr + "\n---\ndepend:\n条款 " + termid + ".\n" + item.treedepend
     }
     if (item.treetogether != null) {
-        viewstr = viewstr + "\n---\ntogether:\n条款 " + termid + ".\n" + item.treetogether
+        mdstr = mdstr + "\n---\ntogether:\n条款 " + termid + ".\n" + item.treetogether
     }
     if (item.treeeffect != null) {
-        viewstr = viewstr + "\n---\neffect:\n条款 " + termid + ".\n" + item.treeeffect
+        mdstr = mdstr + "\n---\neffect:\n条款 " + termid + ".\n" + item.treeeffect
     }
-    fs.writeFileSync(viewfilename, viewstr);
-    console.log(viewfilename + "文件更新，内容如下:\n" + viewstr);
+    fs.writeFileSync(mdfilename, mdstr);
+    log(mdfilename + "文件更新，内容如下:\n" + mdstr);
+}
 
+function savehtmlfile(item){
 
     item.treehtml = item.treetext.replace(/\n/g, '<br/>\n');
     if (item.treereadme != null) {
@@ -719,10 +718,23 @@ function maketermview(termid) {
     }
 
     var termhtml = maketermhtml(item);
-    viewfilename = viewpath + "term." + termid + ".html";
+    var htmlfilename = viewpath + "term." + item.termid + ".html";
 
-    fs.writeFileSync(viewfilename, termhtml);
-    console.log(viewfilename + "文件更新，内容如下:\n" + termhtml);
+    fs.writeFileSync(htmlfilename, termhtml);
+    log(htmlfilename + "文件更新，内容如下:\n" + termhtml);
+}
+
+function maketermview(termid) {
+    var item = new Object();
+    item.termid = termid;
+    
+    var termtext = maketermtext(item, "", null);
+
+    //log("return value:"+termtext) ;
+    //log("return obj:\n"+yaml.dump(term,{'lineWidth': -1}));
+    //savemdfile(item);
+    //savehtmlfile(item);
+    //log("item:",item);
 }
 
 function maketermhtml(item) {
@@ -743,7 +755,7 @@ function maketermhtml(item) {
         var fn = jade.compile(tempstr);
 
         var htmlstr = fn(item);
-        //console.log("html file:\n"+htmlstr);
+        //log("html file:\n"+htmlstr);
         return htmlstr;
     } else {
         //ejs
@@ -758,15 +770,15 @@ function maketermhtml(item) {
         item.alertstr = "alert(\"alert test.\")";
         item.confirmstr = "confirm(\"confirm test.\")";
         item.promptstr = "prompt(\"prompt test.\",\"default\")";
-        //console.log("item:\n"+yaml.dump(item));
+        //log("item:\n"+yaml.dump(item));
         var htmlstr = ejs.render(tempstr, item);
-        //console.log("html file:\n"+htmlstr);
+        //log("html file:\n"+htmlstr);
         return htmlstr;
     }
 }
 
 function maketermtext(item, prefix, map) {
-    console.log("enter maketermtext:" + item.termid + "\tupgradeby:" + item.upgradeby + "\tprefix:" + prefix);
+    log("enter maketermtext:" + item.termid + "\tupgradeby:" + item.upgradeby + "\tprefix:" + prefix);
     var termfilename = datapath + "term." + item.termid + ".yaml";
     var termobj = yaml.load(fs.readFileSync(termfilename, 'utf8'), { schema: yaml.FAILSAFE_SCHEMA });
 
@@ -775,7 +787,6 @@ function maketermtext(item, prefix, map) {
     var treedepend = "";
     var treetogether = "";
     var treeeffect = "";
-
 
     // this level readme,depend,together,effect first.
     if ((termobj.readme != null) & (termobj.readme != "")) {
@@ -788,7 +799,7 @@ function maketermtext(item, prefix, map) {
             var error = termobj.depend[i];
             if (termobj.depend[i].errorid != null) {
                 error.id = error.errorid;
-                //console.log("error:\n"+yaml.dump(error));
+                //log("error:\n"+yaml.dump(error));
                 var errortext = makeerrortext(error, "", error.map);
 
                 treedepend = treedepend + "问题 " + error.errorid + ",影响率" + error.percent + "% 正文:  \n" + error.treetext;
@@ -807,7 +818,7 @@ function maketermtext(item, prefix, map) {
             var error = termobj.together[i];
             if (termobj.together[i].errorid != null) {
                 error.id = error.errorid;
-                //console.log("error:\n"+yaml.dump(error));
+                //log("error:\n"+yaml.dump(error));
                 var errortext = makeerrortext(error, "", error.map);
 
                 treetogether = treetogether + "问题 " + error.errorid + ",影响率" + error.percent + "% 正文:  \n" + error.treetext;
@@ -825,7 +836,7 @@ function maketermtext(item, prefix, map) {
             var error = termobj.effect[i];
             if (termobj.effect[i].errorid != null) {
                 error.id = error.errorid;
-                //console.log("error:\n"+yaml.dump(error));
+                //log("error:\n"+yaml.dump(error));
                 var errortext = makeerrortext(error, "", error.map);
 
                 treeeffect = treeeffect + "问题 " + error.errorid + ",有效率" + error.percent + "% 正文:  \n" + error.treetext;
@@ -848,20 +859,20 @@ function maketermtext(item, prefix, map) {
         } else {
             subprefix = prefix;
         }
-        //console.log("subprefix:"+subprefix);
+        //log("subprefix:"+subprefix);
 
         // make upgrade by...
         var upgradestr = "";
         if (item.upgradeby != null) {
             // use global item's metadata
-            //console.log("item.upgradeby:%s\tsubprefix:%s", item.upgradeby, subprefix)
+            //log("item.upgradeby:%s\tsubprefix:%s", item.upgradeby, subprefix)
             if (item.upgradeby == subprefix) {
                 upgradestr = "本条款按照本条款修订。"
             } else {
                 upgradestr = "本条款按照" + item.upgradeby + ".条款修订。"
             }
             itemobj.upgradeby = item.upgradeby;
-            //console.log("%s>global upgradeby:%s", item.termid, item.upgradeby);
+            //log("%s>global upgradeby:%s", item.termid, item.upgradeby);
         } else if ((itemobj.upgradeby != null) && (itemobj.upgradeby.slice(0, 6) == "<term.") && (itemobj.upgradeby.slice(6, 14) == item.termid) && (itemobj.upgradeby.slice(14, 22) == ".localid")) {
             // use localid
             var localupgradeby = prefix + itemobj.upgradeby.slice(23, -1);
@@ -877,7 +888,7 @@ function maketermtext(item, prefix, map) {
             upgradestr = "本条款按照" + itemobj.upgradeby + ".条款修订。"
             //itemobj.upgradeby = localupgradeby;
         }
-        //console.log("%s>upgradestr:%s", item.termid, upgradestr);
+        //log("%s>upgradestr:%s", item.termid, upgradestr);
 
         if (itemobj.text != null) {
             treetext = treetext + subprefix + " " + upgradestr + itemobj.text; // + "\n"
@@ -914,11 +925,11 @@ function maketermtext(item, prefix, map) {
             treetext = treetext.split(placeholder).join(value);
             if (treereadme != null) {
                 treereadme = treereadme.split(placeholder).join(value);
-                //console.log("treereadme:  \n" + treereadme);
+                //log("treereadme:  \n" + treereadme);
             }
             if (treedepend != null) {
                 treedepend = treedepend.split(placeholder).join(value);
-                //console.log("treereadme:  \n" + treereadme);
+                //log("treereadme:  \n" + treereadme);
             }
         }
     }
@@ -942,6 +953,8 @@ function maketermtext(item, prefix, map) {
         returnstr = returnstr + "\n\n---\n\n" + treeeffect;
     }
 
+    savemdfile(item);
+    savehtmlfile(item);
     return returnstr;
 }
 
@@ -950,8 +963,8 @@ function makeerrorview(errorid) {
     error.id = errorid;
     var errortext = makeerrortext(error, "", null);
 
-    //console.log("return value:"+errortext) ;
-    //console.log("return obj:\n"+yaml.dump(error,{'lineWidth': -1}));
+    //log("return value:"+errortext) ;
+    //log("return obj:\n"+yaml.dump(error,{'lineWidth': -1}));
 
     var viewfilename = viewpath + "error." + errorid + ".md";
     var viewstr = "问题 " + errorid + " 正文:  \n" + error.treetext;
@@ -968,38 +981,38 @@ function makeerrorview(errorid) {
         viewstr = viewstr + "可以参考以下内容：  \n" + errornetstr + "\n---\n";
     }
     fs.writeFileSync(viewfilename, viewstr);
-    console.log(viewfilename + "文件更新，内容如下:\n" + viewstr);
+    log(viewfilename + "文件更新，内容如下:\n" + viewstr);
 }
 
 // generate the error-depend error + knowledge- depend error 
 function makeerrornet(errorid, prefix, knowledgetable) {
-    //console.log(prefix+"enter makeerrornet: " + errorid + " 已查找的knowledge:\n" + yaml.dump(knowledgetable,{'lineWidth': -1}));
-    //console.log("allknowledge:\n"+yaml.dump(knowledgemap,{'lineWidth': -1}));
+    //log(prefix+"enter makeerrornet: " + errorid + " 已查找的knowledge:\n" + yaml.dump(knowledgetable,{'lineWidth': -1}));
+    //log("allknowledge:\n"+yaml.dump(knowledgemap,{'lineWidth': -1}));
     var returnstr = "";
     for (var id in knowledgemap) {
-        //console.log(prefix+"search knowledge: " + id)
+        //log(prefix+"search knowledge: " + id)
         var knowledgeobj = knowledgemap[id];
-        //console.log("knowledgeobj:\n"+yaml.dump(knowledgeobj,{'lineWidth': -1}));
+        //log("knowledgeobj:\n"+yaml.dump(knowledgeobj,{'lineWidth': -1}));
         for (effectid in knowledgeobj.effect) {
-            //console.log("effectid:\n"+effectid);
+            //log("effectid:\n"+effectid);
             if (effectid == errorid) {
                 // find a effective knowledge
                 if (knowledgetable[id] == null) {
                     if (knowledgeobj.type == "termtoerror") {
                         var termviewfilename = viewpath + "term." + knowledgeobj.objid + ".md";
                         var appendstr = prefix + "发现knowledge " + id + " :使用term [" + knowledgeobj.objid + "](" + termviewfilename + ") 可能解决 error " + errorid + " 预估有效的比例是 " + knowledgeobj.effect[effectid].percent + "%";
-                        console.log(appendstr);
+                        log(appendstr);
                         returnstr = returnstr + appendstr + "\n";
                     }
                     knowledgetable[id] = true;
                     if (knowledgeobj.depend != null) {
                         var appendstr = prefix + "使用knowledge " + id + " 需要先解决error:";
-                        console.log(appendstr);
+                        log(appendstr);
                         returnstr = returnstr + appendstr;
                         for (var errorid in knowledgeobj.depend) {
                             var errorviewfilename = viewpath + "error." + errorid + ".md";
                             var appendstr = prefix + "[" + errorid + "](" + errorviewfilename + ")"
-                            console.log(appendstr);
+                            log(appendstr);
                             returnstr = returnstr + "[" + errorid + "](" + errorviewfilename + ") ";
 
                             returnstr = returnstr + "\n" + makeerrornet(errorid, prefix + errorid + ">", knowledgetable);
@@ -1007,12 +1020,12 @@ function makeerrornet(errorid, prefix, knowledgetable) {
                     }
                     if (knowledgeobj.together != null) {
                         var appendstr = prefix + "使用knowledge " + id + " 需要同时解决error:";
-                        console.log(appendstr);
+                        log(appendstr);
                         returnstr = returnstr + appendstr + "\n";
                         for (var errorid in knowledgeobj.together) {
                             var errorviewfilename = viewpath + "error." + errorid + ".md";
                             var appendstr = prefix + "[" + errorid + "](" + errorviewfilename + ")"
-                            console.log(appendstr);
+                            log(appendstr);
                             returnstr = returnstr + "[" + errorid + "](" + errorviewfilename + ") ";
                             returnstr = returnstr + "\n" + makeerrornet(errorid, prefix + errorid + ">", knowledgetable);
                         }
@@ -1045,10 +1058,10 @@ function makeerrortext(error, prefix, map) {
             newvalue = errorobj.interface[placeholder];
         }
         treetext = treetext.split(placeholder).join(newvalue);
-        //console.log("treetext:  \n" + treetext);
+        //log("treetext:  \n" + treetext);
         if (treereadme != null) {
             treereadme = treereadme.split(placeholder).join(newvalue);
-            //console.log("treereadme:  \n" + treereadme);
+            //log("treereadme:  \n" + treereadme);
         }
     }
 
