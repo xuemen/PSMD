@@ -1,5 +1,5 @@
-条款 f70677ff 正文:
-职权分配1. 本条款按照二级决策条款4.条款修订。deployer行使以下职权：
+条款 undefined 正文:
+三级决策条款5. 本条款按照<COM.1609.level1.4>.条款修订。deployer行使以下职权：
   - 设定p%
   - 设定director席位数
   - 制定director会议议事规则
@@ -10,4 +10,4 @@
   - 任命第一届director
   - 任命第一届supervisor
   - 任命下一任deployer
-  - 修改<term.f70677ff.term.1>.内容
+  - 修改<COM.1609.loop.1>.内容
