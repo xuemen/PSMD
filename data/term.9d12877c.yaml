@@ -21,7 +21,7 @@ item:
       建议：在业务背景下，基于既成事实博弈。具体可以参考default标准模型。考虑使用PSMD的团队委托。
   - localid: "2"
     text: |
-      条件：如果工作中能按照<term.9d12877c.term.20>核实情况，按照<term.9d12877c.term.20>提供依据。
+      条件：如果工作中能按照<term.9d12877c.term.20>核实情况，按照<term.9d12877c.term.21>提供依据。
       建议：针对<term.9d12877c.term.30>、<term.9d12877c.term.31>、<term.9d12877c.term.32>、<term.9d12877c.term.33>、<term.9d12877c.term.34>安排核实。
   - localid: "3"
     text: |
@@ -61,14 +61,21 @@ item:
     termid: 91ff9448
   - localid: 附件31
     termid: 6d206b54
+    map:
+      <term.6d206b54.term.1>: <term.9d12877c.term.31>
   - localid: 附件32
     termid: 9e6bc34f
     map:
       <term.9e6bc34f.term.1>: <term.9d12877c.term.31>
   - localid: 附件33
     termid: 600f6f80
+    map:
+      <term.600f6f80.term.1>: <term.9d12877c.term.34>
+      <term.600f6f80.term.2>: <term.9d12877c.term.31>
   - localid: 附件34
     termid: '12119600'
+    map:
+      <term.12119600.term.1>: <term.9d12877c.term.31>
   - localid: 附件42
     termid: cb4ab0e9
   - localid: 附件43
