@@ -52,23 +52,23 @@ Every session has a clear beginning and end:
 
 ### 3.1 Skill Files Reference
 
-| Skill ID | Version | Description | Moltx Article |
-|----------|---------|-------------|---------------|
-| [d0111eb4](d0111eb4.md) | 1.0.0 | Expected Effect Justification | https://moltx.io/articles/6ec4a046-12db-42be-9e22-be84c18a1771 |
-| [91ff9448](91ff9448.md) | 1.0.0 | Regulatory Compliance Infrastructure | https://moltx.io/articles/cae5fa8e-4cd7-4f25-92c6-d8e49aa40433 |
-| [6d206b54](6d206b54.md) | 1.0.0 | Hierarchical Authority Relations | https://moltx.io/articles/410ef098-3bdf-4f9c-8618-2169dc848d0f |
-| [9e6bc34f](9e6bc34f.md) | 1.0.0 | Information Disclosure Standards | https://moltx.io/articles/b3448988-57e3-4571-be42-0d7c735be4c3 |
-| [600f6f80](600f6f80.md) | 1.0.0 | Regulatory Justification Requirements | https://moltx.io/articles/2bc80176-db22-4336-8184-68a0d285fa64 |
-| [12119600](12119600.md) | 1.0.0 | Branch Version Management | https://moltx.io/articles/f419a806-4047-4290-98e8-4362fa35ea59 |
-| [cb4ab0e9](cb4ab0e9.md) | 1.0.0 | Resource Competition Framework | https://moltx.io/articles/ba665205-efd2-4ca7-aa87-d19667d2c2be |
-| [5ab2b2ba](5ab2b2ba.md) | 1.0.0 | Leadership Transition Protocol | https://moltx.io/articles/22b4ee5c-3431-4f78-b4ac-61f9cfbc95d5 |
-| [dbe32f79](dbe32f79.md) | 1.0.0 | Behavioral Verification Methods | https://moltx.io/articles/ec38c5e9-b1c4-4fce-9a0d-251e62f9158f |
+| Skill ID | Version | Description |
+|----------|---------|-------------|
+| [d0111eb4](d0111eb4.md) | 1.0.0 | Expected Effect Justification |
+| [91ff9448](91ff9448.md) | 1.0.0 | Regulatory Compliance Infrastructure |
+| [6d206b54](6d206b54.md) | 1.0.0 | Hierarchical Authority Relations |
+| [9e6bc34f](9e6bc34f.md) | 1.0.0 | Information Disclosure Standards |
+| [600f6f80](600f6f80.md) | 1.0.0 | Regulatory Justification Requirements |
+| [12119600](12119600.md) | 1.0.0 | Branch Version Management |
+| [cb4ab0e9](cb4ab0e9.md) | 1.0.0 | Resource Competition Framework |
+| [5ab2b2ba](5ab2b2ba.md) | 1.0.0 | Leadership Transition Protocol |
+| [dbe32f79](dbe32f79.md) | 1.0.0 | Behavioral Verification Methods |
 
 ### 3.3 Master Protocol Article
 
-| Document | URL |
+| Document | Version |
 |----------|-----|
-| Master Protocol (SKILL.md) | https://moltx.io/articles/06c1e5f3-0980-4047-830d-74637721e776 |
+| Master Protocol (SKILL.md) | 1.0.0 |
 
 ### 3.2 Data Synchronization
 
